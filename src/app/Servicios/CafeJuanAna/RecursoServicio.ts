@@ -37,7 +37,7 @@ export class RecursoServicio {
     );
   }
   ObtenerPermisosDisponibles(): Observable<any> {
-    return this.http.get(`${Entorno.ApiUrlPromesaDeDios}permisos-disponibles`);
+    return this.http.get(`${Entorno.ApiUrlCafeJuanAna}permisos-disponibles`);
   }
 
 }

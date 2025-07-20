@@ -34,9 +34,25 @@ import { RecursoListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/R
 import { RecursoCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna//Recurso/recurso-crear/recurso-crear.component';
 import { PermisoRolRecursoListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+//DULCE TENTACIÓN
+import { InicioDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Inicio/inicio.component';
+import { SidebarDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Sidebar/sidebar.component';
+import { EmpresaListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Rol/rol-listado/rol-listado.component';
+import { RolCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
+const NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
 
@@ -76,5 +92,21 @@ export const routes: Routes = [
   { path: `${NombreEmpresaCafeJuanAna}/recurso-crear`, component: RecursoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
+
+   //PROTEGIDAS DULCE TENTACION
+  { path: `${NombreEmpresaDulceTentacion}/inicio`, component: InicioDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/sidebar`, component: SidebarDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/empresa-listado`, component: EmpresaListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/empresa-crear`, component: EmpresaCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/rol-listado`, component: RolListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/rol-crear`, component: RolCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/usuario-listado`, component: UsuarioListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/usuario-crear`, component: UsuarioCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/permiso-listado`, component: PermisoListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/permiso-crear`, component: PermisoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/recurso-listado`, component: RecursoListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/recurso-crear`, component: RecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: '**', redirectTo: 'menu' },
 ];

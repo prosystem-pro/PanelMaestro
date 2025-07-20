@@ -14,6 +14,7 @@ import { Entorno } from '../../Entornos/Entorno';
 export class MenuComponent {
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
+  NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
   VisorEncendido: boolean = false;
 
   constructor(private router: Router) { }

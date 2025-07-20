@@ -37,6 +37,6 @@ export class PermisoServicio {
     );
   }
     ObtenerResumenPermisos(): Observable<any> {
-    return this.http.get(`${Entorno.ApiUrlPromesaDeDios}resumen-permisos`);
+    return this.http.get(`${Entorno.ApiUrlCafeJuanAna}resumen-permisos`);
   }
 }

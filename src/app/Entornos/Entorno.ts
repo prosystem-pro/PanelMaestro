@@ -7,5 +7,9 @@ export const Entorno = {
    //CAFE JUAN ANA
    NombreEmpresaCafeJuanAna: 'Cafe_Juan_Ana',
    ApiUrlCafeJuanAna: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/generar-modelos'
+   ApiUrlGenerarModeloCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/generar-modelos',
+   //DULCE TENTACION
+   NombreEmpresaDulceTentacion: 'Dulce_Tentacion',
+   ApiUrlDulceTentacion: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloDulceTentacion: 'https://carritoweb-dulcetentacion-api.onrender.com/api/generar-modelos'
 };
