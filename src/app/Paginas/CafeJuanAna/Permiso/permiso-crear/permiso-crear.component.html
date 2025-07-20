@@ -1,0 +1,47 @@
+<form (ngSubmit)="Crear()">
+  <!-- Selector de Permiso -->
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Permiso</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-lock"></i></span>
+      <select class="form-select rounded-end-pill"
+        [(ngModel)]="Datos.NombrePermiso"
+        name="NombrePermiso"
+        [disabled]="PermisosPendientes.length === 0"
+        required>
+        <option [ngValue]="''" disabled>
+          {{ PermisosPendientes.length === 0 ? 'No hay registros pendientes de crear' : 'Seleccione un permiso' }}
+        </option>
+        <option *ngFor="let permiso of PermisosPendientes" [ngValue]="permiso">
+          {{ permiso }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Selector de Estatus -->
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estatus</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-list-check"></i></span>
+      <select class="form-select rounded-end-pill"
+        [(ngModel)]="Datos.Estatus"
+        name="Estatus"
+        [disabled]="PermisosPendientes.length === 0"
+        required>
+        <option [ngValue]="null">Seleccione el estatus</option>
+        <option [ngValue]="1">Activo</option>
+        <option [ngValue]="2">Inactivo</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Botón de Crear -->
+  <div class="d-flex justify-content-end">
+    <button type="submit"
+      class="btn btn-success rounded-pill px-4"
+      [disabled]="PermisosPendientes.length === 0">
+      <i class="bi bi-check-circle me-2"></i>Crear
+    </button>
+  </div>
+</form>

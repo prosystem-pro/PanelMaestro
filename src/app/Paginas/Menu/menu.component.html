@@ -1,0 +1,233 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold text-dark">Empresas de Prosystem S.A</h2>
+    <div class="mx-auto mt-2" style="width: 60px; height: 3px; background-color: #0d6efd;"></div>
+  </div>
+  <div class="row g-4 justify-content-center">
+<!--PROMESA DE DIOS -->
+<div class="col-12 col-md-3">
+  <div class="card border-0 text-center p-4"
+    style="transition: all 0.3s ease; border-radius: 20px; background: linear-gradient(to bottom right, #f8f9fa, #ffffff); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <!-- Sección Clickeable -->
+    <div (click)="AbrirLogin(NombreEmpresaPromesaDeDios)" class="clickable-section mb-3 p-3 rounded"
+      style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: #ffffff; border-radius: 16px;"
+      onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 10px 24px rgba(0, 0, 0, 0.12)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+
+      <!-- Logo -->
+      <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center"
+        style="width: 80px; height: 80px; background-color: #000; border: 3px solid #ffdd00; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        <img src="LogoPromesaDeDios.ico" style="width: 60px; height: 60px; object-fit: contain;">
+      </div>
+
+      <!-- Título -->
+      <h6 class="fw-bold text-dark mb-0" style="font-size: 1rem;">Promesa De Dios</h6>
+      <small class="text-muted">Ingresar</small>
+    </div>
+
+    <!-- Switch -->
+    <div class="form-check form-switch text-center mb-2 mt-3">
+      <input class="form-check-input" type="checkbox" id="switchVisor" [(ngModel)]="VisorEncendido"
+        (click)="$event.stopPropagation()" />
+      <label class="form-check-label fw-semibold" for="switchVisor">Mostrar sitio</label>
+    </div>
+
+    <!-- Visor simulado tipo PC -->
+    <div
+      style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid #ccc; border-radius: 10px; margin-top: 10px; background-color: #000;"
+      (click)="$event.stopPropagation()">
+
+      <!-- Cabecera del "navegador" -->
+      <div style="background-color: #e9ecef; height: 28px; display: flex; align-items: center; padding: 0 10px;">
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #f66;"></div>
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #fc3;"></div>
+        <div class="rounded-circle" style="width: 10px; height: 10px; background: #3c3;"></div>
+      </div>
+
+      <ng-container *ngIf="VisorEncendido; else Apagado">
+        <div style="transform: scale(0.8); transform-origin: top left; width: 125%; height: 125%;">
+          <iframe src="https://www.promesadedios.pro" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+      </ng-container>
+
+      <ng-template #Apagado>
+        <div class="d-flex justify-content-center align-items-center h-100 text-white">
+          <span class="fw-semibold">Apagado</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
+<!--CAFE JUAN ANA -->
+<div class="col-12 col-md-3">
+  <div class="card border-0 text-center p-4"
+    style="transition: all 0.3s ease; border-radius: 20px; background: linear-gradient(to bottom right, #f8f9fa, #ffffff); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <!-- Sección Clickeable -->
+    <div (click)="AbrirLogin(NombreEmpresaCafeJuanAna)" class="clickable-section mb-3 p-3 rounded"
+      style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: #ffffff; border-radius: 16px;"
+      onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 10px 24px rgba(0, 0, 0, 0.12)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+
+      <!-- Logo -->
+      <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center"
+        style="width: 80px; height: 80px; background-color: #ffffff00; border: 3px solid #ffdd00; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        <img src="LogoCafeJuanAna.ico" style="width: 60px; height: 60px; object-fit: contain;">
+      </div>
+
+      <!-- Título -->
+      <h6 class="fw-bold text-dark mb-0" style="font-size: 1rem;">Promesa De Dios</h6>
+      <small class="text-muted">Ingresar</small>
+    </div>
+
+    <!-- Switch -->
+    <div class="form-check form-switch text-center mb-2 mt-3">
+      <input class="form-check-input" type="checkbox" id="switchVisor" [(ngModel)]="VisorEncendido"
+        (click)="$event.stopPropagation()" />
+      <label class="form-check-label fw-semibold" for="switchVisor">Mostrar sitio</label>
+    </div>
+
+    <!-- Visor simulado tipo PC -->
+    <div
+      style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid #ccc; border-radius: 10px; margin-top: 10px; background-color: #000;"
+      (click)="$event.stopPropagation()">
+
+      <!-- Cabecera del "navegador" -->
+      <div style="background-color: #e9ecef; height: 28px; display: flex; align-items: center; padding: 0 10px;">
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #f66;"></div>
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #fc3;"></div>
+        <div class="rounded-circle" style="width: 10px; height: 10px; background: #3c3;"></div>
+      </div>
+
+      <ng-container *ngIf="VisorEncendido; else Apagado">
+        <div style="transform: scale(0.8); transform-origin: top left; width: 125%; height: 125%;">
+          <iframe src="https://www.cafejuanana.pro" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+      </ng-container>
+
+      <ng-template #Apagado>
+        <div class="d-flex justify-content-center align-items-center h-100 text-white">
+          <span class="fw-semibold">Apagado</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<!-- RESTAURANTE KASKI -->
+<div class="col-12 col-md-3">
+  <div class="card border-0 text-center p-4"
+    style="transition: all 0.3s ease; border-radius: 20px; background: linear-gradient(to bottom right, #f8f9fa, #ffffff); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <!-- Sección Clickeable -->
+    <div (click)="AbrirLogin(NombreEmpresaPromesaDeDios)" class="clickable-section mb-3 p-3 rounded"
+      style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: #ffffff; border-radius: 16px;"
+      onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 10px 24px rgba(0, 0, 0, 0.12)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+
+      <!-- Logo -->
+      <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center"
+        style="width: 80px; height: 80px; background-color: #000000; border: 3px solid #ffdd00; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        <img src="LogoRestauranteKaski.ico" style="width: 60px; height: 60px; object-fit: contain;">
+      </div>
+
+      <!-- Título -->
+      <h6 class="fw-bold text-dark mb-0" style="font-size: 1rem;">Restaurante Kaski</h6>
+      <small class="text-muted">Ingresar</small>
+    </div>
+
+    <!-- Switch -->
+    <div class="form-check form-switch text-center mb-2 mt-3">
+      <input class="form-check-input" type="checkbox" id="switchVisor" [(ngModel)]="VisorEncendido"
+        (click)="$event.stopPropagation()" />
+      <label class="form-check-label fw-semibold" for="switchVisor">Mostrar sitio</label>
+    </div>
+
+    <!-- Visor simulado tipo PC -->
+    <div
+      style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid #ccc; border-radius: 10px; margin-top: 10px; background-color: #000;"
+      (click)="$event.stopPropagation()">
+
+      <!-- Cabecera del "navegador" -->
+      <div style="background-color: #e9ecef; height: 28px; display: flex; align-items: center; padding: 0 10px;">
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #f66;"></div>
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #fc3;"></div>
+        <div class="rounded-circle" style="width: 10px; height: 10px; background: #3c3;"></div>
+      </div>
+
+      <ng-container *ngIf="VisorEncendido; else Apagado">
+        <div style="transform: scale(0.8); transform-origin: top left; width: 125%; height: 125%;">
+          <iframe src="https://www.restkaski.pro" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+      </ng-container>
+
+      <ng-template #Apagado>
+        <div class="d-flex justify-content-center align-items-center h-100 text-white">
+          <span class="fw-semibold">Apagado</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<!-- DULCE TENTACIÒN -->
+<div class="col-12 col-md-3">
+  <div class="card border-0 text-center p-4"
+    style="transition: all 0.3s ease; border-radius: 20px; background: linear-gradient(to bottom right, #f8f9fa, #ffffff); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+    <!-- Sección Clickeable -->
+    <div (click)="AbrirLogin(NombreEmpresaPromesaDeDios)" class="clickable-section mb-3 p-3 rounded"
+      style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; background-color: #ffffff; border-radius: 16px;"
+      onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 10px 24px rgba(0, 0, 0, 0.12)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+
+      <!-- Logo -->
+      <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center"
+        style="width: 80px; height: 80px; background-color: #ffffff00; border: 3px solid #ffdd00; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        <img src="LogoDulceTentacion.ico" style="width: 60px; height: 60px; object-fit: contain;">
+      </div>
+
+      <!-- Título -->
+      <h6 class="fw-bold text-dark mb-0" style="font-size: 1rem;">Dulce Tentación</h6>
+      <small class="text-muted">Ingresar</small>
+    </div>
+
+    <!-- Switch -->
+    <div class="form-check form-switch text-center mb-2 mt-3">
+      <input class="form-check-input" type="checkbox" id="switchVisor" [(ngModel)]="VisorEncendido"
+        (click)="$event.stopPropagation()" />
+      <label class="form-check-label fw-semibold" for="switchVisor">Mostrar sitio</label>
+    </div>
+
+    <!-- Visor simulado tipo PC -->
+    <div
+      style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 2px solid #ccc; border-radius: 10px; margin-top: 10px; background-color: #000;"
+      (click)="$event.stopPropagation()">
+
+      <!-- Cabecera del "navegador" -->
+      <div style="background-color: #e9ecef; height: 28px; display: flex; align-items: center; padding: 0 10px;">
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #f66;"></div>
+        <div class="rounded-circle me-2" style="width: 10px; height: 10px; background: #fc3;"></div>
+        <div class="rounded-circle" style="width: 10px; height: 10px; background: #3c3;"></div>
+      </div>
+
+      <ng-container *ngIf="VisorEncendido; else Apagado">
+        <div style="transform: scale(0.8); transform-origin: top left; width: 125%; height: 125%;">
+          <iframe src="https://carrito-web-dulce-tentacion-web.vercel.app/" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+      </ng-container>
+
+      <ng-template #Apagado>
+        <div class="d-flex justify-content-center align-items-center h-100 text-white">
+          <span class="fw-semibold">Apagado</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
