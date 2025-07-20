@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class RolListadoDulceTentacionComponent {
   NombreEmpresa = Entorno.NombreEmpresaDulceTentacion;
+  LogoEmpresa = Entorno.LogoDulceTentacion;
   Datos: Rol[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';

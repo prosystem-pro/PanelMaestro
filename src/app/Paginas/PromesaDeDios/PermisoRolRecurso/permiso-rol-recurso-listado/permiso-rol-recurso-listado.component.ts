@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class PermisoRolRecursoListadoPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
   Datos: any[] = [];
   FiltroBuscador: string = '';
   RolesAbiertos: { [CodigoRol: number]: boolean } = {};

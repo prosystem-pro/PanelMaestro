@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class PermisoListadoPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
   Datos: Permiso[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';
@@ -32,29 +33,29 @@ export class PermisoListadoPromesaDeDiosComponent {
     this.Listado();
   }
 
-Listado() {
-  this.Servicio.ObtenerResumenPermisos().subscribe({
-    next: (respuesta) => {
-      const permisosDesdeRutas: string[] = respuesta.permisos;
-      this.Servicio.Listado().subscribe({
-        next: (data: any) => {
-          this.Datos = data;
+  Listado() {
+    this.Servicio.ObtenerResumenPermisos().subscribe({
+      next: (respuesta) => {
+        const permisosDesdeRutas: string[] = respuesta.permisos;
+        this.Servicio.Listado().subscribe({
+          next: (data: any) => {
+            this.Datos = data;
 
-          const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
-          this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
+            const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
+            this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
 
-          this.PermisosExtras = permisosCreados.filter(p => !permisosDesdeRutas.includes(p));
-        },
-        error: (err) => {
-          console.error('Error al obtener registros creados:', err);
-        }
-      });
-    },
-    error: (err) => {
-      console.error('Error al obtener registros desde rutas:', err);
-    }
-  });
-}
+            this.PermisosExtras = permisosCreados.filter(p => !permisosDesdeRutas.includes(p));
+          },
+          error: (err) => {
+            console.error('Error al obtener registros creados:', err);
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error al obtener registros desde rutas:', err);
+      }
+    });
+  }
 
   Buscador(): Permiso[] {
     const texto = this.FiltroBuscador.toLowerCase();

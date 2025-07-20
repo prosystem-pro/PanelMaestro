@@ -10,4 +10,5 @@ import { Entorno } from '../../../Entornos/Entorno';
 })
 export class InicioPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
 }

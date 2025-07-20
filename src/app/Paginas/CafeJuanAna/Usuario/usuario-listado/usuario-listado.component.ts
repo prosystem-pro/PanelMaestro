@@ -23,6 +23,7 @@ declare var bootstrap: any;
 })
 export class UsuarioListadoCafeJuanAnaComponent {
   NombreEmpresa = Entorno.NombreEmpresaCafeJuanAna;
+  LogoEmpresa = Entorno.LogoCafeJuanAna;
   DatosA: Usuario[] = [];
   Rol: Rol[] = [];
   Datos: UsuarioConRol[] = [];

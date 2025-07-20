@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class RecursoListadoPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
   Datos: Recurso[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';

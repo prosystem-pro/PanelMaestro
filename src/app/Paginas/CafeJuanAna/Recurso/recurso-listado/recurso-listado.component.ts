@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class RecursoListadoCafeJuanAnaComponent {
   NombreEmpresa = Entorno.NombreEmpresaCafeJuanAna;
+  LogoEmpresa = Entorno.LogoCafeJuanAna;
   Datos: Recurso[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';

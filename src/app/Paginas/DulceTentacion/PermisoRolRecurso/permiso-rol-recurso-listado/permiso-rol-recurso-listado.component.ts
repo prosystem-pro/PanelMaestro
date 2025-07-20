@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class PermisoRolRecursoListadoDulceTentacionComponent {
   NombreEmpresa = Entorno.NombreEmpresaDulceTentacion;
+  LogoEmpresa = Entorno.LogoDulceTentacion;
   Datos: any[] = [];
   FiltroBuscador: string = '';
   RolesAbiertos: { [CodigoRol: number]: boolean } = {};

@@ -23,6 +23,7 @@ declare var bootstrap: any;
 })
 export class UsuarioListadoPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
   DatosA: Usuario[] = [];
   Rol: Rol[] = [];
   Datos: UsuarioConRol[] = [];

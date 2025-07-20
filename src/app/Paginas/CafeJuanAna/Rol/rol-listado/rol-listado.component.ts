@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class RolListadoCafeJuanAnaComponent {
   NombreEmpresa = Entorno.NombreEmpresaCafeJuanAna;
+  LogoEmpresa = Entorno.LogoCafeJuanAna;
   Datos: Rol[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';

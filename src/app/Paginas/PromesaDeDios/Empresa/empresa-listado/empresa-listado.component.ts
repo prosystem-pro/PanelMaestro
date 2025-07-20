@@ -18,6 +18,8 @@ declare var bootstrap: any;
 })
 export class EmpresaListadoPromesaDeDiosComponent {
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresa = Entorno.LogoPromesaDeDios;
+
   Datos: Empresa[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';

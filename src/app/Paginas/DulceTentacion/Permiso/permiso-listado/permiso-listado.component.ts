@@ -19,6 +19,7 @@ declare var bootstrap: any;
 })
 export class PermisoListadoDulceTentacionComponent {
   NombreEmpresa = Entorno.NombreEmpresaDulceTentacion;
+  LogoEmpresa = Entorno.LogoDulceTentacion;
   Datos: Permiso[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';
