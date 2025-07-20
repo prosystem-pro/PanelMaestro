@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { LoginServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/Login';
+import { LoginServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/Login';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PermisoServicio {
-    constructor(private loginServicio: LoginServicioPromesaDeDios) {}
+    constructor(private loginServicio: LoginServicioCafeJuanAna) {}
 
     private ObtenerPayload(): any | null {
       const token = this.loginServicio.ObtenerToken();
