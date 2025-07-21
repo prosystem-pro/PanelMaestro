@@ -14,5 +14,10 @@ export const Entorno = {
    NombreEmpresaDulceTentacion: 'Dulce_Tentacion',
    ApiUrlDulceTentacion: 'https://carritoweb-dulcetentacion-api.onrender.com/api/',
    ApiUrlGenerarModeloDulceTentacion: 'https://carritoweb-dulcetentacion-api.onrender.com/api/generar-modelos',
-   LogoDulceTentacion: 'LogoDulceTentacion.ico'
+   LogoDulceTentacion: 'LogoDulceTentacion.ico',
+   //RESTAURANTE KASKI
+   NombreEmpresaRestauranteKaski: 'Restaurante_Kaski',
+   ApiUrlRestauranteKaski: 'https://carritoweb-restaurantekaski-api.onrender.com/api/',
+   ApiUrlGenerarModeloRestauranteKaski: 'https://carritoweb-restaurantekaski-api.onrender.com/api/generar-modelos',
+   LogoRestauranteKaski: 'LogoDulceTentacion.ico'
 };

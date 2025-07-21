@@ -3,6 +3,7 @@ import { inject } from '@angular/core';
 import { LoginServicioPromesaDeDios } from './PromesaDeDios/Login';
 import { LoginServicioCafeJuanAna } from './CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from './DulceTentacion/Login';
+import { LoginServicioRestauranteKaski } from './RestauranteKaski/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const LoginPromesaDeDios = inject(LoginServicioPromesaDeDios);
   const LoginCafeJuanAna = inject(LoginServicioCafeJuanAna);
   const LoginDulceTentacion = inject(LoginServicioDulceTentacion);
+  const LoginRestauranteKaski = inject(LoginServicioRestauranteKaski);
 
   const router = inject(Router);
 
@@ -27,6 +29,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   }
   else if (url.includes(Entorno.ApiUrlDulceTentacion)) {
     token = LoginDulceTentacion.ObtenerToken();
+  }
+  else if (url.includes(Entorno.ApiUrlRestauranteKaski)) {
+    token = LoginRestauranteKaski.ObtenerToken();
   }
 
 
@@ -49,8 +54,11 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
         } else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
           LoginCafeJuanAna.EliminarToken();
           router.navigate(['/menu']);
-        }else if (url.includes(Entorno.ApiUrlDulceTentacion)) {
+        } else if (url.includes(Entorno.ApiUrlDulceTentacion)) {
           LoginDulceTentacion.EliminarToken();
+          router.navigate(['/menu']);
+        } else if (url.includes(Entorno.ApiUrlRestauranteKaski)) {
+          LoginRestauranteKaski.EliminarToken();
           router.navigate(['/menu']);
         }
       }

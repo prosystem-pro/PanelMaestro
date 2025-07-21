@@ -13,8 +13,16 @@ import { Entorno } from '../../Entornos/Entorno';
 })
 export class MenuComponent {
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
+  LogoEmpresaPromesaDeDios: string = Entorno.LogoPromesaDeDios;
+
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
+  LogoEmpresaCafeJuanAna: string = Entorno.LogoCafeJuanAna;
+
   NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
+  LogoEmpresaDulceTentacion: string = Entorno.LogoDulceTentacion;
+
+  NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
+  LogoEmpresaRestauranteKaski: string = Entorno.LogoRestauranteKaski;
   VisorEncendido: boolean = false;
 
   constructor(private router: Router) { }

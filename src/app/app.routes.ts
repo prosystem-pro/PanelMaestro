@@ -49,10 +49,26 @@ import { RecursoListadoDulceTentacionComponent } from '../app/Paginas/DulceTenta
 import { RecursoCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion//Recurso/recurso-crear/recurso-crear.component';
 import { PermisoRolRecursoListadoDulceTentacionComponent } from '../app/Paginas/DulceTentacion/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearDulceTentacionComponent } from '../app/Paginas/DulceTentacion/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+//RESTAURANTE KASKI
+import { InicioRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Inicio/inicio.component';
+import { SidebarRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Sidebar/sidebar.component';
+import { EmpresaListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Rol/rol-listado/rol-listado.component';
+import { RolCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
+const NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
 
@@ -108,5 +124,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaDulceTentacion}/recurso-crear`, component: RecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
+  
+  //PROTEGIDAS RESTAURANTE KASKI
+  { path: `${NombreEmpresaRestauranteKaski}/inicio`, component: InicioRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/sidebar`, component: SidebarRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/empresa-listado`, component: EmpresaListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/empresa-crear`, component: EmpresaCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/rol-listado`, component: RolListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/rol-crear`, component: RolCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/usuario-listado`, component: UsuarioListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/usuario-crear`, component: UsuarioCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/permiso-listado`, component: PermisoListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/permiso-crear`, component: PermisoCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/recurso-listado`, component: RecursoListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/recurso-crear`, component: RecursoCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+
   { path: '**', redirectTo: 'menu' },
 ];

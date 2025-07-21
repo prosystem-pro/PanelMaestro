@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios/Login';
 import { LoginServicioCafeJuanAna } from '../../../app/Servicios/CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from '../../../app/Servicios/DulceTentacion/Login';
+import { LoginServicioRestauranteKaski } from '../../../app/Servicios/RestauranteKaski/Login';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
+  NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
 
   constructor(
     private router: Router,
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginDulceTentacion: LoginServicioDulceTentacion,
+    private LoginRestauranteKaski: LoginServicioRestauranteKaski,
     private Alerta: AlertaServicio
   ) { }
 
@@ -59,6 +62,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaDulceTentacion:
         ServicioLogin = this.LoginDulceTentacion.Login(usuario, clave);
         break;
+      case this.NombreEmpresaRestauranteKaski:
+        ServicioLogin = this.LoginRestauranteKaski.Login(usuario, clave);
+        break;
       default:
         this.Alerta.MostrarAlerta('Empresa no válida');
         return;
@@ -75,6 +81,7 @@ export class LoginComponent implements OnInit {
             case this.NombreEmpresaPromesaDeDios:
             case this.NombreEmpresaCafeJuanAna:
             case this.NombreEmpresaDulceTentacion:
+            case this.NombreEmpresaRestauranteKaski:
               this.router.navigate([ruta]);
               break;
             default:

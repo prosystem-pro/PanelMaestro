@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
 import { LoginServicioCafeJuanAna } from '../Servicios/CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from '../Servicios/DulceTentacion/Login';
+import { LoginServicioRestauranteKaski } from '../Servicios/RestauranteKaski/Login';
 import { Entorno } from '../Entornos/Entorno';
 
 @Injectable({
@@ -13,6 +14,7 @@ export class AutorizacionRuta implements CanActivate {
   constructor(private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginDulceTentacion: LoginServicioDulceTentacion,
+    private LoginRestauranteKaski: LoginServicioRestauranteKaski,
     private router: Router) { }
 
 
@@ -24,6 +26,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
     const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
     const NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
+    const NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaPromesaDeDios}`)) {
       if (this.LoginPromesaDeDios.ValidarToken()) {
@@ -48,6 +51,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginDulceTentacion.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaRestauranteKaski}`)) {
+      if (this.LoginRestauranteKaski.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginRestauranteKaski.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
