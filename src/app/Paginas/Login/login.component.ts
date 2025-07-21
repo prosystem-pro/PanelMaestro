@@ -9,15 +9,18 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
 import { Entorno } from '../../Entornos/Entorno';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+  Cargando: boolean = false;
+
   Empresa: string = '';
   NombreUsuario: string = '';
   Clave: string = '';
@@ -69,9 +72,10 @@ export class LoginComponent implements OnInit {
         this.Alerta.MostrarAlerta('Empresa no válida');
         return;
     }
-
+    this.Cargando = true;
     ServicioLogin.subscribe({
       next: (Respuesta: any) => {
+        this.Cargando = false;
         if (Respuesta) {
           this.Alerta.MostrarExito('Inicio de sesión exitoso');
 
@@ -91,6 +95,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (error) => {
+        this.Cargando = false;
         const MensajePlano = typeof error?.error?.error === 'string' ? error.error.error : null;
 
         if (MensajePlano) {

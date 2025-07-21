@@ -1,9 +1,19 @@
 <div class="bg-body-secondary vh-100 d-flex align-items-center justify-content-center px-3">
+  <!-- Modal de carga -->
+  <div *ngIf="Cargando" class="modal-backdrop fade show" style="z-index: 1050;"></div>
+  <div *ngIf="Cargando"
+    class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+    style="z-index: 1060; background-color: rgba(0,0,0,0.5);">
+    <div class="bg-white rounded-4 shadow p-4 text-center" style="width: 300px;">
+      <div class="spinner-border text-primary mb-3" role="status"></div>
+      <div class="fw-semibold text-dark">Ingresando a la empresa...</div>
+    </div>
+  </div>
+
   <div class="card p-4 border-0 shadow rounded-4" style="max-width: 420px; width: 100%; background-color: #ffffff;">
-    
+
     <!-- Botón regresar -->
-    <button 
-      class="btn btn-sm btn-outline-secondary position-absolute top-0 start-0 m-2 d-flex align-items-center gap-1"
+    <button class="btn btn-sm btn-outline-secondary position-absolute top-0 start-0 m-2 d-flex align-items-center gap-1"
       (click)="Regresar()">
       <i class="bi bi-arrow-left"></i> Regresar
     </button>
@@ -23,15 +33,8 @@
           <span class="input-group-text bg-white border-0">
             <i class="bi bi-person text-primary"></i>
           </span>
-          <input
-            type="text"
-            id="usuario"
-            class="form-control border-0 rounded-end-pill"
-            [(ngModel)]="NombreUsuario"
-            name="usuario"
-            required
-            placeholder="ejemplo@correo.com"
-            autofocus>
+          <input type="text" id="usuario" class="form-control border-0 rounded-end-pill" [(ngModel)]="NombreUsuario"
+            name="usuario" required placeholder="ejemplo@correo.com" autofocus>
         </div>
       </div>
 
@@ -41,14 +44,8 @@
           <span class="input-group-text bg-white border-0">
             <i class="bi bi-lock text-primary"></i>
           </span>
-          <input
-            type="password"
-            id="clave"
-            class="form-control border-0 rounded-end-pill"
-            [(ngModel)]="Clave"
-            name="clave"
-            required
-            placeholder="••••••••">
+          <input type="password" id="clave" class="form-control border-0 rounded-end-pill" [(ngModel)]="Clave"
+            name="clave" required placeholder="••••••••">
         </div>
       </div>
 
