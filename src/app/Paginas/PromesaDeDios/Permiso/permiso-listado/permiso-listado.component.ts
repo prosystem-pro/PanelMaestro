@@ -12,7 +12,7 @@ import { PermisoCrearPromesaDeDiosComponent } from '../permiso-crear/permiso-cre
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-permiso-listado',
+  selector: 'app-permiso-listado-PromesaDeDios',
   imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, PermisoCrearPromesaDeDiosComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'

@@ -5,7 +5,7 @@ import { EmpresaServicio } from '../../../../Servicios/PromesaDeDios/EmpresaServ
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 
 @Component({
-  selector: 'app-empresa-crear',
+  selector: 'app-empresa-crear-PromesaDeDios',
   imports: [FormsModule],
   templateUrl: './empresa-crear.component.html',
   styleUrl: './empresa-crear.component.css'

@@ -12,7 +12,7 @@ import { PermisoCrearRestauranteKaskiComponent } from '../permiso-crear/permiso-
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-permiso-listado',
+  selector: 'app-permiso-listado-RestauranteKaski',
   imports: [FormsModule, CommonModule, SidebarRestauranteKaskiComponent, PermisoCrearRestauranteKaskiComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'

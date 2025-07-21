@@ -12,7 +12,7 @@ import { PermisoCrearCafeJuanAnaComponent } from '../permiso-crear/permiso-crear
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-permiso-listado',
+  selector: 'app-permiso-listado-CafeJuanAna',
   imports: [FormsModule, CommonModule, SidebarCafeJuanAnaComponent, PermisoCrearCafeJuanAnaComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'

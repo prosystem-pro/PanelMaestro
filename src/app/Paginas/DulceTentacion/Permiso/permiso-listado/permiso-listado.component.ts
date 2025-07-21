@@ -12,7 +12,7 @@ import { PermisoCrearDulceTentacionComponent } from '../permiso-crear/permiso-cr
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-permiso-listado',
+  selector: 'app-permiso-listado-DulceTentacion',
   imports: [FormsModule, CommonModule, SidebarDulceTentacionComponent, PermisoCrearDulceTentacionComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'

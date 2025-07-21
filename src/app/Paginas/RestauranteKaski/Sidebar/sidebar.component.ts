@@ -6,7 +6,7 @@ import { LoginServicioRestauranteKaski } from '../../../Servicios/RestauranteKas
 
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar-RestauranteKaski',
   imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'

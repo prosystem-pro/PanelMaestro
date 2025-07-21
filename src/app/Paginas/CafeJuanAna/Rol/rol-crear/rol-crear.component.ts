@@ -6,7 +6,7 @@ import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 
 
 @Component({
-  selector: 'app-rol-crear',
+  selector: 'app-rol-crear-CafeJuanAna',
   imports: [FormsModule],
   templateUrl: './rol-crear.component.html',
   styleUrl: './rol-crear.component.css'

@@ -12,7 +12,7 @@ import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-rol-listado',
+  selector: 'app-rol-listado-CafeJuanAna',
   imports: [FormsModule, CommonModule, SidebarCafeJuanAnaComponent, RolCrearCafeJuanAnaComponent],
   templateUrl: './rol-listado.component.html',
   styleUrl: './rol-listado.component.css'

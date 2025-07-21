@@ -10,7 +10,7 @@ import { Usuario } from '../../../../Modelos/ModeloRestauranteKaski/Usuario';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-usuario-crear',
+  selector: 'app-usuario-crear-RestauranteKaski',
   imports: [FormsModule, CommonModule],
   templateUrl: './usuario-crear.component.html',
   styleUrl: './usuario-crear.component.css'

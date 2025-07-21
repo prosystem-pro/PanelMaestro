@@ -3,7 +3,7 @@ import { SidebarCafeJuanAnaComponent } from "../../CafeJuanAna/Sidebar/sidebar.c
 import { Entorno } from '../../../Entornos/Entorno';
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-inicio-CafeJuanAna',
   imports: [SidebarCafeJuanAnaComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'

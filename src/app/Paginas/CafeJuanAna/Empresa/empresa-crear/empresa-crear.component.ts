@@ -5,7 +5,7 @@ import { EmpresaServicio } from '../../../../Servicios/CafeJuanAna/EmpresaServic
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 
 @Component({
-  selector: 'app-empresa-crear',
+  selector: 'app-empresa-crear-CafeJuanAna',
   imports: [FormsModule],
   templateUrl: './empresa-crear.component.html',
   styleUrl: './empresa-crear.component.css'

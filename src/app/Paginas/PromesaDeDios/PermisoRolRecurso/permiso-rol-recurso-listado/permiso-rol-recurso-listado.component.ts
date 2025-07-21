@@ -12,7 +12,7 @@ declare var bootstrap: any;
 
 @Component({
   standalone: true,
-  selector: 'app-permiso-rol-recurso-listado',
+  selector: 'app-permiso-rol-recurso-listado-PromesaDeDios',
   imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, PermisoRolRecursoCrearPromesaDeDiosComponent],
   templateUrl: './permiso-rol-recurso-listado.component.html',
   styleUrl: './permiso-rol-recurso-listado.component.css'

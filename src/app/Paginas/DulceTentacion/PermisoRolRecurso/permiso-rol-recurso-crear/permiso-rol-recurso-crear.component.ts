@@ -16,7 +16,7 @@ interface PermisoRolRecursoDetalle {
 }
 
 @Component({
-  selector: 'app-permiso-rol-recurso-crear',
+  selector: 'app-permiso-rol-recurso-crear-DulceTentacion',
   imports: [FormsModule, CommonModule, FormsModule],
   templateUrl: './permiso-rol-recurso-crear.component.html',
   styleUrl: './permiso-rol-recurso-crear.component.css'

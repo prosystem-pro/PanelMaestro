@@ -5,7 +5,7 @@ import { EmpresaServicio } from '../../../../Servicios/RestauranteKaski/EmpresaS
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 
 @Component({
-  selector: 'app-empresa-crear',
+  selector: 'app-empresa-crear-RestauranteKaski',
   imports: [FormsModule],
   templateUrl: './empresa-crear.component.html',
   styleUrl: './empresa-crear.component.css'

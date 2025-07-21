@@ -6,7 +6,7 @@ import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-permiso-crear',
+  selector: 'app-permiso-crear-RestauranteKaski',
   imports: [FormsModule, CommonModule],
   templateUrl: './permiso-crear.component.html',
   styleUrl: './permiso-crear.component.css'

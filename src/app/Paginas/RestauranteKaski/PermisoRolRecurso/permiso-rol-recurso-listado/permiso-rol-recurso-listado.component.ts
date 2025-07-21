@@ -12,7 +12,7 @@ declare var bootstrap: any;
 
 @Component({
   standalone: true,
-  selector: 'app-permiso-rol-recurso-listado',
+  selector: 'app-permiso-rol-recurso-listado-RestauranteKaski',
   imports: [FormsModule, CommonModule, SidebarRestauranteKaskiComponent, PermisoRolRecursoCrearRestauranteKaskiComponent],
   templateUrl: './permiso-rol-recurso-listado.component.html',
   styleUrl: './permiso-rol-recurso-listado.component.css'

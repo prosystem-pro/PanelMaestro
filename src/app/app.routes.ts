@@ -19,6 +19,7 @@ import { RecursoListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDi
 import { RecursoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios//Recurso/recurso-crear/recurso-crear.component';
 import { PermisoRolRecursoListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Pago/pago.component';
 //CAFE JUAN ANA
 import { InicioCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Inicio/inicio.component';
 import { SidebarCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Sidebar/sidebar.component';
@@ -64,6 +65,7 @@ import { RecursoListadoRestauranteKaskiComponent } from '../app/Paginas/Restaura
 import { RecursoCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski//Recurso/recurso-crear/recurso-crear.component';
 import { PermisoRolRecursoListadoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoRestauranteKaskiComponent } from '../app/Paginas/RestauranteKaski/Pago/pago.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
@@ -92,8 +94,9 @@ export const routes: Routes = [
   { path: `${NombreEmpresaPromesaDeDios}/recurso-crear`, component: RecursoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPromesaDeDios}/pago`, component: PagoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
 
-    //PROTEGIDAS CAFE JUAN ANA
+  //PROTEGIDAS CAFE JUAN ANA
   { path: `${NombreEmpresaCafeJuanAna}/inicio`, component: InicioCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCafeJuanAna}/sidebar`, component: SidebarCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCafeJuanAna}/empresa-listado`, component: EmpresaListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
@@ -109,7 +112,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
 
-   //PROTEGIDAS DULCE TENTACION
+  //PROTEGIDAS DULCE TENTACION
   { path: `${NombreEmpresaDulceTentacion}/inicio`, component: InicioDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/sidebar`, component: SidebarDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/empresa-listado`, component: EmpresaListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
@@ -124,7 +127,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaDulceTentacion}/recurso-crear`, component: RecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoDulceTentacionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaDulceTentacion}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearDulceTentacionComponent, canActivate: [AutorizacionRuta] },
-  
+
   //PROTEGIDAS RESTAURANTE KASKI
   { path: `${NombreEmpresaRestauranteKaski}/inicio`, component: InicioRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteKaski}/sidebar`, component: SidebarRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
@@ -140,6 +143,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaRestauranteKaski}/recurso-crear`, component: RecursoCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteKaski}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteKaski}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteKaski}/pago`, component: PagoRestauranteKaskiComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

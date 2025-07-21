@@ -6,12 +6,13 @@ import { LoginServicioPromesaDeDios } from '../../../Servicios/PromesaDeDios/Log
 
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar-PromesaDeDios',
   imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class SidebarPromesaDeDiosComponent {
+
   SidebarVisible = true;
   EsMovil = false;
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;

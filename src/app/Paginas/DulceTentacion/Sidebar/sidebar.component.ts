@@ -6,7 +6,7 @@ import { LoginServicioDulceTentacion } from '../../../Servicios/DulceTentacion/L
 
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar-DulceTentacion',
   imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'

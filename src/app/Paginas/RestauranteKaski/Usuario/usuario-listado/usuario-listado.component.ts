@@ -16,7 +16,7 @@ type UsuarioConRol = Usuario & { NombreRol: string, Clave?: string; };
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-usuario-listado',
+  selector: 'app-usuario-listado-RestauranteKaski',
   imports: [FormsModule, CommonModule, SidebarRestauranteKaskiComponent, UsuarioCrearRestauranteKaskiComponent],
   templateUrl: './usuario-listado.component.html',
   styleUrl: './usuario-listado.component.css'

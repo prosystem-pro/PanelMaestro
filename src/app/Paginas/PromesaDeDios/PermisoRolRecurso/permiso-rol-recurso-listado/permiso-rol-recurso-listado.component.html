@@ -26,7 +26,7 @@
 
     <!-- Sidebar Fijo -->
     <div style="position: fixed; z-index: 1;">
-        <app-sidebar></app-sidebar>
+        <app-sidebar-PromesaDeDios></app-sidebar-PromesaDeDios>
     </div>
 
     <!-- Contenido Principal -->
@@ -236,8 +236,8 @@
                     </div>
                     <!-- Cuerpo del modal: limite altura + scroll -->
                     <div class="modal-body p-4" style="max-height: 82vh; overflow-y: auto;">
-                        <app-permiso-rol-recurso-crear *ngIf="ModalAbierto"
-                            (ObjetoCreado)="Recargar()"></app-permiso-rol-recurso-crear>
+                        <app-permiso-rol-recurso-crear-PromesaDeDios *ngIf="ModalAbierto"
+                            (ObjetoCreado)="Recargar()"></app-permiso-rol-recurso-crear-PromesaDeDios>
                     </div>
                 </div>
             </div>

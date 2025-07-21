@@ -6,7 +6,7 @@ import { LoginServicioCafeJuanAna } from '../../../Servicios/CafeJuanAna/Login';
 
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-sidebar-CafeJuanAna',
   imports: [CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'

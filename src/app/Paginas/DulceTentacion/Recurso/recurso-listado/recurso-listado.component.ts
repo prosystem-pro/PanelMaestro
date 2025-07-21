@@ -12,7 +12,7 @@ import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-recurso-listado',
+  selector: 'app-recurso-listado-DulceTentacion',
   imports: [FormsModule, CommonModule, SidebarDulceTentacionComponent, RecursoCrearDulceTentacionComponent],
   templateUrl: './recurso-listado.component.html',
   styleUrl: './recurso-listado.component.css'

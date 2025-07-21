@@ -6,7 +6,7 @@ import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-recurso-crear',
+  selector: 'app-recurso-crear-RestauranteKaski',
   imports: [FormsModule, CommonModule],
   templateUrl: './recurso-crear.component.html',
   styleUrl: './recurso-crear.component.css'

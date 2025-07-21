@@ -10,7 +10,7 @@ import { Usuario } from '../../../../Modelos/ModeloPromesaDeDios/Usuario';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-usuario-crear',
+  selector: 'app-usuario-crear-PromesaDeDios',
   imports: [FormsModule, CommonModule],
   templateUrl: './usuario-crear.component.html',
   styleUrl: './usuario-crear.component.css'

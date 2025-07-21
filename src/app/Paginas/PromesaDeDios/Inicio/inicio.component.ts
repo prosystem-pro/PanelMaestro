@@ -3,7 +3,7 @@ import { SidebarPromesaDeDiosComponent } from "../Sidebar/sidebar.component";
 import { Entorno } from '../../../Entornos/Entorno';
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-inicio-PromesaDeDios',
   imports: [SidebarPromesaDeDiosComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
