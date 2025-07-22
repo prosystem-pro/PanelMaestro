@@ -1,6 +1,11 @@
-.ColorCard{
-    background: linear-gradient(to bottom right, #0c01505c, #dcdcdc);
+.ColorCard {
+  background: linear-gradient(135deg, #f0ecec, #fefefea7);
+  border: 1px solid #3b3f5c; /* azul oscuro tipo navy */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 5px 10px rgba(74, 73, 75, 0.562);
 }
+
 .ColorFondoLogo{
-    background-color: #fcfcfc39;
+    background-color: #ffffff48;
 }
