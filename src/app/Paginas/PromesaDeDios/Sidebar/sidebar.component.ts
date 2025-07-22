@@ -54,7 +54,7 @@ export class SidebarPromesaDeDiosComponent {
   }
   CerrarSesion() {
   this.LoginServicio.EliminarToken(); 
-  this.router.navigate(['/login']);  
+  this.router.navigate(['/menu']);  
 }
 
 }

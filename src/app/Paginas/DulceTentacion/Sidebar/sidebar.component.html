@@ -82,6 +82,14 @@
         <span class="me-3 fs-5">🔗</span> Permiso por rol y recurso
       </a>
     </li>
+        <li class="nav-item">
+      <a (click)="Navegar(NombreEmpresaDulceTentacion + '/pago')" style="cursor: pointer;" [ngClass]="{
+    'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect': true,
+    'bg-primary bg-opacity-10 border-start border-3 border-primary': isActive('pago')
+  }">
+        <span class="me-3 fs-5">💳</span> Pagos
+      </a>
+    </li>
     
 
   </ul>

@@ -1,24 +1,28 @@
 <div class="d-flex"
   style="height: 100vh; overflow: hidden; background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif;">
   <!-- Nombre de la empresa -->
-  <div style="position: absolute; top: 10px; left: 10px; z-index: 2;" class="NombreEmpresa">
-    <span style="
-      background-color: #fff3cd;
-      color: #333;
-      padding: 0.5rem 1.2rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
+    <div style="position: absolute; top: 10px;" class="NombreEmpresa">
+        <span style="
+    background-color: #fff3cd;
+    color: #703f17;
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  ">
+            <img [src]="LogoEmpresa" alt="Logo" style="
+      height: 26px;
+      width: 26px;
+      background-color: #000;
+      border-radius: 50%;
     ">
-      <img [src]="LogoEmpresa" alt="Logo"
-        style="height: 28px; width: 28px; object-fit: cover; background-color: #eee; padding: 2px; border-radius: 50%;">
-      {{ Empresa }}
-    </span>
-  </div>
+            {{ Empresa }}
+        </span>
+    </div>
 
   <!-- Sidebar fijo -->
   <div style="position: fixed; z-index: 1;">

@@ -19,7 +19,7 @@
 
   <ul class="nav flex-column gap-2">
     <li class="nav-item">
-      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/empresa-listado')"  style="cursor: pointer;" [ngClass]="{
+      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/empresa-listado')" style="cursor: pointer;" [ngClass]="{
         'nav-link d-flex align-items-center px-3 py-2 rounded-3 text-white cursor-pointer':
           true,
         'bg-primary bg-opacity-10 border-start border-3 border-primary':
@@ -29,7 +29,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/rol-listado')"  style="cursor: pointer;" [ngClass]="{
+      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/rol-listado')" style="cursor: pointer;" [ngClass]="{
       'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect':
         true,
       'bg-primary bg-opacity-10 border-start border-3 border-primary':
@@ -51,7 +51,7 @@
     </li>
 
     <li class="nav-item">
-      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/permiso-listado')"  style="cursor: pointer;" [ngClass]="{
+      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/permiso-listado')" style="cursor: pointer;" [ngClass]="{
       'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect':
         true,
       'bg-primary bg-opacity-10 border-start border-3 border-primary':
@@ -73,7 +73,8 @@
     </li>
 
     <li class="nav-item">
-      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/permiso-rol-recurso-listado')"  style="cursor: pointer;" [ngClass]="{
+      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/permiso-rol-recurso-listado')" style="cursor: pointer;"
+        [ngClass]="{
       'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect':
         true,
       'bg-primary bg-opacity-10 border-start border-3 border-primary':
@@ -82,23 +83,29 @@
         <span class="me-3 fs-5">🔗</span> Permiso por rol y recurso
       </a>
     </li>
-    
+    <li class="nav-item">
+      <a (click)="Navegar(NombreEmpresaCafeJuanAna + '/pago')" style="cursor: pointer;" [ngClass]="{
+    'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect': true,
+    'bg-primary bg-opacity-10 border-start border-3 border-primary': isActive('pago')
+  }">
+        <span class="me-3 fs-5">💳</span> Pagos
+      </a>
+    </li>
 
   </ul>
-<div class="mt-auto pt-4">
-  <hr class="border-secondary">
-<div class="text-center mt-3">
-  <button (click)="CerrarSesion()"
-          class="btn btn-sm rounded-pill text-white w-100"
-          style="border: 1.5px solid white; background-color: transparent;">
-    <i class="bi bi-box-arrow-right me-2"></i>
-    Cerrar sesión
-  </button>
-</div>
+  <div class="mt-auto pt-4">
+    <hr class="border-secondary">
+    <div class="text-center mt-3">
+      <button (click)="CerrarSesion()" class="btn btn-sm rounded-pill text-white w-100"
+        style="border: 1.5px solid white; background-color: transparent;">
+        <i class="bi bi-box-arrow-right me-2"></i>
+        Cerrar sesión
+      </button>
+    </div>
 
 
 
-  <p class="text-center text-white small mt-3 mb-0">© 2025 Prosystem</p>
-</div>
+    <p class="text-center text-white small mt-3 mb-0">© 2025 Prosystem</p>
+  </div>
 
 </nav>
