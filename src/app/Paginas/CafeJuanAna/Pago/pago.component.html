@@ -162,7 +162,8 @@
           <tbody>
             <tr *ngFor="let Dato of Datos" class="border-top table-hover">
               <td class="ps-4 text-muted">{{ Dato.CodigoPago }}</td>
-              <td class="text-dark">{{ Dato.FechaVencimientoPago | date: 'dd/MM/yyyy' }}</td>
+<td class="text-dark">{{ Dato.FechaVencimientoPago }}</td>
+
               <td class="text-end fw-semibold text-dark-emphasis">Q {{ Dato.Monto | number:'1.2-2' }}</td>
 
               <td class="text-center">

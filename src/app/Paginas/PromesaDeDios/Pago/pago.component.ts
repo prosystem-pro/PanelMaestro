@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PagoServicio } from '../../../Servicios/PromesaDeDios/PagoServicio';
+import { PagoServicioPromesaDeDios } from '../../../Servicios/PromesaDeDios/PagoServicio';
 import { HttpClient } from '@angular/common/http';
 import { Entorno } from '../../../Entornos/Entorno';
 import { CommonModule } from '@angular/common';
@@ -30,7 +30,7 @@ export class PagoPromesaDeDiosComponent implements OnInit {
   private Url = `${Entorno.ApiUrlPromesaDeDios}`;
 
   constructor(
-    private pagoServicio: PagoServicio,
+    private pagoServicio: PagoServicioPromesaDeDios,
     private fb: FormBuilder,
     private EmpresaServicio: EmpresaServicio,
     private AlertaServicio: AlertaServicio,

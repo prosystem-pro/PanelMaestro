@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PagoServicio } from '../../../Servicios/RestauranteKaski/PagoServicio';
+import { PagoServicioRestauranteKaski } from '../../../Servicios/RestauranteKaski/PagoServicio';
 import { HttpClient } from '@angular/common/http';
 import { Entorno } from '../../../Entornos/Entorno';
 import { CommonModule } from '@angular/common';
@@ -30,7 +30,7 @@ export class PagoRestauranteKaskiComponent implements OnInit {
   private Url = `${Entorno.ApiUrlRestauranteKaski}`;
 
   constructor(
-    private pagoServicio: PagoServicio,
+    private pagoServicio: PagoServicioRestauranteKaski,
     private fb: FormBuilder,
     private EmpresaServicio: EmpresaServicio,
     private AlertaServicio: AlertaServicio,

@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PagoServicio {
+export class PagoServicioRestauranteKaski{
   private Url = `${Entorno.ApiUrlRestauranteKaski}pago`;
 
   constructor(private http: HttpClient) { }
@@ -27,9 +27,11 @@ export class PagoServicio {
   Editar(Datos: any): Observable<any> {
     return this.http.put(`${this.Url}/editar/${Datos.CodigoPago}`, Datos);
   }
-
   Eliminar(Codigo: number): Observable<any> {
     return this.http.delete(`${this.Url}/eliminar/${Codigo}`);
+  }
+  ObtenerResumenGeneralPagos(anio: number): Observable<any> {
+    return this.http.get(`${Entorno.ApiUrlRestauranteKaski}resumen-general-pagos/${anio}`);
   }
 
 }

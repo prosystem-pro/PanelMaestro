@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PagoServicio } from '../../../Servicios/CafeJuanAna/PagoServicio';
+import { PagoServicioCafeJuanAna } from '../../../Servicios/CafeJuanAna/PagoServicio';
 import { HttpClient } from '@angular/common/http';
 import { Entorno } from '../../../Entornos/Entorno';
 import { CommonModule } from '@angular/common';
@@ -30,7 +30,7 @@ export class PagoCafeJuanAnaComponent implements OnInit {
   private Url = `${Entorno.ApiUrlCafeJuanAna}`;
 
   constructor(
-    private pagoServicio: PagoServicio,
+    private pagoServicio: PagoServicioCafeJuanAna,
     private fb: FormBuilder,
     private EmpresaServicio: EmpresaServicio,
     private AlertaServicio: AlertaServicio,

@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PagoServicio {
+export class PagoServicioPromesaDeDios {
   private Url = `${Entorno.ApiUrlPromesaDeDios}pago`;
 
   constructor(private http: HttpClient) { }
@@ -31,5 +31,7 @@ export class PagoServicio {
   Eliminar(Codigo: number): Observable<any> {
     return this.http.delete(`${this.Url}/eliminar/${Codigo}`);
   }
-
+    ObtenerResumenGeneralPagos(anio: number): Observable<any> {
+    return this.http.get(`${Entorno.ApiUrlPromesaDeDios}resumen-general-pagos/${anio}`);
+  }
 }
