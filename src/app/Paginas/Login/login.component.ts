@@ -49,36 +49,96 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/menu']);
   }
 
-  login() {
-    const usuario = this.NombreUsuario;
-    const clave = this.Clave;
+  // login() {
+  //   const usuario = this.NombreUsuario;
+  //   const clave = this.Clave;
 
-    let ServicioLogin: Observable<any>;
+  //   let ServicioLogin: Observable<any>;
 
-    switch (this.Empresa) {
-      case this.NombreEmpresaPromesaDeDios:
-        ServicioLogin = this.LoginPromesaDeDios.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaCafeJuanAna:
-        ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaDulceTentacion:
-        ServicioLogin = this.LoginDulceTentacion.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaRestauranteKaski:
-        ServicioLogin = this.LoginRestauranteKaski.Login(usuario, clave);
-        break;
-      default:
-        this.Alerta.MostrarAlerta('Empresa no válida');
-        return;
-    }
-    this.Cargando = true;
-    ServicioLogin.subscribe({
-      next: (Respuesta: any) => {
-        this.Cargando = false;
-        if (Respuesta) {
+  //   switch (this.Empresa) {
+  //     case this.NombreEmpresaPromesaDeDios:
+  //       ServicioLogin = this.LoginPromesaDeDios.Login(usuario, clave);
+  //       break;
+  //     case this.NombreEmpresaCafeJuanAna:
+  //       ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
+  //       break;
+  //     case this.NombreEmpresaDulceTentacion:
+  //       ServicioLogin = this.LoginDulceTentacion.Login(usuario, clave);
+  //       break;
+  //     case this.NombreEmpresaRestauranteKaski:
+  //       ServicioLogin = this.LoginRestauranteKaski.Login(usuario, clave);
+  //       break;
+  //     default:
+  //       this.Alerta.MostrarAlerta('Empresa no válida');
+  //       return;
+  //   }
+  //   this.Cargando = true;
+  //   ServicioLogin.subscribe({
+  //     next: (Respuesta: any) => {
+  //       this.Cargando = false;
+  //       if (Respuesta) {
+  //         this.Alerta.MostrarExito('Inicio de sesión exitoso');
+
+  //         const ruta = `${this.Empresa}/inicio`;
+
+  //         switch (this.Empresa) {
+  //           case this.NombreEmpresaPromesaDeDios:
+  //           case this.NombreEmpresaCafeJuanAna:
+  //           case this.NombreEmpresaDulceTentacion:
+  //           case this.NombreEmpresaRestauranteKaski:
+  //             this.router.navigate([ruta]);
+  //             break;
+  //           default:
+  //             this.router.navigate(['/menu']);
+  //             break;
+  //         }
+  //       }
+  //     },
+  //     error: (error) => {
+  //       this.Cargando = false;
+  //       const MensajePlano = typeof error?.error?.error === 'string' ? error.error.error : null;
+
+  //       if (MensajePlano) {
+  //         this.Alerta.MostrarAlerta(MensajePlano, 'Atención');
+  //       } else {
+  //         this.Alerta.MostrarError(error, 'Error al iniciar sesión');
+  //       }
+  //     }
+  //   });
+  // }
+
+login() {
+  const usuario = this.NombreUsuario;
+  const clave = this.Clave;
+
+  let ServicioLogin: Observable<any>;
+
+  switch (this.Empresa) {
+    case this.NombreEmpresaPromesaDeDios:
+      ServicioLogin = this.LoginPromesaDeDios.Login(usuario, clave);
+      break;
+    case this.NombreEmpresaCafeJuanAna:
+      ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
+      break;
+    case this.NombreEmpresaDulceTentacion:
+      ServicioLogin = this.LoginDulceTentacion.Login(usuario, clave);
+      break;
+    case this.NombreEmpresaRestauranteKaski:
+      ServicioLogin = this.LoginRestauranteKaski.Login(usuario, clave);
+      break;
+    default:
+      this.Alerta.MostrarAlerta('Empresa no válida');
+      return;
+  }
+
+  this.Cargando = true;
+  ServicioLogin.subscribe({
+    next: (Respuesta: any) => {
+      this.Cargando = false;
+      if (Respuesta && Respuesta.Token) {
+        const payload = this.DecodificarToken(Respuesta.Token);
+        if (payload && payload.SuperAdmin === 1) {
           this.Alerta.MostrarExito('Inicio de sesión exitoso');
-
           const ruta = `${this.Empresa}/inicio`;
 
           switch (this.Empresa) {
@@ -92,21 +152,39 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/menu']);
               break;
           }
-        }
-      },
-      error: (error) => {
-        this.Cargando = false;
-        const MensajePlano = typeof error?.error?.error === 'string' ? error.error.error : null;
-
-        if (MensajePlano) {
-          this.Alerta.MostrarAlerta(MensajePlano, 'Atención');
         } else {
-          this.Alerta.MostrarError(error, 'Error al iniciar sesión');
+          this.EliminarToken();
+          this.Alerta.MostrarAlerta('Acceso restringido para tu usuario', 'Atención');
         }
+      } else {
+        this.Alerta.MostrarAlerta('Respuesta inválida del servidor', 'Error');
       }
-    });
-  }
+    },
+    error: (error) => {
+      this.Cargando = false;
+      const MensajePlano = typeof error?.error?.error === 'string' ? error.error.error : null;
+      if (MensajePlano) {
+        this.Alerta.MostrarAlerta(MensajePlano, 'Atención');
+      } else {
+        this.Alerta.MostrarError(error, 'Error al iniciar sesión');
+      }
+    }
+  });
+}
 
+private DecodificarToken(token: string): any {
+  try {
+    const payload = token.split('.')[1];
+    const decoded = atob(payload);
+    return JSON.parse(decoded);
+  } catch {
+    return null;
+  }
+}
+
+EliminarToken(): void {
+  localStorage.removeItem('authToken');
+}
 
 
 }

@@ -1,59 +1,99 @@
-<div class="bg-body-secondary vh-100 d-flex align-items-center justify-content-center px-3">
+<div class="vh-100 d-flex align-items-center justify-content-center px-3">
   <!-- Modal de carga -->
   <div *ngIf="Cargando" class="modal-backdrop fade show" style="z-index: 1050;"></div>
   <div *ngIf="Cargando"
-    class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-    style="z-index: 1060; background-color: rgba(0,0,0,0.5);">
-    <div class="bg-white rounded-4 shadow p-4 text-center" style="width: 300px;">
+       class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+       style="z-index: 1060; background-color: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-4 shadow-lg p-4 text-center" style="width: 300px;">
       <div class="spinner-border text-primary mb-3" role="status"></div>
       <div class="fw-semibold text-dark">Ingresando a la empresa...</div>
     </div>
   </div>
 
-  <div class="card p-4 border-0 shadow rounded-4" style="max-width: 420px; width: 100%; background-color: #ffffff;">
+  <!-- Card principal -->
+  <div class="card rounded-4 shadow-lg overflow-hidden w-100" style="max-width: 900px; height: 500px;">
+    <div class="row g-0 h-100">
 
-    <!-- Botón regresar -->
-    <button class="btn btn-sm btn-outline-secondary position-absolute top-0 start-0 m-2 d-flex align-items-center gap-1"
-      (click)="Regresar()">
-      <i class="bi bi-arrow-left"></i> Regresar
-    </button>
+      <!-- 🔵 BLOQUE 1: Imagen -->
+      <div class="col-md-6 bg-white p-0 d-none d-md-flex">
+        <div class="w-100 h-100 d-flex">
+          <img src="Login1.gif"
+               alt="Imagen"
+               class="w-100 h-100"
+               style="object-fit: cover; display: block;">
+        </div>
+      </div>
 
-    <!-- Encabezado -->
-    <div class="text-center mb-4">
-      <i class="bi bi-person-circle text-primary fs-1"></i>
-      <h3 class="fw-bold text-dark mt-2">Login - {{ Empresa }}</h3>
-      <small class="text-muted fst-italic">Bienvenido, ingresa tus datos para continuar</small>
+      <!-- 🟠 BLOQUE 2: Contenido del login -->
+      <div class="col-md-6 bg-light d-flex flex-column justify-content-center p-4 h-100">
+        <div class="w-100" style="max-width: 400px; margin: 0 auto;">
+          <!-- Botón regresar -->
+          <div class="mb-3">
+            <button class="btn btn-outline-secondary btn-sm rounded-pill d-flex align-items-center gap-2"
+                    (click)="Regresar()">
+              <i class="bi bi-arrow-left"></i> Regresar
+            </button>
+          </div>
+
+          <!-- Encabezado -->
+          <div class="text-center mb-4">
+            <i class="bi bi-person-circle text-primary fs-1"></i>
+            <h4 class="fw-bold text-dark mt-2 mb-1">Login - {{ Empresa }}</h4>
+            <small class="text-muted fst-italic">Bienvenido, ingresa tus datos</small>
+          </div>
+
+          <!-- Formulario -->
+          <form (ngSubmit)="login()" class="needs-validation" novalidate>
+
+            <!-- Usuario -->
+            <div class="mb-3">
+              <label for="usuario" class="form-label fw-semibold text-dark">Usuario</label>
+              <div class="input-group rounded shadow-sm overflow-hidden">
+                <span class="input-group-text bg-white border-0">
+                  <i class="bi bi-person text-primary"></i>
+                </span>
+                <input type="text"
+                       id="usuario"
+                       name="usuario"
+                       required
+                       autofocus
+                       placeholder="ejemplo@correo.com"
+                       class="form-control border-0"
+                       [(ngModel)]="NombreUsuario">
+              </div>
+            </div>
+
+            <!-- Clave -->
+            <div class="mb-4">
+              <label for="clave" class="form-label fw-semibold text-dark">Clave</label>
+              <div class="input-group rounded shadow-sm overflow-hidden">
+                <span class="input-group-text bg-white border-0">
+                  <i class="bi bi-lock text-primary"></i>
+                </span>
+                <input type="password"
+                       id="clave"
+                       name="clave"
+                       required
+                       placeholder="••••••••"
+                       class="form-control border-0"
+                       [(ngModel)]="Clave">
+              </div>
+            </div>
+
+            <!-- Botón de login -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary rounded-pill shadow-sm fw-semibold py-2">
+                <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar Sesión
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <!-- 🟠 Fin BLOQUE 2 -->
+
     </div>
-
-    <!-- Formulario -->
-    <form (ngSubmit)="login()" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="usuario" class="form-label fw-semibold text-dark">Usuario</label>
-        <div class="input-group rounded-pill overflow-hidden border border-primary-subtle shadow-sm">
-          <span class="input-group-text bg-white border-0">
-            <i class="bi bi-person text-primary"></i>
-          </span>
-          <input type="text" id="usuario" class="form-control border-0 rounded-end-pill" [(ngModel)]="NombreUsuario"
-            name="usuario" required placeholder="ejemplo@correo.com" autofocus>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <label for="clave" class="form-label fw-semibold text-dark">Clave</label>
-        <div class="input-group rounded-pill overflow-hidden border border-primary-subtle shadow-sm">
-          <span class="input-group-text bg-white border-0">
-            <i class="bi bi-lock text-primary"></i>
-          </span>
-          <input type="password" id="clave" class="form-control border-0 rounded-end-pill" [(ngModel)]="Clave"
-            name="clave" required placeholder="••••••••">
-        </div>
-      </div>
-
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary rounded-pill shadow-sm">
-          <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
-        </button>
-      </div>
-    </form>
   </div>
 </div>
