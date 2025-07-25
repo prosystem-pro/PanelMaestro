@@ -2,8 +2,8 @@ export const Entorno = {
    Produccion: true,
    //PROMESA DE DIOS
    NombreEmpresaPromesaDeDios: 'Promesa_De_Dios',
-   ApiUrlPromesaDeDios: 'https://carritoweb-promesadedios-api.onrender.com/api/',
-   ApiUrlGenerarModeloPromesaDeDios: 'https://carritoweb-promesadedios-api.onrender.com/api/generar-modelos',
+   ApiUrlPromesaDeDios: 'https://carritoweb-promesadedios-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloPromesaDeDios: 'https://carritoweb-promesadedios-api-production.up.railway.app/api/generar-modelos',
    LogoPromesaDeDios: 'LogoPromesaDeDios.ico',
    //CAFE JUAN ANA
    NombreEmpresaCafeJuanAna: 'Cafe_Juan_Ana',
@@ -12,12 +12,12 @@ export const Entorno = {
    LogoCafeJuanAna: 'LogoCafeJuanAna.ico',
    //DULCE TENTACION
    NombreEmpresaDulceTentacion: 'Dulce_Tentacion',
-   ApiUrlDulceTentacion: 'https://carritoweb-dulcetentacion-api.onrender.com/api/',
-   ApiUrlGenerarModeloDulceTentacion: 'https://carritoweb-dulcetentacion-api.onrender.com/api/generar-modelos',
+   ApiUrlDulceTentacion: 'https://carritoweb-dulcetentacion-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloDulceTentacion: 'https://carritoweb-dulcetentacion-api-production.up.railway.app/api/generar-modelos',
    LogoDulceTentacion: 'LogoDulceTentacion.ico',
    //RESTAURANTE KASKI
    NombreEmpresaRestauranteKaski: 'Restaurante_Kaski',
-   ApiUrlRestauranteKaski: 'https://carritoweb-restaurantekaski-api.onrender.com/api/',
-   ApiUrlGenerarModeloRestauranteKaski: 'https://carritoweb-restaurantekaski-api.onrender.com/api/generar-modelos',
+   ApiUrlRestauranteKaski: 'https://carritoweb-restaurantekaski-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloRestauranteKaski: 'https://carritoweb-restaurantekaski-api-production.up.railway.app/api/generar-modelos',
    LogoRestauranteKaski: 'LogoRestauranteKaski.ico'
 };
