@@ -1,0 +1,30 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+        <app-sidebar-Vendedor></app-sidebar-Vendedor>
+
+  <!-- Contenedor principal con margen izquierdo para dejar espacio al sidebar -->
+  <div class="flex-grow-1 position-relative MarrgenIzquierdo ">
+    
+    <!-- Etiqueta con nombre de la empresa arriba a la izquierda -->
+    <div class="position-absolute top-0 start-0 mt-3 ms-3" style="z-index: 1100;">
+      <span class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-warning bg-opacity-25 text-warning-emphasis fw-bold shadow-sm">
+        <img [src]="LogoEmpresa" alt="Logo" class="rounded-circle bg-dark" style="width: 26px; height: 26px;">
+        {{ NombreEmpresa }}
+      </span>
+    </div>
+
+    <!-- Contenido centrado vertical y horizontal -->
+    <div class="d-flex justify-content-center align-items-center h-100 w-100 p-4">
+      <div class="p-5 rounded-4 shadow-lg text-center bg-white" style="max-width: 600px;">
+        <div class="d-inline-block rounded-circle mb-4 bg-dark bg-opacity-100 shadow">
+          <img [src]="LogoEmpresa" alt="Logo {{ NombreEmpresa }}" width="120" height="120" />
+        </div>
+        <h1 class="fw-bold text-dark mb-3">
+          Bienvenidos a <span class="text-primary">{{ NombreEmpresa }}</span>
+        </h1>
+        <p class="text-secondary fs-5 fst-italic">Panel Maestro - Gestión centralizada con propósito</p>
+      </div>
+    </div>
+
+  </div>
+</div>

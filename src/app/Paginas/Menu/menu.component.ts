@@ -6,6 +6,7 @@ import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServici
 import { PagoServicioDulceTentacion } from '../../Servicios/DulceTentacion/PagoServicio';
 import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioRestauranteKaski } from '../../Servicios/RestauranteKaski/PagoServicio';
+import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 
@@ -41,11 +42,18 @@ export class MenuComponent {
   AnioSeleccionadoRestauranteKaski = new Date().getFullYear();
   PaginaRestauranteKaski: number = 0;
 
+  NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
+  LogoEmpresaVendedor: string = Entorno.LogoVendedor;
+  ResumenPagosVendedor: any = null;
+  AnioSeleccionadoVendedor = new Date().getFullYear();
+  PaginaVendedor: number = 0;
+
   // Estados de visores individuales
   VisorPromesaDeDios = false;
   VisorCafeJuanAna = false;
   VisorDulceTentacion = false;
   VisorRestauranteKaski = false;
+  VisorVendedor = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -55,12 +63,14 @@ export class MenuComponent {
     private PagoServicioDulceTentacion: PagoServicioDulceTentacion,
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioRestauranteKaski: PagoServicioRestauranteKaski,
+    private PagoServicioVendedor: PagoServicioVendedor,
   ) { }
   ngOnInit() {
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosDulceTentacion(this.AnioSeleccionadoDulceTentacion);
     this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosRestauranteKaski(this.AnioSeleccionadoRestauranteKaski);
+    this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
   }
 
 
@@ -79,6 +89,7 @@ export class MenuComponent {
     this.VisorPromesaDeDios =
       this.VisorCafeJuanAna =
       this.VisorDulceTentacion =
+      this.VisorVendedor =
       this.VisorRestauranteKaski = this.VisorMaestro;
   }
 
@@ -120,6 +131,17 @@ export class MenuComponent {
       next: (data) => {
         this.ResumenPagosRestauranteKaski = data;
         console.log('Resumen de pagos:', this.ResumenPagosRestauranteKaski);
+      },
+      error: (error) => {
+        console.error('Error al cargar resumen de pagos', error);
+      }
+    });
+  }
+  CargarResumenPagosVendedor(anio: number) {
+    this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (data) => {
+        this.ResumenPagosVendedor = data;
+        console.log('Resumen de pagos:', this.ResumenPagosVendedor);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);

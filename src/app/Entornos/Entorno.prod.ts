@@ -19,5 +19,10 @@ export const Entorno = {
    NombreEmpresaRestauranteKaski: 'Restaurante_Kaski',
    ApiUrlRestauranteKaski: 'https://carritoweb-restaurantekaski-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloRestauranteKaski: 'https://carritoweb-restaurantekaski-api-production.up.railway.app/api/generar-modelos',
-   LogoRestauranteKaski: 'LogoRestauranteKaski.ico'
+   LogoRestauranteKaski: 'LogoRestauranteKaski.ico',
+   //VENDEDOR
+   NombreEmpresaVendedor: 'Vendedor',
+   ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
+   LogoVendedor: 'LogoVendedor.ico'
 };
