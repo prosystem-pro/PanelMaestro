@@ -97,7 +97,6 @@ export class MenuComponent {
     this.PagoServicioCafeJuanAna.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (data) => {
         this.ResumenPagosCafeJuanAna = data;
-        console.log('Resumen de pagos:', this.ResumenPagosCafeJuanAna);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);
@@ -108,7 +107,6 @@ export class MenuComponent {
     this.PagoServicioDulceTentacion.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (data) => {
         this.ResumenPagosDulceTentacion = data;
-        console.log('Resumen de pagos:', this.ResumenPagosDulceTentacion);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);
@@ -119,7 +117,6 @@ export class MenuComponent {
     this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (data) => {
         this.ResumenPagosPromesaDeDios = data;
-        console.log('Resumen de pagos promesa de dios:', this.ResumenPagosPromesaDeDios);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);
@@ -130,7 +127,6 @@ export class MenuComponent {
     this.PagoServicioRestauranteKaski.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (data) => {
         this.ResumenPagosRestauranteKaski = data;
-        console.log('Resumen de pagos:', this.ResumenPagosRestauranteKaski);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);
@@ -141,7 +137,6 @@ export class MenuComponent {
     this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (data) => {
         this.ResumenPagosVendedor = data;
-        console.log('Resumen de pagos:', this.ResumenPagosVendedor);
       },
       error: (error) => {
         console.error('Error al cargar resumen de pagos', error);
