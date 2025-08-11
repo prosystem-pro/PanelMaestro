@@ -34,7 +34,7 @@ export class EmpresaListadoPromesaDeDiosComponent {
   Listado() {
     this.Servicio.Listado().subscribe({
       next: (data: any) => {
-        this.Datos = data;
+        this.Datos = data.data;
       },
       error: (err) => {
         console.error(err);
