@@ -58,8 +58,8 @@ export class PagoPromesaDeDiosComponent implements OnInit {
 
   CargarPagos(): void {
     this.pagoServicio.Listado(this.AnioSeleccionado).subscribe({
-      next: (res) => {
-        this.Datos = res;
+      next: (Respuesta) => {
+        this.Datos = Respuesta.data;
       },
       error: (err) => {
         console.error('Error al cargar pagos', err);

@@ -25,12 +25,12 @@ export class PermisoCrearPromesaDeDiosComponent {
 
   ObtenerPermisosPendientes() {
     this.Servicio.ObtenerResumenPermisos().subscribe({
-      next: (respuesta) => {
-        const permisosDesdeRutas: string[] = respuesta.permisos;
+      next: (Respuesta) => {
+        const permisosDesdeRutas: string[] = Respuesta.data.permisos;
 
         this.Servicio.Listado().subscribe({
-          next: (data: any) => {
-            const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
+          next: (Respuesta: any) => {
+            const permisosCreados: string[] = Respuesta.data.map((p: any) => p.NombrePermiso);
             this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
           },
           error: (err) => console.error('Error al obtener los registros creados:', err)

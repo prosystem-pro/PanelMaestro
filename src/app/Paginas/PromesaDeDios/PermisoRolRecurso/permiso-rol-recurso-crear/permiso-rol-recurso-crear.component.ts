@@ -52,8 +52,8 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
 
   ObtenerRolesFiltrados() {
     this.Servicio.FiltrarRoles().subscribe({
-      next: (respuesta) => {
-        this.Roles = respuesta;
+      next: (Respuesta) => {
+        this.Roles = Respuesta.data;
       },
       error: () => {
         this.alerta.MostrarError('Error al obtener registros filtrados');
@@ -71,9 +71,9 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
     if (!this.Datos.CodigoRol) return;
 
     this.Servicio.FiltrarRecursos(this.Datos.CodigoRol).subscribe({
-      next: (respuesta) => {
-        this.RecursosNoCreados = respuesta.recursosNoCreados;
-        this.RecursosConPermisosPendientes = respuesta.recursosConPermisosPendientes;
+      next: (Respuesta) => {
+        this.RecursosNoCreados = Respuesta.data.recursosNoCreados;
+        this.RecursosConPermisosPendientes = Respuesta.data.recursosConPermisosPendientes;
       },
       error: () => {
         this.alerta.MostrarError('Error al filtrar registros');
@@ -88,8 +88,9 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
 
       if (this.Datos.CodigoRol) {
         this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-          next: (permisos) => {
-            this.PermisosPorRecurso[codigo] = permisos;
+          next: (Respuesta) => {
+            console.log('Filtrar permisos', Respuesta.data)
+            this.PermisosPorRecurso[codigo] = Respuesta.data;
             this.PermisosPorRecursoSeleccionados[codigo] = [];
           },
           error: () => this.alerta.MostrarError('Error al filtrar registros')
@@ -132,8 +133,9 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
           // Cargar permisos si no están ya cargados
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-              next: (permisos) => {
-                this.PermisosPorRecurso[codigo] = permisos;
+              next: (Respuesta) => {
+                console.log('FiltroPermisos dos',Respuesta)
+                this.PermisosPorRecurso[codigo] = Respuesta;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },
               error: () => this.alerta.MostrarError('Error al cargar registros')
@@ -176,8 +178,9 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
           // Cargar permisos si no están cargados y hay rol seleccionado
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-              next: (permisos) => {
-                this.PermisosPorRecurso[codigo] = permisos;
+              next: (Respuesta) => {
+                console.log('FiltrarPermisos 3', Respuesta.data)
+                this.PermisosPorRecurso[codigo] = Respuesta.data;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },
               error: () => this.alerta.MostrarError('Error al cargar registros')

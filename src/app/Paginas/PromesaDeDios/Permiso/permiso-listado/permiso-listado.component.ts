@@ -35,13 +35,13 @@ export class PermisoListadoPromesaDeDiosComponent {
 
   Listado() {
     this.Servicio.ObtenerResumenPermisos().subscribe({
-      next: (respuesta) => {
-        const permisosDesdeRutas: string[] = respuesta.permisos;
+      next: (Respuesta) => {
+        const permisosDesdeRutas: string[] = Respuesta.data.permisos;
         this.Servicio.Listado().subscribe({
-          next: (data: any) => {
-            this.Datos = data;
+          next: (Respuesta: any) => {
+            this.Datos = Respuesta.data;
 
-            const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
+            const permisosCreados: string[] = Respuesta.data.map((p: any) => p.NombrePermiso);
             this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
 
             this.PermisosExtras = permisosCreados.filter(p => !permisosDesdeRutas.includes(p));

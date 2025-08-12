@@ -83,8 +83,8 @@ export class LoginComponent implements OnInit {
     ServicioLogin.subscribe({
       next: (Respuesta: any) => {
         this.Cargando = false;
-        if (Respuesta && Respuesta.Token) {
-          const payload = this.DecodificarToken(Respuesta.Token);
+        if (Respuesta && Respuesta.data.Token) {
+          const payload = this.DecodificarToken(Respuesta.data.Token);
           if (payload && payload.SuperAdmin === 1) {
             this.Alerta.MostrarExito('Inicio de sesión exitoso');
             const ruta = `${this.Empresa}/inicio`;

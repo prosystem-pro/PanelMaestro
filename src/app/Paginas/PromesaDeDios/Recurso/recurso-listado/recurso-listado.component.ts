@@ -35,8 +35,8 @@ export class RecursoListadoPromesaDeDiosComponent {
 
   Listado() {
     this.Servicio.Listado().subscribe({
-      next: (data: any) => {
-        this.Datos = data;
+      next: (Respuesta: any) => {
+        this.Datos = Respuesta.data;
         this.ObtenerTablasPendientes(); // ← Llamada segura después de llenar Datos
       },
       error: (err) => {
