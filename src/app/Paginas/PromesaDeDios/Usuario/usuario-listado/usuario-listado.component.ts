@@ -65,7 +65,6 @@ export class UsuarioListadoPromesaDeDiosComponent {
     this.Spinner = true;
     this.Servicio.Listado().subscribe({
       next: async (Respuesta: any) => {
-        console.log('LISTADO DE USUARIOS',Respuesta)
         this.DatosA = Respuesta.data;
         const datosConRol = await Promise.all(Respuesta.data.map(async (usuario: any) => {
           try {
