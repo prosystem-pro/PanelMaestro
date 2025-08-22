@@ -65,13 +65,14 @@ export class UsuarioListadoPromesaDeDiosComponent {
     this.Spinner = true;
     this.Servicio.Listado().subscribe({
       next: async (Respuesta: any) => {
+        console.log('LISTADO DE USUARIOS',Respuesta)
         this.DatosA = Respuesta.data;
         const datosConRol = await Promise.all(Respuesta.data.map(async (usuario: any) => {
           try {
             const rol = await this.RolServicio.ObtenerPorCodigo(String(usuario.CodigoRol)).toPromise();
             return {
               ...usuario,
-              NombreRol: rol?.NombreRol || 'Sin Rol'
+              NombreRol: rol?.data.NombreRol || 'Sin Rol'
             };
           } catch (error) {
             console.error('Error al obtener rol para el usuario:', usuario.CodigoUsuario, error);
