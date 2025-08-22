@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
 import { RecursoCrearPromesaDeDiosComponent } from '../recurso-crear/recurso-crear.component';
 import { Recurso } from '../.././../../Modelos/ModeloPromesaDeDios/Recurso';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-recurso-listado-PromesaDeDios',
-  imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, RecursoCrearPromesaDeDiosComponent],
+  imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, RecursoCrearPromesaDeDiosComponent, SpinnerGlobalComponent],
   templateUrl: './recurso-listado.component.html',
   styleUrl: './recurso-listado.component.css'
 })
 export class RecursoListadoPromesaDeDiosComponent {
+  Spinner: boolean = false;
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
   LogoEmpresa = Entorno.LogoPromesaDeDios;
   Datos: Recurso[] = [];
@@ -34,29 +36,53 @@ export class RecursoListadoPromesaDeDiosComponent {
   }
 
   Listado() {
+    this.Spinner = true;
     this.Servicio.Listado().subscribe({
       next: (Respuesta: any) => {
         this.Datos = Respuesta.data;
-        this.ObtenerTablasPendientes(); // ← Llamada segura después de llenar Datos
+        this.ObtenerTablasPendientes();
+        this.Spinner = false;
       },
-      error: (err) => {
-        console.error(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
   ObtenerTablasPendientes() {
+    this.Spinner = true;
     this.Servicio.ObtenerPermisosDisponibles().subscribe({
-      next: (tablasDesdeRutas: any[]) => {
-        const tablasDefinidas = tablasDesdeRutas.map(t => t.Tabla);
+      next: (Respuesta: any[]) => {
+        const tablasDefinidas = Respuesta.map(t => t.Tabla);
         const recursosCreados = this.Datos.map(r => r.NombreRecurso);
 
         this.TablasPendientes = tablasDefinidas.filter(nombre => !recursosCreados.includes(nombre));
 
         this.TablasExtras = recursosCreados
           .filter((nombre): nombre is string => !!nombre && !tablasDefinidas.includes(nombre));
+        this.Spinner = false;
       },
-      error: (err) => {
-        console.error('Error cargando permisos disponibles:', err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -95,14 +121,28 @@ export class RecursoListadoPromesaDeDiosComponent {
   }
 
   Editar(Datos: Recurso) {
+    this.Spinner = true;
     this.Servicio.Editar(Datos).subscribe({
-      next: () => {
+      next: (Respuesta) => {
         this.CodigoEditando = null;
         this.Listado();
-        this.Alerta.MostrarExito('Registro actualizado correctamente.');
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
+        this.Spinner = false;
       },
-      error: (err) => {
-        this.Alerta.MostrarError(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -112,13 +152,27 @@ export class RecursoListadoPromesaDeDiosComponent {
       'Esta acción eliminará el registro.'
     ).then(confirmado => {
       if (confirmado) {
+        this.Spinner = true;
         this.Servicio.Eliminar(Codigo).subscribe({
-          next: () => {
+          next: (Respuesta) => {
             this.Listado();
-            this.Alerta.MostrarExito('Registro eliminado correctamente.');
+            this.Spinner = false;
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
           },
-          error: (err) => {
-            this.Alerta.MostrarError(err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       }

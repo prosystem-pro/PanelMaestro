@@ -32,18 +32,6 @@
   <!-- Contenido principal -->
   <div class="MedidaSidebar" style="overflow-y: auto; padding: 3rem 2rem 2rem 2rem; width: 100%;">
 
-    <!-- Cargando -->
-    <div *ngIf="Cargando"
-      class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-white bg-opacity-75"
-      style="z-index: 1050">
-      <div class="text-center">
-        <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
-          <span class="visually-hidden">Cargando...</span>
-        </div>
-        <div class="fw-semibold text-muted fs-5">Cargando comprobante...</div>
-      </div>
-    </div>
-
     <!-- Formulario de pago -->
     <div class="card border-0 shadow rounded-4 bg-white mt-3">
       <!-- ENCABEZADO -->
@@ -212,7 +200,7 @@
         </table>
       </div>
     </div>
-
-
   </div>
 </div>
+
+<app-spinner-global [visible]="Spinner"></app-spinner-global>

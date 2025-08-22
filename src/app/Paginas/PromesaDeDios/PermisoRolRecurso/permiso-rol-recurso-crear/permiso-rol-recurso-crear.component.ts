@@ -89,7 +89,6 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
       if (this.Datos.CodigoRol) {
         this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
           next: (Respuesta) => {
-            console.log('Filtrar permisos', Respuesta.data)
             this.PermisosPorRecurso[codigo] = Respuesta.data;
             this.PermisosPorRecursoSeleccionados[codigo] = [];
           },
@@ -134,7 +133,6 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
               next: (Respuesta) => {
-                console.log('FiltroPermisos dos',Respuesta)
                 this.PermisosPorRecurso[codigo] = Respuesta;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },
@@ -179,7 +177,6 @@ export class PermisoRolRecursoCrearPromesaDeDiosComponent {
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
               next: (Respuesta) => {
-                console.log('FiltrarPermisos 3', Respuesta.data)
                 this.PermisosPorRecurso[codigo] = Respuesta.data;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },

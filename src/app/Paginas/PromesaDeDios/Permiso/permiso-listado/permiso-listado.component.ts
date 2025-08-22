@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
 import { Permiso } from '../.././../../Modelos/ModeloPromesaDeDios/Permiso';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { PermisoCrearPromesaDeDiosComponent } from '../permiso-crear/permiso-crear.component';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-permiso-listado-PromesaDeDios',
-  imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, PermisoCrearPromesaDeDiosComponent],
+  imports: [FormsModule, CommonModule, SidebarPromesaDeDiosComponent, PermisoCrearPromesaDeDiosComponent, SpinnerGlobalComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'
 })
 export class PermisoListadoPromesaDeDiosComponent {
+  Spinner: boolean = false;
   NombreEmpresa = Entorno.NombreEmpresaPromesaDeDios;
   LogoEmpresa = Entorno.LogoPromesaDeDios;
   Datos: Permiso[] = [];
@@ -34,6 +36,7 @@ export class PermisoListadoPromesaDeDiosComponent {
   }
 
   Listado() {
+    this.Spinner = true;
     this.Servicio.ObtenerResumenPermisos().subscribe({
       next: (Respuesta) => {
         const permisosDesdeRutas: string[] = Respuesta.data.permisos;
@@ -45,14 +48,35 @@ export class PermisoListadoPromesaDeDiosComponent {
             this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
 
             this.PermisosExtras = permisosCreados.filter(p => !permisosDesdeRutas.includes(p));
+            this.Spinner = false;
           },
-          error: (err) => {
-            console.error('Error al obtener registros creados:', err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       },
-      error: (err) => {
-        console.error('Error al obtener registros desde rutas:', err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -91,14 +115,28 @@ export class PermisoListadoPromesaDeDiosComponent {
   }
 
   Editar(Datos: Permiso) {
+    this.Spinner = true;
     this.Servicio.Editar(Datos).subscribe({
-      next: () => {
+      next: (Respuesta) => {
         this.CodigoEditando = null;
         this.Listado();
-        this.Alerta.MostrarExito('Registro actualizado correctamente.');
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
+        this.Spinner = false;
       },
-      error: (err) => {
-        this.Alerta.MostrarError(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -108,13 +146,27 @@ export class PermisoListadoPromesaDeDiosComponent {
       'Esta acción eliminará el registro.'
     ).then(confirmado => {
       if (confirmado) {
+        this.Spinner = true;
         this.Servicio.Eliminar(Codigo).subscribe({
-          next: () => {
+          next: (Respuesta) => {
             this.Listado();
-            this.Alerta.MostrarExito('Registro eliminado correctamente.');
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
+            this.Spinner = false;
           },
-          error: (err) => {
-            this.Alerta.MostrarError(err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       }

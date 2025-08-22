@@ -4,6 +4,7 @@ import { Entorno } from '../app/Entornos/Entorno';
 
 import { MenuComponent } from '../app/Paginas/Menu/menu.component';
 import { LoginComponent } from '../app/Paginas/Login/login.component';
+import { SpinnerGlobalComponent } from '../app/Componentes/spinner-global/spinner-global.component';
 
 //PROMESA DE DIOS
 import { InicioPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Inicio/inicio.component';
@@ -102,6 +103,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'menu', pathMatch: 'full' },
   { path: 'menu', component: MenuComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'spinner-global', component: SpinnerGlobalComponent},
 
   //PROTEGIDAS PROMESA DE DIOS
   { path: `${NombreEmpresaPromesaDeDios}/inicio`, component: InicioPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },

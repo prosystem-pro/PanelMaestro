@@ -8,20 +8,22 @@ import { CommonModule } from '@angular/common';
 import { AlertaServicio } from '../../../Servicios/Alerta-Servicio';
 import { EmpresaServicio } from '../../../Servicios/PromesaDeDios/EmpresaServicio';
 import { SidebarPromesaDeDiosComponent } from '../Sidebar/sidebar.component';
+import { SpinnerGlobalComponent } from '../../../Componentes/spinner-global/spinner-global.component';
 
 @Component({
   selector: 'app-pago-PromesaDeDios',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule,SidebarPromesaDeDiosComponent],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, SidebarPromesaDeDiosComponent, SpinnerGlobalComponent],
   templateUrl: './pago.component.html',
   styleUrl: './pago.component.css'
 })
 export class PagoPromesaDeDiosComponent implements OnInit {
+
+  Spinner: boolean = false;
   LogoEmpresa = Entorno.LogoPromesaDeDios;
   Empresa = Entorno.NombreEmpresaPromesaDeDios;
   @ViewChild('InputComprobante') InputComprobante!: ElementRef<HTMLInputElement>;
   ArchivoComprobanteTemporal: File | null = null;
   CodigoPagoTemporal: number | null = null;
-  Cargando: boolean = false;
   AnioSeleccionado: number = new Date().getFullYear();
   Datos: any[] = [];
   Formulario!: FormGroup;
@@ -33,7 +35,7 @@ export class PagoPromesaDeDiosComponent implements OnInit {
     private pagoServicio: PagoServicioPromesaDeDios,
     private fb: FormBuilder,
     private EmpresaServicio: EmpresaServicio,
-    private AlertaServicio: AlertaServicio,
+    private Alerta: AlertaServicio,
     private http: HttpClient
   ) { }
 
@@ -57,12 +59,24 @@ export class PagoPromesaDeDiosComponent implements OnInit {
   }
 
   CargarPagos(): void {
+    this.Spinner = true;
     this.pagoServicio.Listado(this.AnioSeleccionado).subscribe({
       next: (Respuesta) => {
         this.Datos = Respuesta.data;
+        this.Spinner = false;
       },
-      error: (err) => {
-        console.error('Error al cargar pagos', err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       },
     });
   }
@@ -96,11 +110,43 @@ export class PagoPromesaDeDiosComponent implements OnInit {
     this.Editando = true;
   }
 
-  Eliminar(codigo: number): void {
-    if (confirm('¿Seguro que deseas eliminar este pago?')) {
-      this.pagoServicio.Eliminar(codigo).subscribe(() => this.CargarPagos());
-    }
+  Eliminar(codigo: number) {
+    this.Alerta.Confirmacion(
+      '¿Seguro que deseas eliminar este pago?',
+      'Esta acción eliminará el registro.'
+    ).then(confirmado => {
+      if (confirmado) {
+        this.Spinner = true;
+        this.pagoServicio.Eliminar(codigo).subscribe({
+          next: (Respuesta) => {
+            this.CargarPagos();
+
+            this.Spinner = false;
+
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
+          },
+          error: (error) => {
+            this.Spinner = false;
+
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
+          }
+        });
+      }
+    });
   }
+
 
   Cancelar(): void {
     this.Editando = false;
@@ -116,15 +162,15 @@ export class PagoPromesaDeDiosComponent implements OnInit {
   }
 
   Guardar(): void {
+    this.Spinner = true;
     if (this.ArchivoComprobanteTemporal) {
-      this.Cargando = true;
       const NombreEmpresa = (this.NombreEmpresa ?? 'Promesa_De_Dios').replace(/_/g, '');
 
       this.EmpresaServicio.ConseguirPrimeraEmpresa().subscribe({
         next: (empresa) => {
           if (!empresa) {
-            this.Cargando = false;
-            this.AlertaServicio.MostrarAlerta('No se encontró ninguna empresa');
+            this.Alerta.MostrarAlerta('No se encontró ninguna empresa');
+            this.Spinner = false;
             return;
           }
 
@@ -141,12 +187,15 @@ export class PagoPromesaDeDiosComponent implements OnInit {
             formData.append('CodigoPropio', CodigoPago.toString());
             formData.append('CampoPropio', 'CodigoPago');
           }
+          const entries: any = {};
+          formData.forEach((value, key) => {
+            entries[key] = value;
+          });
 
-          this.http.post(`${this.Url}subir-imagen`, formData).subscribe({
-            next: (res: any) => {
-              this.Cargando = false;
-              const CodigoGenerado = res?.Entidad?.CodigoPago;
-              const Url = res?.Entidad?.UrlComprobante;
+          this.pagoServicio.SubirImagen(formData).subscribe({
+            next: (Respuesta: any) => {
+              const CodigoGenerado = Respuesta?.data.Entidad?.CodigoPago;
+              const Url = Respuesta?.data.Entidad?.UrlComprobante;
 
               if (Url) {
                 this.Formulario.patchValue({ UrlComprobante: Url });
@@ -158,20 +207,41 @@ export class PagoPromesaDeDiosComponent implements OnInit {
                 this.ArchivoComprobanteTemporal = null;
                 this.GuardarPago();
                 this.InputComprobante.nativeElement.value = '';
-                this.AlertaServicio.MostrarExito('Imagen subida con éxito');
+                if (Respuesta?.tipo === 'Éxito') {
+                  this.Alerta.MostrarExito(Respuesta.message);
+                }
+                this.Spinner = false;
               } else {
-                this.AlertaServicio.MostrarAlerta('No se recibió URL del comprobante');
+                this.Alerta.MostrarAlerta('No se recibió URL del comprobante');
               }
             },
-            error: (err) => {
-              this.Cargando = false;
-              this.AlertaServicio.MostrarError(err, 'Error al subir imagen');
+            error: (error) => {
+              this.Spinner = false;
+              const tipo = error?.error?.tipo;
+              const mensaje =
+                error?.error?.error?.message ||
+                error?.error?.message ||
+                'Ocurrió un error inesperado.';
+              if (tipo === 'Alerta') {
+                this.Alerta.MostrarAlerta(mensaje);
+              } else {
+                this.Alerta.MostrarError({ error: { message: mensaje } });
+              }
             },
           });
         },
-        error: (err) => {
-          this.Cargando = false;
-          this.AlertaServicio.MostrarError(err, 'Error al obtener empresa');
+        error: (error) => {
+          this.Spinner = false;
+          const tipo = error?.error?.tipo;
+          const mensaje =
+            error?.error?.error?.message ||
+            error?.error?.message ||
+            'Ocurrió un error inesperado.';
+          if (tipo === 'Alerta') {
+            this.Alerta.MostrarAlerta(mensaje);
+          } else {
+            this.Alerta.MostrarError({ error: { message: mensaje } });
+          }
         }
       });
     } else {
@@ -185,7 +255,7 @@ export class PagoPromesaDeDiosComponent implements OnInit {
     if (!datos.CodigoPago && this.CodigoPagoTemporal) {
       datos.CodigoPago = this.CodigoPagoTemporal;
     }
-
+    delete datos.UrlComprobante;
     const EsEdicion = this.Editando || datos.CodigoPago;
 
     if (EsEdicion) {

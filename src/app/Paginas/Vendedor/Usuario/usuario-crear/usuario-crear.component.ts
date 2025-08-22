@@ -38,7 +38,6 @@ export class UsuarioCrearVendedorComponent {
     this.RolServicio.Listado().subscribe({
       next: (roles) => {
         this.Roles = roles;
-        console.log('Roles cargados:', roles); // 👈 Mostrar en consola
       },
       error: (err) => {
         console.error('Error cargando roles:', err);
@@ -50,7 +49,6 @@ export class UsuarioCrearVendedorComponent {
     this.EmpresaServicio.Listado().subscribe({
       next: (empresas) => {
         this.Empresas = empresas;
-        console.log('Empresas cargadas:', empresas);
       },
       error: (err) => {
         console.error('Error cargando empresas:', err);

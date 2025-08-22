@@ -251,11 +251,7 @@ export class PermisoRolRecursoListadoDulceTentacionComponent {
     ).then((confirmado) => {
       if (!confirmado) return;
 
-      console.log('Datos enviados para eliminar:', {
-        CodigoRol: item.CodigoRol,
-        CodigoRecurso: item.CodigoRecurso,
-        CodigoPermiso: item.CodigoPermiso
-      });
+  
 
       this.Servicio.EliminarPorRolRecursoPermiso(item.CodigoRol, item.CodigoRecurso, item.CodigoPermiso)
         .subscribe({

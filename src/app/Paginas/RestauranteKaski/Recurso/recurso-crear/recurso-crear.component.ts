@@ -62,10 +62,6 @@ ObtenerTablasPendientes() {
           // Filtrar las que aún no están creadas
           this.TablasPendientes = nombresTablas.filter(nombre => !nombresRecursos.includes(nombre));
 
-          // DEBUG: Mostrar en consola lo que se obtuvo
-          console.log('🟡 Tablas definidas desde rutas:', nombresTablas);
-          console.log('🔵 Recursos ya creados:', nombresRecursos);
-          console.log('🟢 Tablas pendientes por crear:', this.TablasPendientes);
         },
         error: (err) => {
           console.error('Error al obtener permisos disponibles:', err);
