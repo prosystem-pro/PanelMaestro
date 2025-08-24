@@ -8,16 +8,20 @@ import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoSer
 import { PagoServicioRestauranteKaski } from '../../Servicios/RestauranteKaski/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
+import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner-global.component';
 
 
 
 @Component({
   selector: 'app-menu',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SpinnerGlobalComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+  Spinner: boolean = false;
+
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   LogoEmpresaPromesaDeDios: string = Entorno.LogoPromesaDeDios;
   ResumenPagosPromesaDeDios: any = null;
@@ -64,6 +68,7 @@ export class MenuComponent {
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioRestauranteKaski: PagoServicioRestauranteKaski,
     private PagoServicioVendedor: PagoServicioVendedor,
+    private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
@@ -95,51 +100,101 @@ export class MenuComponent {
 
   CargarResumenPagosCafeJuanAna(anio: number) {
     this.PagoServicioCafeJuanAna.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (data) => {
-        this.ResumenPagosCafeJuanAna = data;
+      next: (Respuesta) => {
+        this.ResumenPagosCafeJuanAna = Respuesta.data;
       },
       error: (error) => {
-        console.error('Error al cargar resumen de pagos', error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
   CargarResumenPagosDulceTentacion(anio: number) {
     this.PagoServicioDulceTentacion.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (data) => {
-        this.ResumenPagosDulceTentacion = data;
+      next: (Respuesta) => {
+        this.ResumenPagosDulceTentacion = Respuesta.data;
       },
       error: (error) => {
-        console.error('Error al cargar resumen de pagos', error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
   CargarResumenPagosPromesaDeDios(anio: number) {
     this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (data) => {
-        this.ResumenPagosPromesaDeDios = data;
+      next: (Respuesta) => {
+        this.ResumenPagosPromesaDeDios = Respuesta.data;
       },
       error: (error) => {
-        console.error('Error al cargar resumen de pagos', error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
   CargarResumenPagosRestauranteKaski(anio: number) {
     this.PagoServicioRestauranteKaski.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (data) => {
-        this.ResumenPagosRestauranteKaski = data;
+      next: (Respuesta) => {
+        this.ResumenPagosRestauranteKaski = Respuesta.data;
       },
       error: (error) => {
-        console.error('Error al cargar resumen de pagos', error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
   CargarResumenPagosVendedor(anio: number) {
     this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (data) => {
-        this.ResumenPagosVendedor = data;
+      next: (Respuesta) => {
+        this.ResumenPagosVendedor = Respuesta.data;
       },
       error: (error) => {
-        console.error('Error al cargar resumen de pagos', error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
