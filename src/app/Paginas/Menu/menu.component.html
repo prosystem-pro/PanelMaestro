@@ -178,6 +178,73 @@
               </div>
             </div>
 
+<!-- Slide 3 -->
+<div class="carousel-item h-100">
+  <div class="card d-flex flex-column justify-content-between h-100 p-3 bg-white shadow rounded"
+    style="font-size: 0.8rem;">
+
+    <!-- Título -->
+    <header class="text-center mb-3">
+      <h5 class="mb-1">Información de Base de Datos</h5>
+      <hr class="mx-auto" style="width: 50px; border-top: 2px solid #0d6efd; margin-bottom: 0;">
+    </header>
+
+    <!-- Lista -->
+    <ul class="list-group list-group-flush">
+
+      <!-- Sección Global -->
+      <li class="list-group-item py-2 px-3 bg-light text-center fw-bold">Sección Total</li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Total</span>
+        <span class="badge bg-primary rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Global?.EspacioTotal }}</span>
+      </li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Ocupado</span>
+        <span class="badge bg-danger rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Global?.EspacioOcupado }}</span>
+      </li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Libre</span>
+        <span class="badge bg-success rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Global?.EspacioLibre }}</span>
+      </li>
+
+      <!-- Sección Asignado -->
+      <li class="list-group-item py-2 px-3 bg-light text-center fw-bold mt-2">Sección Asignada</li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Asignado</span>
+        <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Asignado?.EspacioAsignado }}</span>
+      </li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Ocupado</span>
+        <span class="badge bg-danger rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Asignado?.EspacioOcupado }}</span>
+      </li>
+
+      <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+        <span>Espacio Libre</span>
+        <span class="badge bg-success rounded-pill px-3 py-1">{{ InformacionBdPromesaDeDios?.Asignado?.EspacioLibre }}</span>
+      </li>
+
+    </ul>
+
+    <!-- Botón volver -->
+    <div class="text-center mt-3">
+      <button class="btn btn-primary btn-sm px-3" type="button" data-bs-target="#carouselPromesaDeDios"
+        data-bs-slide="prev">
+        <i class="bi bi-chevron-left me-2"></i> Volver
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
           </div>
         </div>
 
@@ -364,7 +431,6 @@
 
       </div>
     </div>
-
 
 
     <!-- DULCE TENTACIÓN -->
@@ -714,8 +780,8 @@
         <!-- Encabezado -->
         <div class="bg-light py-1 d-flex justify-content-between align-items-center px-3">
           <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">VENDEDOR</h6>
-          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button"
-            data-bs-target="#carouselVendedor" data-bs-slide="next" title="Siguiente">
+          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button" data-bs-target="#carouselVendedor"
+            data-bs-slide="next" title="Siguiente">
             <i class="bi bi-chevron-right" style="font-size: 0.9rem;"></i>
           </button>
         </div>
@@ -730,8 +796,7 @@
                 class="p-3 d-flex flex-column justify-content-between h-100 justify-content-center align-items-center">
 
                 <!-- Logo y acceso -->
-                <div (click)="AbrirLogin(NombreEmpresaVendedor)"
-                  class="mb-2 p-2 rounded ColorFondoLogo transition"
+                <div (click)="AbrirLogin(NombreEmpresaVendedor)" class="mb-2 p-2 rounded ColorFondoLogo transition"
                   style="cursor: pointer; border-radius: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease; width: 90%;"
                   onmouseenter="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 28px rgba(0, 0, 0, 0.25)'"
                   onmouseleave="this.style.transform='scale(1)'; this.style.boxShadow='none'">
@@ -830,8 +895,7 @@
                       </span>
                     </div>
 
-                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0"
-                      class="text-warning ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0" class="text-warning ms-4 d-block fw-medium">
                       Faltan {{ ResumenPagosVendedor?.PagosPorVencer_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosPorVencer === 0"
@@ -851,8 +915,7 @@
                       </span>
                     </div>
 
-                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0"
-                      class="text-success ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0" class="text-success ms-4 d-block fw-medium">
                       Quedan {{ ResumenPagosVendedor?.PagosConTiempo_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosConTiempo === 0"

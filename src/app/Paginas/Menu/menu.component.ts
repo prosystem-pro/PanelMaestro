@@ -2,11 +2,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Entorno } from '../../Entornos/Entorno';
+
 import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
 import { PagoServicioDulceTentacion } from '../../Servicios/DulceTentacion/PagoServicio';
 import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioRestauranteKaski } from '../../Servicios/RestauranteKaski/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
+
+import { InformacionBd_Servicio } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
+
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
 import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner-global.component';
@@ -27,6 +31,7 @@ export class MenuComponent {
   ResumenPagosPromesaDeDios: any = null;
   AnioSeleccionadoPromesaDeDios = new Date().getFullYear();
   PaginaPromesaDeDios: number = 0;
+  InformacionBdPromesaDeDios: any = null;
 
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   LogoEmpresaCafeJuanAna: string = Entorno.LogoCafeJuanAna;
@@ -68,6 +73,8 @@ export class MenuComponent {
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioRestauranteKaski: PagoServicioRestauranteKaski,
     private PagoServicioVendedor: PagoServicioVendedor,
+
+    private InformacionBd_Servicio: InformacionBd_Servicio,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -76,6 +83,8 @@ export class MenuComponent {
     this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosRestauranteKaski(this.AnioSeleccionadoRestauranteKaski);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
+
+    this.CargarInformacionBdPromesaDeDios();
   }
 
 
@@ -142,6 +151,26 @@ export class MenuComponent {
     this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
         this.ResumenPagosPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdPromesaDeDios() {
+    this.InformacionBd_Servicio.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdPromesaDeDios = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;
