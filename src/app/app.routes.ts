@@ -23,6 +23,23 @@ import { PermisoRolRecursoListadoPromesaDeDiosComponent } from '../app/Paginas/P
 import { PermisoRolRecursoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Pago/pago.component';
 
+//FAMILY SHOP
+import { InicioFamilyShopComponent } from '../app/Paginas/FamilyShop/Inicio/inicio.component';
+import { SidebarFamilyShopComponent } from '../app/Paginas/FamilyShop/Sidebar/sidebar.component';
+import { EmpresaListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Rol/rol-listado/rol-listado.component';
+import { RolCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoFamilyShopComponent } from '../app/Paginas/FamilyShop/Pago/pago.component';
+
 //CAFE JUAN ANA
 import { InicioCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Inicio/inicio.component';
 import { SidebarCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Sidebar/sidebar.component';
@@ -92,6 +109,7 @@ import { PermisoRolRecursoCrearVendedorComponent } from '../app/Paginas/Vendedor
 import { PagoVendedorComponent } from '../app/Paginas/Vendedor/Pago/pago.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
+const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
 const NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
@@ -121,6 +139,23 @@ export const routes: Routes = [
   { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPromesaDeDios}/pago`, component: PagoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+
+    //PROTEGIDAS FAMILY SHOP
+  { path: `${NombreEmpresaFamilyShop}/inicio`, component: InicioFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/sidebar`, component: SidebarFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/empresa-listado`, component: EmpresaListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/empresa-crear`, component: EmpresaCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/rol-listado`, component: RolListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/rol-crear`, component: RolCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/usuario-listado`, component: UsuarioListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/usuario-crear`, component: UsuarioCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/permiso-listado`, component: PermisoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/permiso-crear`, component: PermisoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/recurso-listado`, component: RecursoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/recurso-crear`, component: RecursoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaFamilyShop}/pago`, component: PagoFamilyShopComponent, canActivate: [AutorizacionRuta] },
 
   //PROTEGIDAS CAFE JUAN ANA
   { path: `${NombreEmpresaCafeJuanAna}/inicio`, component: InicioCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },

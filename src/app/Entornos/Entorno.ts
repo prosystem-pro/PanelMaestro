@@ -5,6 +5,11 @@ export const Entorno = {
    ApiUrlPromesaDeDios: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloPromesaDeDios: 'https://carritoweb-promesadedios-api-production.up.railway.app/api/generar-modelos',
    LogoPromesaDeDios: 'LogoPromesaDeDios.ico',
+   //FAMILY SHOP
+   NombreEmpresaFamilyShop: 'Family_Shop',
+   ApiUrlFamilyShop: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloFamilyShop: 'https://carritoweb-familyshop-api-production.up.railway.app/api/generar-modelos',
+   LogoFamilyShop: 'LogoFamilyShop.ico',
    //CAFE JUAN ANA
    NombreEmpresaCafeJuanAna: 'Cafe_Juan_Ana',
    ApiUrlCafeJuanAna: 'http://localhost:1433/api/',

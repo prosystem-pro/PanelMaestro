@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios/Login';
+import { LoginServicioFamilyShop } from '../../../app/Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../../../app/Servicios/CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from '../../../app/Servicios/DulceTentacion/Login';
 import { LoginServicioRestauranteKaski } from '../../../app/Servicios/RestauranteKaski/Login';
@@ -11,21 +12,22 @@ import { FormsModule } from '@angular/forms';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
 import { Entorno } from '../../Entornos/Entorno';
 import { CommonModule } from '@angular/common';
+import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner-global.component';
 
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, SpinnerGlobalComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  Cargando: boolean = false;
-
+  Spinner: boolean = false;
   Empresa: string = '';
   NombreUsuario: string = '';
   Clave: string = '';
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
+  NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
   NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private LoginPromesaDeDios: LoginServicioPromesaDeDios,
+    private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginDulceTentacion: LoginServicioDulceTentacion,
     private LoginRestauranteKaski: LoginServicioRestauranteKaski,
@@ -62,6 +65,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaPromesaDeDios:
         ServicioLogin = this.LoginPromesaDeDios.Login(usuario, clave);
         break;
+      case this.NombreEmpresaFamilyShop:
+        ServicioLogin = this.LoginFamilyShop.Login(usuario, clave);
+        break;
       case this.NombreEmpresaCafeJuanAna:
         ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
         break;
@@ -79,10 +85,10 @@ export class LoginComponent implements OnInit {
         return;
     }
 
-    this.Cargando = true;
+    this.Spinner = true;
     ServicioLogin.subscribe({
       next: (Respuesta: any) => {
-        this.Cargando = false;
+        this.Spinner = false;
         if (Respuesta && Respuesta.data.Token) {
           const payload = this.DecodificarToken(Respuesta.data.Token);
           if (payload && payload.SuperAdmin === 1) {
@@ -91,6 +97,7 @@ export class LoginComponent implements OnInit {
 
             switch (this.Empresa) {
               case this.NombreEmpresaPromesaDeDios:
+              case this.NombreEmpresaFamilyShop:
               case this.NombreEmpresaCafeJuanAna:
               case this.NombreEmpresaDulceTentacion:
               case this.NombreEmpresaRestauranteKaski:
@@ -110,12 +117,16 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (error) => {
-        this.Cargando = false;
-        const MensajePlano = typeof error?.error?.error === 'string' ? error.error.error : null;
-        if (MensajePlano) {
-          this.Alerta.MostrarAlerta(MensajePlano, 'Atención');
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
         } else {
-          this.Alerta.MostrarError(error, 'Error al iniciar sesión');
+          this.Alerta.MostrarError({ error: { message: mensaje } });
         }
       }
     });
@@ -134,6 +145,5 @@ export class LoginComponent implements OnInit {
   EliminarToken(): void {
     localStorage.removeItem('authToken');
   }
-
 
 }

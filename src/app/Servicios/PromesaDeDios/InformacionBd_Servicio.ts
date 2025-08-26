@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class InformacionBd_Servicio {
+export class InformacionBd_ServicioPromesaDeDios {
   private Url = `${Entorno.ApiUrlPromesaDeDios}basedatos`; 
 
   constructor(private http: HttpClient) {}

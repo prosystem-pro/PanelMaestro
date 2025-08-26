@@ -3,13 +3,15 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Entorno } from '../../Entornos/Entorno';
 
+import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
+import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
 import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
 import { PagoServicioDulceTentacion } from '../../Servicios/DulceTentacion/PagoServicio';
-import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioRestauranteKaski } from '../../Servicios/RestauranteKaski/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
-import { InformacionBd_Servicio } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
+import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
+import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -25,13 +27,20 @@ import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner
 })
 export class MenuComponent {
   Spinner: boolean = false;
-
+  //PROMESA DE DIOS
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   LogoEmpresaPromesaDeDios: string = Entorno.LogoPromesaDeDios;
   ResumenPagosPromesaDeDios: any = null;
   AnioSeleccionadoPromesaDeDios = new Date().getFullYear();
   PaginaPromesaDeDios: number = 0;
   InformacionBdPromesaDeDios: any = null;
+  //FAMILY SHOP
+  NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
+  LogoEmpresaFamilyShop: string = Entorno.LogoFamilyShop;
+  ResumenPagosFamilyShop: any = null;
+  AnioSeleccionadoFamilyShop = new Date().getFullYear();
+  PaginaFamilyShop: number = 0;
+  InformacionBdFamilyShop: any = null;
 
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   LogoEmpresaCafeJuanAna: string = Entorno.LogoCafeJuanAna;
@@ -59,6 +68,7 @@ export class MenuComponent {
 
   // Estados de visores individuales
   VisorPromesaDeDios = false;
+  VisorFamilyShop = false;
   VisorCafeJuanAna = false;
   VisorDulceTentacion = false;
   VisorRestauranteKaski = false;
@@ -68,19 +78,22 @@ export class MenuComponent {
   VisorMaestro = false;
 
   constructor(private router: Router,
+    private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
+    private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
     private PagoServicioDulceTentacion: PagoServicioDulceTentacion,
-    private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioRestauranteKaski: PagoServicioRestauranteKaski,
     private PagoServicioVendedor: PagoServicioVendedor,
 
-    private InformacionBd_Servicio: InformacionBd_Servicio,
+    private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
+    private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
+    this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
+    this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosDulceTentacion(this.AnioSeleccionadoDulceTentacion);
-    this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosRestauranteKaski(this.AnioSeleccionadoRestauranteKaski);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
@@ -101,12 +114,95 @@ export class MenuComponent {
   }
   CambiarTodosLosVisores() {
     this.VisorPromesaDeDios =
+      this.VisorFamilyShop =
       this.VisorCafeJuanAna =
       this.VisorDulceTentacion =
       this.VisorVendedor =
       this.VisorRestauranteKaski = this.VisorMaestro;
   }
-
+  //PROMESA DE DIOS
+  CargarResumenPagosPromesaDeDios(anio: number) {
+    this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdPromesaDeDios() {
+    this.InformacionBd_ServicioPromesaDeDios.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //FAMILY SHOP
+  CargarResumenPagosFamilyShop(anio: number) {
+    this.PagoServicioFamilyShop.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosFamilyShop = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdFamilyShop() {
+    this.InformacionBd_ServicioFamilyShop.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdFamilyShop = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //
   CargarResumenPagosCafeJuanAna(anio: number) {
     this.PagoServicioCafeJuanAna.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
@@ -147,46 +243,7 @@ export class MenuComponent {
       }
     });
   }
-  CargarResumenPagosPromesaDeDios(anio: number) {
-    this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosPromesaDeDios = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdPromesaDeDios() {
-    this.InformacionBd_Servicio.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdPromesaDeDios = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
+
   CargarResumenPagosRestauranteKaski(anio: number) {
     this.PagoServicioRestauranteKaski.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {

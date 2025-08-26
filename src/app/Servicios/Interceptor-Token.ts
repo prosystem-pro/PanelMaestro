@@ -1,6 +1,7 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { LoginServicioPromesaDeDios } from './PromesaDeDios/Login';
+import { LoginServicioFamilyShop } from './FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from './CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from './DulceTentacion/Login';
 import { LoginServicioRestauranteKaski } from './RestauranteKaski/Login';
@@ -12,6 +13,7 @@ import { Entorno } from '../../app/Entornos/Entorno';
 
 export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente) => {
   const LoginPromesaDeDios = inject(LoginServicioPromesaDeDios);
+  const LoginFamilyShop = inject(LoginServicioFamilyShop);
   const LoginCafeJuanAna = inject(LoginServicioCafeJuanAna);
   const LoginDulceTentacion = inject(LoginServicioDulceTentacion);
   const LoginRestauranteKaski = inject(LoginServicioRestauranteKaski);
@@ -25,6 +27,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   // Verifica hacia qué API va la solicitud
   if (url.includes(Entorno.ApiUrlPromesaDeDios)) {
     token = LoginPromesaDeDios.ObtenerToken();
+  }
+  else if (url.includes(Entorno.ApiUrlFamilyShop)) {
+    token = LoginFamilyShop.ObtenerToken();
   }
   else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
     token = LoginCafeJuanAna.ObtenerToken();
@@ -55,6 +60,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
         console.warn('Token expirado o inválido');
         if (url.includes(Entorno.ApiUrlPromesaDeDios)) {
           LoginPromesaDeDios.EliminarToken();
+          router.navigate(['/menu']);
+        } else if (url.includes(Entorno.ApiUrlFamilyShop)) {
+          LoginFamilyShop.EliminarToken();
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
           LoginCafeJuanAna.EliminarToken();
