@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
+import { LoginServicioFamilyShop } from '../Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../Servicios/CafeJuanAna/Login';
 import { LoginServicioDulceTentacion } from '../Servicios/DulceTentacion/Login';
 import { LoginServicioRestauranteKaski } from '../Servicios/RestauranteKaski/Login';
@@ -13,6 +14,7 @@ import { Entorno } from '../Entornos/Entorno';
 export class AutorizacionRuta implements CanActivate {
 
   constructor(private LoginPromesaDeDios: LoginServicioPromesaDeDios,
+    private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginDulceTentacion: LoginServicioDulceTentacion,
     private LoginRestauranteKaski: LoginServicioRestauranteKaski,
@@ -26,6 +28,7 @@ export class AutorizacionRuta implements CanActivate {
   ): boolean {
     const url = state.url;
     const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
+    const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
     const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
     const NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
     const NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
@@ -36,6 +39,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginPromesaDeDios.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaFamilyShop}`)) {
+      if (this.LoginFamilyShop.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginFamilyShop.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
@@ -67,7 +79,7 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
-        if (url.includes(`/${NombreEmpresaVendedor}`)) {
+    if (url.includes(`/${NombreEmpresaVendedor}`)) {
       if (this.LoginVendedor.ValidarToken()) {
         return true;
       } else {
