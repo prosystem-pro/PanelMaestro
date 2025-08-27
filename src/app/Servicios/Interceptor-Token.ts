@@ -3,6 +3,7 @@ import { inject } from '@angular/core';
 import { LoginServicioPromesaDeDios } from './PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from './FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from './CafeJuanAna/Login';
+import { LoginServicioChocosDeLaAbuela } from './ChocosDeLaAbuela/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
@@ -13,6 +14,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const LoginPromesaDeDios = inject(LoginServicioPromesaDeDios);
   const LoginFamilyShop = inject(LoginServicioFamilyShop);
   const LoginCafeJuanAna = inject(LoginServicioCafeJuanAna);
+  const LoginChocosDeLaAbuela = inject(LoginServicioChocosDeLaAbuela);
   const LoginVendedor = inject(LoginServicioVendedor);
 
   const router = inject(Router);
@@ -29,6 +31,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   }
   else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
     token = LoginCafeJuanAna.ObtenerToken();
+  }
+  else if (url.includes(Entorno.ApiUrlChocosDeLaAbuela)) {
+    token = LoginChocosDeLaAbuela.ObtenerToken();
   }
   else if (url.includes(Entorno.ApiUrlVendedor)) {
     token = LoginVendedor.ObtenerToken();
@@ -56,6 +61,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
           LoginCafeJuanAna.EliminarToken();
+          router.navigate(['/menu']);
+        } else if (url.includes(Entorno.ApiUrlChocosDeLaAbuela)) {
+          LoginChocosDeLaAbuela.EliminarToken();
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlVendedor)) {
           LoginVendedor.EliminarToken();

@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from '../Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../Servicios/CafeJuanAna/Login';
+import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { Entorno } from '../Entornos/Entorno';
 
@@ -14,6 +15,7 @@ export class AutorizacionRuta implements CanActivate {
   constructor(private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
+    private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
     private LoginVendedor: LoginServicioVendedor,
     private router: Router) { }
 
@@ -26,6 +28,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
     const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
     const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
+    const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaPromesaDeDios}`)) {
@@ -51,6 +54,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginCafeJuanAna.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
+      if (this.LoginChocosDeLaAbuela.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginChocosDeLaAbuela.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
