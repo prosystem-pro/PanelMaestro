@@ -15,16 +15,11 @@ export const Entorno = {
    ApiUrlCafeJuanAna: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/generar-modelos',
    LogoCafeJuanAna: 'LogoCafeJuanAna.ico',
-   //DULCE TENTACION
-   NombreEmpresaDulceTentacion: 'Dulce_Tentacion',
-   ApiUrlDulceTentacion: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloDulceTentacion: 'https://carritoweb-dulcetentacion-api-production.up.railway.app/api/generar-modelos',
-   LogoDulceTentacion: 'LogoDulceTentacion.ico',
-   //RESTAURANTE KASKI
-   NombreEmpresaRestauranteKaski: 'Restaurante_Kaski',
-   ApiUrlRestauranteKaski: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloRestauranteKaski: 'https://carritoweb-restaurantekaski-api-production.up.railway.app/api/generar-modelos',
-   LogoRestauranteKaski: 'LogoRestauranteKaski.ico',
+   //PROMESA DE DIOS
+   NombreEmpresaChocosDeLaAbuela: 'Promesa_De_Dios',
+   ApiUrlChocosDeLaAbuela: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/generar-modelos',
+   LogoChocosDeLaAbuela: 'LogoChocosDeLaAbuela.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'http://localhost:1433/api/',

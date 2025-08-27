@@ -15,6 +15,11 @@ export const Entorno = {
    ApiUrlCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/generar-modelos',
    LogoCafeJuanAna: 'LogoCafeJuanAna.ico',
+   //CHOCOS DE LA ABUELA
+   NombreEmpresaChocosDeLaAbuela: 'Chocos_De_La_Abuela',
+   ApiUrlChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/generar-modelos',
+   LogoChocosDeLaAbuela: 'LogoChocosDeLaAbuela.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',

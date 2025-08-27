@@ -6,11 +6,13 @@ import { Entorno } from '../../Entornos/Entorno';
 import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
 import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
+import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
 import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/InformacionBd_Servicio';
+import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -47,7 +49,14 @@ export class MenuComponent {
   AnioSeleccionadoCafeJuanAna = new Date().getFullYear();
   PaginaCafeJuanAna: number = 0;
   InformacionBdCafeJuanAna: any = null;
-
+  //CHOCOS DE LA ABUELA
+  NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
+  LogoEmpresaChocosDeLaAbuela: string = Entorno.LogoChocosDeLaAbuela;
+  ResumenPagosChocosDeLaAbuela: any = null;
+  AnioSeleccionadoChocosDeLaAbuela = new Date().getFullYear();
+  PaginaChocosDeLaAbuela: number = 0;
+  InformacionBdChocosDeLaAbuela: any = null;
+  //VENDEDOR
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   LogoEmpresaVendedor: string = Entorno.LogoVendedor;
   ResumenPagosVendedor: any = null;
@@ -58,6 +67,7 @@ export class MenuComponent {
   VisorPromesaDeDios = false;
   VisorFamilyShop = false;
   VisorCafeJuanAna = false;
+  VisorChocosDeLaAbuela = false;
   VisorVendedor = false;
 
   // Switch maestro
@@ -67,22 +77,26 @@ export class MenuComponent {
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
+    private PagoServicioChocosDeLaAbuela: PagoServicioPromesaDeDios,
     private PagoServicioVendedor: PagoServicioVendedor,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
     private InformacionBd_ServicioCafeJuanAna: InformacionBd_ServicioCafeJuanAna,
+    private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
     this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
+    this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     this.CargarInformacionBdPromesaDeDios();
     this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdCafeJuanAna();
+    this.CargarInformacionBdChocosDeLaAbuela();
   }
 
 
@@ -226,8 +240,48 @@ export class MenuComponent {
       }
     });
   }
-  //
-
+  //CHOCOS DE LA ABUELA
+  CargarResumenPagosChocosDeLaAbuela(anio: number) {
+    this.PagoServicioChocosDeLaAbuela.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosChocosDeLaAbuela = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdChocosDeLaAbuela() {
+    this.InformacionBd_ServicioChocosDeLaAbuela.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdChocosDeLaAbuela = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //VENDEDOR
   CargarResumenPagosVendedor(anio: number) {
     this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
