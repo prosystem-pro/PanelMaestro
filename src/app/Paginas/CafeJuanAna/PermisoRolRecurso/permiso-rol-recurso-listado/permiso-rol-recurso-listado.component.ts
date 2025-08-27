@@ -36,8 +36,8 @@ export class PermisoRolRecursoListadoCafeJuanAnaComponent {
 
   Listado() {
     this.Servicio.Listado().subscribe({
-      next: (data: any) => {
-        this.Datos = data;
+      next: (Respuesta: any) => {
+        this.Datos = Respuesta.data;
       },
       error: (err) => {
         console.error(err);
@@ -187,17 +187,13 @@ export class PermisoRolRecursoListadoCafeJuanAnaComponent {
       if (!confirmado) return;
 
       this.Servicio.EliminarPorRol(codigoRol).subscribe({
-        next: (respuesta) => {
-          const tipo = respuesta.tipo || 'exito'; // tipo: 'exito', 'error', 'alerta'
-          const mensaje = respuesta.mensaje || 'Reistros eliminados exitosamente.';
+        next: (Respuesta) => {
+          const tipo = Respuesta.tipo || 'exito'; // tipo: 'exito', 'error', 'alerta'
+          const mensaje = Respuesta.mensaje || 'Reistros eliminados exitosamente.';
 
-          if (tipo === 'exito') {
-            this.Alerta.MostrarExito(mensaje);
-          } else if (tipo === 'alerta') {
-            this.Alerta.MostrarAlerta(mensaje);
-          } else {
-            this.Alerta.MostrarError({ error: { message: mensaje } });
-          }
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
 
           this.Listado(); // Recargar datos
         },

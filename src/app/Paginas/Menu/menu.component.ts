@@ -12,6 +12,7 @@ import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
+import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -41,12 +42,13 @@ export class MenuComponent {
   AnioSeleccionadoFamilyShop = new Date().getFullYear();
   PaginaFamilyShop: number = 0;
   InformacionBdFamilyShop: any = null;
-
+  //CAFE JUAN ANA
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   LogoEmpresaCafeJuanAna: string = Entorno.LogoCafeJuanAna;
   ResumenPagosCafeJuanAna: any = null;
   AnioSeleccionadoCafeJuanAna = new Date().getFullYear();
   PaginaCafeJuanAna: number = 0;
+  InformacionBdCafeJuanAna: any = null;
 
   NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
   LogoEmpresaDulceTentacion: string = Entorno.LogoDulceTentacion;
@@ -87,6 +89,7 @@ export class MenuComponent {
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
+    private InformacionBd_ServicioCafeJuanAna: InformacionBd_ServicioCafeJuanAna,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -98,6 +101,8 @@ export class MenuComponent {
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     this.CargarInformacionBdPromesaDeDios();
+    this.CargarInformacionBdFamilyShop();
+    this.CargarInformacionBdCafeJuanAna();
   }
 
 
@@ -202,7 +207,7 @@ export class MenuComponent {
       }
     });
   }
-  //
+  //CAFE JUAN ANA
   CargarResumenPagosCafeJuanAna(anio: number) {
     this.PagoServicioCafeJuanAna.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
@@ -223,6 +228,28 @@ export class MenuComponent {
       }
     });
   }
+  CargarInformacionBdCafeJuanAna() {
+    this.InformacionBd_ServicioCafeJuanAna.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdCafeJuanAna = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //
+
   CargarResumenPagosDulceTentacion(anio: number) {
     this.PagoServicioDulceTentacion.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {

@@ -12,6 +12,7 @@ import { LoginServicioCafeJuanAna } from '../../../Servicios/CafeJuanAna/Login';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarCafeJuanAnaComponent {
+
   SidebarVisible = true;
   EsMovil = false;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;

@@ -10,6 +10,8 @@ import { Usuario } from '../.././../../Modelos/ModeloCafeJuanAna/Usuario';
 import { Rol } from '../.././../../Modelos/ModeloCafeJuanAna/Rol';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { UsuarioCrearCafeJuanAnaComponent } from '../usuario-crear/usuario-crear.component';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
+import { R3SelectorScopeMode } from '@angular/compiler';
 type UsuarioConRol = Usuario & { NombreRol: string, Clave?: string; };
 
 
@@ -17,7 +19,7 @@ declare var bootstrap: any;
 
 @Component({
   selector: 'app-usuario-listado-CafeJuanAna',
-  imports: [FormsModule, CommonModule, SidebarCafeJuanAnaComponent, UsuarioCrearCafeJuanAnaComponent],
+  imports: [FormsModule, CommonModule, SidebarCafeJuanAnaComponent, UsuarioCrearCafeJuanAnaComponent, SpinnerGlobalComponent],
   templateUrl: './usuario-listado.component.html',
   styleUrl: './usuario-listado.component.css'
 })
@@ -29,6 +31,7 @@ export class UsuarioListadoCafeJuanAnaComponent {
   Datos: UsuarioConRol[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';
+  Spinner: boolean = false;
 
   constructor(private Servicio: UsuarioServicio, private router: Router, private Alerta: AlertaServicio, private RolServicio: RolServicio) { }
 
@@ -37,24 +40,38 @@ export class UsuarioListadoCafeJuanAnaComponent {
     this.Listado();
   }
   CargarRoles() {
+    this.Spinner = true;
     this.RolServicio.Listado().subscribe({
-      next: (roles) => {
-        this.Rol = roles;
+      next: (Respuesta) => {
+        this.Rol = Respuesta.data;
+        this.Spinner = false;
       },
-      error: (err) => console.error('Error cargando roles', err)
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
     });
   }
   Listado() {
+    this.Spinner = true;
     this.Servicio.Listado().subscribe({
-      next: async (datos: Usuario[]) => {
-        this.DatosA = datos;
-
-        const datosConRol = await Promise.all(datos.map(async usuario => {
+      next: async (Respuesta: any) => {
+        this.DatosA = Respuesta.data;
+        const datosConRol = await Promise.all(Respuesta.data.map(async (usuario: any) => {
           try {
             const rol = await this.RolServicio.ObtenerPorCodigo(String(usuario.CodigoRol)).toPromise();
             return {
               ...usuario,
-              NombreRol: rol?.NombreRol || 'Sin Rol'
+              NombreRol: rol?.data.NombreRol || 'Sin Rol'
             };
           } catch (error) {
             console.error('Error al obtener rol para el usuario:', usuario.CodigoUsuario, error);
@@ -66,9 +83,20 @@ export class UsuarioListadoCafeJuanAnaComponent {
         }));
 
         this.Datos = datosConRol;
+        this.Spinner = false;
       },
       error: (error) => {
-        console.error(error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -108,14 +136,28 @@ export class UsuarioListadoCafeJuanAnaComponent {
   }
 
   Editar(Datos: Usuario) {
+    this.Spinner = true;
     this.Servicio.Editar(Datos).subscribe({
-      next: () => {
+      next: (Respuesta) => {
         this.CodigoEditando = null;
+        this.Spinner = false;
         this.Listado();
-        this.Alerta.MostrarExito('Registro actualizado correctamente.');
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
       },
-      error: (err) => {
-        this.Alerta.MostrarError(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -125,13 +167,27 @@ export class UsuarioListadoCafeJuanAnaComponent {
       'Esta acción eliminará el registro.'
     ).then(confirmado => {
       if (confirmado) {
+        this.Spinner = true;
         this.Servicio.Eliminar(Codigo).subscribe({
-          next: () => {
+          next: (Respuesta) => {
             this.Listado();
-            this.Alerta.MostrarExito('Registro eliminado correctamente.');
+            this.Spinner = false;
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
           },
-          error: (err) => {
-            this.Alerta.MostrarError(err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       }

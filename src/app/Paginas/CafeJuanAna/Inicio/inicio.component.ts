@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidebarCafeJuanAnaComponent } from "../../CafeJuanAna/Sidebar/sidebar.component";
+import { SidebarCafeJuanAnaComponent } from "../Sidebar/sidebar.component";
 import { Entorno } from '../../../Entornos/Entorno';
 
 @Component({
