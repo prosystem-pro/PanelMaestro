@@ -6,8 +6,6 @@ import { Entorno } from '../../Entornos/Entorno';
 import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
 import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
-import { PagoServicioDulceTentacion } from '../../Servicios/DulceTentacion/PagoServicio';
-import { PagoServicioRestauranteKaski } from '../../Servicios/RestauranteKaski/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
@@ -50,18 +48,6 @@ export class MenuComponent {
   PaginaCafeJuanAna: number = 0;
   InformacionBdCafeJuanAna: any = null;
 
-  NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
-  LogoEmpresaDulceTentacion: string = Entorno.LogoDulceTentacion;
-  ResumenPagosDulceTentacion: any = null;
-  AnioSeleccionadoDulceTentacion = new Date().getFullYear();
-  PaginaDulceTentacion: number = 0;
-
-  NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
-  LogoEmpresaRestauranteKaski: string = Entorno.LogoRestauranteKaski;
-  ResumenPagosRestauranteKaski: any = null;
-  AnioSeleccionadoRestauranteKaski = new Date().getFullYear();
-  PaginaRestauranteKaski: number = 0;
-
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   LogoEmpresaVendedor: string = Entorno.LogoVendedor;
   ResumenPagosVendedor: any = null;
@@ -72,8 +58,6 @@ export class MenuComponent {
   VisorPromesaDeDios = false;
   VisorFamilyShop = false;
   VisorCafeJuanAna = false;
-  VisorDulceTentacion = false;
-  VisorRestauranteKaski = false;
   VisorVendedor = false;
 
   // Switch maestro
@@ -83,8 +67,6 @@ export class MenuComponent {
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
-    private PagoServicioDulceTentacion: PagoServicioDulceTentacion,
-    private PagoServicioRestauranteKaski: PagoServicioRestauranteKaski,
     private PagoServicioVendedor: PagoServicioVendedor,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
@@ -96,8 +78,6 @@ export class MenuComponent {
     this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
-    this.CargarResumenPagosDulceTentacion(this.AnioSeleccionadoDulceTentacion);
-    this.CargarResumenPagosRestauranteKaski(this.AnioSeleccionadoRestauranteKaski);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     this.CargarInformacionBdPromesaDeDios();
@@ -121,9 +101,7 @@ export class MenuComponent {
     this.VisorPromesaDeDios =
       this.VisorFamilyShop =
       this.VisorCafeJuanAna =
-      this.VisorDulceTentacion =
-      this.VisorVendedor =
-      this.VisorRestauranteKaski = this.VisorMaestro;
+      this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
   CargarResumenPagosPromesaDeDios(anio: number) {
@@ -250,47 +228,6 @@ export class MenuComponent {
   }
   //
 
-  CargarResumenPagosDulceTentacion(anio: number) {
-    this.PagoServicioDulceTentacion.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosDulceTentacion = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-
-  CargarResumenPagosRestauranteKaski(anio: number) {
-    this.PagoServicioRestauranteKaski.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosRestauranteKaski = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
   CargarResumenPagosVendedor(anio: number) {
     this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {

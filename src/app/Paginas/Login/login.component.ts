@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from '../../../app/Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../../../app/Servicios/CafeJuanAna/Login';
-import { LoginServicioDulceTentacion } from '../../../app/Servicios/DulceTentacion/Login';
-import { LoginServicioRestauranteKaski } from '../../../app/Servicios/RestauranteKaski/Login';
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -29,8 +27,6 @@ export class LoginComponent implements OnInit {
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
-  NombreEmpresaDulceTentacion: string = Entorno.NombreEmpresaDulceTentacion;
-  NombreEmpresaRestauranteKaski: string = Entorno.NombreEmpresaRestauranteKaski;
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 
   constructor(
@@ -39,8 +35,6 @@ export class LoginComponent implements OnInit {
     private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
-    private LoginDulceTentacion: LoginServicioDulceTentacion,
-    private LoginRestauranteKaski: LoginServicioRestauranteKaski,
     private LoginVendedor: LoginServicioVendedor,
     private Alerta: AlertaServicio
   ) { }
@@ -71,12 +65,6 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaCafeJuanAna:
         ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
         break;
-      case this.NombreEmpresaDulceTentacion:
-        ServicioLogin = this.LoginDulceTentacion.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaRestauranteKaski:
-        ServicioLogin = this.LoginRestauranteKaski.Login(usuario, clave);
-        break;
       case this.NombreEmpresaVendedor:
         ServicioLogin = this.LoginVendedor.Login(usuario, clave);
         break;
@@ -99,8 +87,6 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaPromesaDeDios:
               case this.NombreEmpresaFamilyShop:
               case this.NombreEmpresaCafeJuanAna:
-              case this.NombreEmpresaDulceTentacion:
-              case this.NombreEmpresaRestauranteKaski:
               case this.NombreEmpresaVendedor:
                 this.router.navigate([ruta]);
                 break;
