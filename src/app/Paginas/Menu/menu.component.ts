@@ -77,7 +77,7 @@ export class MenuComponent {
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
-    private PagoServicioChocosDeLaAbuela: PagoServicioPromesaDeDios,
+    private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
     private PagoServicioVendedor: PagoServicioVendedor,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
