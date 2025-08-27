@@ -115,6 +115,7 @@ export class MenuComponent {
     this.VisorPromesaDeDios =
       this.VisorFamilyShop =
       this.VisorCafeJuanAna =
+      this.VisorChocosDeLaAbuela =
       this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
