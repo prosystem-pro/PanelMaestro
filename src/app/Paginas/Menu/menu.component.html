@@ -256,7 +256,7 @@
     </div>
 
     <!-- FAMILY SHOP -->
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="card border-0 text-center p-0 ColorCard" style="border-radius: 20px; overflow: hidden;">
 
         <!-- Encabezado -->
@@ -311,7 +311,7 @@
 
                   <ng-container *ngIf="VisorFamilyShop; else ApagadoPromesa">
                     <div style="transform: scale(0.75); transform-origin: top left; width: 133%; height: 133%;">
-                      <iframe src="www.familyshopgt.pro"
+                      <iframe src="https://www.familyshopgt.pro"
                         style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                   </ng-container>
@@ -338,6 +338,7 @@
 
                 <!-- Lista -->
                 <ul class="list-group list-group-flush">
+
                   <!-- General -->
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span class="fw-semibold text-dark"><i class="bi bi-receipt-cutoff me-2 text-primary"></i>Total de
@@ -399,6 +400,7 @@
                       Ninguno
                     </small>
                   </li>
+
                 </ul>
 
                 <!-- Botón volver -->
@@ -446,30 +448,24 @@
                     <span class="badge bg-success rounded-pill px-3 py-1">{{
                       InformacionBdFamilyShop?.Global?.EspacioLibre }}</span>
                   </li>
-
                   <!-- Sección Asignado -->
                   <li class="list-group-item py-2 px-3 bg-light text-center fw-bold mt-2">Sección Asignada</li>
-
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Asignado</span>
                     <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
                       InformacionBdFamilyShop?.Asignado?.EspacioAsignado }}</span>
                   </li>
-
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Ocupado</span>
                     <span class="badge bg-danger rounded-pill px-3 py-1">{{
                       InformacionBdFamilyShop?.Asignado?.EspacioOcupado }}</span>
                   </li>
-
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Libre</span>
                     <span class="badge bg-success rounded-pill px-3 py-1">{{
                       InformacionBdFamilyShop?.Asignado?.EspacioLibre }}</span>
                   </li>
-
                 </ul>
-
                 <!-- Botón volver -->
                 <div class="text-center mt-3">
                   <button class="btn btn-primary btn-sm px-3" type="button" data-bs-target="#carouselFamilyShop"
@@ -477,6 +473,7 @@
                     <i class="bi bi-chevron-left me-2"></i> Volver
                   </button>
                 </div>
+
               </div>
             </div>
           </div>
