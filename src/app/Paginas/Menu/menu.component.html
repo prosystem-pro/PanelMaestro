@@ -760,8 +760,9 @@
 
                   <ng-container *ngIf="VisorChocosDeLaAbuela; else ApagadoPromesa">
                     <div style="transform: scale(0.75); transform-origin: top left; width: 133%; height: 133%;">
-                      <iframe src="https://www.chocosdelaabuela.com/"
-                        style="width: 100%; height: 100%; border: none;"></iframe>
+                      <!-- <iframe src="https://www.chocosdelaabuela.com" -->
+                      <iframe src="https://carrito-web-chocos-de-la-abuela-web.vercel.app"
+                        style=" width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                   </ng-container>
 
@@ -943,9 +944,9 @@
 
         <!-- Encabezado -->
         <div class="bg-light py-1 d-flex justify-content-between align-items-center px-3">
-          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">Promesa De Dios</h6>
-          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button"
-            data-bs-target="#carouselVendedor" data-bs-slide="next" title="Siguiente">
+          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">Vendedor</h6>
+          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button" data-bs-target="#carouselVendedor"
+            data-bs-slide="next" title="Siguiente">
             <i class="bi bi-chevron-right" style="font-size: 0.9rem;"></i>
           </button>
         </div>
@@ -967,14 +968,14 @@
                     style="width: 64px; height: 64px; background-color: #ffffff00; border: 2px solid #ffdd00; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
                     <img [src]="LogoEmpresaVendedor" style="width: 56px; height: 56px; object-fit: contain;">
                   </div>
-                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Promesa De Dios</h6>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Vendedor</h6>
                   <small class="text-muted">Ingresar</small>
                 </div>
 
                 <!-- Switch visor -->
                 <div class="form-check form-switch my-2 w-100 ms-2">
-                  <input class="form-check-input" type="checkbox" id="switchVisorPromesa"
-                    [(ngModel)]="VisorVendedor" (click)="$event.stopPropagation()" />
+                  <input class="form-check-input" type="checkbox" id="switchVisorPromesa" [(ngModel)]="VisorVendedor"
+                    (click)="$event.stopPropagation()" />
                   <label class="form-check-label fw-semibold" for="switchVisorPromesa" style="font-size: 0.85rem;">
                     Mostrar sitio
                   </label>
@@ -993,8 +994,7 @@
 
                   <ng-container *ngIf="VisorVendedor; else ApagadoPromesa">
                     <div style="transform: scale(0.75); transform-origin: top left; width: 133%; height: 133%;">
-                      <iframe src="https://www.Vendedor.pro"
-                        style="width: 100%; height: 100%; border: none;"></iframe>
+                      <iframe src="https://carrito-web-vendedor-web.vercel.app" style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                   </ng-container>
 
@@ -1054,8 +1054,7 @@
                       <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
                         ResumenPagosVendedor?.PagosPorVencer || 0 }}</span>
                     </div>
-                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0"
-                      class="text-warning ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0" class="text-warning ms-4 d-block fw-medium">
                       Faltan {{ ResumenPagosVendedor?.PagosPorVencer_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosPorVencer === 0"
@@ -1073,8 +1072,7 @@
                       <span class="badge bg-success rounded-pill px-3 py-1">{{ ResumenPagosVendedor?.PagosConTiempo
                         || 0 }}</span>
                     </div>
-                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0"
-                      class="text-success ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0" class="text-success ms-4 d-block fw-medium">
                       Quedan {{ ResumenPagosVendedor?.PagosConTiempo_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosConTiempo === 0"
