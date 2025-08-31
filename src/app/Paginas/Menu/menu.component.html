@@ -943,9 +943,9 @@
 
         <!-- Encabezado -->
         <div class="bg-light py-1 d-flex justify-content-between align-items-center px-3">
-          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">VENDEDOR</h6>
-          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button" data-bs-target="#carouselVendedor"
-            data-bs-slide="next" title="Siguiente">
+          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">Promesa De Dios</h6>
+          <button class="btn btn-sm btn-outline-primary rounded-circle" type="button"
+            data-bs-target="#carouselVendedor" data-bs-slide="next" title="Siguiente">
             <i class="bi bi-chevron-right" style="font-size: 0.9rem;"></i>
           </button>
         </div>
@@ -958,8 +958,6 @@
             <div class="carousel-item active h-100">
               <div
                 class="p-3 d-flex flex-column justify-content-between h-100 justify-content-center align-items-center">
-
-                <!-- Logo y acceso -->
                 <div (click)="AbrirLogin(NombreEmpresaVendedor)" class="mb-2 p-2 rounded ColorFondoLogo transition"
                   style="cursor: pointer; border-radius: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease; width: 90%;"
                   onmouseenter="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 28px rgba(0, 0, 0, 0.25)'"
@@ -969,16 +967,17 @@
                     style="width: 64px; height: 64px; background-color: #ffffff00; border: 2px solid #ffdd00; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
                     <img [src]="LogoEmpresaVendedor" style="width: 56px; height: 56px; object-fit: contain;">
                   </div>
-                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Vendedor</h6>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Promesa De Dios</h6>
                   <small class="text-muted">Ingresar</small>
                 </div>
 
                 <!-- Switch visor -->
                 <div class="form-check form-switch my-2 w-100 ms-2">
-                  <input class="form-check-input" type="checkbox" id="switchVisor" [(ngModel)]="VisorVendedor"
-                    (click)="$event.stopPropagation()" />
-                  <label class="form-check-label fw-semibold" for="switchVisor" style="font-size: 0.85rem;">Mostrar
-                    sitio</label>
+                  <input class="form-check-input" type="checkbox" id="switchVisorPromesa"
+                    [(ngModel)]="VisorVendedor" (click)="$event.stopPropagation()" />
+                  <label class="form-check-label fw-semibold" for="switchVisorPromesa" style="font-size: 0.85rem;">
+                    Mostrar sitio
+                  </label>
                 </div>
 
                 <!-- Visor -->
@@ -992,20 +991,19 @@
                     <div class="rounded-circle" style="width: 8px; height: 8px; background: #3c3;"></div>
                   </div>
 
-                  <ng-container *ngIf="VisorVendedor; else ApagadoKaski">
+                  <ng-container *ngIf="VisorVendedor; else ApagadoPromesa">
                     <div style="transform: scale(0.75); transform-origin: top left; width: 133%; height: 133%;">
-                      <iframe src="https://carrito-web-vendedor-web.vercel.app/"
+                      <iframe src="https://www.Vendedor.pro"
                         style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                   </ng-container>
 
-                  <ng-template #ApagadoKaski>
+                  <ng-template #ApagadoPromesa>
                     <div class="d-flex justify-content-center align-items-center h-100 text-white">
                       <span class="fw-semibold" style="font-size: 0.9rem;">Apagado</span>
                     </div>
                   </ng-template>
                 </div>
-
               </div>
             </div>
 
@@ -1023,44 +1021,41 @@
                 <!-- Lista -->
                 <ul class="list-group list-group-flush">
 
+                  <!-- General -->
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span class="fw-semibold text-dark"><i class="bi bi-receipt-cutoff me-2 text-primary"></i>Total de
                       pagos</span>
-                    <span class="badge bg-primary rounded-pill px-3 py-1">{{ ResumenPagosVendedor?.CantidadPagos
-                      || 0 }}</span>
+                    <span class="badge bg-primary rounded-pill px-3 py-1">{{ ResumenPagosVendedor?.CantidadPagos ||
+                      0 }}</span>
                   </li>
 
+                  <!-- Problemas -->
                   <li class="list-group-item py-2 px-3 bg-light">
                     <div class="fw-semibold text-danger mb-1"><i
                         class="bi bi-exclamation-triangle-fill me-2"></i>Problemas detectados</div>
-
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Sin comprobante</span>
-                      <span class="badge bg-danger rounded-pill px-3 py-1">
-                        {{ ResumenPagosVendedor?.PagosSinComprobante || 0 }}
-                      </span>
+                      <span class="badge bg-danger rounded-pill px-3 py-1">{{
+                        ResumenPagosVendedor?.PagosSinComprobante || 0 }}</span>
                     </div>
-
                     <div class="d-flex justify-content-between align-items-center ms-3">
                       <span class="text-dark">Vencidos sin comprobante</span>
-                      <span class="badge bg-danger rounded-pill px-3 py-1">
-                        {{ ResumenPagosVendedor?.PagosVencidosSinComprobante || 0 }}
-                      </span>
+                      <span class="badge bg-danger rounded-pill px-3 py-1">{{
+                        ResumenPagosVendedor?.PagosVencidosSinComprobante || 0 }}</span>
                     </div>
                   </li>
 
+                  <!-- Pendientes -->
                   <li class="list-group-item py-2 px-3 bg-light">
                     <div class="fw-semibold text-warning mb-1"><i class="bi bi-hourglass-split me-2"></i>Próximos a
                       vencer</div>
-
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Por vencer sin comprobante</span>
-                      <span class="badge bg-warning text-dark rounded-pill px-3 py-1">
-                        {{ ResumenPagosVendedor?.PagosPorVencer || 0 }}
-                      </span>
+                      <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
+                        ResumenPagosVendedor?.PagosPorVencer || 0 }}</span>
                     </div>
-
-                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0" class="text-warning ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosPorVencer > 0"
+                      class="text-warning ms-4 d-block fw-medium">
                       Faltan {{ ResumenPagosVendedor?.PagosPorVencer_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosPorVencer === 0"
@@ -1069,18 +1064,17 @@
                     </small>
                   </li>
 
+                  <!-- Con tiempo -->
                   <li class="list-group-item py-2 px-3 bg-light">
                     <div class="fw-semibold text-success mb-1"><i class="bi bi-check-circle-fill me-2"></i>Pagos con
                       tiempo</div>
-
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Con tiempo sin comprobante</span>
-                      <span class="badge bg-success rounded-pill px-3 py-1">
-                        {{ ResumenPagosVendedor?.PagosConTiempo || 0 }}
-                      </span>
+                      <span class="badge bg-success rounded-pill px-3 py-1">{{ ResumenPagosVendedor?.PagosConTiempo
+                        || 0 }}</span>
                     </div>
-
-                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0" class="text-success ms-4 d-block fw-medium">
+                    <small *ngIf="ResumenPagosVendedor?.PagosConTiempo > 0"
+                      class="text-success ms-4 d-block fw-medium">
                       Quedan {{ ResumenPagosVendedor?.PagosConTiempo_DetalleDias?.join(', ') }} día(s)
                     </small>
                     <small *ngIf="ResumenPagosVendedor?.PagosConTiempo === 0"
@@ -1088,6 +1082,7 @@
                       Ninguno
                     </small>
                   </li>
+
                 </ul>
 
                 <!-- Botón volver -->
@@ -1101,9 +1096,75 @@
               </div>
             </div>
 
+            <!-- Slide 3 -->
+            <div class="carousel-item h-100">
+              <div class="card d-flex flex-column justify-content-between h-100 p-3 bg-white shadow rounded"
+                style="font-size: 0.8rem;">
+
+                <!-- Título -->
+                <header class="text-center mb-3">
+                  <h5 class="mb-1">Información de Base de Datos</h5>
+                  <hr class="mx-auto" style="width: 50px; border-top: 2px solid #0d6efd; margin-bottom: 0;">
+                </header>
+
+                <!-- Lista -->
+                <ul class="list-group list-group-flush">
+
+                  <!-- Sección Global -->
+                  <li class="list-group-item py-2 px-3 bg-light text-center fw-bold">Sección Total</li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Total</span>
+                    <span class="badge bg-primary rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Global?.EspacioTotal }}</span>
+                  </li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Ocupado</span>
+                    <span class="badge bg-danger rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Global?.EspacioOcupado }}</span>
+                  </li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Libre</span>
+                    <span class="badge bg-success rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Global?.EspacioLibre }}</span>
+                  </li>
+
+                  <!-- Sección Asignado -->
+                  <li class="list-group-item py-2 px-3 bg-light text-center fw-bold mt-2">Sección Asignada</li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Asignado</span>
+                    <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Asignado?.EspacioAsignado }}</span>
+                  </li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Ocupado</span>
+                    <span class="badge bg-danger rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Asignado?.EspacioOcupado }}</span>
+                  </li>
+
+                  <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
+                    <span>Espacio Libre</span>
+                    <span class="badge bg-success rounded-pill px-3 py-1">{{
+                      InformacionBdVendedor?.Asignado?.EspacioLibre }}</span>
+                  </li>
+
+                </ul>
+
+                <!-- Botón volver -->
+                <div class="text-center mt-3">
+                  <button class="btn btn-primary btn-sm px-3" type="button" data-bs-target="#carouselVendedor"
+                    data-bs-slide="prev">
+                    <i class="bi bi-chevron-left me-2"></i> Volver
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
 

@@ -4,16 +4,18 @@ import { Recurso } from '../.././../../Modelos/ModeloVendedor/Recurso';
 import { RecursoServicio } from '../../../../Servicios/Vendedor/RecursoServicio';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { CommonModule } from '@angular/common';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 @Component({
   selector: 'app-recurso-crear-Vendedor',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, SpinnerGlobalComponent],
   templateUrl: './recurso-crear.component.html',
   styleUrl: './recurso-crear.component.css'
 })
 export class RecursoCrearVendedorComponent {
   @Output() ObjetoCreado = new EventEmitter<void>();
 
+  Spinner: boolean = false;
   Datos: Recurso = {
     NombreRecurso: '',
     Estatus: null
@@ -24,53 +26,89 @@ export class RecursoCrearVendedorComponent {
   constructor(private Servicio: RecursoServicio, private Alerta: AlertaServicio) { }
 
   ngOnInit() {
- this.ObtenerTablasPendientes();
+    this.ObtenerTablasPendientes();
   }
-   Crear() {
+  Crear() {
+    this.Spinner = true;
     this.Servicio.Crear(this.Datos).subscribe({
-      next: () => {
-        this.Alerta.MostrarExito('El registro se creó correctamente.');
+      next: (Respuesta) => {
+        this.Spinner = false;
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
         this.ObjetoCreado.emit();
         this.Vaciar();
         this.ObtenerTablasPendientes(); // Recargar después de crear
       },
       error: (error) => {
-        this.Alerta.MostrarError(error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+
       }
     });
   }
 
-Vaciar() {
-  this.Datos = {
-    NombreRecurso: '',
-    Estatus: null
-  };
-}
+  Vaciar() {
+    this.Datos = {
+      NombreRecurso: '',
+      Estatus: null
+    };
+  }
 
 
-ObtenerTablasPendientes() {
-  // Obtener recursos ya creados
-  this.Servicio.Listado().subscribe({
-    next: (recursosCreados: Recurso[]) => {
-      const nombresRecursos = recursosCreados.map(r => r.NombreRecurso);
+  ObtenerTablasPendientes() {
+    this.Spinner = true;
+    // Obtener recursos ya creados
+    this.Servicio.Listado().subscribe({
+      next: (Respuesta: any) => {
 
-      // Obtener tablas desde las rutas
-      this.Servicio.ObtenerPermisosDisponibles().subscribe({
-        next: (tablasDesdeRutas: any[]) => {
-          const nombresTablas = tablasDesdeRutas.map(t => t.Tabla);
-
-          // Filtrar las que aún no están creadas
-          this.TablasPendientes = nombresTablas.filter(nombre => !nombresRecursos.includes(nombre));
-        },
-        error: (err) => {
-          console.error('Error al obtener permisos disponibles:', err);
+        const nombresRecursos = Respuesta.data.map((r: any) => r.NombreRecurso);
+        // Obtener tablas desde las rutas
+        this.Servicio.ObtenerPermisosDisponibles().subscribe({
+          next: (tablasDesdeRutas: any[]) => {
+            const nombresTablas = tablasDesdeRutas.map(t => t.Tabla);
+            // Filtrar las que aún no están creadas
+            this.TablasPendientes = nombresTablas.filter(nombre => !nombresRecursos.includes(nombre));
+            this.Spinner = false;
+          },
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
+          }
+        });
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
         }
-      });
-    },
-    error: (err) => {
-      console.error('Error al obtener recursos existentes:', err);
-    }
-  });
-}
+      }
+    });
+  }
 
 }

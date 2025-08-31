@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
 import { Permiso } from '../.././../../Modelos/ModeloVendedor/Permiso';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { PermisoCrearVendedorComponent } from '../permiso-crear/permiso-crear.component';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-permiso-listado-Vendedor',
-  imports: [FormsModule, CommonModule, SidebarVendedorComponent, PermisoCrearVendedorComponent],
+  imports: [FormsModule, CommonModule, SidebarVendedorComponent, PermisoCrearVendedorComponent, SpinnerGlobalComponent],
   templateUrl: './permiso-listado.component.html',
   styleUrl: './permiso-listado.component.css'
 })
 export class PermisoListadoVendedorComponent {
+  Spinner: boolean = false;
   NombreEmpresa = Entorno.NombreEmpresaVendedor;
   LogoEmpresa = Entorno.LogoVendedor;
   Datos: Permiso[] = [];
@@ -34,25 +36,47 @@ export class PermisoListadoVendedorComponent {
   }
 
   Listado() {
+    this.Spinner = true;
     this.Servicio.ObtenerResumenPermisos().subscribe({
-      next: (respuesta) => {
-        const permisosDesdeRutas: string[] = respuesta.permisos;
+      next: (Respuesta) => {
+        const permisosDesdeRutas: string[] = Respuesta.data.permisos;
         this.Servicio.Listado().subscribe({
-          next: (data: any) => {
-            this.Datos = data;
+          next: (Respuesta: any) => {
+            this.Datos = Respuesta.data;
 
-            const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
+            const permisosCreados: string[] = Respuesta.data.map((p: any) => p.NombrePermiso);
             this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
 
             this.PermisosExtras = permisosCreados.filter(p => !permisosDesdeRutas.includes(p));
+            this.Spinner = false;
           },
-          error: (err) => {
-            console.error('Error al obtener registros creados:', err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       },
-      error: (err) => {
-        console.error('Error al obtener registros desde rutas:', err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -91,14 +115,28 @@ export class PermisoListadoVendedorComponent {
   }
 
   Editar(Datos: Permiso) {
+    this.Spinner = true;
     this.Servicio.Editar(Datos).subscribe({
-      next: () => {
+      next: (Respuesta) => {
         this.CodigoEditando = null;
         this.Listado();
-        this.Alerta.MostrarExito('Registro actualizado correctamente.');
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
+        this.Spinner = false;
       },
-      error: (err) => {
-        this.Alerta.MostrarError(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -108,13 +146,27 @@ export class PermisoListadoVendedorComponent {
       'Esta acción eliminará el registro.'
     ).then(confirmado => {
       if (confirmado) {
+        this.Spinner = true;
         this.Servicio.Eliminar(Codigo).subscribe({
-          next: () => {
+          next: (Respuesta) => {
             this.Listado();
-            this.Alerta.MostrarExito('Registro eliminado correctamente.');
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
+            this.Spinner = false;
           },
-          error: (err) => {
-            this.Alerta.MostrarError(err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       }

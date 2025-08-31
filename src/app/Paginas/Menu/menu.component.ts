@@ -13,6 +13,7 @@ import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDi
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
 import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/InformacionBd_Servicio';
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
+import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -56,12 +57,13 @@ export class MenuComponent {
   AnioSeleccionadoChocosDeLaAbuela = new Date().getFullYear();
   PaginaChocosDeLaAbuela: number = 0;
   InformacionBdChocosDeLaAbuela: any = null;
-  //VENDEDOR
+  //PROMESA DE DIOS
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   LogoEmpresaVendedor: string = Entorno.LogoVendedor;
   ResumenPagosVendedor: any = null;
   AnioSeleccionadoVendedor = new Date().getFullYear();
   PaginaVendedor: number = 0;
+  InformacionBdVendedor: any = null;
 
   // Estados de visores individuales
   VisorPromesaDeDios = false;
@@ -84,6 +86,7 @@ export class MenuComponent {
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
     private InformacionBd_ServicioCafeJuanAna: InformacionBd_ServicioCafeJuanAna,
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
+    private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -97,6 +100,7 @@ export class MenuComponent {
     this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdCafeJuanAna();
     this.CargarInformacionBdChocosDeLaAbuela();
+    this.CargarInformacionBdVendedor();
   }
 
 
@@ -287,6 +291,26 @@ export class MenuComponent {
     this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
         this.ResumenPagosVendedor = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdVendedor() {
+    this.InformacionBd_ServicioVendedor.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdVendedor = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

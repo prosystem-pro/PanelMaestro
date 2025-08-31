@@ -24,7 +24,7 @@ function hacerPropiedadesOpcionales(modelInterface) {
 
 axios.get(apiUrl)
   .then(response => {
-    const modelsJson = response.data;
+    const modelsJson = response.data.data;
 
     Object.entries(modelsJson).forEach(([modelName, modelInterface]) => {
       const interfaceOpcional = hacerPropiedadesOpcionales(modelInterface);

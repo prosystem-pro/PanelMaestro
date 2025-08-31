@@ -8,15 +8,17 @@ import { Router } from '@angular/router';
 import { EmpresaCrearVendedorComponent } from '../empresa-crear/empresa-crear.component';
 import { Empresa } from '../.././../../Modelos/ModeloVendedor/Empresa';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 declare var bootstrap: any;
 @Component({
   selector: 'app-empresa-listado-Vendedor',
-  imports: [FormsModule, CommonModule, SidebarVendedorComponent, EmpresaCrearVendedorComponent],
+  imports: [FormsModule, CommonModule, SidebarVendedorComponent, EmpresaCrearVendedorComponent, SpinnerGlobalComponent],
   templateUrl: './empresa-listado.component.html',
   styleUrl: './empresa-listado.component.css'
 })
 export class EmpresaListadoVendedorComponent {
+  Spinner: boolean = false;
   NombreEmpresa = Entorno.NombreEmpresaVendedor;
   LogoEmpresa = Entorno.LogoVendedor;
 
@@ -32,12 +34,24 @@ export class EmpresaListadoVendedorComponent {
   }
 
   Listado() {
+    this.Spinner = true;
     this.Servicio.Listado().subscribe({
-      next: (data: any) => {
-        this.Datos = data;
+      next: (Respuesta: any) => {
+        this.Datos = Respuesta.data;
+        this.Spinner = false;
       },
-      error: (err) => {
-        console.error(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -78,14 +92,28 @@ export class EmpresaListadoVendedorComponent {
   }
 
   Editar(Datos: Empresa) {
+    this.Spinner = true;
     this.Servicio.Editar(Datos).subscribe({
-      next: () => {
+      next: (Respuesta) => {
         this.CodigoEditando = null;
         this.Listado();
-        this.Alerta.MostrarExito('Registro actualizado correctamente.');
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
+        this.Spinner = false;
       },
-      error: (err) => {
-        this.Alerta.MostrarError(err);
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
       }
     });
   }
@@ -95,13 +123,26 @@ export class EmpresaListadoVendedorComponent {
       'Esta acción eliminará el registro.'
     ).then(confirmado => {
       if (confirmado) {
+        this.Spinner = true;
         this.Servicio.Eliminar(Codigo).subscribe({
-          next: () => {
+          next: (Respuesta) => {
             this.Listado();
-            this.Alerta.MostrarExito('Registro eliminado correctamente.');
+            if (Respuesta?.tipo === 'Éxito') {
+              this.Alerta.MostrarExito(Respuesta.message);
+            }
           },
-          error: (err) => {
-            this.Alerta.MostrarError(err);
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
           }
         });
       }

@@ -4,16 +4,17 @@ import { Permiso } from '../.././../../Modelos/ModeloVendedor/Permiso';
 import { PermisoServicio } from '../../../../Servicios/Vendedor/PermisoServicio';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { CommonModule } from '@angular/common';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
 
 @Component({
   selector: 'app-permiso-crear-Vendedor',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, SpinnerGlobalComponent],
   templateUrl: './permiso-crear.component.html',
   styleUrl: './permiso-crear.component.css'
 })
 export class PermisoCrearVendedorComponent {
   @Output() ObjetoCreado = new EventEmitter<void>();
-
+  Spinner: boolean = false;
   Datos: Permiso = {};
   PermisosPendientes: string[] = [];
 
@@ -24,32 +25,76 @@ export class PermisoCrearVendedorComponent {
   }
 
   ObtenerPermisosPendientes() {
+    this.Spinner = true;
     this.Servicio.ObtenerResumenPermisos().subscribe({
-      next: (respuesta) => {
-        const permisosDesdeRutas: string[] = respuesta.permisos;
+      next: (Respuesta) => {
+        const permisosDesdeRutas: string[] = Respuesta.data.permisos;
 
         this.Servicio.Listado().subscribe({
-          next: (data: any) => {
-            const permisosCreados: string[] = data.map((p: any) => p.NombrePermiso);
+          next: (Respuesta: any) => {
+            const permisosCreados: string[] = Respuesta.data.map((p: any) => p.NombrePermiso);
             this.PermisosPendientes = permisosDesdeRutas.filter(p => !permisosCreados.includes(p));
+            this.Spinner = false;
           },
-          error: (err) => console.error('Error al obtener los registros creados:', err)
+          error: (error) => {
+            this.Spinner = false;
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado.';
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            } else {
+              this.Alerta.MostrarError({ error: { message: mensaje } });
+            }
+
+          }
         });
       },
-      error: (err) => console.error('Error al obtener registros desde rutas:', err)
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+
+      }
     });
   }
 
   Crear() {
+    this.Spinner = true;
     this.Servicio.Crear(this.Datos).subscribe({
-      next: () => {
-        this.Alerta.MostrarExito('El registro se creó correctamente.');
+      next: (Respuesta) => {
+        if (Respuesta?.tipo === 'Éxito') {
+          this.Alerta.MostrarExito(Respuesta.message);
+        }
+
         this.ObjetoCreado.emit();
         this.Vaciar();
         this.ObtenerPermisosPendientes();
+        this.Spinner = false;
       },
       error: (error) => {
-        this.Alerta.MostrarError(error);
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+
       }
     });
   }

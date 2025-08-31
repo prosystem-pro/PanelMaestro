@@ -52,8 +52,8 @@ export class PermisoRolRecursoCrearVendedorComponent {
 
   ObtenerRolesFiltrados() {
     this.Servicio.FiltrarRoles().subscribe({
-      next: (respuesta) => {
-        this.Roles = respuesta;
+      next: (Respuesta) => {
+        this.Roles = Respuesta.data;
       },
       error: () => {
         this.alerta.MostrarError('Error al obtener registros filtrados');
@@ -71,9 +71,9 @@ export class PermisoRolRecursoCrearVendedorComponent {
     if (!this.Datos.CodigoRol) return;
 
     this.Servicio.FiltrarRecursos(this.Datos.CodigoRol).subscribe({
-      next: (respuesta) => {
-        this.RecursosNoCreados = respuesta.recursosNoCreados;
-        this.RecursosConPermisosPendientes = respuesta.recursosConPermisosPendientes;
+      next: (Respuesta) => {
+        this.RecursosNoCreados = Respuesta.data.recursosNoCreados;
+        this.RecursosConPermisosPendientes = Respuesta.data.recursosConPermisosPendientes;
       },
       error: () => {
         this.alerta.MostrarError('Error al filtrar registros');
@@ -88,8 +88,8 @@ export class PermisoRolRecursoCrearVendedorComponent {
 
       if (this.Datos.CodigoRol) {
         this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-          next: (permisos) => {
-            this.PermisosPorRecurso[codigo] = permisos;
+          next: (Respuesta) => {
+            this.PermisosPorRecurso[codigo] = Respuesta.data;
             this.PermisosPorRecursoSeleccionados[codigo] = [];
           },
           error: () => this.alerta.MostrarError('Error al filtrar registros')
@@ -132,8 +132,8 @@ export class PermisoRolRecursoCrearVendedorComponent {
           // Cargar permisos si no están ya cargados
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-              next: (permisos) => {
-                this.PermisosPorRecurso[codigo] = permisos;
+              next: (Respuesta) => {
+                this.PermisosPorRecurso[codigo] = Respuesta;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },
               error: () => this.alerta.MostrarError('Error al cargar registros')
@@ -176,8 +176,8 @@ export class PermisoRolRecursoCrearVendedorComponent {
           // Cargar permisos si no están cargados y hay rol seleccionado
           if (!this.PermisosPorRecurso[codigo] && this.Datos.CodigoRol) {
             this.Servicio.FiltrarPermisos(this.Datos.CodigoRol, codigo).subscribe({
-              next: (permisos) => {
-                this.PermisosPorRecurso[codigo] = permisos;
+              next: (Respuesta) => {
+                this.PermisosPorRecurso[codigo] = Respuesta.data;
                 this.PermisosPorRecursoSeleccionados[codigo] = [];
               },
               error: () => this.alerta.MostrarError('Error al cargar registros')
