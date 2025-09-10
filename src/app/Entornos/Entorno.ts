@@ -20,6 +20,11 @@ export const Entorno = {
    ApiUrlChocosDeLaAbuela: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/generar-modelos',
    LogoChocosDeLaAbuela: 'LogoChocosDeLaAbuela.ico',
+   //RESTAURANTE EL TULE
+   NombreEmpresaRestauranteElTule: 'Restaurante_El_Tule',
+   ApiUrlRestauranteElTule: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloRestauranteElTule: 'https://carritoweb-restauranteeltule-api-production.up.railway.app/api/generar-modelos',
+   LogoRestauranteElTule: 'LogoRestauranteElTule.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'http://localhost:1433/api/',

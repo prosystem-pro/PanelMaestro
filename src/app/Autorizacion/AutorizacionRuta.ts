@@ -4,6 +4,7 @@ import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from '../Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../Servicios/CafeJuanAna/Login';
 import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
+import { LoginServicioRestauranteElTule } from '../Servicios/RestauranteElTule/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { Entorno } from '../Entornos/Entorno';
 
@@ -16,6 +17,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
+    private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginVendedor: LoginServicioVendedor,
     private router: Router) { }
 
@@ -29,6 +31,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
     const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
     const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
+    const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaPromesaDeDios}`)) {
@@ -67,6 +70,15 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
+    if (url.includes(`/${NombreEmpresaRestauranteElTule}`)) {
+      if (this.LoginRestauranteElTule.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginRestauranteElTule.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
     if (url.includes(`/${NombreEmpresaVendedor}`)) {
       if (this.LoginVendedor.ValidarToken()) {
         return true;
@@ -81,7 +93,4 @@ export class AutorizacionRuta implements CanActivate {
     this.router.navigate(['/menu']);
     return false;
   }
-
-
-
 }

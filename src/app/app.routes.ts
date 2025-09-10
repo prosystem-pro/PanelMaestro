@@ -72,6 +72,22 @@ import { RecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLa
 import { PermisoRolRecursoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Pago/pago.component';
+//RESTAURANTE EL TULE
+import { InicioRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Inicio/inicio.component';
+import { SidebarRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Sidebar/sidebar.component';
+import { EmpresaListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Rol/rol-listado/rol-listado.component';
+import { RolCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Pago/pago.component';
 //VENDEDOR
 import { InicioVendedorComponent } from '../app/Paginas/Vendedor/Inicio/inicio.component';
 import { SidebarVendedorComponent } from '../app/Paginas/Vendedor/Sidebar/sidebar.component';
@@ -93,6 +109,7 @@ const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
+const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
@@ -169,6 +186,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/pago`, component: PagoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
+    //RESTAURANTE EL TULE
+  { path: `${NombreEmpresaRestauranteElTule}/inicio`, component: InicioRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/sidebar`, component: SidebarRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/empresa-listado`, component: EmpresaListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/empresa-crear`, component: EmpresaCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/rol-listado`, component: RolListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/rol-crear`, component: RolCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/usuario-listado`, component: UsuarioListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/usuario-crear`, component: UsuarioCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/permiso-listado`, component: PermisoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/permiso-crear`, component: PermisoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/recurso-listado`, component: RecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/recurso-crear`, component: RecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElTule}/pago`, component: PagoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS VENDEDOR
   { path: `${NombreEmpresaVendedor}/inicio`, component: InicioVendedorComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaVendedor}/sidebar`, component: SidebarVendedorComponent, canActivate: [AutorizacionRuta] },

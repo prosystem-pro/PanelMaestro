@@ -5,6 +5,7 @@ import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios
 import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioFamilyShop } from '../../../app/Servicios/FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from '../../../app/Servicios/CafeJuanAna/Login';
+import { LoginServicioRestauranteElTule } from '../../../app/Servicios/RestauranteElTule/Login';
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
   NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
+  NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 
   constructor(
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
     private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
+    private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginVendedor: LoginServicioVendedor,
     private Alerta: AlertaServicio
   ) { }
@@ -71,6 +74,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaChocosDeLaAbuela:
         ServicioLogin = this.LoginChocosDeLaAbuela.Login(usuario, clave);
         break;
+      case this.NombreEmpresaRestauranteElTule:
+        ServicioLogin = this.LoginRestauranteElTule.Login(usuario, clave);
+        break;
       case this.NombreEmpresaVendedor:
         ServicioLogin = this.LoginVendedor.Login(usuario, clave);
         break;
@@ -94,6 +100,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaFamilyShop:
               case this.NombreEmpresaCafeJuanAna:
               case this.NombreEmpresaChocosDeLaAbuela:
+              case this.NombreEmpresaRestauranteElTule:
               case this.NombreEmpresaVendedor:
                 this.router.navigate([ruta]);
                 break;

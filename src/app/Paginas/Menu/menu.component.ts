@@ -7,12 +7,14 @@ import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoSer
 import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
 import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
 import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
+import { PagoServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
 import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/InformacionBd_Servicio';
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
+import { InformacionBd_ServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -57,7 +59,14 @@ export class MenuComponent {
   AnioSeleccionadoChocosDeLaAbuela = new Date().getFullYear();
   PaginaChocosDeLaAbuela: number = 0;
   InformacionBdChocosDeLaAbuela: any = null;
-  //PROMESA DE DIOS
+  //RESTAURANTE EL TULE
+  NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
+  LogoEmpresaRestauranteElTule: string = Entorno.LogoRestauranteElTule;
+  ResumenPagosRestauranteElTule: any = null;
+  AnioSeleccionadoRestauranteElTule = new Date().getFullYear();
+  PaginaRestauranteElTule: number = 0;
+  InformacionBdRestauranteElTule: any = null;
+  //VENDEDOR
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   LogoEmpresaVendedor: string = Entorno.LogoVendedor;
   ResumenPagosVendedor: any = null;
@@ -70,6 +79,7 @@ export class MenuComponent {
   VisorFamilyShop = false;
   VisorCafeJuanAna = false;
   VisorChocosDeLaAbuela = false;
+  VisorRestauranteElTule = false;
   VisorVendedor = false;
 
   // Switch maestro
@@ -80,12 +90,14 @@ export class MenuComponent {
     private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
     private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
+    private PagoServicioRestauranteElTule: PagoServicioRestauranteElTule,
     private PagoServicioVendedor: PagoServicioVendedor,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
     private InformacionBd_ServicioCafeJuanAna: InformacionBd_ServicioCafeJuanAna,
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
+    private InformacionBd_ServicioRestauranteElTule: InformacionBd_ServicioRestauranteElTule,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private Alerta: AlertaServicio
   ) { }
@@ -94,12 +106,14 @@ export class MenuComponent {
     this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
+    this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     this.CargarInformacionBdPromesaDeDios();
     this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdCafeJuanAna();
     this.CargarInformacionBdChocosDeLaAbuela();
+    this.CargarInformacionBdRestauranteElTule();
     this.CargarInformacionBdVendedor();
   }
 
@@ -120,6 +134,7 @@ export class MenuComponent {
       this.VisorFamilyShop =
       this.VisorCafeJuanAna =
       this.VisorChocosDeLaAbuela =
+      this.VisorRestauranteElTule =
       this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
@@ -270,6 +285,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioChocosDeLaAbuela.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdChocosDeLaAbuela = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //RESTAURANTE EL TULE
+  CargarResumenPagosRestauranteElTule(anio: number) {
+    this.PagoServicioRestauranteElTule.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosRestauranteElTule = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdRestauranteElTule() {
+    this.InformacionBd_ServicioRestauranteElTule.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdRestauranteElTule = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;
