@@ -102,14 +102,14 @@ export class MenuComponent {
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
-    this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
+    // this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
     this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
-    this.CargarInformacionBdPromesaDeDios();
+    // this.CargarInformacionBdPromesaDeDios();
     this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdCafeJuanAna();
     this.CargarInformacionBdChocosDeLaAbuela();
