@@ -1,0 +1,63 @@
+.card-inactivo {
+  background: linear-gradient(135deg, #0000004f, #0000004f) !important;
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1) inset, 0 2px 6px rgba(92, 112, 128, 0.15);
+  filter: grayscale(40%) brightness(0.95) contrast(1.05);
+  cursor: not-allowed;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-inactivo::before {
+  content: "INACTIVO";
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  transform: rotate(45deg);
+  background-color: #f1e500;
+  color: rgb(0, 0, 0);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 30px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* PC: desde 992px en adelante */
+@media (min-width: 868px) {
+  .MedidaSidebar {
+    margin-left: 260px;
+    height: 100vh;
+    width: calc(100% - 260px);
+    font-weight: 700;
+  }
+
+  .NombreEmpresa {
+    margin-left: 280px;
+    margin-top: -5px;
+    z-index: 1;
+  }
+}
+
+/* Tablet: de 768px hasta 991px */
+@media (min-width: 870px) and (max-width: 991px) {}
+
+/* Móvil: hasta 767px (inclusive) */
+@media (max-width: 867px) {
+  .NombreEmpresa {
+    margin-right: 72px;
+    margin-top: -5px;
+    z-index: 1;
+    width: 250px;
+
+  }
+
+  .MedidaTitulo {
+    font-size: 28px;
+  }
+
+  .MedidaSidebar {
+    width: 100%;
+    height: 100%;
+  }
+}

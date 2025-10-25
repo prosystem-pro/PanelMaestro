@@ -5,6 +5,7 @@ import { LoginServicioFamilyShop } from './FamilyShop/Login';
 import { LoginServicioCafeJuanAna } from './CafeJuanAna/Login';
 import { LoginServicioChocosDeLaAbuela } from './ChocosDeLaAbuela/Login';
 import { LoginServicioRestauranteElTule } from './RestauranteElTule/Login';
+import { LoginServicioCorazonTipico } from './CorazonTipico/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
@@ -17,6 +18,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const LoginCafeJuanAna = inject(LoginServicioCafeJuanAna);
   const LoginChocosDeLaAbuela = inject(LoginServicioChocosDeLaAbuela);
   const LoginRestauranteElTule = inject(LoginServicioRestauranteElTule);
+  const LoginCorazonTipico = inject(LoginServicioCorazonTipico);
   const LoginVendedor = inject(LoginServicioVendedor);
 
   const router = inject(Router);
@@ -36,6 +38,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   }
   else if (url.includes(Entorno.ApiUrlChocosDeLaAbuela)) {
     token = LoginChocosDeLaAbuela.ObtenerToken();
+  }
+  else if (url.includes(Entorno.ApiUrlCorazonTipico)) {
+    token = LoginCorazonTipico.ObtenerToken();
   }
   else if (url.includes(Entorno.ApiUrlVendedor)) {
     token = LoginVendedor.ObtenerToken();
@@ -72,6 +77,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlRestauranteElTule)) {
           LoginRestauranteElTule.EliminarToken();
+          router.navigate(['/menu']);
+        } else if (url.includes(Entorno.ApiUrlCorazonTipico)) {
+          LoginCorazonTipico.EliminarToken();
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlVendedor)) {
           LoginVendedor.EliminarToken();

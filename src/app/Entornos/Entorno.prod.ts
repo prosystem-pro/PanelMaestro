@@ -25,6 +25,11 @@ export const Entorno = {
    ApiUrlRestauranteElTule: 'https://carritoweb-restauranteeltule-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloRestauranteElTule: 'https://carritoweb-restauranteeltule-api-production.up.railway.app/api/generar-modelos',
    LogoRestauranteElTule: 'LogoRestauranteElTule.ico',
+   //CORAZON TIPICO
+   NombreEmpresaCorazonTipico: 'Corazon_Tipico',
+   ApiUrlCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/generar-modelos',
+   LogoCorazonTipico: 'LogoCorazonTipico.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',

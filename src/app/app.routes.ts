@@ -88,6 +88,22 @@ import { RecursoCrearRestauranteElTuleComponent } from '../app/Paginas/Restauran
 import { PermisoRolRecursoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Pago/pago.component';
+//CORAZON TIPICO
+import { InicioCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Inicio/inicio.component';
+import { SidebarCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Sidebar/sidebar.component';
+import { EmpresaListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Rol/rol-listado/rol-listado.component';
+import { RolCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Pago/pago.component';
 //VENDEDOR
 import { InicioVendedorComponent } from '../app/Paginas/Vendedor/Inicio/inicio.component';
 import { SidebarVendedorComponent } from '../app/Paginas/Vendedor/Sidebar/sidebar.component';
@@ -110,6 +126,7 @@ const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
 const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
+const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
@@ -202,6 +219,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/pago`, component: PagoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
+    //PROTEGIDAS CORAZON TIPICO
+  { path: `${NombreEmpresaCorazonTipico}/inicio`, component: InicioCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/sidebar`, component: SidebarCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/empresa-listado`, component: EmpresaListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/empresa-crear`, component: EmpresaCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/rol-listado`, component: RolListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/rol-crear`, component: RolCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/usuario-listado`, component: UsuarioListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/usuario-crear`, component: UsuarioCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/permiso-listado`, component: PermisoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/permiso-crear`, component: PermisoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/recurso-listado`, component: RecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/recurso-crear`, component: RecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCorazonTipico}/pago`, component: PagoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS VENDEDOR
   { path: `${NombreEmpresaVendedor}/inicio`, component: InicioVendedorComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaVendedor}/sidebar`, component: SidebarVendedorComponent, canActivate: [AutorizacionRuta] },
