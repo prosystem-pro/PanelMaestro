@@ -30,6 +30,11 @@ export const Entorno = {
    ApiUrlCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/generar-modelos',
    LogoCorazonTipico: 'LogoCorazonTipico.ico',
+   //CONSTRUCTORA MORGAN
+   NombreEmpresaConstructoraMorgan: 'Constructora_Morgan',
+   ApiUrlConstructoraMorgan: 'https://carritoweb-constructoramorgan-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloConstructoraMorgan: 'https://carritoweb-constructoramorgan-api-production.up.railway.app/api/generar-modelos',
+   LogoConstructoraMorgan: 'LogoConstructoraMorgan.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',

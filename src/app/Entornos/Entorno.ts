@@ -25,11 +25,16 @@ export const Entorno = {
    ApiUrlRestauranteElTule: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloRestauranteElTule: 'https://carritoweb-restauranteeltule-api-production.up.railway.app/api/generar-modelos',
    LogoRestauranteElTule: 'LogoRestauranteElTule.ico',
-   //PROMESA DE DIOS
+   //CORAZÓN TÍPICO
    NombreEmpresaCorazonTipico: 'Corazon_Tipico',
    ApiUrlCorazonTipico: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/generar-modelos',
    LogoCorazonTipico: 'LogoCorazonTipico.ico',
+   //CONSTRUCTORA MORGAN
+   NombreEmpresaConstructoraMorgan: 'Constructor_Morgan',
+   ApiUrlConstructoraMorgan: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloConstructoraMorgan: 'https://carrito-web-constructora-morgan-web.vercel.app/api/generar-modelos',
+   LogoConstructoraMorgan: 'LogoConstructoraMorgan.ico',
    //VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'http://localhost:1433/api/',

@@ -9,6 +9,7 @@ import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServici
 import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
 import { PagoServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/PagoServicio';
 import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoServicio';
+import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
@@ -17,6 +18,7 @@ import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/I
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
+import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -75,6 +77,13 @@ export class MenuComponent {
   AnioSeleccionadoCorazonTipico = new Date().getFullYear();
   PaginaCorazonTipico: number = 0;
   InformacionBdCorazonTipico: any = null;
+  //PROMESA DE DIOS
+  NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
+  LogoEmpresaConstructoraMorgan: string = Entorno.LogoConstructoraMorgan;
+  ResumenPagosConstructoraMorgan: any = null;
+  AnioSeleccionadoConstructoraMorgan = new Date().getFullYear();
+  PaginaConstructoraMorgan: number = 0;
+  InformacionBdConstructoraMorgan: any = null;
   //VENDEDOR
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   LogoEmpresaVendedor: string = Entorno.LogoVendedor;
@@ -90,6 +99,7 @@ export class MenuComponent {
   VisorChocosDeLaAbuela = false;
   VisorRestauranteElTule = false;
   VisorCorazonTipico = false;
+  VisorConstructoraMorgan = false;
   VisorVendedor = false;
 
   // Switch maestro
@@ -102,6 +112,7 @@ export class MenuComponent {
     private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
     private PagoServicioRestauranteElTule: PagoServicioRestauranteElTule,
     private PagoServicioCorazonTipico: PagoServicioCorazonTipico,
+    private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
@@ -111,6 +122,7 @@ export class MenuComponent {
     private InformacionBd_ServicioRestauranteElTule: InformacionBd_ServicioRestauranteElTule,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private InformacionBd_ServicioCorazonTipico: InformacionBd_ServicioCorazonTipico,
+    private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -120,6 +132,7 @@ export class MenuComponent {
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
     this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
+    this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     // this.CargarInformacionBdPromesaDeDios();
@@ -128,6 +141,7 @@ export class MenuComponent {
     this.CargarInformacionBdChocosDeLaAbuela();
     this.CargarInformacionBdRestauranteElTule();
     this.CargarInformacionBdCorazonTipico();
+    this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
   }
 
@@ -150,6 +164,7 @@ export class MenuComponent {
       this.VisorChocosDeLaAbuela =
       this.VisorRestauranteElTule =
       this.VisorCorazonTipico =
+      this.VisorConstructoraMorgan =
       this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
@@ -357,7 +372,7 @@ export class MenuComponent {
       }
     });
   }
-    //PROMESA DE DIOS
+  //CORAZÓN TÍPICO
   CargarResumenPagosCorazonTipico(anio: number) {
     this.PagoServicioCorazonTipico.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
@@ -382,6 +397,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioCorazonTipico.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdCorazonTipico = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //CONSTRUCTORA MORGAN
+  CargarResumenPagosConstructoraMorgan(anio: number) {
+    this.PagoServicioConstructoraMorgan.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosConstructoraMorgan = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdConstructoraMorgan() {
+    this.InformacionBd_ServicioConstructoraMorgan.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdConstructoraMorgan = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

@@ -104,6 +104,22 @@ import { RecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico
 import { PermisoRolRecursoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Pago/pago.component';
+//CONSTRUCTORA MORGAN
+import { InicioConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Inicio/inicio.component';
+import { SidebarConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Sidebar/sidebar.component';
+import { EmpresaListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Rol/rol-listado/rol-listado.component';
+import { RolCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Pago/pago.component';
 //VENDEDOR
 import { InicioVendedorComponent } from '../app/Paginas/Vendedor/Inicio/inicio.component';
 import { SidebarVendedorComponent } from '../app/Paginas/Vendedor/Sidebar/sidebar.component';
@@ -127,6 +143,7 @@ const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
+const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
@@ -203,7 +220,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/pago`, component: PagoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-    //RESTAURANTE EL TULE
+  //RESTAURANTE EL TULE
   { path: `${NombreEmpresaRestauranteElTule}/inicio`, component: InicioRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/sidebar`, component: SidebarRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/empresa-listado`, component: EmpresaListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
@@ -219,7 +236,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElTule}/pago`, component: PagoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-    //PROTEGIDAS CORAZON TIPICO
+  //PROTEGIDAS CORAZON TIPICO
   { path: `${NombreEmpresaCorazonTipico}/inicio`, component: InicioCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/sidebar`, component: SidebarCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/empresa-listado`, component: EmpresaListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
@@ -235,6 +252,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/pago`, component: PagoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  //PROTEGIDAS CONSTRUCTORA MORGAN
+  { path: `${NombreEmpresaConstructoraMorgan}/inicio`, component: InicioConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/sidebar`, component: SidebarConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/empresa-listado`, component: EmpresaListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/empresa-crear`, component: EmpresaCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/rol-listado`, component: RolListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/rol-crear`, component: RolCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/usuario-listado`, component: UsuarioListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/usuario-crear`, component: UsuarioCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/permiso-listado`, component: PermisoListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/permiso-crear`, component: PermisoCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/recurso-listado`, component: RecursoListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/recurso-crear`, component: RecursoCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaConstructoraMorgan}/pago`, component: PagoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS VENDEDOR
   { path: `${NombreEmpresaVendedor}/inicio`, component: InicioVendedorComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaVendedor}/sidebar`, component: SidebarVendedorComponent, canActivate: [AutorizacionRuta] },
