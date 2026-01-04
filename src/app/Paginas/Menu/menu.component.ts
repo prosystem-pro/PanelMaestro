@@ -127,19 +127,19 @@ export class MenuComponent {
   ) { }
   ngOnInit() {
     // this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
-    this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
+    //this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
-    this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
+    //this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
 
     // this.CargarInformacionBdPromesaDeDios();
-    this.CargarInformacionBdFamilyShop();
+    //this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdCafeJuanAna();
     this.CargarInformacionBdChocosDeLaAbuela();
-    this.CargarInformacionBdRestauranteElTule();
+    //this.CargarInformacionBdRestauranteElTule();
     this.CargarInformacionBdCorazonTipico();
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
