@@ -12,6 +12,7 @@ import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoSer
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
+import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
@@ -22,6 +23,7 @@ import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipi
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
+import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/InformacionBd_Servicio';
 
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -94,13 +96,20 @@ export class MenuComponent {
   AnioSeleccionadoVendedor = new Date().getFullYear();
   PaginaVendedor: number = 0;
   InformacionBdVendedor: any = null;
-  //AJACHELTRAVELAGENCY
+  //AJACHEL TRAVEL AGENCY
   NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
   LogoEmpresaAjachelTravelAgency: string = Entorno.LogoAjachelTravelAgency;
   ResumenPagosAjachelTravelAgency: any = null;
   AnioSeleccionadoAjachelTravelAgency = new Date().getFullYear();
   PaginaAjachelTravelAgency: number = 0;
   InformacionBdAjachelTravelAgency: any = null;
+  //RESTAURANTE EL BISTRO
+  NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
+  LogoEmpresaRestauranteElBistro: string = Entorno.LogoRestauranteElBistro;
+  ResumenPagosRestauranteElBistro: any = null;
+  AnioSeleccionadoRestauranteElBistro = new Date().getFullYear();
+  PaginaRestauranteElBistro: number = 0;
+  InformacionBdRestauranteElBistro: any = null;
 
   // Estados de visores individuales
   VisorPromesaDeDios = false;
@@ -112,6 +121,7 @@ export class MenuComponent {
   VisorConstructoraMorgan = false;
   VisorVendedor = false;
   VisorAjachelTravelAgency = false;
+  VisorRestauranteElBistro = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -126,6 +136,7 @@ export class MenuComponent {
     private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
     private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
+    private PagoServicioRestauranteElBistro: PagoServicioRestauranteElBistro,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
@@ -136,6 +147,7 @@ export class MenuComponent {
     private InformacionBd_ServicioCorazonTipico: InformacionBd_ServicioCorazonTipico,
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
     private InformacionBd_ServicioAjachelTravelAgency: InformacionBd_ServicioAjachelTravelAgency,
+    private InformacionBd_ServicioRestauranteElBistro: InformacionBd_ServicioRestauranteElBistro,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -147,6 +159,8 @@ export class MenuComponent {
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
+    this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
+    this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
 
     // this.CargarInformacionBdPromesaDeDios();
     //this.CargarInformacionBdFamilyShop();
@@ -157,6 +171,7 @@ export class MenuComponent {
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
     this.CargarInformacionBdAjachelTravelAgency();
+    this.CargarInformacionBdRestauranteElBistro();
   }
 
 
@@ -180,6 +195,7 @@ export class MenuComponent {
       this.VisorCorazonTipico =
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
+      this.VisorRestauranteElBistro =
       this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
@@ -535,6 +551,48 @@ export class MenuComponent {
     this.InformacionBd_ServicioAjachelTravelAgency.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdAjachelTravelAgency = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+
+  //RESTAURANTE EL BISTRO
+  CargarResumenPagosRestauranteElBistro(anio: number) {
+    this.PagoServicioRestauranteElBistro.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosRestauranteElBistro = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdRestauranteElBistro() {
+    this.InformacionBd_ServicioRestauranteElBistro.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdRestauranteElBistro = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

@@ -9,58 +9,38 @@ import { LoginServicioCorazonTipico } from './CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from './ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from './AjachelTravelAgency/Login';
+import { LoginServicioRestauranteElBistro } from './RestauranteElBistro/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { Entorno } from '../../app/Entornos/Entorno';
 
 export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente) => {
-  const LoginPromesaDeDios = inject(LoginServicioPromesaDeDios);
-  const LoginFamilyShop = inject(LoginServicioFamilyShop);
-  const LoginCafeJuanAna = inject(LoginServicioCafeJuanAna);
-  const LoginChocosDeLaAbuela = inject(LoginServicioChocosDeLaAbuela);
-  const LoginRestauranteElTule = inject(LoginServicioRestauranteElTule);
-  const LoginCorazonTipico = inject(LoginServicioCorazonTipico);
-  const LoginConstructoraMorgan = inject(LoginServicioConstructoraMorgan);
-  const LoginVendedor = inject(LoginServicioVendedor);
-  const LoginAjachelTravelAgency = inject(LoginServicioAjachelTravelAgency);
 
   const router = inject(Router);
 
-  let token: string | null = null;
+  const servicios = [
+    { url: Entorno.ApiUrlPromesaDeDios, login: inject(LoginServicioPromesaDeDios) },
+    { url: Entorno.ApiUrlFamilyShop, login: inject(LoginServicioFamilyShop) },
+    { url: Entorno.ApiUrlCafeJuanAna, login: inject(LoginServicioCafeJuanAna) },
+    { url: Entorno.ApiUrlChocosDeLaAbuela, login: inject(LoginServicioChocosDeLaAbuela) },
+    { url: Entorno.ApiUrlRestauranteElTule, login: inject(LoginServicioRestauranteElTule) },
+    { url: Entorno.ApiUrlCorazonTipico, login: inject(LoginServicioCorazonTipico) },
+    { url: Entorno.ApiUrlConstructoraMorgan, login: inject(LoginServicioConstructoraMorgan) },
+    { url: Entorno.ApiUrlVendedor, login: inject(LoginServicioVendedor) },
+    { url: Entorno.ApiUrlAjachelTravelAgency, login: inject(LoginServicioAjachelTravelAgency) },
+    { url: Entorno.ApiUrlRestauranteElBistro, login: inject(LoginServicioRestauranteElBistro) }
+  ];
+
   const url = Solicitud.url;
 
-  // Verifica hacia qué API va la solicitud
-  if (url.includes(Entorno.ApiUrlPromesaDeDios)) {
-    token = LoginPromesaDeDios.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlFamilyShop)) {
-    token = LoginFamilyShop.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
-    token = LoginCafeJuanAna.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlChocosDeLaAbuela)) {
-    token = LoginChocosDeLaAbuela.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlCorazonTipico)) {
-    token = LoginCorazonTipico.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlVendedor)) {
-    token = LoginVendedor.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlRestauranteElTule)) {
-    token = LoginRestauranteElTule.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlConstructoraMorgan)) {
-    token = LoginConstructoraMorgan.ObtenerToken();
-  }
-  else if (url.includes(Entorno.ApiUrlAjachelTravelAgency)) {
-    token = LoginAjachelTravelAgency.ObtenerToken();
-  }
+  // Buscar el servicio correspondiente
+  const servicio = servicios.find(s => url.includes(s.url));
 
+  // Obtener token
+  const token = servicio?.login.ObtenerToken();
 
-  // Si hay token, adjúntalo
+  // Adjuntar token si existe
   if (token) {
     Solicitud = Solicitud.clone({
       setHeaders: {
@@ -70,39 +50,26 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   }
 
   return Siguiente(Solicitud).pipe(
+
     catchError(error => {
+
       if (error.status === 401) {
+
         console.warn('Token expirado o inválido');
-        if (url.includes(Entorno.ApiUrlPromesaDeDios)) {
-          LoginPromesaDeDios.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlFamilyShop)) {
-          LoginFamilyShop.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlCafeJuanAna)) {
-          LoginCafeJuanAna.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlChocosDeLaAbuela)) {
-          LoginChocosDeLaAbuela.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlRestauranteElTule)) {
-          LoginRestauranteElTule.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlCorazonTipico)) {
-          LoginCorazonTipico.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlVendedor)) {
-          LoginVendedor.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlConstructoraMorgan)) {
-          LoginConstructoraMorgan.EliminarToken();
-          router.navigate(['/menu']);
-        } else if (url.includes(Entorno.ApiUrlAjachelTravelAgency)) {
-          LoginAjachelTravelAgency.EliminarToken();
-          router.navigate(['/menu']);
+
+        if (servicio) {
+          servicio.login.EliminarToken();
+
+          if (router.url !== '/menu') {
+            router.navigate(['/menu']);
+          }
         }
+
       }
+
       return throwError(() => error);
+
     })
+
   );
 };

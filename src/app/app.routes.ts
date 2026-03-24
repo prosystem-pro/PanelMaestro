@@ -152,6 +152,22 @@ import { RecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/Ajachel
 import { PermisoRolRecursoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Pago/pago.component';
+//RESTAURANTE EL BISTRO
+import { InicioRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Inicio/inicio.component';
+import { SidebarRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Sidebar/sidebar.component';
+import { EmpresaListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Rol/rol-listado/rol-listado.component';
+import { RolCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Pago/pago.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
@@ -162,6 +178,7 @@ const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
+const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
 
@@ -317,6 +334,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/pago`, component: PagoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  //PROTEGIDAS RESTAURANTE EL BISTRO
+  { path: `${NombreEmpresaRestauranteElBistro}/inicio`, component: InicioRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/sidebar`, component: SidebarRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/empresa-listado`, component: EmpresaListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/empresa-crear`, component: EmpresaCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/rol-listado`, component: RolListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/rol-crear`, component: RolCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/usuario-listado`, component: UsuarioListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/usuario-crear`, component: UsuarioCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/permiso-listado`, component: PermisoListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/permiso-crear`, component: PermisoCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/recurso-listado`, component: RecursoListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/recurso-crear`, component: RecursoCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaRestauranteElBistro}/pago`, component: PagoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

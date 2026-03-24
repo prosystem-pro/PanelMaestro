@@ -40,9 +40,15 @@ export const Entorno = {
    ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
    LogoVendedor: 'LogoVendedor.ico',
-      //AJACHELTRAVELAGENCY
+   //AJACHEL TRAVEL AGENCY
    NombreEmpresaAjachelTravelAgency: 'AjachelTravelAgency',
    ApiUrlAjachelTravelAgency: 'https://carritoweb-ajacheltravelagency-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloAjachelTravelAgency: 'https://carritoweb-ajacheltravelagency-api-production.up.railway.app/api/generar-modelos',
-   LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico'
+   LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico',
+   //RESTAURANTE EL BISTRO
+   NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
+   ApiUrlRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/generar-modelos',
+   LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico'
 };
+ 

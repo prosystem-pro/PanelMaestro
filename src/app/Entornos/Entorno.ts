@@ -40,9 +40,14 @@ export const Entorno = {
    ApiUrlVendedor: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
    LogoVendedor: 'LogoVendedor.ico',
-   //AJACHELTRAVELAGENCY
+   //AJACHEL TRAVEL AGENCY
    NombreEmpresaAjachelTravelAgency: 'AjachelTravelAgency',
    ApiUrlAjachelTravelAgency: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloAjachelTravelAgency: 'http://localhost:1433/api/generar-modelos',
-   LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico'
+   LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico',
+   //RESTAURANTE EL BISTRO
+   NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
+   ApiUrlRestauranteElBistro: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloRestauranteElBistro: 'http://localhost:1433/api/generar-modelos',
+   LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico'
 };

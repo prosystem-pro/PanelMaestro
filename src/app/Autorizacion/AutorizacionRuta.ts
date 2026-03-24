@@ -9,6 +9,7 @@ import { LoginServicioCorazonTipico } from '../Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
+import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBistro/Login';
 import { Entorno } from '../Entornos/Entorno';
 
 @Injectable({
@@ -25,6 +26,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
+    private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private router: Router) { }
 
 
@@ -42,6 +44,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
+    const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaPromesaDeDios}`)) {
       if (this.LoginPromesaDeDios.ValidarToken()) {
@@ -120,6 +123,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginAjachelTravelAgency.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaRestauranteElBistro}`)) {
+      if (this.LoginRestauranteElBistro.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginRestauranteElBistro.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
