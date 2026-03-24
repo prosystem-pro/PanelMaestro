@@ -8,6 +8,7 @@ import { LoginServicioRestauranteElTule } from './RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from './CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from './ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
+import { LoginServicioAjachelTravelAgency } from './AjachelTravelAgency/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -22,6 +23,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const LoginCorazonTipico = inject(LoginServicioCorazonTipico);
   const LoginConstructoraMorgan = inject(LoginServicioConstructoraMorgan);
   const LoginVendedor = inject(LoginServicioVendedor);
+  const LoginAjachelTravelAgency = inject(LoginServicioAjachelTravelAgency);
 
   const router = inject(Router);
 
@@ -52,6 +54,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   }
   else if (url.includes(Entorno.ApiUrlConstructoraMorgan)) {
     token = LoginConstructoraMorgan.ObtenerToken();
+  }
+  else if (url.includes(Entorno.ApiUrlAjachelTravelAgency)) {
+    token = LoginAjachelTravelAgency.ObtenerToken();
   }
 
 
@@ -91,6 +96,9 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
           router.navigate(['/menu']);
         } else if (url.includes(Entorno.ApiUrlConstructoraMorgan)) {
           LoginConstructoraMorgan.EliminarToken();
+          router.navigate(['/menu']);
+        } else if (url.includes(Entorno.ApiUrlAjachelTravelAgency)) {
+          LoginAjachelTravelAgency.EliminarToken();
           router.navigate(['/menu']);
         }
       }

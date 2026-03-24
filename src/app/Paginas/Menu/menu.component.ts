@@ -11,6 +11,7 @@ import { PagoServicioRestauranteElTule } from '../../Servicios/RestauranteElTule
 import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoServicio';
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
+import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
@@ -20,6 +21,8 @@ import { InformacionBd_ServicioRestauranteElTule } from '../../Servicios/Restaur
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
+import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
+
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -91,6 +94,13 @@ export class MenuComponent {
   AnioSeleccionadoVendedor = new Date().getFullYear();
   PaginaVendedor: number = 0;
   InformacionBdVendedor: any = null;
+  //AJACHELTRAVELAGENCY
+  NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
+  LogoEmpresaAjachelTravelAgency: string = Entorno.LogoAjachelTravelAgency;
+  ResumenPagosAjachelTravelAgency: any = null;
+  AnioSeleccionadoAjachelTravelAgency = new Date().getFullYear();
+  PaginaAjachelTravelAgency: number = 0;
+  InformacionBdAjachelTravelAgency: any = null;
 
   // Estados de visores individuales
   VisorPromesaDeDios = false;
@@ -101,6 +111,7 @@ export class MenuComponent {
   VisorCorazonTipico = false;
   VisorConstructoraMorgan = false;
   VisorVendedor = false;
+  VisorAjachelTravelAgency = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -114,6 +125,7 @@ export class MenuComponent {
     private PagoServicioCorazonTipico: PagoServicioCorazonTipico,
     private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
+    private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
@@ -123,6 +135,7 @@ export class MenuComponent {
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private InformacionBd_ServicioCorazonTipico: InformacionBd_ServicioCorazonTipico,
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
+    private InformacionBd_ServicioAjachelTravelAgency: InformacionBd_ServicioAjachelTravelAgency,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -143,6 +156,7 @@ export class MenuComponent {
     this.CargarInformacionBdCorazonTipico();
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
+    this.CargarInformacionBdAjachelTravelAgency();
   }
 
 
@@ -165,6 +179,7 @@ export class MenuComponent {
       this.VisorRestauranteElTule =
       this.VisorCorazonTipico =
       this.VisorConstructoraMorgan =
+      this.VisorAjachelTravelAgency =
       this.VisorVendedor = this.VisorMaestro;
   }
   //PROMESA DE DIOS
@@ -479,6 +494,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioVendedor.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdVendedor = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  //AJACHEL TRAVEL AGENCY
+  CargarResumenPagosAjachelTravelAgency(anio: number) {
+    this.PagoServicioAjachelTravelAgency.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosAjachelTravelAgency = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdAjachelTravelAgency() {
+    this.InformacionBd_ServicioAjachelTravelAgency.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdAjachelTravelAgency = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

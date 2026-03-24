@@ -39,5 +39,10 @@ export const Entorno = {
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
-   LogoVendedor: 'LogoVendedor.ico'
+   LogoVendedor: 'LogoVendedor.ico',
+   //AJACHELTRAVELAGENCY
+   NombreEmpresaAjachelTravelAgency: 'AjachelTravelAgency',
+   ApiUrlAjachelTravelAgency: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloAjachelTravelAgency: 'http://localhost:1433/api/generar-modelos',
+   LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico'
 };

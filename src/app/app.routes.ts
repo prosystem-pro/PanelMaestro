@@ -136,6 +136,22 @@ import { RecursoCrearVendedorComponent } from '../app/Paginas/Vendedor//Recurso/
 import { PermisoRolRecursoListadoVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoVendedorComponent } from '../app/Paginas/Vendedor/Pago/pago.component';
+//AJACHEL TRAVEL AGENCY
+import { InicioAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Inicio/inicio.component';
+import { SidebarAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Sidebar/sidebar.component';
+import { EmpresaListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Rol/rol-listado/rol-listado.component';
+import { RolCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Pago/pago.component';
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
@@ -145,6 +161,7 @@ const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteE
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
+const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
 const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
 
@@ -284,6 +301,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaVendedor}/pago`, component: PagoVendedorComponent, canActivate: [AutorizacionRuta] },
+  //PROTEGIDAS AJACHEL TRAVEL AGENCY
+  { path: `${NombreEmpresaAjachelTravelAgency}/inicio`, component: InicioAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/sidebar`, component: SidebarAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/empresa-listado`, component: EmpresaListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/empresa-crear`, component: EmpresaCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/rol-listado`, component: RolListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/rol-crear`, component: RolCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/usuario-listado`, component: UsuarioListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/usuario-crear`, component: UsuarioCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/permiso-listado`, component: PermisoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/permiso-crear`, component: PermisoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/recurso-listado`, component: RecursoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/recurso-crear`, component: RecursoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAjachelTravelAgency}/pago`, component: PagoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];
