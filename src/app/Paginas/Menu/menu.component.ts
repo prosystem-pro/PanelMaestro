@@ -3,20 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Entorno } from '../../Entornos/Entorno';
 
-import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
-import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
 import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
-import { PagoServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/PagoServicio';
 import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoServicio';
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
 import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
 
-import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
-import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
-import { InformacionBd_ServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
@@ -38,20 +32,6 @@ import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner
 })
 export class MenuComponent {
   Spinner: boolean = false;
-  //PROMESA DE DIOS
-  NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
-  LogoEmpresaPromesaDeDios: string = Entorno.LogoPromesaDeDios;
-  ResumenPagosPromesaDeDios: any = null;
-  AnioSeleccionadoPromesaDeDios = new Date().getFullYear();
-  PaginaPromesaDeDios: number = 0;
-  InformacionBdPromesaDeDios: any = null;
-  //FAMILY SHOP
-  NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
-  LogoEmpresaFamilyShop: string = Entorno.LogoFamilyShop;
-  ResumenPagosFamilyShop: any = null;
-  AnioSeleccionadoFamilyShop = new Date().getFullYear();
-  PaginaFamilyShop: number = 0;
-  InformacionBdFamilyShop: any = null;
   //CHOCOS DE LA ABUELA
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
   LogoEmpresaChocosDeLaAbuela: string = Entorno.LogoChocosDeLaAbuela;
@@ -59,13 +39,6 @@ export class MenuComponent {
   AnioSeleccionadoChocosDeLaAbuela = new Date().getFullYear();
   PaginaChocosDeLaAbuela: number = 0;
   InformacionBdChocosDeLaAbuela: any = null;
-  //RESTAURANTE EL TULE
-  NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
-  LogoEmpresaRestauranteElTule: string = Entorno.LogoRestauranteElTule;
-  ResumenPagosRestauranteElTule: any = null;
-  AnioSeleccionadoRestauranteElTule = new Date().getFullYear();
-  PaginaRestauranteElTule: number = 0;
-  InformacionBdRestauranteElTule: any = null;
   //CORAZON TIPICO
   NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
   LogoEmpresaCorazonTipico: string = Entorno.LogoCorazonTipico;
@@ -103,10 +76,7 @@ export class MenuComponent {
   InformacionBdRestauranteElBistro: any = null;
 
   // Estados de visores individuales
-  VisorPromesaDeDios = false;
-  VisorFamilyShop = false;
   VisorChocosDeLaAbuela = false;
-  VisorRestauranteElTule = false;
   VisorCorazonTipico = false;
   VisorConstructoraMorgan = false;
   VisorVendedor = false;
@@ -117,20 +87,14 @@ export class MenuComponent {
   VisorMaestro = false;
 
   constructor(private router: Router,
-    private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
-    private PagoServicioFamilyShop: PagoServicioFamilyShop,
     private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
-    private PagoServicioRestauranteElTule: PagoServicioRestauranteElTule,
     private PagoServicioCorazonTipico: PagoServicioCorazonTipico,
     private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
     private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
     private PagoServicioRestauranteElBistro: PagoServicioRestauranteElBistro,
 
-    private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
-    private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
-    private InformacionBd_ServicioRestauranteElTule: InformacionBd_ServicioRestauranteElTule,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private InformacionBd_ServicioCorazonTipico: InformacionBd_ServicioCorazonTipico,
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
@@ -139,20 +103,14 @@ export class MenuComponent {
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
-    // this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
-    //this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
-    //this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
     this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
     this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
 
-    // this.CargarInformacionBdPromesaDeDios();
-    //this.CargarInformacionBdFamilyShop();
     this.CargarInformacionBdChocosDeLaAbuela();
-    //this.CargarInformacionBdRestauranteElTule();
     this.CargarInformacionBdCorazonTipico();
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
@@ -173,97 +131,12 @@ export class MenuComponent {
     });
   }
   CambiarTodosLosVisores() {
-    this.VisorPromesaDeDios =
-      this.VisorFamilyShop =
       this.VisorChocosDeLaAbuela =
-      this.VisorRestauranteElTule =
       this.VisorCorazonTipico =
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
       this.VisorRestauranteElBistro =
       this.VisorVendedor = this.VisorMaestro;
-  }
-  //PROMESA DE DIOS
-  CargarResumenPagosPromesaDeDios(anio: number) {
-    this.PagoServicioPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosPromesaDeDios = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdPromesaDeDios() {
-    this.InformacionBd_ServicioPromesaDeDios.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdPromesaDeDios = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  //FAMILY SHOP
-  CargarResumenPagosFamilyShop(anio: number) {
-    this.PagoServicioFamilyShop.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosFamilyShop = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdFamilyShop() {
-    this.InformacionBd_ServicioFamilyShop.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdFamilyShop = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
   }
   //CHOCOS DE LA ABUELA
   CargarResumenPagosChocosDeLaAbuela(anio: number) {
@@ -290,47 +163,6 @@ export class MenuComponent {
     this.InformacionBd_ServicioChocosDeLaAbuela.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdChocosDeLaAbuela = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  //RESTAURANTE EL TULE
-  CargarResumenPagosRestauranteElTule(anio: number) {
-    this.PagoServicioRestauranteElTule.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosRestauranteElTule = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdRestauranteElTule() {
-    this.InformacionBd_ServicioRestauranteElTule.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdRestauranteElTule = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

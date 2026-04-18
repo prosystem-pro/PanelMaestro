@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios/Login';
 import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
-import { LoginServicioFamilyShop } from '../../../app/Servicios/FamilyShop/Login';
-import { LoginServicioRestauranteElTule } from '../../../app/Servicios/RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from '../../../app/Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
@@ -29,10 +26,7 @@ export class LoginComponent implements OnInit {
   Empresa: string = '';
   NombreUsuario: string = '';
   Clave: string = '';
-  NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
-  NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-  NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
   NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
   NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
@@ -42,10 +36,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private LoginPromesaDeDios: LoginServicioPromesaDeDios,
-    private LoginFamilyShop: LoginServicioFamilyShop,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
-    private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginCorazonTipico: LoginServicioCorazonTipico,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
@@ -71,17 +62,8 @@ export class LoginComponent implements OnInit {
     let ServicioLogin: Observable<any>;
 
     switch (this.Empresa) {
-      case this.NombreEmpresaPromesaDeDios:
-        ServicioLogin = this.LoginPromesaDeDios.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaFamilyShop:
-        ServicioLogin = this.LoginFamilyShop.Login(usuario, clave);
-        break;
       case this.NombreEmpresaChocosDeLaAbuela:
         ServicioLogin = this.LoginChocosDeLaAbuela.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaRestauranteElTule:
-        ServicioLogin = this.LoginRestauranteElTule.Login(usuario, clave);
         break;
       case this.NombreEmpresaVendedor:
         ServicioLogin = this.LoginVendedor.Login(usuario, clave);
@@ -114,10 +96,7 @@ export class LoginComponent implements OnInit {
             const ruta = `${this.Empresa}/inicio`;
 
             switch (this.Empresa) {
-              case this.NombreEmpresaPromesaDeDios:
-              case this.NombreEmpresaFamilyShop:
               case this.NombreEmpresaChocosDeLaAbuela:
-              case this.NombreEmpresaRestauranteElTule:
               case this.NombreEmpresaCorazonTipico:
               case this.NombreEmpresaConstructoraMorgan:
               case this.NombreEmpresaVendedor:

@@ -1,9 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { LoginServicioPromesaDeDios } from './PromesaDeDios/Login';
-import { LoginServicioFamilyShop } from './FamilyShop/Login';
 import { LoginServicioChocosDeLaAbuela } from './ChocosDeLaAbuela/Login';
-import { LoginServicioRestauranteElTule } from './RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from './CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from './ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
@@ -19,10 +16,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const router = inject(Router);
 
   const servicios = [
-    { url: Entorno.ApiUrlPromesaDeDios, login: inject(LoginServicioPromesaDeDios) },
-    { url: Entorno.ApiUrlFamilyShop, login: inject(LoginServicioFamilyShop) },
     { url: Entorno.ApiUrlChocosDeLaAbuela, login: inject(LoginServicioChocosDeLaAbuela) },
-    { url: Entorno.ApiUrlRestauranteElTule, login: inject(LoginServicioRestauranteElTule) },
     { url: Entorno.ApiUrlCorazonTipico, login: inject(LoginServicioCorazonTipico) },
     { url: Entorno.ApiUrlConstructoraMorgan, login: inject(LoginServicioConstructoraMorgan) },
     { url: Entorno.ApiUrlVendedor, login: inject(LoginServicioVendedor) },

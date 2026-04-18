@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
-import { LoginServicioFamilyShop } from '../Servicios/FamilyShop/Login';
 import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
-import { LoginServicioRestauranteElTule } from '../Servicios/RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from '../Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
@@ -16,10 +13,8 @@ import { Entorno } from '../Entornos/Entorno';
 })
 export class AutorizacionRuta implements CanActivate {
 
-  constructor(private LoginPromesaDeDios: LoginServicioPromesaDeDios,
-    private LoginFamilyShop: LoginServicioFamilyShop,
+  constructor(
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
-    private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginCorazonTipico: LoginServicioCorazonTipico,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
@@ -33,48 +28,18 @@ export class AutorizacionRuta implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const url = state.url;
-    const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
-    const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
     const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-    const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
     const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
     const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     // Detectamos qué servicio de login usar
-    if (url.includes(`/${NombreEmpresaPromesaDeDios}`)) {
-      if (this.LoginPromesaDeDios.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginPromesaDeDios.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaFamilyShop}`)) {
-      if (this.LoginFamilyShop.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginFamilyShop.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
     if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
       if (this.LoginChocosDeLaAbuela.ValidarToken()) {
         return true;
       } else {
         this.LoginChocosDeLaAbuela.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaRestauranteElTule}`)) {
-      if (this.LoginRestauranteElTule.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginRestauranteElTule.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

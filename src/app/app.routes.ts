@@ -6,40 +6,6 @@ import { MenuComponent } from '../app/Paginas/Menu/menu.component';
 import { LoginComponent } from '../app/Paginas/Login/login.component';
 import { SpinnerGlobalComponent } from '../app/Componentes/spinner-global/spinner-global.component';
 
-//PROMESA DE DIOS
-import { InicioPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Inicio/inicio.component';
-import { SidebarPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Sidebar/sidebar.component';
-import { EmpresaListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Rol/rol-listado/rol-listado.component';
-import { RolCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoPromesaDeDiosComponent } from '../app/Paginas/PromesaDeDios/Pago/pago.component';
-
-//FAMILY SHOP
-import { InicioFamilyShopComponent } from '../app/Paginas/FamilyShop/Inicio/inicio.component';
-import { SidebarFamilyShopComponent } from '../app/Paginas/FamilyShop/Sidebar/sidebar.component';
-import { EmpresaListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Rol/rol-listado/rol-listado.component';
-import { RolCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoFamilyShopComponent } from '../app/Paginas/FamilyShop/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoFamilyShopComponent } from '../app/Paginas/FamilyShop/Pago/pago.component';
-
 //CHOCOS DE LA ABUELA
 import { InicioChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Inicio/inicio.component';
 import { SidebarChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Sidebar/sidebar.component';
@@ -56,22 +22,6 @@ import { RecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLa
 import { PermisoRolRecursoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Pago/pago.component';
-//RESTAURANTE EL TULE
-import { InicioRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Inicio/inicio.component';
-import { SidebarRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Sidebar/sidebar.component';
-import { EmpresaListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Rol/rol-listado/rol-listado.component';
-import { RolCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoRestauranteElTuleComponent } from '../app/Paginas/RestauranteElTule/Pago/pago.component';
 //CORAZON TIPICO
 import { InicioCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Inicio/inicio.component';
 import { SidebarCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Sidebar/sidebar.component';
@@ -153,16 +103,12 @@ import { PermisoRolRecursoListadoRestauranteElBistroComponent } from '../app/Pag
 import { PermisoRolRecursoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Pago/pago.component';
 
-const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
-const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
 const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
-const Promesa = 'PromesaDeDios';
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -170,40 +116,6 @@ export const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'login', component: LoginComponent },
   { path: 'spinner-global', component: SpinnerGlobalComponent },
-
-  //PROTEGIDAS PROMESA DE DIOS
-  { path: `${NombreEmpresaPromesaDeDios}/inicio`, component: InicioPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/sidebar`, component: SidebarPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/empresa-listado`, component: EmpresaListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/empresa-crear`, component: EmpresaCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/rol-listado`, component: RolListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/rol-crear`, component: RolCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/usuario-listado`, component: UsuarioListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/usuario-crear`, component: UsuarioCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/permiso-listado`, component: PermisoListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/permiso-crear`, component: PermisoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/recurso-listado`, component: RecursoListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/recurso-crear`, component: RecursoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaPromesaDeDios}/pago`, component: PagoPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
-
-  //PROTEGIDAS FAMILY SHOP
-  { path: `${NombreEmpresaFamilyShop}/inicio`, component: InicioFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/sidebar`, component: SidebarFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/empresa-listado`, component: EmpresaListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/empresa-crear`, component: EmpresaCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/rol-listado`, component: RolListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/rol-crear`, component: RolCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/usuario-listado`, component: UsuarioListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/usuario-crear`, component: UsuarioCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/permiso-listado`, component: PermisoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/permiso-crear`, component: PermisoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/recurso-listado`, component: RecursoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/recurso-crear`, component: RecursoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaFamilyShop}/pago`, component: PagoFamilyShopComponent, canActivate: [AutorizacionRuta] },
 
   //PROTEGIDAS CHOCOS DE LA ABUELA
   { path: `${NombreEmpresaChocosDeLaAbuela}/inicio`, component: InicioChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
@@ -221,22 +133,6 @@ export const routes: Routes = [
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/pago`, component: PagoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  //RESTAURANTE EL TULE
-  { path: `${NombreEmpresaRestauranteElTule}/inicio`, component: InicioRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/sidebar`, component: SidebarRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/empresa-listado`, component: EmpresaListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/empresa-crear`, component: EmpresaCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/rol-listado`, component: RolListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/rol-crear`, component: RolCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/usuario-listado`, component: UsuarioListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/usuario-crear`, component: UsuarioCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/permiso-listado`, component: PermisoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/permiso-crear`, component: PermisoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/recurso-listado`, component: RecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/recurso-crear`, component: RecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaRestauranteElTule}/pago`, component: PagoRestauranteElTuleComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS CORAZON TIPICO
   { path: `${NombreEmpresaCorazonTipico}/inicio`, component: InicioCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/sidebar`, component: SidebarCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
