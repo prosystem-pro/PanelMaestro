@@ -29,5 +29,10 @@ export const Entorno = {
    NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
    ApiUrlRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/generar-modelos',
-   LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico'
+   LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico',
+   //SASTRERIA CONFECCIONES CREATELI
+   NombreEmpresaSastreriaConfeccionesCreateli: 'SastreriaConfeccionesCreateli',
+   ApiUrlSastreriaConfeccionesCreateli: 'https://sastreria-confeccionescreateli-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloSastreriaConfeccionesCreateli: 'https://sastreria-confeccionescreateli-api-production.up.railway.app/api/generar-modelos',
+   LogoSastreriaConfeccionesCreateli: 'LogoSastreriaConfeccionesCreateli.ico'
 };

@@ -102,6 +102,22 @@ import { RecursoCrearRestauranteElBistroComponent } from '../app/Paginas/Restaur
 import { PermisoRolRecursoListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Pago/pago.component';
+//SASTRERIA CONFECCIONES CREATELI
+import { InicioSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Inicio/inicio.component';
+import { SidebarSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Pago/pago.component';
 
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -109,6 +125,7 @@ const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructor
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
 const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
+const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -213,6 +230,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElBistro}/pago`, component: PagoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  //SASTRERIA CONFECCIONES CREATELI
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/inicio`, component: InicioSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/sidebar`, component: SidebarSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/empresa-listado`, component: EmpresaListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/empresa-crear`, component: EmpresaCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/rol-listado`, component: RolListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/rol-crear`, component: RolCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/usuario-listado`, component: UsuarioListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/usuario-crear`, component: UsuarioCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-listado`, component: PermisoListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-crear`, component: PermisoCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/recurso-listado`, component: RecursoListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/recurso-crear`, component: RecursoCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/pago`, component: PagoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

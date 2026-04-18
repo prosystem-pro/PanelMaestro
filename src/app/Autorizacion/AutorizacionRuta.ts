@@ -6,6 +6,7 @@ import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
 import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBistro/Login';
+import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
 import { Entorno } from '../Entornos/Entorno';
 
 @Injectable({
@@ -20,6 +21,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
+    private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private router: Router) { }
 
 
@@ -34,6 +36,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
+    const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
       if (this.LoginChocosDeLaAbuela.ValidarToken()) {
@@ -85,6 +88,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginRestauranteElBistro.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaSastreriaConfeccionesCreateli}`)) {
+      if (this.LoginSastreriaConfeccionesCreateli.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginSastreriaConfeccionesCreateli.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

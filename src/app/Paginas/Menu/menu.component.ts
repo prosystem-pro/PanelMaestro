@@ -9,6 +9,7 @@ import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorg
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
 import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
+import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
@@ -16,6 +17,7 @@ import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/Constr
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
 import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/InformacionBd_Servicio';
+import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -74,6 +76,13 @@ export class MenuComponent {
   AnioSeleccionadoRestauranteElBistro = new Date().getFullYear();
   PaginaRestauranteElBistro: number = 0;
   InformacionBdRestauranteElBistro: any = null;
+  //SASTRERIA CONFECCIONES CREATELI
+  NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
+  LogoEmpresaSastreriaConfeccionesCreateli: string = Entorno.LogoSastreriaConfeccionesCreateli;
+  ResumenPagosSastreriaConfeccionesCreateli: any = null;
+  AnioSeleccionadoSastreriaConfeccionesCreateli = new Date().getFullYear();
+  PaginaSastreriaConfeccionesCreateli: number = 0;
+  InformacionBdSastreriaConfeccionesCreateli: any = null;
 
   // Estados de visores individuales
   VisorChocosDeLaAbuela = false;
@@ -82,6 +91,7 @@ export class MenuComponent {
   VisorVendedor = false;
   VisorAjachelTravelAgency = false;
   VisorRestauranteElBistro = false;
+  VisorSastreriaConfeccionesCreateli = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -93,6 +103,7 @@ export class MenuComponent {
     private PagoServicioVendedor: PagoServicioVendedor,
     private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
     private PagoServicioRestauranteElBistro: PagoServicioRestauranteElBistro,
+    private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
 
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
@@ -100,6 +111,7 @@ export class MenuComponent {
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
     private InformacionBd_ServicioAjachelTravelAgency: InformacionBd_ServicioAjachelTravelAgency,
     private InformacionBd_ServicioRestauranteElBistro: InformacionBd_ServicioRestauranteElBistro,
+    private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -109,6 +121,7 @@ export class MenuComponent {
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
     this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
     this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
+    this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
 
     this.CargarInformacionBdChocosDeLaAbuela();
     this.CargarInformacionBdCorazonTipico();
@@ -116,6 +129,7 @@ export class MenuComponent {
     this.CargarInformacionBdVendedor();
     this.CargarInformacionBdAjachelTravelAgency();
     this.CargarInformacionBdRestauranteElBistro();
+    this.CargarInformacionBdSastreriaConfeccionesCreateli();
   }
 
 
@@ -130,7 +144,7 @@ export class MenuComponent {
     });
   }
   CambiarTodosLosVisores() {
-      this.VisorChocosDeLaAbuela =
+    this.VisorChocosDeLaAbuela =
       this.VisorCorazonTipico =
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
@@ -368,6 +382,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioRestauranteElBistro.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdRestauranteElBistro = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+    //SASTRERIA CONFECCIONES CREATELI
+  CargarResumenPagosSastreriaConfeccionesCreateli(anio: number) {
+    this.PagoServicioSastreriaConfeccionesCreateli.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosSastreriaConfeccionesCreateli = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdSastreriaConfeccionesCreateli() {
+    this.InformacionBd_ServicioSastreriaConfeccionesCreateli.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdSastreriaConfeccionesCreateli = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

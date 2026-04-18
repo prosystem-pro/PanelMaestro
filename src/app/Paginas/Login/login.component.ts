@@ -7,6 +7,7 @@ import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/Construc
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../../../app/Servicios/AjachelTravelAgency/Login';
 import { LoginServicioRestauranteElBistro } from '../../../app/Servicios/RestauranteElBistro/Login';
+import { LoginServicioSastreriaConfeccionesCreateli } from '../../../app/Servicios/SastreriaConfeccionesCreateli/Login';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
   NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
+  NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 
   constructor(
     private router: Router,
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
+    private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private Alerta: AlertaServicio
   ) { }
 
@@ -80,6 +83,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaRestauranteElBistro:
         ServicioLogin = this.LoginRestauranteElBistro.Login(usuario, clave);
         break;
+      case this.NombreEmpresaSastreriaConfeccionesCreateli:
+        ServicioLogin = this.LoginSastreriaConfeccionesCreateli.Login(usuario, clave);
+        break;
       default:
         this.Alerta.MostrarAlerta('Empresa no válida');
         return;
@@ -102,6 +108,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaVendedor:
               case this.NombreEmpresaAjachelTravelAgency:
               case this.NombreEmpresaRestauranteElBistro:
+              case this.NombreEmpresaSastreriaConfeccionesCreateli:
                 this.router.navigate([ruta]);
                 break;
               default:
