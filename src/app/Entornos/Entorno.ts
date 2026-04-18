@@ -10,11 +10,6 @@ export const Entorno = {
    ApiUrlFamilyShop: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloFamilyShop: 'https://carritoweb-familyshop-api-production.up.railway.app/api/generar-modelos',
    LogoFamilyShop: 'LogoFamilyShop.ico',
-   //CAFE JUAN ANA
-   NombreEmpresaCafeJuanAna: 'Cafe_Juan_Ana',
-   ApiUrlCafeJuanAna: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloCafeJuanAna: 'https://carritoweb-cafejuanana-api-production.up.railway.app/api/generar-modelos',
-   LogoCafeJuanAna: 'LogoCafeJuanAna.ico',
    //PROMESA DE DIOS
    NombreEmpresaChocosDeLaAbuela: 'Promesa_De_Dios',
    ApiUrlChocosDeLaAbuela: 'http://localhost:1433/api/',

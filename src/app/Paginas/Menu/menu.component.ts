@@ -5,7 +5,6 @@ import { Entorno } from '../../Entornos/Entorno';
 
 import { PagoServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/PagoServicio';
 import { PagoServicioFamilyShop } from '../../Servicios/FamilyShop/PagoServicio';
-import { PagoServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/PagoServicio';
 import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
 import { PagoServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/PagoServicio';
 import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoServicio';
@@ -16,7 +15,6 @@ import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBi
 
 import { InformacionBd_ServicioPromesaDeDios } from '../../Servicios/PromesaDeDios/InformacionBd_Servicio';
 import { InformacionBd_ServicioFamilyShop } from '../../Servicios/FamilyShop/InformacionBd_Servicio';
-import { InformacionBd_ServicioCafeJuanAna } from '../../Servicios/CafeJuanAna/InformacionBd_Servicio';
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioRestauranteElTule } from '../../Servicios/RestauranteElTule/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
@@ -54,13 +52,6 @@ export class MenuComponent {
   AnioSeleccionadoFamilyShop = new Date().getFullYear();
   PaginaFamilyShop: number = 0;
   InformacionBdFamilyShop: any = null;
-  //CAFE JUAN ANA
-  NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
-  LogoEmpresaCafeJuanAna: string = Entorno.LogoCafeJuanAna;
-  ResumenPagosCafeJuanAna: any = null;
-  AnioSeleccionadoCafeJuanAna = new Date().getFullYear();
-  PaginaCafeJuanAna: number = 0;
-  InformacionBdCafeJuanAna: any = null;
   //CHOCOS DE LA ABUELA
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
   LogoEmpresaChocosDeLaAbuela: string = Entorno.LogoChocosDeLaAbuela;
@@ -114,7 +105,6 @@ export class MenuComponent {
   // Estados de visores individuales
   VisorPromesaDeDios = false;
   VisorFamilyShop = false;
-  VisorCafeJuanAna = false;
   VisorChocosDeLaAbuela = false;
   VisorRestauranteElTule = false;
   VisorCorazonTipico = false;
@@ -129,7 +119,6 @@ export class MenuComponent {
   constructor(private router: Router,
     private PagoServicioPromesaDeDios: PagoServicioPromesaDeDios,
     private PagoServicioFamilyShop: PagoServicioFamilyShop,
-    private PagoServicioCafeJuanAna: PagoServicioCafeJuanAna,
     private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
     private PagoServicioRestauranteElTule: PagoServicioRestauranteElTule,
     private PagoServicioCorazonTipico: PagoServicioCorazonTipico,
@@ -140,7 +129,6 @@ export class MenuComponent {
 
     private InformacionBd_ServicioPromesaDeDios: InformacionBd_ServicioPromesaDeDios,
     private InformacionBd_ServicioFamilyShop: InformacionBd_ServicioFamilyShop,
-    private InformacionBd_ServicioCafeJuanAna: InformacionBd_ServicioCafeJuanAna,
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private InformacionBd_ServicioRestauranteElTule: InformacionBd_ServicioRestauranteElTule,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
@@ -153,7 +141,6 @@ export class MenuComponent {
   ngOnInit() {
     // this.CargarResumenPagosPromesaDeDios(this.AnioSeleccionadoPromesaDeDios);
     //this.CargarResumenPagosFamilyShop(this.AnioSeleccionadoFamilyShop);
-    this.CargarResumenPagosCafeJuanAna(this.AnioSeleccionadoCafeJuanAna);
     this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
     //this.CargarResumenPagosRestauranteElTule(this.AnioSeleccionadoRestauranteElTule);
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
@@ -164,7 +151,6 @@ export class MenuComponent {
 
     // this.CargarInformacionBdPromesaDeDios();
     //this.CargarInformacionBdFamilyShop();
-    this.CargarInformacionBdCafeJuanAna();
     this.CargarInformacionBdChocosDeLaAbuela();
     //this.CargarInformacionBdRestauranteElTule();
     this.CargarInformacionBdCorazonTipico();
@@ -189,7 +175,6 @@ export class MenuComponent {
   CambiarTodosLosVisores() {
     this.VisorPromesaDeDios =
       this.VisorFamilyShop =
-      this.VisorCafeJuanAna =
       this.VisorChocosDeLaAbuela =
       this.VisorRestauranteElTule =
       this.VisorCorazonTipico =
@@ -264,47 +249,6 @@ export class MenuComponent {
     this.InformacionBd_ServicioFamilyShop.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdFamilyShop = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  //CAFE JUAN ANA
-  CargarResumenPagosCafeJuanAna(anio: number) {
-    this.PagoServicioCafeJuanAna.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosCafeJuanAna = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdCafeJuanAna() {
-    this.InformacionBd_ServicioCafeJuanAna.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdCafeJuanAna = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

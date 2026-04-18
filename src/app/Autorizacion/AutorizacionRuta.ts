@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { LoginServicioPromesaDeDios } from '../Servicios/PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from '../Servicios/FamilyShop/Login';
-import { LoginServicioCafeJuanAna } from '../Servicios/CafeJuanAna/Login';
 import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioRestauranteElTule } from '../Servicios/RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from '../Servicios/CorazonTipico/Login';
@@ -19,7 +18,6 @@ export class AutorizacionRuta implements CanActivate {
 
   constructor(private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginFamilyShop: LoginServicioFamilyShop,
-    private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
     private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginCorazonTipico: LoginServicioCorazonTipico,
@@ -37,7 +35,6 @@ export class AutorizacionRuta implements CanActivate {
     const url = state.url;
     const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
     const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
-    const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
     const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
     const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
     const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -60,15 +57,6 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginFamilyShop.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaCafeJuanAna}`)) {
-      if (this.LoginCafeJuanAna.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginCafeJuanAna.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

@@ -40,22 +40,6 @@ import { PermisoRolRecursoListadoFamilyShopComponent } from '../app/Paginas/Fami
 import { PermisoRolRecursoCrearFamilyShopComponent } from '../app/Paginas/FamilyShop/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoFamilyShopComponent } from '../app/Paginas/FamilyShop/Pago/pago.component';
 
-//CAFE JUAN ANA
-import { InicioCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Inicio/inicio.component';
-import { SidebarCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Sidebar/sidebar.component';
-import { EmpresaListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Rol/rol-listado/rol-listado.component';
-import { RolCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoCafeJuanAnaComponent } from '../app/Paginas/CafeJuanAna/Pago/pago.component';
 //CHOCOS DE LA ABUELA
 import { InicioChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Inicio/inicio.component';
 import { SidebarChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Sidebar/sidebar.component';
@@ -171,7 +155,6 @@ import { PagoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBi
 
 const NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
 const NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
-const NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -222,22 +205,6 @@ export const routes: Routes = [
   { path: `${NombreEmpresaFamilyShop}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearFamilyShopComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaFamilyShop}/pago`, component: PagoFamilyShopComponent, canActivate: [AutorizacionRuta] },
 
-  //PROTEGIDAS CAFE JUAN ANA
-  { path: `${NombreEmpresaCafeJuanAna}/inicio`, component: InicioCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/sidebar`, component: SidebarCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/empresa-listado`, component: EmpresaListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/empresa-crear`, component: EmpresaCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/rol-listado`, component: RolListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/rol-crear`, component: RolCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/usuario-listado`, component: UsuarioListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/usuario-crear`, component: UsuarioCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/permiso-listado`, component: PermisoListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/permiso-crear`, component: PermisoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/recurso-listado`, component: RecursoListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/recurso-crear`, component: RecursoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCafeJuanAna}/pago`, component: PagoCafeJuanAnaComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS CHOCOS DE LA ABUELA
   { path: `${NombreEmpresaChocosDeLaAbuela}/inicio`, component: InicioChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/sidebar`, component: SidebarChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },

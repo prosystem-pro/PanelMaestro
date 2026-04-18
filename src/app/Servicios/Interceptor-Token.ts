@@ -2,7 +2,6 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { LoginServicioPromesaDeDios } from './PromesaDeDios/Login';
 import { LoginServicioFamilyShop } from './FamilyShop/Login';
-import { LoginServicioCafeJuanAna } from './CafeJuanAna/Login';
 import { LoginServicioChocosDeLaAbuela } from './ChocosDeLaAbuela/Login';
 import { LoginServicioRestauranteElTule } from './RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from './CorazonTipico/Login';
@@ -22,7 +21,6 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const servicios = [
     { url: Entorno.ApiUrlPromesaDeDios, login: inject(LoginServicioPromesaDeDios) },
     { url: Entorno.ApiUrlFamilyShop, login: inject(LoginServicioFamilyShop) },
-    { url: Entorno.ApiUrlCafeJuanAna, login: inject(LoginServicioCafeJuanAna) },
     { url: Entorno.ApiUrlChocosDeLaAbuela, login: inject(LoginServicioChocosDeLaAbuela) },
     { url: Entorno.ApiUrlRestauranteElTule, login: inject(LoginServicioRestauranteElTule) },
     { url: Entorno.ApiUrlCorazonTipico, login: inject(LoginServicioCorazonTipico) },

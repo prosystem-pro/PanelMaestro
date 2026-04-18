@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { LoginServicioPromesaDeDios } from '../../../app/Servicios/PromesaDeDios/Login';
 import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioFamilyShop } from '../../../app/Servicios/FamilyShop/Login';
-import { LoginServicioCafeJuanAna } from '../../../app/Servicios/CafeJuanAna/Login';
 import { LoginServicioRestauranteElTule } from '../../../app/Servicios/RestauranteElTule/Login';
 import { LoginServicioCorazonTipico } from '../../../app/Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/ConstructoraMorgan/Login';
@@ -32,7 +31,6 @@ export class LoginComponent implements OnInit {
   Clave: string = '';
   NombreEmpresaPromesaDeDios: string = Entorno.NombreEmpresaPromesaDeDios;
   NombreEmpresaFamilyShop: string = Entorno.NombreEmpresaFamilyShop;
-  NombreEmpresaCafeJuanAna: string = Entorno.NombreEmpresaCafeJuanAna;
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
   NombreEmpresaRestauranteElTule: string = Entorno.NombreEmpresaRestauranteElTule;
   NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -46,7 +44,6 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private LoginPromesaDeDios: LoginServicioPromesaDeDios,
     private LoginFamilyShop: LoginServicioFamilyShop,
-    private LoginCafeJuanAna: LoginServicioCafeJuanAna,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
     private LoginRestauranteElTule: LoginServicioRestauranteElTule,
     private LoginCorazonTipico: LoginServicioCorazonTipico,
@@ -79,9 +76,6 @@ export class LoginComponent implements OnInit {
         break;
       case this.NombreEmpresaFamilyShop:
         ServicioLogin = this.LoginFamilyShop.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaCafeJuanAna:
-        ServicioLogin = this.LoginCafeJuanAna.Login(usuario, clave);
         break;
       case this.NombreEmpresaChocosDeLaAbuela:
         ServicioLogin = this.LoginChocosDeLaAbuela.Login(usuario, clave);
@@ -122,7 +116,6 @@ export class LoginComponent implements OnInit {
             switch (this.Empresa) {
               case this.NombreEmpresaPromesaDeDios:
               case this.NombreEmpresaFamilyShop:
-              case this.NombreEmpresaCafeJuanAna:
               case this.NombreEmpresaChocosDeLaAbuela:
               case this.NombreEmpresaRestauranteElTule:
               case this.NombreEmpresaCorazonTipico:
