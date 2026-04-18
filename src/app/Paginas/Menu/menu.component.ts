@@ -124,7 +124,6 @@ export class MenuComponent {
       queryParams: { Empresa }
     }).then(navegado => {
       if (navegado) {
-        console.log('Navegación exitosa hacia /login con queryParams:', Empresa);
       } else {
         console.error('Error: No se pudo navegar hacia /login');
       }
