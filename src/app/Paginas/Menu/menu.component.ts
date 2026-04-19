@@ -149,6 +149,7 @@ export class MenuComponent {
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
       this.VisorRestauranteElBistro =
+      this.VisorSastreriaConfeccionesCreateli =
       this.VisorVendedor = this.VisorMaestro;
   }
   //CHOCOS DE LA ABUELA
@@ -398,7 +399,7 @@ export class MenuComponent {
       }
     });
   }
-    //SASTRERIA CONFECCIONES CREATELI
+  //SASTRERIA CONFECCIONES CREATELI
   CargarResumenPagosSastreriaConfeccionesCreateli(anio: number) {
     this.PagoServicioSastreriaConfeccionesCreateli.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
