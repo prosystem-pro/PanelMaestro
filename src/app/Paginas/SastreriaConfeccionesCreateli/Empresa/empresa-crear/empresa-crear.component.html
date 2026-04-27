@@ -7,7 +7,16 @@
         [(ngModel)]="Datos.NombreEmpresa" name="NombreEmpresa" required>
     </div>
   </div>
-
+  <div class="mb-3">
+    <label class="form-label fw-semibold">NIT</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0">
+        <i class="bi bi-card-text"></i>
+      </span>
+      <input type="text" class="form-control rounded-end-pill" placeholder="Ej. 13367978" [(ngModel)]="Datos.NIT"
+        name="NIT" required>
+    </div>
+  </div>
   <div class="mb-3">
     <label class="form-label fw-semibold">Dirección</label>
     <div class="input-group">

@@ -55,7 +55,8 @@ export class EmpresaCrearSastreriaConfeccionesCreateliComponent {
       Direccion: '',
       Eslogan: '',
       Telefono: '',
-      Estatus: null
+      Estatus: null,
+        NIT: ''
     };
   }
 

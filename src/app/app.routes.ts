@@ -118,6 +118,7 @@ import { RecursoCrearSastreriaConfeccionesCreateliComponent } from '../app/Pagin
 import { PermisoRolRecursoListadoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Pago/pago.component';
+import { EliminacionSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/GestionAdmin/eliminacion/eliminacion.component';
 
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -246,6 +247,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/pago`, component: PagoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/eliminacion`, component: EliminacionSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

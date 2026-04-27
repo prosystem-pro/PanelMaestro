@@ -1,0 +1,105 @@
+<div class="d-flex" style="height: 100vh; overflow: hidden;">
+
+  <!-- Etiqueta empresa -->
+  <div style="position: absolute; top: 10px;" class="NombreEmpresa">
+    <span style="
+      background-color: #fff3cd;
+      color: #703f17;
+      padding: 0.4rem 1rem;
+      border-radius: 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    ">
+      <img [src]="LogoEmpresa" alt="Logo" style="
+        height: 26px;
+        width: 26px;
+        background-color: #000;
+        border-radius: 50%;
+      ">
+      {{ NombreEmpresa }}
+    </span>
+  </div>
+
+  <!-- Sidebar fijo -->
+  <div style="position: fixed; z-index: 1;">
+    <app-sidebar-SastreriaConfeccionesCreateli></app-sidebar-SastreriaConfeccionesCreateli>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="MedidaSidebar">
+
+    <!-- Título -->
+    <h2 class="mb-4 mt-2 fw-bold MedidaTitulo" style="
+      color: #703f17;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      display: table;
+      padding-bottom: 0.4rem;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+      text-align: center;
+    ">
+      Eliminación de Datos de Pruebas
+      <span style="
+        display: block;
+        height: 3px;
+        width: 60%;
+        margin: 0.25rem auto 0;
+        background: linear-gradient(90deg, #b56e35, #ffa94d);
+        border-radius: 2px;
+      "></span>
+    </h2>
+
+    <!-- PANEL CENTRAL -->
+    <div class="container d-flex justify-content-center mt-5">
+
+      <div class="card shadow-lg border-0 rounded-4 panel-eliminacion">
+
+        <div class="card-body text-center p-5">
+
+          <div class="mb-3">
+            <i class="bi bi-exclamation-triangle-fill display-1 text-danger"></i>
+          </div>
+
+          <h3 class="fw-bold text-danger">
+            Zona de limpieza crítica
+          </h3>
+
+          <p class="text-muted mt-3">
+            Esta acción eliminará datos de pruebas de la base de datos del sistema.
+          </p>
+
+          <p class="text-warning fw-bold">
+            ⚠️ Solo usuarios SuperAdmin pueden ejecutar esta acción
+          </p>
+
+          <button
+            class="btn btn-lg mt-4 px-5 rounded-pill shadow"
+            (click)="LimpiarBD()"
+            style="
+              background: linear-gradient(135deg, #8c1c13, #c0392b);
+              border: none;
+              color: white;
+            ">
+
+            <i class="bi bi-trash me-2"></i>
+            Limpiar Base de Datos
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<app-spinner-global [visible]="Spinner"></app-spinner-global>
