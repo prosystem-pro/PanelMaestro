@@ -128,6 +128,20 @@
                                 <input *ngIf="CodigoEditando === Datos.CodigoEmpresa" type="text"
                                     class="form-control form-control-sm mt-1" [(ngModel)]="Datos.Telefono" />
                             </div>
+                            <!-- NIT -->
+                            <div class="mb-2">
+                                <i class="bi bi-card-text text-dark me-2"></i>
+                                <strong>NIT:</strong>
+
+                                <!-- Vista normal -->
+                                <span *ngIf="CodigoEditando !== Datos.CodigoEmpresa">
+                                    {{ Datos.NIT }}
+                                </span>
+
+                                <!-- Modo edición -->
+                                <input *ngIf="CodigoEditando === Datos.CodigoEmpresa" type="text"
+                                    class="form-control form-control-sm mt-1" [(ngModel)]="Datos.NIT" />
+                            </div>
                             <!-- Estatus -->
                             <div class="mb-2">
                                 <i class="bi bi-geo-alt-fill text-danger me-2"></i>
@@ -210,7 +224,8 @@
                 </div>
                 <!-- Cuerpo del modal -->
                 <div class="modal-body p-4">
-                    <app-empresa-crear-SastreriaConfeccionesCreateli (ObjetoCreado)="Recargar()"></app-empresa-crear-SastreriaConfeccionesCreateli>
+                    <app-empresa-crear-SastreriaConfeccionesCreateli
+                        (ObjetoCreado)="Recargar()"></app-empresa-crear-SastreriaConfeccionesCreateli>
                 </div>
 
             </div>
