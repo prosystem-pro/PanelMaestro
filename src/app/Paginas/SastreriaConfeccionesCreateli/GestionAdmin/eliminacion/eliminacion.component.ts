@@ -57,12 +57,23 @@ export class EliminacionSastreriaConfeccionesCreateliComponent {
             this.Alerta.MostrarExito('Base de datos limpiada correctamente.');
           },
           error: (error) => {
-            this.Spinner = false;
-
+            const tipo = error?.error?.tipo;
             const mensaje =
-              error?.error?.message || 'Error inesperado';
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado';
 
-            this.Alerta.MostrarError({ error: { message: mensaje } });
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            }
+            else if (tipo === 'Error') {
+              this.Alerta.MostrarError(error);
+            }
+            else {
+              this.Alerta.MostrarError(error);
+            }
+
+            this.Spinner = false;
           }
         });
 
