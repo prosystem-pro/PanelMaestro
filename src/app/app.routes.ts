@@ -119,6 +119,23 @@ import { PermisoRolRecursoListadoSastreriaConfeccionesCreateliComponent } from '
 import { PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Pago/pago.component';
 import { EliminacionSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/GestionAdmin/eliminacion/eliminacion.component';
+//SASTRERIA ANDER TRAJES Y UNIFORMES
+import { InicioSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Inicio/inicio.component';
+import { SidebarSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Pago/pago.component';
+import { EliminacionSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/GestionAdmin/eliminacion/eliminacion.component';
 
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -127,6 +144,7 @@ const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
 const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
+const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -248,6 +266,23 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/pago`, component: PagoSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/eliminacion`, component: EliminacionSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
+  //SASTRERIA CONFECCIONES CREATELI
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/inicio`, component: InicioSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/sidebar`, component: SidebarSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/empresa-listado`, component: EmpresaListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/empresa-crear`, component: EmpresaCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/rol-listado`, component: RolListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/rol-crear`, component: RolCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/usuario-listado`, component: UsuarioListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/usuario-crear`, component: UsuarioCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/permiso-listado`, component: PermisoListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/permiso-crear`, component: PermisoCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/recurso-listado`, component: RecursoListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/recurso-crear`, component: RecursoCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/pago`, component: PagoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/eliminacion`, component: EliminacionSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

@@ -7,6 +7,7 @@ import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
 import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
+import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { Entorno } from '../Entornos/Entorno';
 
 @Injectable({
@@ -22,6 +23,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
+    private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
     private router: Router) { }
 
 
@@ -37,6 +39,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
+    const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
       if (this.LoginChocosDeLaAbuela.ValidarToken()) {
@@ -97,6 +100,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginSastreriaConfeccionesCreateli.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaSastreriaAnderTrajesYUniformes}`)) {
+      if (this.LoginSastreriaAnderTrajesYUniformes.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginSastreriaAnderTrajesYUniformes.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

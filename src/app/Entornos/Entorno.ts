@@ -34,5 +34,10 @@ export const Entorno = {
    NombreEmpresaSastreriaConfeccionesCreateli: 'SastreriaConfeccionesCreateli',
    ApiUrlSastreriaConfeccionesCreateli: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaConfeccionesCreateli: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaConfeccionesCreateli: 'LogoSastreriaConfeccionesCreateli.ico'
+   LogoSastreriaConfeccionesCreateli: 'LogoSastreriaConfeccionesCreateli.ico',
+   //SASTRERIA ANDER TRAJES Y UNIFORMES
+   NombreEmpresaSastreriaAnderTrajesYUniformes: 'SastreriaAnderTrajesYUniformes',
+   ApiUrlSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/generar-modelos',
+   LogoSastreriaAnderTrajesYUniformes: 'LogoSastreriaAnderTrajesYUniformes.ico'
 };
