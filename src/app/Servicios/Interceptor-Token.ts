@@ -8,6 +8,7 @@ import { LoginServicioAjachelTravelAgency } from './AjachelTravelAgency/Login';
 import { LoginServicioRestauranteElBistro } from './RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from './SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from './SastreriaAnderTrajesYUniformes/Login';
+import { LoginServicioSastreriaAbarroteriaElAmanecer } from './SastreriaAbarroteriaElAmanecer/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -25,7 +26,8 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
     { url: Entorno.ApiUrlAjachelTravelAgency, login: inject(LoginServicioAjachelTravelAgency) },
     { url: Entorno.ApiUrlRestauranteElBistro, login: inject(LoginServicioRestauranteElBistro) },
     { url: Entorno.ApiUrlSastreriaConfeccionesCreateli, login: inject(LoginServicioSastreriaConfeccionesCreateli) },
-    { url: Entorno.ApiUrlSastreriaAnderTrajesYUniformes, login: inject(LoginServicioSastreriaAnderTrajesYUniformes) }
+    { url: Entorno.ApiUrlSastreriaAnderTrajesYUniformes, login: inject(LoginServicioSastreriaAnderTrajesYUniformes) },
+    { url: Entorno.ApiUrlSastreriaAbarroteriaElAmanecer, login: inject(LoginServicioSastreriaAbarroteriaElAmanecer) }
   ];
 
   const url = Solicitud.url;

@@ -9,6 +9,7 @@ import { LoginServicioAjachelTravelAgency } from '../../../app/Servicios/Ajachel
 import { LoginServicioRestauranteElBistro } from '../../../app/Servicios/RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from '../../../app/Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from '../../../app/Servicios/SastreriaAnderTrajesYUniformes/Login';
+import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../../../app/Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
   NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
   NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
+  NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
 
   constructor(
     private router: Router,
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
+    private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private Alerta: AlertaServicio
   ) { }
 
@@ -92,6 +95,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaSastreriaAnderTrajesYUniformes:
         ServicioLogin = this.LoginSastreriaAnderTrajesYUniformes.Login(usuario, clave);
         break;
+      case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
+        ServicioLogin = this.LoginSastreriaAbarroteriaElAmanecer.Login(usuario, clave);
+        break;
       default:
         this.Alerta.MostrarAlerta('Empresa no válida');
         return;
@@ -116,6 +122,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaRestauranteElBistro:
               case this.NombreEmpresaSastreriaConfeccionesCreateli:
               case this.NombreEmpresaSastreriaAnderTrajesYUniformes:
+              case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
                 this.router.navigate([ruta]);
                 break;
               default:

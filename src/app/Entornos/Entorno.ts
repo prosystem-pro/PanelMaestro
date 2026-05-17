@@ -39,5 +39,10 @@ export const Entorno = {
    NombreEmpresaSastreriaAnderTrajesYUniformes: 'SastreriaAnderTrajesYUniformes',
    ApiUrlSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaAnderTrajesYUniformes: 'LogoSastreriaAnderTrajesYUniformes.ico'
+   LogoSastreriaAnderTrajesYUniformes: 'LogoSastreriaAnderTrajesYUniformes.ico',
+   //SASTRERIA ABARROTERIA EL AMANECER
+   NombreEmpresaSastreriaAbarroteriaElAmanecer: 'SastreriaAbarroteriaElAmanecer',
+   ApiUrlSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/generar-modelos',
+   LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico'
 };

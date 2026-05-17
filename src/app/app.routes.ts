@@ -136,6 +136,23 @@ import { PermisoRolRecursoListadoSastreriaAnderTrajesYUniformesComponent } from 
 import { PermisoRolRecursoCrearSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/Pago/pago.component';
 import { EliminacionSastreriaAnderTrajesYUniformesComponent } from '../app/Paginas/SastreriaAnderTrajesYUniformes/GestionAdmin/eliminacion/eliminacion.component';
+//SASTRERIA ABARROTERIA EL AMANECER
+import { InicioSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Inicio/inicio.component';
+import { SidebarSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Pago/pago.component';
+import { EliminacionSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/GestionAdmin/eliminacion/eliminacion.component';
 
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
@@ -145,6 +162,7 @@ const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTra
 const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
+const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -283,6 +301,23 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/pago`, component: PagoSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAnderTrajesYUniformes}/eliminacion`, component: EliminacionSastreriaAnderTrajesYUniformesComponent, canActivate: [AutorizacionRuta] },
+  //SASTRERIA ABARROTERIA EL AMANECER
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/inicio`, component: InicioSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/sidebar`, component: SidebarSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/empresa-listado`, component: EmpresaListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/empresa-crear`, component: EmpresaCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/rol-listado`, component: RolListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/rol-crear`, component: RolCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/usuario-listado`, component: UsuarioListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/usuario-crear`, component: UsuarioCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-listado`, component: PermisoListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-crear`, component: PermisoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/recurso-listado`, component: RecursoListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/recurso-crear`, component: RecursoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/pago`, component: PagoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/eliminacion`, component: EliminacionSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

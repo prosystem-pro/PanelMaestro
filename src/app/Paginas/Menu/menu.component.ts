@@ -11,6 +11,7 @@ import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAg
 import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
+import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
 
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
@@ -20,6 +21,7 @@ import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/Ajach
 import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
+import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
 
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -92,6 +94,13 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaAnderTrajesYUniformes = new Date().getFullYear();
   PaginaSastreriaAnderTrajesYUniformes: number = 0;
   InformacionBdSastreriaAnderTrajesYUniformes: any = null;
+    //SASTRERIA ABARROTERIA EL AMANECER
+  NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+  LogoEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.LogoSastreriaAbarroteriaElAmanecer;
+  ResumenPagosSastreriaAbarroteriaElAmanecer: any = null;
+  AnioSeleccionadoSastreriaAbarroteriaElAmanecer = new Date().getFullYear();
+  PaginaSastreriaAbarroteriaElAmanecer: number = 0;
+  InformacionBdSastreriaAbarroteriaElAmanecer: any = null;
 
   // Estados de visores individuales
   VisorChocosDeLaAbuela = false;
@@ -102,6 +111,7 @@ export class MenuComponent {
   VisorRestauranteElBistro = false;
   VisorSastreriaConfeccionesCreateli = false;
   VisorSastreriaAnderTrajesYUniformes = false;
+    VisorSastreriaAbarroteriaElAmanecer = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -115,6 +125,7 @@ export class MenuComponent {
     private PagoServicioRestauranteElBistro: PagoServicioRestauranteElBistro,
     private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
         private PagoServicioSastreriaAnderTrajesYUniformes: PagoServicioSastreriaAnderTrajesYUniformes,
+                private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
 
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
@@ -124,6 +135,7 @@ export class MenuComponent {
     private InformacionBd_ServicioRestauranteElBistro: InformacionBd_ServicioRestauranteElBistro,
     private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
         private InformacionBd_ServicioSastreriaAnderTrajesYUniformes: InformacionBd_ServicioSastreriaAnderTrajesYUniformes,
+                private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -135,6 +147,7 @@ export class MenuComponent {
     this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
         this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
+                this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
 
     this.CargarInformacionBdChocosDeLaAbuela();
     this.CargarInformacionBdCorazonTipico();
@@ -144,6 +157,7 @@ export class MenuComponent {
     this.CargarInformacionBdRestauranteElBistro();
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
         this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
+                this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
   }
 
 
@@ -165,6 +179,7 @@ export class MenuComponent {
       this.VisorRestauranteElBistro =
       this.VisorSastreriaConfeccionesCreateli =
             this.VisorSastreriaAnderTrajesYUniformes =
+                        this.VisorSastreriaAbarroteriaElAmanecer =
       this.VisorVendedor = this.VisorMaestro;
   }
   //CHOCOS DE LA ABUELA
@@ -480,6 +495,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioSastreriaAnderTrajesYUniformes.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdSastreriaAnderTrajesYUniformes = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+      //SASTRERIA ABARROTERIA EL AMANECER
+  CargarResumenPagosSastreriaAbarroteriaElAmanecer(anio: number) {
+    this.PagoServicioSastreriaAbarroteriaElAmanecer.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosSastreriaAbarroteriaElAmanecer = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdSastreriaAbarroteriaElAmanecer() {
+    this.InformacionBd_ServicioSastreriaAbarroteriaElAmanecer.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdSastreriaAbarroteriaElAmanecer = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;
