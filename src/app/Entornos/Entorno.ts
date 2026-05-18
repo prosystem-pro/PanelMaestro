@@ -15,7 +15,7 @@ export const Entorno = {
    ApiUrlConstructoraMorgan: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloConstructoraMorgan: 'https://carrito-web-constructora-morgan-web.vercel.app/api/generar-modelos',
    LogoConstructoraMorgan: 'LogoConstructoraMorgan.ico',
-   //VENDEDOR
+   //DEMO VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
    ApiUrlVendedor: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
@@ -44,5 +44,10 @@ export const Entorno = {
    NombreEmpresaSastreriaAbarroteriaElAmanecer: 'SastreriaAbarroteriaElAmanecer',
    ApiUrlSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico'
+   LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico',
+   //SASTRERIA DEMO
+   NombreEmpresaSastreriaDemo: 'SastreriaDemo',
+   ApiUrlSastreriaDemo: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloSastreriaDemo: 'http://localhost:1433/api/generar-modelos',
+   LogoSastreriaDemo: 'LogoSastreriaDemo.ico'
 };

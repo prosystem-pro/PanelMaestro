@@ -1,0 +1,84 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { GestionSuperAdminServicio } from '../../../../Servicios/SastreriaDemo/GestionAdmin-Servicio';
+import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
+import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
+import { SidebarSastreriaDemoComponent } from '../../Sidebar/sidebar.component';
+import { Entorno } from '../../../../Entornos/Entorno';
+
+
+@Component({
+  selector: 'app-eliminacion',
+  imports: [SpinnerGlobalComponent, SidebarSastreriaDemoComponent],
+  templateUrl: './eliminacion.component.html',
+  styleUrl: './eliminacion.component.css'
+})
+export class EliminacionSastreriaDemoComponent {
+  NombreEmpresa = Entorno.NombreEmpresaSastreriaDemo;
+  LogoEmpresa = Entorno.LogoSastreriaDemo;
+  Spinner: boolean = false;
+
+  constructor(
+    private Servicio: GestionSuperAdminServicio,
+    private Alerta: AlertaServicio
+  ) { }
+
+  LimpiarBD() {
+
+    this.Alerta.Confirmacion(
+      '⚠️ Acción peligrosa',
+      'Esto eliminará datos de pruebas en la base de datos. ¿Deseas continuar?'
+    ).then(confirmado => {
+
+      if (!confirmado) return;
+
+      this.Alerta.SolicitarTexto(
+        'Confirmación final',
+        'Escribe LIMPIAR para continuar',
+        'LIMPIAR'
+      ).then(texto => {
+
+        if (!texto) return;
+
+        const valor = texto.trim().toUpperCase();
+
+        if (valor !== 'LIMPIAR') {
+          this.Alerta.MostrarError({
+            error: { message: 'Texto incorrecto. Operación cancelada.' }
+          });
+          return;
+        }
+
+        this.Spinner = true;
+
+        this.Servicio.LimpiarBaseDatosPruebas().subscribe({
+          next: () => {
+            this.Spinner = false;
+            this.Alerta.MostrarExito('Base de datos limpiada correctamente.');
+          },
+          error: (error) => {
+            const tipo = error?.error?.tipo;
+            const mensaje =
+              error?.error?.error?.message ||
+              error?.error?.message ||
+              'Ocurrió un error inesperado';
+
+            if (tipo === 'Alerta') {
+              this.Alerta.MostrarAlerta(mensaje);
+            }
+            else if (tipo === 'Error') {
+              this.Alerta.MostrarError(error);
+            }
+            else {
+              this.Alerta.MostrarError(error);
+            }
+
+            this.Spinner = false;
+          }
+        });
+
+      });
+
+    });
+  }
+}
