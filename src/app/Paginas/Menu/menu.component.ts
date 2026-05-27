@@ -155,8 +155,8 @@ export class MenuComponent {
     this.CargarResumenPagosCorazonTipico(this.AnioSeleccionadoCorazonTipico);
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
-    this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
-    this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
+    // this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
+    // this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
     this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
@@ -166,8 +166,8 @@ export class MenuComponent {
     this.CargarInformacionBdCorazonTipico();
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
-    this.CargarInformacionBdAjachelTravelAgency();
-    this.CargarInformacionBdRestauranteElBistro();
+    // this.CargarInformacionBdAjachelTravelAgency();
+    // this.CargarInformacionBdRestauranteElBistro();
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
     this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
