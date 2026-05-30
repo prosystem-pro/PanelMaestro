@@ -10,6 +10,7 @@ import { LoginServicioSastreriaConfeccionesCreateli } from './SastreriaConfeccio
 import { LoginServicioSastreriaAnderTrajesYUniformes } from './SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from './SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaDemo } from './SastreriaDemo/Login';
+import { LoginServicioSastreriaDemoOficial } from './SastreriaDemoOficial/Login';
 import { catchError } from 'rxjs';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -29,7 +30,8 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
     { url: Entorno.ApiUrlSastreriaConfeccionesCreateli, login: inject(LoginServicioSastreriaConfeccionesCreateli) },
     { url: Entorno.ApiUrlSastreriaAnderTrajesYUniformes, login: inject(LoginServicioSastreriaAnderTrajesYUniformes) },
     { url: Entorno.ApiUrlSastreriaAbarroteriaElAmanecer, login: inject(LoginServicioSastreriaAbarroteriaElAmanecer) },
-    { url: Entorno.ApiUrlSastreriaDemo, login: inject(LoginServicioSastreriaDemo) }
+    { url: Entorno.ApiUrlSastreriaDemo, login: inject(LoginServicioSastreriaDemo) },
+    { url: Entorno.ApiUrlSastreriaDemoOficial, login: inject(LoginServicioSastreriaDemoOficial) }
   ];
 
   const url = Solicitud.url;

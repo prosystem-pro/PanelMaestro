@@ -49,5 +49,10 @@ export const Entorno = {
    NombreEmpresaSastreriaDemo: 'SastreriaDemo',
    ApiUrlSastreriaDemo: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaDemo: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaDemo: 'LogoSastreriaDemo.ico'
+   LogoSastreriaDemo: 'LogoSastreriaDemo.ico',
+   //SASTRERIA DEMO OFICIAL
+   NombreEmpresaSastreriaDemoOficial: 'SastreriaDemoOficial',
+   ApiUrlSastreriaDemoOficial: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloSastreriaDemoOficial: 'http://localhost:1433/api/generar-modelos',
+   LogoSastreriaDemoOficial: 'LogoSastreriaDemoOficial.ico'
 };

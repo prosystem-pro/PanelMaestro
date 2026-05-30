@@ -10,6 +10,7 @@ import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/Sastrer
 import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaDemo } from '../Servicios/SastreriaDemo/Login';
+import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
 import { Entorno } from '../Entornos/Entorno';
 
 @Injectable({
@@ -26,8 +27,9 @@ export class AutorizacionRuta implements CanActivate {
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
-        private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
-                private LoginSastreriaDemo: LoginServicioSastreriaDemo,
+    private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
+    private LoginSastreriaDemo: LoginServicioSastreriaDemo,
+    private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private router: Router) { }
 
 
@@ -44,8 +46,9 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
     const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
-        const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
-                const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
+    const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+    const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
+    const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
       if (this.LoginChocosDeLaAbuela.ValidarToken()) {
@@ -119,7 +122,7 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
-        if (url.includes(`/${NombreEmpresaSastreriaAbarroteriaElAmanecer}`)) {
+    if (url.includes(`/${NombreEmpresaSastreriaAbarroteriaElAmanecer}`)) {
       if (this.LoginSastreriaAbarroteriaElAmanecer.ValidarToken()) {
         return true;
       } else {
@@ -129,11 +132,21 @@ export class AutorizacionRuta implements CanActivate {
       }
     }
 
-            if (url.includes(`/${NombreEmpresaSastreriaDemo}`)) {
+    if (url.includes(`/${NombreEmpresaSastreriaDemo}`)) {
       if (this.LoginSastreriaDemo.ValidarToken()) {
         return true;
       } else {
         this.LoginSastreriaDemo.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+
+    if (url.includes(`/${NombreEmpresaSastreriaDemoOficial}`)) {
+      if (this.LoginSastreriaDemoOficial.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginSastreriaDemoOficial.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

@@ -171,6 +171,25 @@ import { PermisoRolRecursoCrearSastreriaDemoComponent } from '../app/Paginas/Sas
 import { PagoSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/Pago/pago.component';
 import { EliminacionSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/GestionAdmin/eliminacion/eliminacion.component';
 
+//SASTRERIA DEMO OFICIAL
+import { InicioSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Inicio/inicio.component';
+import { SidebarSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Pago/pago.component';
+import { EliminacionSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/GestionAdmin/eliminacion/eliminacion.component';
+
+
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
@@ -181,6 +200,7 @@ const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresa
 const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
 const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
 const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
+const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -353,6 +373,23 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaDemo}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaDemo}/pago`, component: PagoSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaDemo}/eliminacion`, component: EliminacionSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
+    //SASTRERIA DEMO OFICIAL
+  { path: `${NombreEmpresaSastreriaDemoOficial}/inicio`, component: InicioSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/sidebar`, component: SidebarSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/empresa-listado`, component: EmpresaListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/empresa-crear`, component: EmpresaCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/rol-listado`, component: RolListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/rol-crear`, component: RolCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/usuario-listado`, component: UsuarioListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/usuario-crear`, component: UsuarioCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/permiso-listado`, component: PermisoListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/permiso-crear`, component: PermisoCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/recurso-listado`, component: RecursoListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/recurso-crear`, component: RecursoCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/pago`, component: PagoSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaDemoOficial}/eliminacion`, component: EliminacionSastreriaDemoOficialComponent, canActivate: [AutorizacionRuta] },
 
   { path: '**', redirectTo: 'menu' },
 ];

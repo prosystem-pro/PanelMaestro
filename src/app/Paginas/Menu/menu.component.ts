@@ -13,6 +13,7 @@ import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/Sastr
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
 import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
 import { PagoServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/PagoServicio';
+import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/PagoServicio';
 
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
@@ -24,6 +25,7 @@ import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servi
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/InformacionBd_Servicio';
+import { InformacionBd_ServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/InformacionBd_Servicio';
 
 
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
@@ -110,6 +112,13 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaDemo = new Date().getFullYear();
   PaginaSastreriaDemo: number = 0;
   InformacionBdSastreriaDemo: any = null;
+  //SASTRERIA DEMO OFICIAL
+  NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
+  LogoEmpresaSastreriaDemoOficial: string = Entorno.LogoSastreriaDemoOficial;
+  ResumenPagosSastreriaDemoOficial: any = null;
+  AnioSeleccionadoSastreriaDemoOficial = new Date().getFullYear();
+  PaginaSastreriaDemoOficial: number = 0;
+  InformacionBdSastreriaDemoOficial: any = null;
 
   // Estados de visores individuales
   VisorChocosDeLaAbuela = false;
@@ -122,6 +131,7 @@ export class MenuComponent {
   VisorSastreriaAnderTrajesYUniformes = false;
   VisorSastreriaAbarroteriaElAmanecer = false;
   VisorSastreriaDemo = false;
+  VisorSastreriaDemoOficial = false;
 
   // Switch maestro
   VisorMaestro = false;
@@ -137,6 +147,7 @@ export class MenuComponent {
     private PagoServicioSastreriaAnderTrajesYUniformes: PagoServicioSastreriaAnderTrajesYUniformes,
     private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
     private PagoServicioSastreriaDemo: PagoServicioSastreriaDemo,
+    private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
     private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
@@ -148,6 +159,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaAnderTrajesYUniformes: InformacionBd_ServicioSastreriaAnderTrajesYUniformes,
     private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
     private InformacionBd_ServicioSastreriaDemo: InformacionBd_ServicioSastreriaDemo,
+    private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
@@ -161,6 +173,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
     this.CargarResumenPagosSastreriaDemo(this.AnioSeleccionadoSastreriaDemo);
+    this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
     this.CargarInformacionBdChocosDeLaAbuela();
     this.CargarInformacionBdCorazonTipico();
@@ -172,6 +185,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
     this.CargarInformacionBdSastreriaDemo();
+    this.CargarInformacionBdSastreriaDemoOficial();
   }
 
 
@@ -195,6 +209,7 @@ export class MenuComponent {
       this.VisorSastreriaAnderTrajesYUniformes =
       this.VisorSastreriaAbarroteriaElAmanecer =
       this.VisorSastreriaDemo =
+      this.VisorSastreriaDemoOficial =
       this.VisorVendedor = this.VisorMaestro;
   }
   //CHOCOS DE LA ABUELA
@@ -592,6 +607,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioSastreriaDemo.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdSastreriaDemo = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+    //SASTRERIA DEMO OFICIAL
+  CargarResumenPagosSastreriaDemoOficial(anio: number) {
+    this.PagoServicioSastreriaDemoOficial.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosSastreriaDemoOficial = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdSastreriaDemoOficial() {
+    this.InformacionBd_ServicioSastreriaDemoOficial.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdSastreriaDemoOficial = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;
