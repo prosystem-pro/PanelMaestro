@@ -52,7 +52,7 @@ export const Entorno = {
    LogoSastreriaDemo: 'LogoSastreriaDemo.ico',
    //SASTRERIA DEMO OFICIAL
    NombreEmpresaSastreriaDemoOficial: 'SastreriaDemoOficial',
-   ApiUrlSastreriaDemoOficial: 'https://sastreria-demooficial-api-production.up.railway.app//api/',
+   ApiUrlSastreriaDemoOficial: 'https://sastreria-demooficial-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloSastreriaDemoOficial: 'https://sastreria-demooficial-api-production.up.railway.app/api/generar-modelos',
    LogoSastreriaDemoOficial: 'LogoSastreriaDemoOficial.ico'
 };
