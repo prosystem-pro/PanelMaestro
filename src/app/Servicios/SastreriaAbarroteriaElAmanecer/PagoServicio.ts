@@ -25,7 +25,7 @@ export class PagoServicioSastreriaAbarroteriaElAmanecer {
   }
 
   Editar(Datos: any): Observable<any> {
-    return this.http.put(`${this.Url}/editar/${Datos.CodigoPago}`, Datos);
+    return this.http.put(`${this.Url}/editar/${Datos.CodigoPagos}`, Datos);
   }
 
   Eliminar(Codigo: number): Observable<any> {

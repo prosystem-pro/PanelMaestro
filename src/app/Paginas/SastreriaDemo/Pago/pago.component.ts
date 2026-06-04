@@ -23,7 +23,7 @@ export class PagoSastreriaDemoComponent implements OnInit {
   Empresa = Entorno.NombreEmpresaSastreriaDemo;
   @ViewChild('InputComprobante') InputComprobante!: ElementRef<HTMLInputElement>;
   ArchivoComprobanteTemporal: File | null = null;
-  CodigoPagoTemporal: number | null = null;
+  CodigoPagosTemporal: number | null = null;
   AnioSeleccionado: number = new Date().getFullYear();
   Datos: any[] = [];
   Formulario!: FormGroup;
@@ -46,7 +46,7 @@ export class PagoSastreriaDemoComponent implements OnInit {
 
   InicializarFormulario(): void {
     this.Formulario = this.fb.group({
-      CodigoPago: [null],
+      CodigoPagos: [null],
       CodigoEmpresa: [8],
       FechaDeposito: [null],
       FechaVencimientoPago: [null],
@@ -84,23 +84,23 @@ export class PagoSastreriaDemoComponent implements OnInit {
   // Guardar(): void {
   //   const datos = this.Formulario.value;
 
-  //   if (!datos.CodigoPago && this.CodigoPagoTemporal) {
-  //     datos.CodigoPago = this.CodigoPagoTemporal;
+  //   if (!datos.CodigoPagos && this.CodigoPagosTemporal) {
+  //     datos.CodigoPagos = this.CodigoPagosTemporal;
   //   }
 
-  //   const EsEdicion = this.Editando || datos.CodigoPago;
+  //   const EsEdicion = this.Editando || datos.CodigoPagos;
 
   //   if (EsEdicion) {
   //     this.pagoServicio.Editar(datos).subscribe(() => {
   //       this.CargarPagos();
   //       this.Cancelar();
-  //       this.CodigoPagoTemporal = null;
+  //       this.CodigoPagosTemporal = null;
   //     });
   //   } else {
   //     this.pagoServicio.Crear(datos).subscribe(() => {
   //       this.CargarPagos();
   //       this.Formulario.reset({ CodigoEmpresa: 8, Estatus: 1 });
-  //       this.CodigoPagoTemporal = null;
+  //       this.CodigoPagosTemporal = null;
   //     });
   //   }
   // }
@@ -182,10 +182,10 @@ export class PagoSastreriaDemoComponent implements OnInit {
           formData.append('CampoVinculado', 'CodigoEmpresa');
           formData.append('NombreCampoImagen', 'UrlComprobante');
 
-          const CodigoPago = this.Formulario.value.CodigoPago;
-          if (CodigoPago) {
-            formData.append('CodigoPropio', CodigoPago.toString());
-            formData.append('CampoPropio', 'CodigoPago');
+          const CodigoPagos = this.Formulario.value.CodigoPagos;
+          if (CodigoPagos) {
+            formData.append('CodigoPropio', CodigoPagos.toString());
+            formData.append('CampoPropio', 'CodigoPagos');
           }
           const entries: any = {};
           formData.forEach((value, key) => {
@@ -194,15 +194,15 @@ export class PagoSastreriaDemoComponent implements OnInit {
 
           this.pagoServicio.SubirImagen(formData).subscribe({
             next: (Respuesta: any) => {
-              const CodigoGenerado = Respuesta?.data.Entidad?.CodigoPago;
+              const CodigoGenerado = Respuesta?.data.Entidad?.CodigoPagos;
               const Url = Respuesta?.data.Entidad?.UrlComprobante;
 
               if (Url) {
                 this.Formulario.patchValue({ UrlComprobante: Url });
 
                 if (CodigoGenerado) {
-                  this.Formulario.patchValue({ CodigoPago: CodigoGenerado });
-                  this.CodigoPagoTemporal = CodigoGenerado;
+                  this.Formulario.patchValue({ CodigoPagos: CodigoGenerado });
+                  this.CodigoPagosTemporal = CodigoGenerado;
                 }
                 this.ArchivoComprobanteTemporal = null;
                 this.GuardarPago();
@@ -252,23 +252,23 @@ export class PagoSastreriaDemoComponent implements OnInit {
   private GuardarPago(): void {
     const datos = this.Formulario.value;
 
-    if (!datos.CodigoPago && this.CodigoPagoTemporal) {
-      datos.CodigoPago = this.CodigoPagoTemporal;
+    if (!datos.CodigoPagos && this.CodigoPagosTemporal) {
+      datos.CodigoPagos = this.CodigoPagosTemporal;
     }
     delete datos.UrlComprobante;
-    const EsEdicion = this.Editando || datos.CodigoPago;
+    const EsEdicion = this.Editando || datos.CodigoPagos;
 
     if (EsEdicion) {
       this.pagoServicio.Editar(datos).subscribe(() => {
         this.CargarPagos();
         this.Cancelar();
-        this.CodigoPagoTemporal = null;
+        this.CodigoPagosTemporal = null;
       });
     } else {
       this.pagoServicio.Crear(datos).subscribe(() => {
         this.CargarPagos();
         this.Formulario.reset({ CodigoEmpresa: 8, Estatus: 1 });
-        this.CodigoPagoTemporal = null;
+        this.CodigoPagosTemporal = null;
       });
     }
   }
