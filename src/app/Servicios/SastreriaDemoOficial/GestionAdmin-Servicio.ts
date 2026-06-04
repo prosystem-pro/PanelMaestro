@@ -13,7 +13,7 @@ export class GestionSuperAdminServicio {
   constructor(private http: HttpClient) { }
 
   LimpiarBaseDatosReplicaCliente(): Observable<any> {
-    return this.http.post(`${this.Url}/limpiarbasedatosreplicacliente`, {});
+    return this.http.post(`${this.Url}/limpiar-basedatos-replica-cliente`, {});
   }
 
   LimpiarSoloRegistrosTotal(): Observable<any> {
