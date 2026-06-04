@@ -8,7 +8,7 @@ import { Entorno } from '../../../../Entornos/Entorno';
 
 
 @Component({
-  selector: 'app-eliminacion',
+  selector: 'app-eliminacion-SastreriaDemo',
   imports: [SpinnerGlobalComponent, SidebarSastreriaDemoComponent],
   templateUrl: './eliminacion.component.html',
   styleUrl: './eliminacion.component.css'

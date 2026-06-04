@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-listado',
+  selector: 'app-listado-SastreriaDemoOficial',
   imports: [CommonModule, FormsModule, SpinnerGlobalComponent, SidebarSastreriaDemoOficialComponent],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
