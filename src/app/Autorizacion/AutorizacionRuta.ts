@@ -9,6 +9,7 @@ import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBist
 import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../Servicios/SastreriaAbarroteriaElAmanecer/Login';
+import { LoginServicioAgenda } from '../Servicios/Agenda/Login';
 import { LoginServicioSastreriaDemo } from '../Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
 import { Entorno } from '../Entornos/Entorno';
@@ -28,6 +29,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
+    private LoginAgenda: LoginServicioAgenda,
     private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private router: Router) { }
@@ -47,6 +49,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
     const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
     const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+    const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
     const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
@@ -127,6 +130,16 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginSastreriaAbarroteriaElAmanecer.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+
+    if (url.includes(`/${NombreEmpresaAgenda}`)) {
+      if (this.LoginAgenda.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginAgenda.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

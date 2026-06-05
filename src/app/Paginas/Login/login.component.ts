@@ -10,6 +10,7 @@ import { LoginServicioRestauranteElBistro } from '../../../app/Servicios/Restaur
 import { LoginServicioSastreriaConfeccionesCreateli } from '../../../app/Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from '../../../app/Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../../../app/Servicios/SastreriaAbarroteriaElAmanecer/Login';
+import { LoginServicioAgenda } from '../../../app/Servicios/Agenda/Login';
 import { LoginServicioSastreriaDemo } from '../../../app/Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../../../app/Servicios/SastreriaDemoOficial/Login';
 import { Router } from '@angular/router';
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
   NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
   NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+  NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
   NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
   NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 
@@ -55,6 +57,7 @@ export class LoginComponent implements OnInit {
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
+    private LoginAgenda: LoginServicioAgenda,
     private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
@@ -104,6 +107,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
         ServicioLogin = this.LoginSastreriaAbarroteriaElAmanecer.Login(usuario, clave);
         break;
+      case this.NombreEmpresaAgenda:
+        ServicioLogin = this.LoginAgenda.Login(usuario, clave);
+        break;
       case this.NombreEmpresaSastreriaDemo:
         ServicioLogin = this.LoginSastreriaDemo.Login(usuario, clave);
         break;
@@ -135,6 +141,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaSastreriaConfeccionesCreateli:
               case this.NombreEmpresaSastreriaAnderTrajesYUniformes:
               case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
+                              case this.NombreEmpresaAgenda:
               case this.NombreEmpresaSastreriaDemo:
               case this.NombreEmpresaSastreriaDemoOficial:
                 this.router.navigate([ruta]);

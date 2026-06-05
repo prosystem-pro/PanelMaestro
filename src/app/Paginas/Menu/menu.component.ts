@@ -12,6 +12,7 @@ import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBi
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
 import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
+import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
 import { PagoServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/PagoServicio';
 import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/PagoServicio';
 
@@ -24,6 +25,7 @@ import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/Resta
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
+import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/InformacionBd_Servicio';
 
@@ -105,6 +107,13 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaAbarroteriaElAmanecer = new Date().getFullYear();
   PaginaSastreriaAbarroteriaElAmanecer: number = 0;
   InformacionBdSastreriaAbarroteriaElAmanecer: any = null;
+  //AGENDA
+  NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
+  LogoEmpresaAgenda: string = Entorno.LogoAgenda;
+  ResumenPagosAgenda: any = null;
+  AnioSeleccionadoAgenda = new Date().getFullYear();
+  PaginaAgenda: number = 0;
+  InformacionBdAgenda: any = null;
   //SASTRERIA DEMO
   NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
   LogoEmpresaSastreriaDemo: string = Entorno.LogoSastreriaDemo;
@@ -130,6 +139,7 @@ export class MenuComponent {
   VisorSastreriaConfeccionesCreateli = false;
   VisorSastreriaAnderTrajesYUniformes = false;
   VisorSastreriaAbarroteriaElAmanecer = false;
+  VisorAgenda = false;
   VisorSastreriaDemo = false;
   VisorSastreriaDemoOficial = false;
 
@@ -146,6 +156,7 @@ export class MenuComponent {
     private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
     private PagoServicioSastreriaAnderTrajesYUniformes: PagoServicioSastreriaAnderTrajesYUniformes,
     private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
+    private PagoServicioAgenda: PagoServicioAgenda,
     private PagoServicioSastreriaDemo: PagoServicioSastreriaDemo,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
@@ -158,6 +169,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
     private InformacionBd_ServicioSastreriaAnderTrajesYUniformes: InformacionBd_ServicioSastreriaAnderTrajesYUniformes,
     private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
+    private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
     private InformacionBd_ServicioSastreriaDemo: InformacionBd_ServicioSastreriaDemo,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
@@ -172,6 +184,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
     this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
+    this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
     this.CargarResumenPagosSastreriaDemo(this.AnioSeleccionadoSastreriaDemo);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
@@ -184,6 +197,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
     this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
+    this.CargarInformacionBdAgenda();
     this.CargarInformacionBdSastreriaDemo();
     this.CargarInformacionBdSastreriaDemoOficial();
   }
@@ -208,6 +222,7 @@ export class MenuComponent {
       this.VisorSastreriaConfeccionesCreateli =
       this.VisorSastreriaAnderTrajesYUniformes =
       this.VisorSastreriaAbarroteriaElAmanecer =
+      this.VisorAgenda =
       this.VisorSastreriaDemo =
       this.VisorSastreriaDemoOficial =
       this.VisorVendedor = this.VisorMaestro;
@@ -582,6 +597,47 @@ export class MenuComponent {
       }
     });
   }
+  //AGENDA
+  CargarResumenPagosAgenda(anio: number) {
+    this.PagoServicioAgenda.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosAgenda = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdAgenda() {
+    this.InformacionBd_ServicioAgenda.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdAgenda = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
   //SASTRERIA DEMO
   CargarResumenPagosSastreriaDemo(anio: number) {
     this.PagoServicioSastreriaDemo.ObtenerResumenGeneralPagos(anio).subscribe({
@@ -623,7 +679,7 @@ export class MenuComponent {
       }
     });
   }
-    //SASTRERIA DEMO OFICIAL
+  //SASTRERIA DEMO OFICIAL
   CargarResumenPagosSastreriaDemoOficial(anio: number) {
     this.PagoServicioSastreriaDemoOficial.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {

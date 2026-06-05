@@ -45,6 +45,11 @@ export const Entorno = {
    ApiUrlSastreriaAbarroteriaElAmanecer: 'https://sastreria-AbarroteriaElAmanecer-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloSastreriaAbarroteriaElAmanecer: 'https://sastreria-AbarroteriaElAmanecer-api-production.up.railway.app/api/generar-modelos',
    LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico',
+   //AGENDA
+   NombreEmpresaAgenda: 'Agenda',
+   ApiUrlAgenda: 'https://agenda-api-production-737f.up.railway.app/api/',
+   ApiUrlGenerarModeloAgenda: 'https://agenda-api-production-737f.up.railway.app/api/generar-modelos',
+   LogoAgenda: 'LogoAgenda.ico',
    //SASTRERIA DEMO
    NombreEmpresaSastreriaDemo: 'SastreriaDemo',
    ApiUrlSastreriaDemo: 'https://sastreria-demo-api-production.up.railway.app/api/',

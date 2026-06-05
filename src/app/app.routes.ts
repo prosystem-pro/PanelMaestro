@@ -153,6 +153,22 @@ import { PermisoRolRecursoListadoSastreriaAbarroteriaElAmanecerComponent } from 
 import { PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Pago/pago.component';
 import { EliminacionSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/GestionAdmin/eliminacion/eliminacion.component';
+//AGENDA
+import { InicioAgendaComponent } from '../app/Paginas/Agenda/Inicio/inicio.component';
+import { SidebarAgendaComponent } from '../app/Paginas/Agenda/Sidebar/sidebar.component';
+import { EmpresaListadoAgendaComponent } from '../app/Paginas/Agenda/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearAgendaComponent } from '../app/Paginas/Agenda/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoAgendaComponent } from '../app/Paginas/Agenda/Rol/rol-listado/rol-listado.component';
+import { RolCrearAgendaComponent } from '../app/Paginas/Agenda/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoAgendaComponent } from '../app/Paginas/Agenda/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearAgendaComponent } from '../app/Paginas/Agenda/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoAgendaComponent } from '../app/Paginas/Agenda/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearAgendaComponent } from '../app/Paginas/Agenda/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoAgendaComponent } from '../app/Paginas/Agenda/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearAgendaComponent } from '../app/Paginas/Agenda//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoAgendaComponent } from '../app/Paginas/Agenda/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearAgendaComponent } from '../app/Paginas/Agenda/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoAgendaComponent } from '../app/Paginas/Agenda/Pago/pago.component';
 //SASTRERIA DEMO
 import { InicioSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/Inicio/inicio.component';
 import { SidebarSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/Sidebar/sidebar.component';
@@ -198,6 +214,7 @@ const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestaurant
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
 const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
 const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 // const Otro = 'OtraEmpresa';
@@ -240,6 +257,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/pago`, component: PagoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
+  
   //PROTEGIDAS CONSTRUCTORA MORGAN
   { path: `${NombreEmpresaConstructoraMorgan}/inicio`, component: InicioConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaConstructoraMorgan}/sidebar`, component: SidebarConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
@@ -355,6 +373,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/pago`, component: PagoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/eliminacion`, component: EliminacionSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
+    //PROTEGIDAS AGENDA
+  { path: `${NombreEmpresaAgenda}/inicio`, component: InicioAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/sidebar`, component: SidebarAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/empresa-listado`, component: EmpresaListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/empresa-crear`, component: EmpresaCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/rol-listado`, component: RolListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/rol-crear`, component: RolCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/usuario-listado`, component: UsuarioListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/usuario-crear`, component: UsuarioCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/permiso-listado`, component: PermisoListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/permiso-crear`, component: PermisoCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/recurso-listado`, component: RecursoListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/recurso-crear`, component: RecursoCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearAgendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaAgenda}/pago`, component: PagoAgendaComponent, canActivate: [AutorizacionRuta] },
   //SASTRERIA DEMO
   { path: `${NombreEmpresaSastreriaDemo}/inicio`, component: InicioSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaDemo}/sidebar`, component: SidebarSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
