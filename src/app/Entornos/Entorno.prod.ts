@@ -25,6 +25,11 @@ export const Entorno = {
    ApiUrlAjachelTravelAgency: 'https://carritoweb-ajacheltravelagency-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloAjachelTravelAgency: 'https://carritoweb-ajacheltravelagency-api-production.up.railway.app/api/generar-modelos',
    LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico',
+   //CARRITO WEB - CEVICHERIA CASTILLO
+   NombreEmpresaCevicheriaCastillo: 'CevicheriaCastillo',
+   ApiUrlCevicheriaCastillo: 'https://carritoweb-cevicheriacastillo-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloCevicheriaCastillo: 'https://carritoweb-cevicheriacastillo-api-production.up.railway.app/api/generar-modelos',
+   LogoCevicheriaCastillo: 'LogoCevicheriaCastillo.ico',
    //CARRITO WEB - RESTAURANTE EL BISTRO
    NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
    ApiUrlRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/',

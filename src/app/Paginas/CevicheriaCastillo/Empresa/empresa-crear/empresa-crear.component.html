@@ -1,0 +1,56 @@
+<form (ngSubmit)="Crear()">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Nombre de la Empresa</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-building"></i></span>
+      <input type="text" class="form-control rounded-end-pill" placeholder="Escriba un registro"
+        [(ngModel)]="Datos.NombreEmpresa" name="NombreEmpresa" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Dirección</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-geo-alt"></i></span>
+      <input type="text" class="form-control rounded-end-pill" placeholder="Ej. Calle Principal #123, Sector Centro"
+        [(ngModel)]="Datos.Direccion" name="Direccion">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Eslogan</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-chat-left-text"></i></span>
+      <input type="text" class="form-control rounded-end-pill" placeholder="Ej. Comprometidos con la excelencia"
+        [(ngModel)]="Datos.Eslogan" name="Eslogan">
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Celular</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-phone"></i></span>
+      <input type="text" class="form-control rounded-end-pill" placeholder="Ej. 809-555-1234"
+        [(ngModel)]="Datos.Celular" name="Celular">
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estatus</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-list-check"></i></span>
+      <select class="form-select rounded-end-pill" [(ngModel)]="Datos.Estatus" name="Estatus" required>
+        <option [ngValue]="null" disabled>Seleccione el estatus</option>
+        <option [ngValue]="1">Activo</option>
+        <option [ngValue]="2">Inactivo</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-success rounded-pill px-4">
+      <i class="bi bi-check-circle me-2"></i>Crear
+    </button>
+  </div>
+</form>
+<app-spinner-global [visible]="Spinner"></app-spinner-global>

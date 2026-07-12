@@ -72,20 +72,35 @@ import { PermisoRolRecursoCrearVendedorComponent } from '../app/Paginas/Vendedor
 import { PagoVendedorComponent } from '../app/Paginas/Vendedor/Pago/pago.component';
 //AJACHEL TRAVEL AGENCY
 import { InicioAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Inicio/inicio.component';
+import { InicioCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Inicio/inicio.component';
 import { SidebarAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Sidebar/sidebar.component';
+import { SidebarCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Sidebar/sidebar.component';
 import { EmpresaListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Empresa/empresa-listado/empresa-listado.component';
 import { EmpresaCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Empresa/empresa-crear/empresa-crear.component';
+import { EmpresaCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Empresa/empresa-crear/empresa-crear.component';
 import { RolListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Rol/rol-listado/rol-listado.component';
+import { RolListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Rol/rol-listado/rol-listado.component';
 import { RolCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Rol/rol-crear/rol-crear.component';
+import { RolCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Rol/rol-crear/rol-crear.component';
 import { UsuarioListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Usuario/usuario-listado/usuario-listado.component';
 import { UsuarioCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Usuario/usuario-crear/usuario-crear.component';
+import { UsuarioCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Usuario/usuario-crear/usuario-crear.component';
 import { PermisoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Permiso/permiso-listado/permiso-listado.component';
 import { PermisoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Permiso/permiso-crear/permiso-crear.component';
+import { PermisoCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Permiso/permiso-crear/permiso-crear.component';
 import { RecursoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Recurso/recurso-listado/recurso-listado.component';
 import { RecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency//Recurso/recurso-crear/recurso-crear.component';
+import { RecursoCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo//Recurso/recurso-crear/recurso-crear.component';
 import { PermisoRolRecursoListadoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoListadoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PermisoRolRecursoCrearCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Pago/pago.component';
+import { PagoCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Pago/pago.component';
 //RESTAURANTE EL BISTRO
 import { InicioRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Inicio/inicio.component';
 import { SidebarRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Sidebar/sidebar.component';
@@ -210,6 +225,7 @@ const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
+const NombreEmpresaCevicheriaCastillo: string = Entorno.NombreEmpresaCevicheriaCastillo;
 const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
@@ -292,20 +308,35 @@ export const routes: Routes = [
   { path: `${NombreEmpresaVendedor}/pago`, component: PagoVendedorComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS AJACHEL TRAVEL AGENCY
   { path: `${NombreEmpresaAjachelTravelAgency}/inicio`, component: InicioAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/inicio`, component: InicioCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/sidebar`, component: SidebarAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/sidebar`, component: SidebarCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/empresa-listado`, component: EmpresaListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/empresa-listado`, component: EmpresaListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/empresa-crear`, component: EmpresaCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/empresa-crear`, component: EmpresaCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/rol-listado`, component: RolListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/rol-listado`, component: RolListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/rol-crear`, component: RolCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/rol-crear`, component: RolCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/usuario-listado`, component: UsuarioListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/usuario-listado`, component: UsuarioListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/usuario-crear`, component: UsuarioCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/usuario-crear`, component: UsuarioCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-listado`, component: PermisoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/permiso-listado`, component: PermisoListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-crear`, component: PermisoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/permiso-crear`, component: PermisoCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/recurso-listado`, component: RecursoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/recurso-listado`, component: RecursoListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/recurso-crear`, component: RecursoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/recurso-crear`, component: RecursoCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAjachelTravelAgency}/pago`, component: PagoAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaCevicheriaCastillo}/pago`, component: PagoCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS RESTAURANTE EL BISTRO
   { path: `${NombreEmpresaRestauranteElBistro}/inicio`, component: InicioRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElBistro}/sidebar`, component: SidebarRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },

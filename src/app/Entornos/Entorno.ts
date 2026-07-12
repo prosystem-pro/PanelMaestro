@@ -25,6 +25,11 @@ export const Entorno = {
    ApiUrlAjachelTravelAgency: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloAjachelTravelAgency: 'http://localhost:1433/api/generar-modelos',
    LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico',
+   //CEVICHERIA CASTILLO
+   NombreEmpresaCevicheriaCastillo: 'CevicheriaCastillo',
+   ApiUrlCevicheriaCastillo: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloCevicheriaCastillo: 'http://localhost:1433/api/generar-modelos',
+   LogoCevicheriaCastillo: 'LogoCevicheriaCastillo.ico',
    //RESTAURANTE EL BISTRO
    NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
    ApiUrlRestauranteElBistro: 'http://localhost:1433/api/',

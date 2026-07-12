@@ -5,6 +5,7 @@ import { LoginServicioCorazonTipico } from '../Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
+import { LoginServicioCevicheriaCastillo } from '../Servicios/CevicheriaCastillo/Login';
 import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/SastreriaAnderTrajesYUniformes/Login';
@@ -25,6 +26,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
+    private LoginCevicheriaCastillo: LoginServicioCevicheriaCastillo,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
@@ -45,6 +47,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
+    const NombreEmpresaCevicheriaCastillo: string = Entorno.NombreEmpresaCevicheriaCastillo;
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
     const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
@@ -94,6 +97,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginAjachelTravelAgency.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaCevicheriaCastillo}`)) {
+      if (this.LoginCevicheriaCastillo.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginCevicheriaCastillo.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

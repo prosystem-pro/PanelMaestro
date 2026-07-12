@@ -8,6 +8,7 @@ import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoSer
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
+import { PagoServicioCevicheriaCastillo } from '../../Servicios/CevicheriaCastillo/PagoServicio';
 import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
@@ -21,6 +22,7 @@ import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipi
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
+import { InformacionBd_ServicioCevicheriaCastillo } from '../../Servicios/CevicheriaCastillo/InformacionBd_Servicio';
 import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
@@ -79,6 +81,13 @@ export class MenuComponent {
   AnioSeleccionadoAjachelTravelAgency = new Date().getFullYear();
   PaginaAjachelTravelAgency: number = 0;
   InformacionBdAjachelTravelAgency: any = null;
+  //CEVICHERIA CASTILLO
+  NombreEmpresaCevicheriaCastillo: string = Entorno.NombreEmpresaCevicheriaCastillo;
+  LogoEmpresaCevicheriaCastillo: string = Entorno.LogoCevicheriaCastillo;
+  ResumenPagosCevicheriaCastillo: any = null;
+  AnioSeleccionadoCevicheriaCastillo = new Date().getFullYear();
+  PaginaCevicheriaCastillo: number = 0;
+  InformacionBdCevicheriaCastillo: any = null;
   //RESTAURANTE EL BISTRO
   NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
   LogoEmpresaRestauranteElBistro: string = Entorno.LogoRestauranteElBistro;
@@ -135,6 +144,7 @@ export class MenuComponent {
   VisorConstructoraMorgan = false;
   VisorVendedor = false;
   VisorAjachelTravelAgency = false;
+  VisorCevicheriaCastillo = false;
   VisorRestauranteElBistro = false;
   VisorSastreriaConfeccionesCreateli = false;
   VisorSastreriaAnderTrajesYUniformes = false;
@@ -152,6 +162,7 @@ export class MenuComponent {
     private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
     private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
+    private PagoServicioCevicheriaCastillo: PagoServicioCevicheriaCastillo,
     private PagoServicioRestauranteElBistro: PagoServicioRestauranteElBistro,
     private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
     private PagoServicioSastreriaAnderTrajesYUniformes: PagoServicioSastreriaAnderTrajesYUniformes,
@@ -165,6 +176,7 @@ export class MenuComponent {
     private InformacionBd_ServicioCorazonTipico: InformacionBd_ServicioCorazonTipico,
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
     private InformacionBd_ServicioAjachelTravelAgency: InformacionBd_ServicioAjachelTravelAgency,
+    private InformacionBd_ServicioCevicheriaCastillo: InformacionBd_ServicioCevicheriaCastillo,
     private InformacionBd_ServicioRestauranteElBistro: InformacionBd_ServicioRestauranteElBistro,
     private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
     private InformacionBd_ServicioSastreriaAnderTrajesYUniformes: InformacionBd_ServicioSastreriaAnderTrajesYUniformes,
@@ -180,6 +192,7 @@ export class MenuComponent {
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
     // this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
+    this.CargarResumenPagosCevicheriaCastillo(this.AnioSeleccionadoCevicheriaCastillo);
     // this.CargarResumenPagosRestauranteElBistro(this.AnioSeleccionadoRestauranteElBistro);
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
     this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
@@ -193,6 +206,7 @@ export class MenuComponent {
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
     // this.CargarInformacionBdAjachelTravelAgency();
+    this.CargarInformacionBdCevicheriaCastillo();
     // this.CargarInformacionBdRestauranteElBistro();
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
     this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
@@ -218,6 +232,7 @@ export class MenuComponent {
       this.VisorCorazonTipico =
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
+      this.VisorCevicheriaCastillo =
       this.VisorRestauranteElBistro =
       this.VisorSastreriaConfeccionesCreateli =
       this.VisorSastreriaAnderTrajesYUniformes =
@@ -433,6 +448,47 @@ export class MenuComponent {
     });
   }
 
+  //CEVICHERIA CASTILLO
+  CargarResumenPagosCevicheriaCastillo(anio: number) {
+    this.PagoServicioCevicheriaCastillo.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosCevicheriaCastillo = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdCevicheriaCastillo() {
+    this.InformacionBd_ServicioCevicheriaCastillo.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdCevicheriaCastillo = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
   //RESTAURANTE EL BISTRO
   CargarResumenPagosRestauranteElBistro(anio: number) {
     this.PagoServicioRestauranteElBistro.ObtenerResumenGeneralPagos(anio).subscribe({
