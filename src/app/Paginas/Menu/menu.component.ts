@@ -13,6 +13,7 @@ import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBi
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
 import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
+import { PagoServicioSastreriaFerreteriaLaBendicion } from '../../Servicios/SastreriaFerreteriaLaBendicion/PagoServicio';
 import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
 import { PagoServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/PagoServicio';
 import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/PagoServicio';
@@ -27,6 +28,7 @@ import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/Resta
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
+import { InformacionBd_ServicioSastreriaFerreteriaLaBendicion } from '../../Servicios/SastreriaFerreteriaLaBendicion/InformacionBd_Servicio';
 import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/InformacionBd_Servicio';
@@ -116,6 +118,13 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaAbarroteriaElAmanecer = new Date().getFullYear();
   PaginaSastreriaAbarroteriaElAmanecer: number = 0;
   InformacionBdSastreriaAbarroteriaElAmanecer: any = null;
+  //SASTRERIA FERRETERIA LA BENDICION
+  NombreEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicion;
+  LogoEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.LogoSastreriaFerreteriaLaBendicion;
+  ResumenPagosSastreriaFerreteriaLaBendicion: any = null;
+  AnioSeleccionadoSastreriaFerreteriaLaBendicion = new Date().getFullYear();
+  PaginaSastreriaFerreteriaLaBendicion: number = 0;
+  InformacionBdSastreriaFerreteriaLaBendicion: any = null;
   //AGENDA
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
   LogoEmpresaAgenda: string = Entorno.LogoAgenda;
@@ -149,6 +158,7 @@ export class MenuComponent {
   VisorSastreriaConfeccionesCreateli = false;
   VisorSastreriaAnderTrajesYUniformes = false;
   VisorSastreriaAbarroteriaElAmanecer = false;
+  VisorSastreriaFerreteriaLaBendicion = false;
   VisorAgenda = false;
   VisorSastreriaDemo = false;
   VisorSastreriaDemoOficial = false;
@@ -167,6 +177,7 @@ export class MenuComponent {
     private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
     private PagoServicioSastreriaAnderTrajesYUniformes: PagoServicioSastreriaAnderTrajesYUniformes,
     private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
+    private PagoServicioSastreriaFerreteriaLaBendicion: PagoServicioSastreriaFerreteriaLaBendicion,
     private PagoServicioAgenda: PagoServicioAgenda,
     private PagoServicioSastreriaDemo: PagoServicioSastreriaDemo,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
@@ -181,6 +192,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
     private InformacionBd_ServicioSastreriaAnderTrajesYUniformes: InformacionBd_ServicioSastreriaAnderTrajesYUniformes,
     private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
+    private InformacionBd_ServicioSastreriaFerreteriaLaBendicion: InformacionBd_ServicioSastreriaFerreteriaLaBendicion,
     private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
     private InformacionBd_ServicioSastreriaDemo: InformacionBd_ServicioSastreriaDemo,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
@@ -197,6 +209,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
     this.CargarResumenPagosSastreriaAnderTrajesYUniformes(this.AnioSeleccionadoSastreriaAnderTrajesYUniformes);
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
+    this.CargarResumenPagosSastreriaFerreteriaLaBendicion(this.AnioSeleccionadoSastreriaFerreteriaLaBendicion);
     this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
     this.CargarResumenPagosSastreriaDemo(this.AnioSeleccionadoSastreriaDemo);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
@@ -211,6 +224,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
     this.CargarInformacionBdSastreriaAnderTrajesYUniformes();
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
+    this.CargarInformacionBdSastreriaFerreteriaLaBendicion();
     this.CargarInformacionBdAgenda();
     this.CargarInformacionBdSastreriaDemo();
     this.CargarInformacionBdSastreriaDemoOficial();
@@ -237,6 +251,7 @@ export class MenuComponent {
       this.VisorSastreriaConfeccionesCreateli =
       this.VisorSastreriaAnderTrajesYUniformes =
       this.VisorSastreriaAbarroteriaElAmanecer =
+      this.VisorSastreriaFerreteriaLaBendicion =
       this.VisorAgenda =
       this.VisorSastreriaDemo =
       this.VisorSastreriaDemoOficial =
@@ -637,6 +652,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioSastreriaAbarroteriaElAmanecer.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdSastreriaAbarroteriaElAmanecer = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+    //SASTRERIA DEMO OFICIAL
+  CargarResumenPagosSastreriaFerreteriaLaBendicion(anio: number) {
+    this.PagoServicioSastreriaFerreteriaLaBendicion.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosSastreriaFerreteriaLaBendicion = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdSastreriaFerreteriaLaBendicion() {
+    this.InformacionBd_ServicioSastreriaFerreteriaLaBendicion.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdSastreriaFerreteriaLaBendicion = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

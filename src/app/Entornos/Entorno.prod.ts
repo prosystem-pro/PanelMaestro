@@ -50,6 +50,11 @@ export const Entorno = {
    ApiUrlSastreriaAbarroteriaElAmanecer: 'https://sastreria-AbarroteriaElAmanecer-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloSastreriaAbarroteriaElAmanecer: 'https://sastreria-AbarroteriaElAmanecer-api-production.up.railway.app/api/generar-modelos',
    LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico',
+   //SASTRERIA LA BENDICION
+   NombreEmpresaSastreriaFerreteriaLaBendicion: 'SastreriaFerreteriaLaBendicion',
+   ApiUrlSastreriaFerreteriaLaBendicion: 'https://sastreria-ferreterialabendicion-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloSastreriaFerreteriaLaBendicion: 'https://sastreria-ferreterialabendicion-api-production.up.railway.app/api/generar-modelos',
+   LogoSastreriaFerreteriaLaBendicion: 'LogoSastreriaFerreteriaLaBendicion.ico',
    //AGENDA
    NombreEmpresaAgenda: 'Agenda',
    ApiUrlAgenda: 'https://agenda-api-production-737f.up.railway.app/api/',

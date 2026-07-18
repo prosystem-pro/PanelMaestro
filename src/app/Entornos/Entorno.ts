@@ -50,6 +50,11 @@ export const Entorno = {
    ApiUrlSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/generar-modelos',
    LogoSastreriaAbarroteriaElAmanecer: 'LogoSastreriaAbarroteriaElAmanecer.ico',
+   //SASTRERIA FERRETERIA LA BENDICION
+   NombreEmpresaSastreriaFerreteriaLaBendicion: 'SastreriaFerreteriaLaBendicion',
+   ApiUrlSastreriaFerreteriaLaBendicion: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloSastreriaFerreteriaLaBendicion: 'http://localhost:1433/api/generar-modelos',
+   LogoSastreriaFerreteriaLaBendicion: 'LogoSastreriaFerreteriaLaBendicion.ico',
    //AGENDA
    NombreEmpresaAgenda: 'Agenda',
    ApiUrlAgenda: 'http://localhost:1433/api/',

@@ -168,6 +168,24 @@ import { PermisoRolRecursoListadoSastreriaAbarroteriaElAmanecerComponent } from 
 import { PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/Pago/pago.component';
 import { EliminacionSastreriaAbarroteriaElAmanecerComponent } from '../app/Paginas/SastreriaAbarroteriaElAmanecer/GestionAdmin/eliminacion/eliminacion.component';
+//SASTRERIA DEMO OFICIAL
+import { InicioSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Inicio/inicio.component';
+import { SidebarSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Pago/pago.component';
+import { ListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/GestionAdmin/listado/listado.component';
+
 //AGENDA
 import { InicioAgendaComponent } from '../app/Paginas/Agenda/Inicio/inicio.component';
 import { SidebarAgendaComponent } from '../app/Paginas/Agenda/Sidebar/sidebar.component';
@@ -230,6 +248,7 @@ const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestaurant
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
 const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
+const NombreEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicion;
 const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
 const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
@@ -404,7 +423,25 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/pago`, component: PagoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/eliminacion`, component: EliminacionSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
-    //PROTEGIDAS AGENDA
+    //SASTRERIA FERRETERIA LA BENDICION
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/inicio`, component: InicioSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/sidebar`, component: SidebarSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/empresa-listado`, component: EmpresaListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/empresa-crear`, component: EmpresaCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/rol-listado`, component: RolListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/rol-crear`, component: RolCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/usuario-listado`, component: UsuarioListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/usuario-crear`, component: UsuarioCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/permiso-listado`, component: PermisoListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/permiso-crear`, component: PermisoCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/recurso-listado`, component: RecursoListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/recurso-crear`, component: RecursoCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/pago`, component: PagoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/listado-gestion-admin`, component: ListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
+  
+  //PROTEGIDAS AGENDA
   { path: `${NombreEmpresaAgenda}/inicio`, component: InicioAgendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAgenda}/sidebar`, component: SidebarAgendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAgenda}/empresa-listado`, component: EmpresaListadoAgendaComponent, canActivate: [AutorizacionRuta] },
