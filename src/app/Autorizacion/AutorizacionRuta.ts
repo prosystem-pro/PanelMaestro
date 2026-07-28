@@ -12,6 +12,7 @@ import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/Sastre
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicion } from '../Servicios/SastreriaFerreteriaLaBendicion/Login';
 import { LoginServicioAgenda } from '../Servicios/Agenda/Login';
+import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
 import { LoginServicioSastreriaDemo } from '../Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
 import { Entorno } from '../Entornos/Entorno';
@@ -34,6 +35,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicion: LoginServicioSastreriaFerreteriaLaBendicion,
     private LoginAgenda: LoginServicioAgenda,
+    private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
     private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private router: Router) { }
@@ -56,6 +58,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
     const NombreEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicion;
     const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
+    const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
     const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
@@ -82,15 +85,6 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginConstructoraMorgan.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaVendedor}`)) {
-      if (this.LoginVendedor.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginVendedor.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
@@ -167,7 +161,24 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
-
+    if (url.includes(`/${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}`)) {
+      if (this.LoginPuntoVentaPanaderiaPromesaDeDios.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginPuntoVentaPanaderiaPromesaDeDios.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaVendedor}`)) {
+      if (this.LoginVendedor.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginVendedor.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
     if (url.includes(`/${NombreEmpresaSastreriaDemo}`)) {
       if (this.LoginSastreriaDemo.ValidarToken()) {
         return true;
@@ -177,7 +188,6 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
-
     if (url.includes(`/${NombreEmpresaSastreriaDemoOficial}`)) {
       if (this.LoginSastreriaDemoOficial.ValidarToken()) {
         return true;

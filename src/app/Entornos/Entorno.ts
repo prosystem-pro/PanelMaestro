@@ -1,40 +1,38 @@
 export const Entorno = {
    Produccion: false,
-   //CHOCOS DE LA ABUELA
+
+   // ********************** C.A.R.R.I.T.O--W.E.B **********************
+   //CARRITO WEB - CHOCOS DE LA ABUELA
    NombreEmpresaChocosDeLaAbuela: 'Promesa_De_Dios',
    ApiUrlChocosDeLaAbuela: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/generar-modelos',
    LogoChocosDeLaAbuela: 'LogoChocosDeLaAbuela.ico',
-   //CORAZÓN TÍPICO
+   //CARRITO WEB - CORAZÓN TÍPICO
    NombreEmpresaCorazonTipico: 'Corazon_Tipico',
    ApiUrlCorazonTipico: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloCorazonTipico: 'https://carritoweb-corazontipico-api-production.up.railway.app/api/generar-modelos',
    LogoCorazonTipico: 'LogoCorazonTipico.ico',
-   //CONSTRUCTORA MORGAN
+   //CARRITO WEB - CONSTRUCTORA MORGAN
    NombreEmpresaConstructoraMorgan: 'Constructor_Morgan',
    ApiUrlConstructoraMorgan: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloConstructoraMorgan: 'https://carrito-web-constructora-morgan-web.vercel.app/api/generar-modelos',
    LogoConstructoraMorgan: 'LogoConstructoraMorgan.ico',
-   //DEMO VENDEDOR
-   NombreEmpresaVendedor: 'Vendedor',
-   ApiUrlVendedor: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
-   LogoVendedor: 'LogoVendedor.ico',
-   //AJACHEL TRAVEL AGENCY
+   //CARRITO WEB - AJACHEL TRAVEL AGENCY
    NombreEmpresaAjachelTravelAgency: 'AjachelTravelAgency',
    ApiUrlAjachelTravelAgency: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloAjachelTravelAgency: 'http://localhost:1433/api/generar-modelos',
    LogoAjachelTravelAgency: 'LogoAjachelTravelAgency.ico',
-   //CEVICHERIA CASTILLO
+   //CARRITO WEB - CEVICHERIA CASTILLO
    NombreEmpresaCevicheriaCastillo: 'CevicheriaCastillo',
    ApiUrlCevicheriaCastillo: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloCevicheriaCastillo: 'http://localhost:1433/api/generar-modelos',
    LogoCevicheriaCastillo: 'LogoCevicheriaCastillo.ico',
-   //RESTAURANTE EL BISTRO
+   //CARRITO WEB - RESTAURANTE EL BISTRO
    NombreEmpresaRestauranteElBistro: 'RestauranteElBistro',
    ApiUrlRestauranteElBistro: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloRestauranteElBistro: 'http://localhost:1433/api/generar-modelos',
    LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico',
+   // ********************** S.A.S.T.R.E.R.I.A.S ***********************
    //SASTRERIA CONFECCIONES CREATELI
    NombreEmpresaSastreriaConfeccionesCreateli: 'SastreriaConfeccionesCreateli',
    ApiUrlSastreriaConfeccionesCreateli: 'http://localhost:1433/api/',
@@ -55,11 +53,24 @@ export const Entorno = {
    ApiUrlSastreriaFerreteriaLaBendicion: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaFerreteriaLaBendicion: 'http://localhost:1433/api/generar-modelos',
    LogoSastreriaFerreteriaLaBendicion: 'LogoSastreriaFerreteriaLaBendicion.ico',
+   // ********************** A.G.E.N.D.A ******************************* 
    //AGENDA
    NombreEmpresaAgenda: 'Agenda',
    ApiUrlAgenda: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloAgenda: 'http://localhost:1433/api/generar-modelos',
    LogoAgenda: 'LogoAgenda.ico',
+   // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+   //PUNTO VENTA
+   NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: 'PuntoVentaPanaderiaPromesaDeDios',
+   ApiUrlPuntoVentaPanaderiaPromesaDeDios: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloPuntoVentaPanaderiaPromesaDeDios: 'http://localhost:1433/api/generar-modelos',
+   LogoPuntoVentaPanaderiaPromesaDeDios: 'LogoPuntoVentaPanaderiaPromesaDeDios.ico',
+   // ********************** D.E.M.O *********************************** 
+   //CARRITO WEB - DEMO VENDEDOR
+   NombreEmpresaVendedor: 'Vendedor',
+   ApiUrlVendedor: 'http://localhost:1433/api/',
+   ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
+   LogoVendedor: 'LogoVendedor.ico',
    //SASTRERIA DEMO
    NombreEmpresaSastreriaDemo: 'SastreriaDemo',
    ApiUrlSastreriaDemo: 'http://localhost:1433/api/',

@@ -2,34 +2,47 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Entorno } from '../../Entornos/Entorno';
-
+// ********************** C.A.R.R.I.T.O--W.E.B **********************
 import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
 import { PagoServicioCorazonTipico } from '../../Servicios/CorazonTipico/PagoServicio';
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
-import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
+
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
 import { PagoServicioCevicheriaCastillo } from '../../Servicios/CevicheriaCastillo/PagoServicio';
 import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/PagoServicio';
+// ********************** S.A.S.T.R.E.R.I.A.S ***********************
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/PagoServicio';
 import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
 import { PagoServicioSastreriaFerreteriaLaBendicion } from '../../Servicios/SastreriaFerreteriaLaBendicion/PagoServicio';
+// ********************** A.G.E.N.D.A ******************************* 
 import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
+// ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+import { PagoServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/PagoServicio';
+// ********************** D.E.M.O *********************************** 
+import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/PagoServicio';
 import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/PagoServicio';
 
+
+// ********************** C.A.R.R.I.T.O--W.E.B **********************
 import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioCorazonTipico } from '../../Servicios/CorazonTipico/InformacionBd_Servicio';
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
-import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
 import { InformacionBd_ServicioCevicheriaCastillo } from '../../Servicios/CevicheriaCastillo/InformacionBd_Servicio';
 import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/RestauranteElBistro/InformacionBd_Servicio';
+// ********************** S.A.S.T.R.E.R.I.A.S ***********************
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAnderTrajesYUniformes } from '../../Servicios/SastreriaAnderTrajesYUniformes/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaFerreteriaLaBendicion } from '../../Servicios/SastreriaFerreteriaLaBendicion/InformacionBd_Servicio';
+// ********************** A.G.E.N.D.A ******************************* 
 import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
+// ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+import { InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/InformacionBd_Servicio';
+// ********************** D.E.M.O *********************************** 
+import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemo } from '../../Servicios/SastreriaDemo/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/InformacionBd_Servicio';
 
@@ -48,6 +61,7 @@ import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner
 })
 export class MenuComponent {
   Spinner: boolean = false;
+  // ********************** C.A.R.R.I.T.O--W.E.B **********************
   //CHOCOS DE LA ABUELA
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
   LogoEmpresaChocosDeLaAbuela: string = Entorno.LogoChocosDeLaAbuela;
@@ -69,13 +83,6 @@ export class MenuComponent {
   AnioSeleccionadoConstructoraMorgan = new Date().getFullYear();
   PaginaConstructoraMorgan: number = 0;
   InformacionBdConstructoraMorgan: any = null;
-  //VENDEDOR
-  NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
-  LogoEmpresaVendedor: string = Entorno.LogoVendedor;
-  ResumenPagosVendedor: any = null;
-  AnioSeleccionadoVendedor = new Date().getFullYear();
-  PaginaVendedor: number = 0;
-  InformacionBdVendedor: any = null;
   //AJACHEL TRAVEL AGENCY
   NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
   LogoEmpresaAjachelTravelAgency: string = Entorno.LogoAjachelTravelAgency;
@@ -97,6 +104,7 @@ export class MenuComponent {
   AnioSeleccionadoRestauranteElBistro = new Date().getFullYear();
   PaginaRestauranteElBistro: number = 0;
   InformacionBdRestauranteElBistro: any = null;
+  // ********************** S.A.S.T.R.E.R.I.A.S ***********************
   //SASTRERIA CONFECCIONES CREATELI
   NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
   LogoEmpresaSastreriaConfeccionesCreateli: string = Entorno.LogoSastreriaConfeccionesCreateli;
@@ -125,6 +133,7 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaFerreteriaLaBendicion = new Date().getFullYear();
   PaginaSastreriaFerreteriaLaBendicion: number = 0;
   InformacionBdSastreriaFerreteriaLaBendicion: any = null;
+  // ********************** A.G.E.N.D.A *******************************
   //AGENDA
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
   LogoEmpresaAgenda: string = Entorno.LogoAgenda;
@@ -132,6 +141,22 @@ export class MenuComponent {
   AnioSeleccionadoAgenda = new Date().getFullYear();
   PaginaAgenda: number = 0;
   InformacionBdAgenda: any = null;
+  // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+  //PUNTO VENTA PANADERIA PROMESA DE DIOS
+  NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
+  LogoEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.LogoPuntoVentaPanaderiaPromesaDeDios;
+  ResumenPagosPuntoVentaPanaderiaPromesaDeDios: any = null;
+  AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios = new Date().getFullYear();
+  PaginaPuntoVentaPanaderiaPromesaDeDios: number = 0;
+  InformacionBdPuntoVentaPanaderiaPromesaDeDios: any = null;
+  // ********************** D.E.M.O *********************************** 
+  //VENDEDOR
+  NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
+  LogoEmpresaVendedor: string = Entorno.LogoVendedor;
+  ResumenPagosVendedor: any = null;
+  AnioSeleccionadoVendedor = new Date().getFullYear();
+  PaginaVendedor: number = 0;
+  InformacionBdVendedor: any = null;
   //SASTRERIA DEMO
   NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
   LogoEmpresaSastreriaDemo: string = Entorno.LogoSastreriaDemo;
@@ -160,6 +185,7 @@ export class MenuComponent {
   VisorSastreriaAbarroteriaElAmanecer = false;
   VisorSastreriaFerreteriaLaBendicion = false;
   VisorAgenda = false;
+  VisorPuntoVentaPanaderiaPromesaDeDios = false;
   VisorSastreriaDemo = false;
   VisorSastreriaDemoOficial = false;
 
@@ -179,6 +205,7 @@ export class MenuComponent {
     private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
     private PagoServicioSastreriaFerreteriaLaBendicion: PagoServicioSastreriaFerreteriaLaBendicion,
     private PagoServicioAgenda: PagoServicioAgenda,
+    private PagoServicioPuntoVentaPanaderiaPromesaDeDios: PagoServicioPuntoVentaPanaderiaPromesaDeDios,
     private PagoServicioSastreriaDemo: PagoServicioSastreriaDemo,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
@@ -194,6 +221,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
     private InformacionBd_ServicioSastreriaFerreteriaLaBendicion: InformacionBd_ServicioSastreriaFerreteriaLaBendicion,
     private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
+    private InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios: InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios,
     private InformacionBd_ServicioSastreriaDemo: InformacionBd_ServicioSastreriaDemo,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
@@ -211,6 +239,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
     this.CargarResumenPagosSastreriaFerreteriaLaBendicion(this.AnioSeleccionadoSastreriaFerreteriaLaBendicion);
     this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
+    this.CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(this.AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios);
     this.CargarResumenPagosSastreriaDemo(this.AnioSeleccionadoSastreriaDemo);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
@@ -226,6 +255,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
     this.CargarInformacionBdSastreriaFerreteriaLaBendicion();
     this.CargarInformacionBdAgenda();
+    this.CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios();
     this.CargarInformacionBdSastreriaDemo();
     this.CargarInformacionBdSastreriaDemoOficial();
   }
@@ -253,10 +283,13 @@ export class MenuComponent {
       this.VisorSastreriaAbarroteriaElAmanecer =
       this.VisorSastreriaFerreteriaLaBendicion =
       this.VisorAgenda =
+      this.VisorPuntoVentaPanaderiaPromesaDeDios =
+      this.VisorVendedor =
       this.VisorSastreriaDemo =
       this.VisorSastreriaDemoOficial =
-      this.VisorVendedor = this.VisorMaestro;
+      this.VisorMaestro;
   }
+  // ********************** C.A.R.R.I.T.O--W.E.B **********************
   //CHOCOS DE LA ABUELA
   CargarResumenPagosChocosDeLaAbuela(anio: number) {
     this.PagoServicioChocosDeLaAbuela.ObtenerResumenGeneralPagos(anio).subscribe({
@@ -380,47 +413,7 @@ export class MenuComponent {
       }
     });
   }
-  //VENDEDOR
-  CargarResumenPagosVendedor(anio: number) {
-    this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosVendedor = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdVendedor() {
-    this.InformacionBd_ServicioVendedor.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdVendedor = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
+
   //AJACHEL TRAVEL AGENCY
   CargarResumenPagosAjachelTravelAgency(anio: number) {
     this.PagoServicioAjachelTravelAgency.ObtenerResumenGeneralPagos(anio).subscribe({
@@ -545,6 +538,7 @@ export class MenuComponent {
       }
     });
   }
+  // ********************** S.A.S.T.R.E.R.I.A.S ***********************
   //SASTRERIA CONFECCIONES CREATELI
   CargarResumenPagosSastreriaConfeccionesCreateli(anio: number) {
     this.PagoServicioSastreriaConfeccionesCreateli.ObtenerResumenGeneralPagos(anio).subscribe({
@@ -668,7 +662,7 @@ export class MenuComponent {
       }
     });
   }
-    //SASTRERIA DEMO OFICIAL
+  //SASTRERIA FERRETERIA LA BENDICION
   CargarResumenPagosSastreriaFerreteriaLaBendicion(anio: number) {
     this.PagoServicioSastreriaFerreteriaLaBendicion.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
@@ -709,6 +703,7 @@ export class MenuComponent {
       }
     });
   }
+  // ********************** A.G.E.N.D.A ******************************* 
   //AGENDA
   CargarResumenPagosAgenda(anio: number) {
     this.PagoServicioAgenda.ObtenerResumenGeneralPagos(anio).subscribe({
@@ -734,6 +729,90 @@ export class MenuComponent {
     this.InformacionBd_ServicioAgenda.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdAgenda = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  // ********************** P.U.N.T.O.V.E.N.T.A ***********************
+    //PUNTO VENTA PANADERIA PROMESA DE DIOS
+  CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(anio: number) {
+    this.PagoServicioPuntoVentaPanaderiaPromesaDeDios.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosPuntoVentaPanaderiaPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios() {
+    this.InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdPuntoVentaPanaderiaPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  // ********************** D.E.M.O *********************************** 
+  //VENDEDOR
+  CargarResumenPagosVendedor(anio: number) {
+    this.PagoServicioVendedor.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosVendedor = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdVendedor() {
+    this.InformacionBd_ServicioVendedor.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdVendedor = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

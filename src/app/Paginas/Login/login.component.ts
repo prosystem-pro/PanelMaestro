@@ -1,6 +1,13 @@
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
+import { Entorno } from '../../Entornos/Entorno';
+import { CommonModule } from '@angular/common';
+import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner-global.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+
 import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioCorazonTipico } from '../../../app/Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/ConstructoraMorgan/Login';
@@ -13,14 +20,10 @@ import { LoginServicioSastreriaAnderTrajesYUniformes } from '../../../app/Servic
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../../../app/Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicion } from '../../../app/Servicios/SastreriaFerreteriaLaBendicion/Login';
 import { LoginServicioAgenda } from '../../../app/Servicios/Agenda/Login';
+import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../../../app/Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
 import { LoginServicioSastreriaDemo } from '../../../app/Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../../../app/Servicios/SastreriaDemoOficial/Login';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { AlertaServicio } from '../../Servicios/Alerta-Servicio';
-import { Entorno } from '../../Entornos/Entorno';
-import { CommonModule } from '@angular/common';
-import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner-global.component';
+
 
 
 @Component({
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
   NombreEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicion;
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
+  NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
   NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
   NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 
@@ -64,6 +68,7 @@ export class LoginComponent implements OnInit {
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicion: LoginServicioSastreriaFerreteriaLaBendicion,
     private LoginAgenda: LoginServicioAgenda,
+    private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
     private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
@@ -122,6 +127,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaAgenda:
         ServicioLogin = this.LoginAgenda.Login(usuario, clave);
         break;
+      case this.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios:
+        ServicioLogin = this.LoginPuntoVentaPanaderiaPromesaDeDios.Login(usuario, clave);
+        break;
       case this.NombreEmpresaSastreriaDemo:
         ServicioLogin = this.LoginSastreriaDemo.Login(usuario, clave);
         break;
@@ -156,6 +164,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
               case this.NombreEmpresaSastreriaFerreteriaLaBendicion:
               case this.NombreEmpresaAgenda:
+              case this.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios:
               case this.NombreEmpresaSastreriaDemo:
               case this.NombreEmpresaSastreriaDemoOficial:
                 this.router.navigate([ruta]);

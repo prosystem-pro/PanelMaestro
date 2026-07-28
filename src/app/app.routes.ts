@@ -6,6 +6,7 @@ import { MenuComponent } from '../app/Paginas/Menu/menu.component';
 import { LoginComponent } from '../app/Paginas/Login/login.component';
 import { SpinnerGlobalComponent } from '../app/Componentes/spinner-global/spinner-global.component';
 
+// ********************** C.A.R.R.I.T.O--W.E.B **********************
 //CHOCOS DE LA ABUELA
 import { InicioChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Inicio/inicio.component';
 import { SidebarChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Sidebar/sidebar.component';
@@ -54,22 +55,7 @@ import { RecursoCrearConstructoraMorganComponent } from '../app/Paginas/Construc
 import { PermisoRolRecursoListadoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Pago/pago.component';
-//VENDEDOR
-import { InicioVendedorComponent } from '../app/Paginas/Vendedor/Inicio/inicio.component';
-import { SidebarVendedorComponent } from '../app/Paginas/Vendedor/Sidebar/sidebar.component';
-import { EmpresaListadoVendedorComponent } from '../app/Paginas/Vendedor/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearVendedorComponent } from '../app/Paginas/Vendedor/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoVendedorComponent } from '../app/Paginas/Vendedor/Rol/rol-listado/rol-listado.component';
-import { RolCrearVendedorComponent } from '../app/Paginas/Vendedor/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoVendedorComponent } from '../app/Paginas/Vendedor/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearVendedorComponent } from '../app/Paginas/Vendedor/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoVendedorComponent } from '../app/Paginas/Vendedor/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearVendedorComponent } from '../app/Paginas/Vendedor/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoVendedorComponent } from '../app/Paginas/Vendedor/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearVendedorComponent } from '../app/Paginas/Vendedor//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoVendedorComponent } from '../app/Paginas/Vendedor/Pago/pago.component';
+
 //AJACHEL TRAVEL AGENCY
 import { InicioAjachelTravelAgencyComponent } from '../app/Paginas/AjachelTravelAgency/Inicio/inicio.component';
 import { InicioCevicheriaCastilloComponent } from '../app/Paginas/CevicheriaCastillo/Inicio/inicio.component';
@@ -117,6 +103,7 @@ import { RecursoCrearRestauranteElBistroComponent } from '../app/Paginas/Restaur
 import { PermisoRolRecursoListadoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoRestauranteElBistroComponent } from '../app/Paginas/RestauranteElBistro/Pago/pago.component';
+// ********************** S.A.S.T.R.E.R.I.A.S ***********************
 //SASTRERIA CONFECCIONES CREATELI
 import { InicioSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Inicio/inicio.component';
 import { SidebarSastreriaConfeccionesCreateliComponent } from '../app/Paginas/SastreriaConfeccionesCreateli/Sidebar/sidebar.component';
@@ -186,6 +173,7 @@ import { PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionComponent } from '.
 import { PagoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/Pago/pago.component';
 import { ListadoSastreriaFerreteriaLaBendicionComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicion/GestionAdmin/listado/listado.component';
 
+// ********************** A.G.E.N.D.A ******************************* 
 //AGENDA
 import { InicioAgendaComponent } from '../app/Paginas/Agenda/Inicio/inicio.component';
 import { SidebarAgendaComponent } from '../app/Paginas/Agenda/Sidebar/sidebar.component';
@@ -202,6 +190,42 @@ import { RecursoCrearAgendaComponent } from '../app/Paginas/Agenda//Recurso/recu
 import { PermisoRolRecursoListadoAgendaComponent } from '../app/Paginas/Agenda/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearAgendaComponent } from '../app/Paginas/Agenda/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoAgendaComponent } from '../app/Paginas/Agenda/Pago/pago.component';
+// ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+//PUNTO VENTA PANADERIA PROMESA DE DIOS
+import { InicioPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Inicio/inicio.component';
+import { SidebarPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Sidebar/sidebar.component';
+import { EmpresaListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Rol/rol-listado/rol-listado.component';
+import { RolCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Pago/pago.component';
+import { ListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/GestionAdmin/listado/listado.component';
+
+// ********************** D.E.M.O *********************************** 
+//VENDEDOR
+import { InicioVendedorComponent } from '../app/Paginas/Vendedor/Inicio/inicio.component';
+import { SidebarVendedorComponent } from '../app/Paginas/Vendedor/Sidebar/sidebar.component';
+import { EmpresaListadoVendedorComponent } from '../app/Paginas/Vendedor/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearVendedorComponent } from '../app/Paginas/Vendedor/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoVendedorComponent } from '../app/Paginas/Vendedor/Rol/rol-listado/rol-listado.component';
+import { RolCrearVendedorComponent } from '../app/Paginas/Vendedor/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoVendedorComponent } from '../app/Paginas/Vendedor/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearVendedorComponent } from '../app/Paginas/Vendedor/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoVendedorComponent } from '../app/Paginas/Vendedor/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearVendedorComponent } from '../app/Paginas/Vendedor/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoVendedorComponent } from '../app/Paginas/Vendedor/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearVendedorComponent } from '../app/Paginas/Vendedor//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearVendedorComponent } from '../app/Paginas/Vendedor/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoVendedorComponent } from '../app/Paginas/Vendedor/Pago/pago.component';
 //SASTRERIA DEMO
 import { InicioSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/Inicio/inicio.component';
 import { SidebarSastreriaDemoComponent } from '../app/Paginas/SastreriaDemo/Sidebar/sidebar.component';
@@ -250,6 +274,7 @@ const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpres
 const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
 const NombreEmpresaSastreriaFerreteriaLaBendicion: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicion;
 const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
+const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
 const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 // const Otro = 'OtraEmpresa';
@@ -260,6 +285,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'spinner-global', component: SpinnerGlobalComponent },
 
+  // ********************** C.A.R.R.I.T.O--W.E.B **********************
   //PROTEGIDAS CHOCOS DE LA ABUELA
   { path: `${NombreEmpresaChocosDeLaAbuela}/inicio`, component: InicioChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/sidebar`, component: SidebarChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
@@ -292,7 +318,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCorazonTipico}/pago`, component: PagoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  
+
   //PROTEGIDAS CONSTRUCTORA MORGAN
   { path: `${NombreEmpresaConstructoraMorgan}/inicio`, component: InicioConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaConstructoraMorgan}/sidebar`, component: SidebarConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
@@ -309,22 +335,6 @@ export const routes: Routes = [
   { path: `${NombreEmpresaConstructoraMorgan}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaConstructoraMorgan}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaConstructoraMorgan}/pago`, component: PagoConstructoraMorganComponent, canActivate: [AutorizacionRuta] },
-  //PROTEGIDAS VENDEDOR
-  { path: `${NombreEmpresaVendedor}/inicio`, component: InicioVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/sidebar`, component: SidebarVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/empresa-listado`, component: EmpresaListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/empresa-crear`, component: EmpresaCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/rol-listado`, component: RolListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/rol-crear`, component: RolCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/usuario-listado`, component: UsuarioListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/usuario-crear`, component: UsuarioCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/permiso-listado`, component: PermisoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/permiso-crear`, component: PermisoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/recurso-listado`, component: RecursoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/recurso-crear`, component: RecursoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaVendedor}/pago`, component: PagoVendedorComponent, canActivate: [AutorizacionRuta] },
   //PROTEGIDAS AJACHEL TRAVEL AGENCY
   { path: `${NombreEmpresaAjachelTravelAgency}/inicio`, component: InicioAjachelTravelAgencyComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaCevicheriaCastillo}/inicio`, component: InicioCevicheriaCastilloComponent, canActivate: [AutorizacionRuta] },
@@ -372,6 +382,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElBistro}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaRestauranteElBistro}/pago`, component: PagoRestauranteElBistroComponent, canActivate: [AutorizacionRuta] },
+  // ********************** S.A.S.T.R.E.R.I.A.S ***********************
   //SASTRERIA CONFECCIONES CREATELI
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/inicio`, component: InicioSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaConfeccionesCreateli}/sidebar`, component: SidebarSastreriaConfeccionesCreateliComponent, canActivate: [AutorizacionRuta] },
@@ -423,7 +434,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/pago`, component: PagoSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaAbarroteriaElAmanecer}/eliminacion`, component: EliminacionSastreriaAbarroteriaElAmanecerComponent, canActivate: [AutorizacionRuta] },
-    //SASTRERIA FERRETERIA LA BENDICION
+  //SASTRERIA FERRETERIA LA BENDICION
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/inicio`, component: InicioSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/sidebar`, component: SidebarSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/empresa-listado`, component: EmpresaListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
@@ -440,7 +451,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/pago`, component: PagoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicion}/listado-gestion-admin`, component: ListadoSastreriaFerreteriaLaBendicionComponent, canActivate: [AutorizacionRuta] },
-  
+  // ********************** A.G.E.N.D.A ******************************* 
   //PROTEGIDAS AGENDA
   { path: `${NombreEmpresaAgenda}/inicio`, component: InicioAgendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAgenda}/sidebar`, component: SidebarAgendaComponent, canActivate: [AutorizacionRuta] },
@@ -457,6 +468,43 @@ export const routes: Routes = [
   { path: `${NombreEmpresaAgenda}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoAgendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAgenda}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearAgendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaAgenda}/pago`, component: PagoAgendaComponent, canActivate: [AutorizacionRuta] },
+  // ********************** P.U.N.T.O.V.E.N.T.A ***********************  
+  //SASTRERIA DEMO OFICIAL
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/inicio`, component: InicioPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/sidebar`, component: SidebarPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/empresa-listado`, component: EmpresaListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/empresa-crear`, component: EmpresaCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/rol-listado`, component: RolListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/rol-crear`, component: RolCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/usuario-listado`, component: UsuarioListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/usuario-crear`, component: UsuarioCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-listado`, component: PermisoListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-crear`, component: PermisoCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/recurso-listado`, component: RecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/recurso-crear`, component: RecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/pago`, component: PagoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/listado-gestion-admin`, component: ListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+
+  // ********************** D.E.M.O *********************************** 
+  //PROTEGIDAS VENDEDOR
+  { path: `${NombreEmpresaVendedor}/inicio`, component: InicioVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/sidebar`, component: SidebarVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/empresa-listado`, component: EmpresaListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/empresa-crear`, component: EmpresaCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/rol-listado`, component: RolListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/rol-crear`, component: RolCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/usuario-listado`, component: UsuarioListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/usuario-crear`, component: UsuarioCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/permiso-listado`, component: PermisoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/permiso-crear`, component: PermisoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/recurso-listado`, component: RecursoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/recurso-crear`, component: RecursoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearVendedorComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaVendedor}/pago`, component: PagoVendedorComponent, canActivate: [AutorizacionRuta] },
+
   //SASTRERIA DEMO
   { path: `${NombreEmpresaSastreriaDemo}/inicio`, component: InicioSastreriaDemoComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaDemo}/sidebar`, component: SidebarSastreriaDemoComponent, canActivate: [AutorizacionRuta] },

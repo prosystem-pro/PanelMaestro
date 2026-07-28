@@ -1,5 +1,6 @@
 export const Entorno = {
    Produccion: true,
+   // ********************** C.A.R.R.I.T.O--W.E.B **********************
    //CARRITO WEB - CHOCOS DE LA ABUELA
    NombreEmpresaChocosDeLaAbuela: 'Chocos_De_La_Abuela',
    ApiUrlChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/',
@@ -15,11 +16,6 @@ export const Entorno = {
    ApiUrlConstructoraMorgan: 'https://carritoweb-constructoramorgan-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloConstructoraMorgan: 'https://carritoweb-constructoramorgan-api-production.up.railway.app/api/generar-modelos',
    LogoConstructoraMorgan: 'LogoConstructoraMorgan.ico',
-   //CARRITO WEB - VENDEDOR
-   NombreEmpresaVendedor: 'Vendedor',
-   ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',
-   ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
-   LogoVendedor: 'LogoVendedor.ico',
    //CARRITO WEB - AJACHEL TRAVEL AGENCY
    NombreEmpresaAjachelTravelAgency: 'AjachelTravelAgency',
    ApiUrlAjachelTravelAgency: 'https://carritoweb-ajacheltravelagency-api-production.up.railway.app/api/',
@@ -35,6 +31,8 @@ export const Entorno = {
    ApiUrlRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloRestauranteElBistro: 'https://carritoweb-restauranteelbistro-api-production.up.railway.app/api/generar-modelos',
    LogoRestauranteElBistro: 'LogoRestauranteElBistro.ico',
+
+   // ********************** S.A.S.T.R.E.R.I.A.S ***********************
    //SASTRERIA CONFECCIONES CREATELI
    NombreEmpresaSastreriaConfeccionesCreateli: 'SastreriaConfeccionesCreateli',
    ApiUrlSastreriaConfeccionesCreateli: 'https://sastreria-confeccionescreateli-api-production.up.railway.app/api/',
@@ -55,11 +53,24 @@ export const Entorno = {
    ApiUrlSastreriaFerreteriaLaBendicion: 'https://sastreria-ferreterialabendicion-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloSastreriaFerreteriaLaBendicion: 'https://sastreria-ferreterialabendicion-api-production.up.railway.app/api/generar-modelos',
    LogoSastreriaFerreteriaLaBendicion: 'LogoSastreriaFerreteriaLaBendicion.ico',
+   // ********************** A.G.E.N.D.A ******************************* 
    //AGENDA
    NombreEmpresaAgenda: 'Agenda',
    ApiUrlAgenda: 'https://agenda-api-production-737f.up.railway.app/api/',
    ApiUrlGenerarModeloAgenda: 'https://agenda-api-production-737f.up.railway.app/api/generar-modelos',
    LogoAgenda: 'LogoAgenda.ico',
+   // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
+   //PUNTO VENTA
+   NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: 'PuntoVentaPanaderiaPromesaDeDios',
+   ApiUrlPuntoVentaPanaderiaPromesaDeDios: 'https://puntoventa-promesadedios-api-production-29a8.up.railway.app/api/',
+   ApiUrlGenerarModeloPuntoVentaPanaderiaPromesaDeDios: 'https://puntoventa-promesadedios-api-production-29a8.up.railway.app/api/generar-modelos',
+   LogoPuntoVentaPanaderiaPromesaDeDios: 'LogoPuntoVentaPanaderiaPromesaDeDios.ico',
+   // ********************** D.E.M.O *********************************** 
+   //CARRITO WEB - VENDEDOR
+   NombreEmpresaVendedor: 'Vendedor',
+   ApiUrlVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
+   LogoVendedor: 'LogoVendedor.ico',
    //SASTRERIA DEMO
    NombreEmpresaSastreriaDemo: 'SastreriaDemo',
    ApiUrlSastreriaDemo: 'https://sastreria-demo-api-production.up.railway.app/api/',
