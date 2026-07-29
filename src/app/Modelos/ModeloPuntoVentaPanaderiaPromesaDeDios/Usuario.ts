@@ -1,6 +1,7 @@
 export interface Usuario {
   CodigoUsuario?: number;
   CodigoRol?: number;
+  CodigoEmpresa?: number;
   NombreCompleto?: string;
   NombreUsuario?: string;
   Correo?: string;
