@@ -10,7 +10,7 @@
                 required>
                 <option [ngValue]="undefined" disabled selected>Seleccione una registro</option>
                 <option *ngFor="let empresa of Empresas" [ngValue]="empresa.CodigoEmpresa">
-                    {{ empresa.NombreEmpresa }}
+                    {{ empresa.NombreComercial }}
                 </option>
             </select>
         </div>
