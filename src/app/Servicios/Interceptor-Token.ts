@@ -10,7 +10,7 @@ import { LoginServicioRestauranteElBistro } from './RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from './SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAnderTrajesYUniformes } from './SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from './SastreriaAbarroteriaElAmanecer/Login';
-import { LoginServicioSastreriaFerreteriaLaBendicion } from './SastreriaFerreteriaLaBendicion/Login';
+import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from './SastreriaFerreteriaLaBendicionOficial/Login';
 import { LoginServicioAgenda } from './Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from './PuntoVentaPanaderiaPromesaDeDios/Login';
 import { LoginServicioSastreriaDemo } from './SastreriaDemo/Login';
@@ -35,7 +35,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
     { url: Entorno.ApiUrlSastreriaConfeccionesCreateli, login: inject(LoginServicioSastreriaConfeccionesCreateli) },
     { url: Entorno.ApiUrlSastreriaAnderTrajesYUniformes, login: inject(LoginServicioSastreriaAnderTrajesYUniformes) },
     { url: Entorno.ApiUrlSastreriaAbarroteriaElAmanecer, login: inject(LoginServicioSastreriaAbarroteriaElAmanecer) },
-    { url: Entorno.ApiUrlSastreriaFerreteriaLaBendicion, login: inject(LoginServicioSastreriaFerreteriaLaBendicion) },
+    { url: Entorno.ApiUrlSastreriaFerreteriaLaBendicionOficial, login: inject(LoginServicioSastreriaFerreteriaLaBendicionOficial) },
     { url: Entorno.ApiUrlAgenda, login: inject(LoginServicioAgenda) },
     { url: Entorno.ApiUrlPuntoVentaPanaderiaPromesaDeDios, login: inject(LoginServicioPuntoVentaPanaderiaPromesaDeDios) },
     { url: Entorno.ApiUrlSastreriaDemo, login: inject(LoginServicioSastreriaDemo) },

@@ -2134,28 +2134,28 @@
         </div>
       </div>
     </div>
-    <!-- SASTRERIA FERRETERIA LA BENDICION -->
+    <!-- SASTRERIA FERRETERIA LA BENDICION OFICIAL-->
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="card border-0 text-center p-0 ColorCard" style="border-radius: 20px; overflow: hidden;">
 
         <!-- Encabezado -->
         <div class="bg-light py-1 d-flex justify-content-between align-items-center px-3">
-          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">SastreriaFerreteriaLaBendicion</h6>
+          <h6 class="fw-bold mb-0 text-secondary" style="font-size: 0.9rem;">SastreriaFerreteriaLaBendicionOficial</h6>
           <button class="btn btn-sm btn-outline-primary rounded-circle" type="button"
-            data-bs-target="#carouselSastreriaFerreteriaLaBendicion" data-bs-slide="next" title="Siguiente">
+            data-bs-target="#carouselSastreriaFerreteriaLaBendicionOficial" data-bs-slide="next" title="Siguiente">
             <i class="bi bi-chevron-right" style="font-size: 0.9rem;"></i>
           </button>
         </div>
 
         <!-- Carrusel -->
-        <div id="carouselSastreriaFerreteriaLaBendicion" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+        <div id="carouselSastreriaFerreteriaLaBendicionOficial" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
           <div class="carousel-inner" style="height: 480px;">
 
             <!-- Slide 1 -->
             <div class="carousel-item active h-100">
               <div
                 class="p-3 d-flex flex-column justify-content-between h-100 justify-content-center align-items-center">
-                <div (click)="AbrirLogin(NombreEmpresaSastreriaFerreteriaLaBendicion)"
+                <div (click)="AbrirLogin(NombreEmpresaSastreriaFerreteriaLaBendicionOficial)"
                   class="mb-2 p-2 rounded ColorFondoLogo transition"
                   style="cursor: pointer; border-radius: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease; width: 90%;"
                   onmouseenter="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 28px rgba(0, 0, 0, 0.25)'"
@@ -2163,17 +2163,17 @@
 
                   <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center"
                     style="width: 64px; height: 64px; background-color: #ffffff00; border: 2px solid #ffdd00; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
-                    <img [src]="LogoEmpresaSastreriaFerreteriaLaBendicion"
+                    <img [src]="LogoEmpresaSastreriaFerreteriaLaBendicionOficial"
                       style="width: 56px; height: 56px; object-fit: contain;">
                   </div>
-                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">SastreriaFerreteriaLaBendicion</h6>
+                  <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">SastreriaFerreteriaLaBendicionOficial</h6>
                   <small class="text-muted">Ingresar</small>
                 </div>
 
                 <!-- Switch visor -->
                 <div class="form-check form-switch my-2 w-100 ms-2">
                   <input class="form-check-input" type="checkbox" id="switchVisorPromesa"
-                    [(ngModel)]="VisorSastreriaFerreteriaLaBendicion" (click)="$event.stopPropagation()" />
+                    [(ngModel)]="VisorSastreriaFerreteriaLaBendicionOficial" (click)="$event.stopPropagation()" />
                   <label class="form-check-label fw-semibold" for="switchVisorPromesa" style="font-size: 0.85rem;">
                     Mostrar sitio
                   </label>
@@ -2190,9 +2190,9 @@
                     <div class="rounded-circle" style="width: 8px; height: 8px; background: #3c3;"></div>
                   </div>
 
-                  <ng-container *ngIf="VisorSastreriaFerreteriaLaBendicion; else ApagadoPromesa">
+                  <ng-container *ngIf="VisorSastreriaFerreteriaLaBendicionOficial; else ApagadoPromesa">
                     <div style="transform: scale(0.75); transform-origin: top left; width: 133%; height: 133%;">
-                      <iframe src="https://sastreria-ferreteria-la-bendicion-w.vercel.app"
+                      <iframe src="https://sastreria-demo-oficial-web.vercel.app"
                         style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                   </ng-container>
@@ -2225,7 +2225,7 @@
                     <span class="fw-semibold text-dark"><i class="bi bi-receipt-cutoff me-2 text-primary"></i>Total de
                       pagos</span>
                     <span class="badge bg-primary rounded-pill px-3 py-1">{{
-                      ResumenPagosSastreriaFerreteriaLaBendicion?.CantidadPagos ||
+                      ResumenPagosSastreriaFerreteriaLaBendicionOficial?.CantidadPagos ||
                       0 }}</span>
                   </li>
 
@@ -2236,12 +2236,12 @@
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Sin comprobante</span>
                       <span class="badge bg-danger rounded-pill px-3 py-1">{{
-                        ResumenPagosSastreriaFerreteriaLaBendicion?.PagosSinComprobante || 0 }}</span>
+                        ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosSinComprobante || 0 }}</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center ms-3">
                       <span class="text-dark">Vencidos sin comprobante</span>
                       <span class="badge bg-danger rounded-pill px-3 py-1">{{
-                        ResumenPagosSastreriaFerreteriaLaBendicion?.PagosVencidosSinComprobante || 0 }}</span>
+                        ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosVencidosSinComprobante || 0 }}</span>
                     </div>
                   </li>
 
@@ -2252,13 +2252,13 @@
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Por vencer sin comprobante</span>
                       <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
-                        ResumenPagosSastreriaFerreteriaLaBendicion?.PagosPorVencer || 0 }}</span>
+                        ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosPorVencer || 0 }}</span>
                     </div>
-                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicion?.PagosPorVencer > 0"
+                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosPorVencer > 0"
                       class="text-warning ms-4 d-block fw-medium">
-                      Faltan {{ ResumenPagosSastreriaFerreteriaLaBendicion?.PagosPorVencer_DetalleDias?.join(', ') }} día(s)
+                      Faltan {{ ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosPorVencer_DetalleDias?.join(', ') }} día(s)
                     </small>
-                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicion?.PagosPorVencer === 0"
+                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosPorVencer === 0"
                       class="text-muted ms-4 d-block fst-italic">
                       Ninguno
                     </small>
@@ -2271,14 +2271,14 @@
                     <div class="d-flex justify-content-between align-items-center ms-3 mb-1">
                       <span class="text-dark">Con tiempo sin comprobante</span>
                       <span class="badge bg-success rounded-pill px-3 py-1">{{
-                        ResumenPagosSastreriaFerreteriaLaBendicion?.PagosConTiempo
+                        ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosConTiempo
                         || 0 }}</span>
                     </div>
-                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicion?.PagosConTiempo > 0"
+                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosConTiempo > 0"
                       class="text-success ms-4 d-block fw-medium">
-                      Quedan {{ ResumenPagosSastreriaFerreteriaLaBendicion?.PagosConTiempo_DetalleDias?.join(', ') }} día(s)
+                      Quedan {{ ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosConTiempo_DetalleDias?.join(', ') }} día(s)
                     </small>
-                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicion?.PagosConTiempo === 0"
+                    <small *ngIf="ResumenPagosSastreriaFerreteriaLaBendicionOficial?.PagosConTiempo === 0"
                       class="text-muted ms-4 d-block fst-italic">
                       Ninguno
                     </small>
@@ -2289,7 +2289,7 @@
                 <!-- Botón volver -->
                 <div class="text-center mt-3">
                   <button class="btn btn-primary btn-sm px-3" type="button"
-                    data-bs-target="#carouselSastreriaFerreteriaLaBendicion" data-bs-slide="prev">
+                    data-bs-target="#carouselSastreriaFerreteriaLaBendicionOficial" data-bs-slide="prev">
                     <i class="bi bi-chevron-left me-2"></i> Volver
                   </button>
                 </div>
@@ -2317,19 +2317,19 @@
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Total</span>
                     <span class="badge bg-primary rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Global?.EspacioTotal }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Global?.EspacioTotal }}</span>
                   </li>
 
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Ocupado</span>
                     <span class="badge bg-danger rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Global?.EspacioOcupado }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Global?.EspacioOcupado }}</span>
                   </li>
 
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Libre</span>
                     <span class="badge bg-success rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Global?.EspacioLibre }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Global?.EspacioLibre }}</span>
                   </li>
 
                   <!-- Sección Asignado -->
@@ -2338,19 +2338,19 @@
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Asignado</span>
                     <span class="badge bg-warning text-dark rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Asignado?.EspacioAsignado }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Asignado?.EspacioAsignado }}</span>
                   </li>
 
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Ocupado</span>
                     <span class="badge bg-danger rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Asignado?.EspacioOcupado }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Asignado?.EspacioOcupado }}</span>
                   </li>
 
                   <li class="list-group-item py-2 px-3 d-flex justify-content-between align-items-center">
                     <span>Espacio Libre</span>
                     <span class="badge bg-success rounded-pill px-3 py-1">{{
-                      InformacionBdSastreriaFerreteriaLaBendicion?.Asignado?.EspacioLibre }}</span>
+                      InformacionBdSastreriaFerreteriaLaBendicionOficial?.Asignado?.EspacioLibre }}</span>
                   </li>
 
                 </ul>
@@ -2358,7 +2358,7 @@
                 <!-- Botón volver -->
                 <div class="text-center mt-3">
                   <button class="btn btn-primary btn-sm px-3" type="button"
-                    data-bs-target="#carouselSastreriaFerreteriaLaBendicion" data-bs-slide="prev">
+                    data-bs-target="#carouselSastreriaFerreteriaLaBendicionOficial" data-bs-slide="prev">
                     <i class="bi bi-chevron-left me-2"></i> Volver
                   </button>
                 </div>
@@ -2368,8 +2368,7 @@
         </div>
       </div>
     </div>
-
-
+    
     <!-- ********************** A.G.E.N.D.A ******************************* -->
     <!-- AGENDA -->
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
