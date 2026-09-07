@@ -23,22 +23,7 @@ import { RecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLa
 import { PermisoRolRecursoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
 import { PermisoRolRecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Pago/pago.component';
-//CORAZON TIPICO
-import { InicioCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Inicio/inicio.component';
-import { SidebarCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Sidebar/sidebar.component';
-import { EmpresaListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Rol/rol-listado/rol-listado.component';
-import { RolCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoCorazonTipicoComponent } from '../app/Paginas/CorazonTipico/Pago/pago.component';
+
 //CONSTRUCTORA MORGAN
 import { InicioConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Inicio/inicio.component';
 import { SidebarConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Sidebar/sidebar.component';
@@ -263,7 +248,6 @@ import { PagoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoO
 import { ListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/GestionAdmin/listado/listado.component';
 
 const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -302,22 +286,6 @@ export const routes: Routes = [
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaChocosDeLaAbuela}/pago`, component: PagoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  //PROTEGIDAS CORAZON TIPICO
-  { path: `${NombreEmpresaCorazonTipico}/inicio`, component: InicioCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/sidebar`, component: SidebarCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/empresa-listado`, component: EmpresaListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/empresa-crear`, component: EmpresaCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/rol-listado`, component: RolListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/rol-crear`, component: RolCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/usuario-listado`, component: UsuarioListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/usuario-crear`, component: UsuarioCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/permiso-listado`, component: PermisoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/permiso-crear`, component: PermisoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/recurso-listado`, component: RecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/recurso-crear`, component: RecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaCorazonTipico}/pago`, component: PagoCorazonTipicoComponent, canActivate: [AutorizacionRuta] },
 
   //PROTEGIDAS CONSTRUCTORA MORGAN
   { path: `${NombreEmpresaConstructoraMorgan}/inicio`, component: InicioConstructoraMorganComponent, canActivate: [AutorizacionRuta] },

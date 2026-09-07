@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
-import { LoginServicioCorazonTipico } from '../../../app/Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../../../app/Servicios/AjachelTravelAgency/Login';
@@ -38,7 +37,6 @@ export class LoginComponent implements OnInit {
   NombreUsuario: string = '';
   Clave: string = '';
   NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-  NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
   NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -57,7 +55,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
-    private LoginCorazonTipico: LoginServicioCorazonTipico,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
@@ -96,9 +93,6 @@ export class LoginComponent implements OnInit {
         break;
       case this.NombreEmpresaVendedor:
         ServicioLogin = this.LoginVendedor.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaCorazonTipico:
-        ServicioLogin = this.LoginCorazonTipico.Login(usuario, clave);
         break;
       case this.NombreEmpresaConstructoraMorgan:
         ServicioLogin = this.LoginConstructoraMorgan.Login(usuario, clave);
@@ -153,7 +147,6 @@ export class LoginComponent implements OnInit {
 
             switch (this.Empresa) {
               case this.NombreEmpresaChocosDeLaAbuela:
-              case this.NombreEmpresaCorazonTipico:
               case this.NombreEmpresaConstructoraMorgan:
               case this.NombreEmpresaVendedor:
               case this.NombreEmpresaAjachelTravelAgency:

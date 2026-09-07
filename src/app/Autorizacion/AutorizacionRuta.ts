@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
-import { LoginServicioCorazonTipico } from '../Servicios/CorazonTipico/Login';
 import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
@@ -24,7 +23,6 @@ export class AutorizacionRuta implements CanActivate {
 
   constructor(
     private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
-    private LoginCorazonTipico: LoginServicioCorazonTipico,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
@@ -47,7 +45,6 @@ export class AutorizacionRuta implements CanActivate {
   ): boolean {
     const url = state.url;
     const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-    const NombreEmpresaCorazonTipico: string = Entorno.NombreEmpresaCorazonTipico;
     const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -67,15 +64,6 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginChocosDeLaAbuela.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaCorazonTipico}`)) {
-      if (this.LoginCorazonTipico.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginCorazonTipico.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }
