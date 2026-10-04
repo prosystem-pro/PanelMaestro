@@ -15,12 +15,10 @@ import { LoginServicioAjachelTravelAgency } from '../../../app/Servicios/Ajachel
 import { LoginServicioCevicheriaCastillo } from '../../../app/Servicios/CevicheriaCastillo/Login';
 import { LoginServicioRestauranteElBistro } from '../../../app/Servicios/RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from '../../../app/Servicios/SastreriaConfeccionesCreateli/Login';
-import { LoginServicioSastreriaAnderTrajesYUniformes } from '../../../app/Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../../../app/Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from '../../../app/Servicios/SastreriaFerreteriaLaBendicionOficial/Login';
 import { LoginServicioAgenda } from '../../../app/Servicios/Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../../../app/Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
-import { LoginServicioSastreriaDemo } from '../../../app/Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../../../app/Servicios/SastreriaDemoOficial/Login';
 
 
@@ -43,12 +41,10 @@ export class LoginComponent implements OnInit {
   NombreEmpresaCevicheriaCastillo: string = Entorno.NombreEmpresaCevicheriaCastillo;
   NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
   NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
-  NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
   NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
   NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicionOficial;
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
   NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
-  NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
   NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 
   constructor(
@@ -61,12 +57,10 @@ export class LoginComponent implements OnInit {
     private LoginCevicheriaCastillo: LoginServicioCevicheriaCastillo,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
-    private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicionOficial: LoginServicioSastreriaFerreteriaLaBendicionOficial,
     private LoginAgenda: LoginServicioAgenda,
     private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
-    private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
   ) { }
@@ -109,9 +103,6 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaSastreriaConfeccionesCreateli:
         ServicioLogin = this.LoginSastreriaConfeccionesCreateli.Login(usuario, clave);
         break;
-      case this.NombreEmpresaSastreriaAnderTrajesYUniformes:
-        ServicioLogin = this.LoginSastreriaAnderTrajesYUniformes.Login(usuario, clave);
-        break;
       case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
         ServicioLogin = this.LoginSastreriaAbarroteriaElAmanecer.Login(usuario, clave);
         break;
@@ -123,9 +114,6 @@ export class LoginComponent implements OnInit {
         break;
       case this.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios:
         ServicioLogin = this.LoginPuntoVentaPanaderiaPromesaDeDios.Login(usuario, clave);
-        break;
-      case this.NombreEmpresaSastreriaDemo:
-        ServicioLogin = this.LoginSastreriaDemo.Login(usuario, clave);
         break;
       case this.NombreEmpresaSastreriaDemoOficial:
         ServicioLogin = this.LoginSastreriaDemoOficial.Login(usuario, clave);
@@ -153,12 +141,10 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaCevicheriaCastillo:
               case this.NombreEmpresaRestauranteElBistro:
               case this.NombreEmpresaSastreriaConfeccionesCreateli:
-              case this.NombreEmpresaSastreriaAnderTrajesYUniformes:
               case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
               case this.NombreEmpresaSastreriaFerreteriaLaBendicionOficial:
               case this.NombreEmpresaAgenda:
               case this.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios:
-              case this.NombreEmpresaSastreriaDemo:
               case this.NombreEmpresaSastreriaDemoOficial:
                 this.router.navigate([ruta]);
                 break;

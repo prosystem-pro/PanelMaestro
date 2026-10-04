@@ -7,12 +7,10 @@ import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgen
 import { LoginServicioCevicheriaCastillo } from '../Servicios/CevicheriaCastillo/Login';
 import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBistro/Login';
 import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
-import { LoginServicioSastreriaAnderTrajesYUniformes } from '../Servicios/SastreriaAnderTrajesYUniformes/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from '../Servicios/SastreriaFerreteriaLaBendicionOficial/Login';
 import { LoginServicioAgenda } from '../Servicios/Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
-import { LoginServicioSastreriaDemo } from '../Servicios/SastreriaDemo/Login';
 import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
 import { Entorno } from '../Entornos/Entorno';
 
@@ -29,12 +27,10 @@ export class AutorizacionRuta implements CanActivate {
     private LoginCevicheriaCastillo: LoginServicioCevicheriaCastillo,
     private LoginRestauranteElBistro: LoginServicioRestauranteElBistro,
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
-    private LoginSastreriaAnderTrajesYUniformes: LoginServicioSastreriaAnderTrajesYUniformes,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicionOficial: LoginServicioSastreriaFerreteriaLaBendicionOficial,
     private LoginAgenda: LoginServicioAgenda,
     private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
-    private LoginSastreriaDemo: LoginServicioSastreriaDemo,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private router: Router) { }
 
@@ -51,12 +47,10 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaCevicheriaCastillo: string = Entorno.NombreEmpresaCevicheriaCastillo;
     const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestauranteElBistro;
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
-    const NombreEmpresaSastreriaAnderTrajesYUniformes: string = Entorno.NombreEmpresaSastreriaAnderTrajesYUniformes;
     const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
     const NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicionOficial;
     const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
     const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
-    const NombreEmpresaSastreriaDemo: string = Entorno.NombreEmpresaSastreriaDemo;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
@@ -113,15 +107,6 @@ export class AutorizacionRuta implements CanActivate {
         return false;
       }
     }
-    if (url.includes(`/${NombreEmpresaSastreriaAnderTrajesYUniformes}`)) {
-      if (this.LoginSastreriaAnderTrajesYUniformes.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginSastreriaAnderTrajesYUniformes.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
     if (url.includes(`/${NombreEmpresaSastreriaAbarroteriaElAmanecer}`)) {
       if (this.LoginSastreriaAbarroteriaElAmanecer.ValidarToken()) {
         return true;
@@ -163,15 +148,6 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginVendedor.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
-    if (url.includes(`/${NombreEmpresaSastreriaDemo}`)) {
-      if (this.LoginSastreriaDemo.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginSastreriaDemo.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

@@ -33,11 +33,6 @@ export const Entorno = {
    ApiUrlSastreriaConfeccionesCreateli: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloSastreriaConfeccionesCreateli: 'http://localhost:1433/api/generar-modelos',
    LogoSastreriaConfeccionesCreateli: 'LogoSastreriaConfeccionesCreateli.ico',
-   //SASTRERIA ANDER TRAJES Y UNIFORMES
-   NombreEmpresaSastreriaAnderTrajesYUniformes: 'SastreriaAnderTrajesYUniformes',
-   ApiUrlSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloSastreriaAnderTrajesYUniformes: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaAnderTrajesYUniformes: 'LogoSastreriaAnderTrajesYUniformes.ico',
    //SASTRERIA ABARROTERIA EL AMANECER
    NombreEmpresaSastreriaAbarroteriaElAmanecer: 'SastreriaAbarroteriaElAmanecer',
    ApiUrlSastreriaAbarroteriaElAmanecer: 'http://localhost:1433/api/',
@@ -66,11 +61,6 @@ export const Entorno = {
    ApiUrlVendedor: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloVendedor: 'https://carritoweb-vendedor-web-api-production.up.railway.app/api/generar-modelos',
    LogoVendedor: 'LogoVendedor.ico',
-   //SASTRERIA DEMO
-   NombreEmpresaSastreriaDemo: 'SastreriaDemo',
-   ApiUrlSastreriaDemo: 'http://localhost:1433/api/',
-   ApiUrlGenerarModeloSastreriaDemo: 'http://localhost:1433/api/generar-modelos',
-   LogoSastreriaDemo: 'LogoSastreriaDemo.ico',
    //SASTRERIA DEMO OFICIAL
    NombreEmpresaSastreriaDemoOficial: 'SastreriaDemoOficial',
    ApiUrlSastreriaDemoOficial: 'http://localhost:1433/api/',
