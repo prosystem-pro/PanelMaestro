@@ -9,6 +9,7 @@ import { LoginServicioRestauranteElBistro } from '../Servicios/RestauranteElBist
 import { LoginServicioSastreriaConfeccionesCreateli } from '../Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from '../Servicios/SastreriaFerreteriaLaBendicionOficial/Login';
+import { LoginServicioSastreriaMototienda } from '../Servicios/SastreriaMototienda/Login';
 import { LoginServicioAgenda } from '../Servicios/Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
 import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
@@ -29,6 +30,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicionOficial: LoginServicioSastreriaFerreteriaLaBendicionOficial,
+    private LoginSastreriaMototienda: LoginServicioSastreriaMototienda,
     private LoginAgenda: LoginServicioAgenda,
     private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
@@ -49,6 +51,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
     const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
     const NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicionOficial;
+    const NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
     const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
     const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
@@ -121,6 +124,15 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginSastreriaFerreteriaLaBendicionOficial.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    if (url.includes(`/${NombreEmpresaSastreriaMototienda}`)) {
+      if (this.LoginSastreriaMototienda.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginSastreriaMototienda.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

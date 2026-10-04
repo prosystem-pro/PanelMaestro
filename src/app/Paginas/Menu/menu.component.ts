@@ -13,6 +13,7 @@ import { PagoServicioRestauranteElBistro } from '../../Servicios/RestauranteElBi
 import { PagoServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/PagoServicio';
 import { PagoServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/PagoServicio';
 import { PagoServicioSastreriaFerreteriaLaBendicionOficial } from '../../Servicios/SastreriaFerreteriaLaBendicionOficial/PagoServicio';
+import { PagoServicioSastreriaMototienda } from '../../Servicios/SastreriaMototienda/PagoServicio';
 // ********************** A.G.E.N.D.A ******************************* 
 import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
@@ -32,6 +33,7 @@ import { InformacionBd_ServicioRestauranteElBistro } from '../../Servicios/Resta
 import { InformacionBd_ServicioSastreriaConfeccionesCreateli } from '../../Servicios/SastreriaConfeccionesCreateli/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaAbarroteriaElAmanecer } from '../../Servicios/SastreriaAbarroteriaElAmanecer/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaFerreteriaLaBendicionOficial } from '../../Servicios/SastreriaFerreteriaLaBendicionOficial/InformacionBd_Servicio';
+import { InformacionBd_ServicioSastreriaMototienda } from '../../Servicios/SastreriaMototienda/InformacionBd_Servicio';
 // ********************** A.G.E.N.D.A ******************************* 
 import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
@@ -113,6 +115,13 @@ export class MenuComponent {
   AnioSeleccionadoSastreriaFerreteriaLaBendicionOficial = new Date().getFullYear();
   PaginaSastreriaFerreteriaLaBendicionOficial: number = 0;
   InformacionBdSastreriaFerreteriaLaBendicionOficial: any = null;
+  //SASTRERIA MOTOTIENDA
+  NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
+  LogoEmpresaSastreriaMototienda: string = Entorno.LogoSastreriaMototienda;
+  ResumenPagosSastreriaMototienda: any = null;
+  AnioSeleccionadoSastreriaMototienda = new Date().getFullYear();
+  PaginaSastreriaMototienda: number = 0;
+  InformacionBdSastreriaMototienda: any = null;
   // ********************** A.G.E.N.D.A *******************************
   //AGENDA
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
@@ -155,8 +164,8 @@ export class MenuComponent {
   VisorRestauranteElBistro = false;
   VisorSastreriaConfeccionesCreateli = false;
   VisorSastreriaAbarroteriaElAmanecer = false;
-  VisorSastreriaFerreteriaLaBendicion = false;
   VisorSastreriaFerreteriaLaBendicionOficial = false;
+  VisorSastreriaMototienda = false;
   VisorAgenda = false;
   VisorPuntoVentaPanaderiaPromesaDeDios = false;
   VisorSastreriaDemoOficial = false;
@@ -174,6 +183,7 @@ export class MenuComponent {
     private PagoServicioSastreriaConfeccionesCreateli: PagoServicioSastreriaConfeccionesCreateli,
     private PagoServicioSastreriaAbarroteriaElAmanecer: PagoServicioSastreriaAbarroteriaElAmanecer,
     private PagoServicioSastreriaFerreteriaLaBendicionOficial: PagoServicioSastreriaFerreteriaLaBendicionOficial,
+    private PagoServicioSastreriaMototienda: PagoServicioSastreriaMototienda,
     private PagoServicioAgenda: PagoServicioAgenda,
     private PagoServicioPuntoVentaPanaderiaPromesaDeDios: PagoServicioPuntoVentaPanaderiaPromesaDeDios,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
@@ -187,6 +197,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaConfeccionesCreateli: InformacionBd_ServicioSastreriaConfeccionesCreateli,
     private InformacionBd_ServicioSastreriaAbarroteriaElAmanecer: InformacionBd_ServicioSastreriaAbarroteriaElAmanecer,
     private InformacionBd_ServicioSastreriaFerreteriaLaBendicionOficial: InformacionBd_ServicioSastreriaFerreteriaLaBendicionOficial,
+    private InformacionBd_ServicioSastreriaMototienda: InformacionBd_ServicioSastreriaMototienda,
     private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
     private InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios: InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
@@ -202,6 +213,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaConfeccionesCreateli(this.AnioSeleccionadoSastreriaConfeccionesCreateli);
     this.CargarResumenPagosSastreriaAbarroteriaElAmanecer(this.AnioSeleccionadoSastreriaAbarroteriaElAmanecer);
     this.CargarResumenPagosSastreriaFerreteriaLaBendicionOficial(this.AnioSeleccionadoSastreriaFerreteriaLaBendicionOficial);
+    this.CargarResumenPagosSastreriaMototienda(this.AnioSeleccionadoSastreriaMototienda);
     this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
     this.CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(this.AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
@@ -215,6 +227,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaConfeccionesCreateli();
     this.CargarInformacionBdSastreriaAbarroteriaElAmanecer();
     this.CargarInformacionBdSastreriaFerreteriaLaBendicionOficial();
+    this.CargarInformacionBdSastreriaMototienda();
     this.CargarInformacionBdAgenda();
     this.CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios();
     this.CargarInformacionBdSastreriaDemoOficial();
@@ -239,8 +252,8 @@ export class MenuComponent {
       this.VisorRestauranteElBistro =
       this.VisorSastreriaConfeccionesCreateli =
       this.VisorSastreriaAbarroteriaElAmanecer =
-      this.VisorSastreriaFerreteriaLaBendicion =
       this.VisorSastreriaFerreteriaLaBendicionOficial =
+      this.VisorSastreriaMototienda =
       this.VisorAgenda =
       this.VisorPuntoVentaPanaderiaPromesaDeDios =
       this.VisorVendedor =
@@ -564,6 +577,47 @@ export class MenuComponent {
     this.InformacionBd_ServicioSastreriaFerreteriaLaBendicionOficial.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdSastreriaFerreteriaLaBendicionOficial = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+    //SASTRERIA MOTOTIENDA
+  CargarResumenPagosSastreriaMototienda(anio: number) {
+    this.PagoServicioSastreriaMototienda.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosSastreriaMototienda = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdSastreriaMototienda() {
+    this.InformacionBd_ServicioSastreriaMototienda.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdSastreriaMototienda = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

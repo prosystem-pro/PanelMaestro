@@ -140,6 +140,23 @@ import { PermisoRolRecursoListadoSastreriaFerreteriaLaBendicionOficialComponent 
 import { PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionOficialComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicionOficial/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoSastreriaFerreteriaLaBendicionOficialComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicionOficial/Pago/pago.component';
 import { ListadoSastreriaFerreteriaLaBendicionOficialComponent } from '../app/Paginas/SastreriaFerreteriaLaBendicionOficial/GestionAdmin/listado/listado.component';
+//SASTRERIA MOTO TIENDA
+import { InicioSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Inicio/inicio.component';
+import { SidebarSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Sidebar/sidebar.component';
+import { EmpresaListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Rol/rol-listado/rol-listado.component';
+import { RolCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/Pago/pago.component';
+import { ListadoSastreriaMototiendaComponent } from '../app/Paginas/SastreriaMototienda/GestionAdmin/listado/listado.component';
 
 // ********************** A.G.E.N.D.A ******************************* 
 //AGENDA
@@ -222,6 +239,7 @@ const NombreEmpresaRestauranteElBistro: string = Entorno.NombreEmpresaRestaurant
 const NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
 const NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
 const NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicionOficial;
+const NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
 const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
 const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
@@ -366,6 +384,23 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/pago`, component: PagoSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/listado-gestion-admin`, component: ListadoSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
+ //SASTRERIA MOTO TIENDA
+  { path: `${NombreEmpresaSastreriaMototienda}/inicio`, component: InicioSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/sidebar`, component: SidebarSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/empresa-listado`, component: EmpresaListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/empresa-crear`, component: EmpresaCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/rol-listado`, component: RolListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/rol-crear`, component: RolCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/usuario-listado`, component: UsuarioListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/usuario-crear`, component: UsuarioCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/permiso-listado`, component: PermisoListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/permiso-crear`, component: PermisoCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/recurso-listado`, component: RecursoListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/recurso-crear`, component: RecursoCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/pago`, component: PagoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaSastreriaMototienda}/listado-gestion-admin`, component: ListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
 
   // ********************** A.G.E.N.D.A ******************************* 
   //PROTEGIDAS AGENDA

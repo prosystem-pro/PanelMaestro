@@ -43,6 +43,11 @@ export const Entorno = {
    ApiUrlSastreriaFerreteriaLaBendicionOficial: 'https://sastreria-ferreterialabendicionoficial-api-production.up.railway.app/api/',
    ApiUrlGenerarModeloSastreriaFerreteriaLaBendicionOficial: 'https://sastreria-ferreterialabendicionoficial-api-production.up.railway.app/api/generar-modelos',
    LogoSastreriaFerreteriaLaBendicionOficial: 'LogoSastreriaFerreteriaLaBendicionOficial.ico',
+   //SASTRERIA MOTO TIENDA
+   NombreEmpresaSastreriaMototienda: 'SastreriaMototienda',
+   ApiUrlSastreriaMototienda: 'https://sastreria-ferreterialabendicionoficial-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloSastreriaMototienda: 'https://sastreria-ferreterialabendicionoficial-api-production.up.railway.app/api/generar-modelos',
+   LogoSastreriaMototienda: 'LogoSastreriaMototienda.ico',
    // ********************** A.G.E.N.D.A ******************************* 
    //AGENDA
    NombreEmpresaAgenda: 'Agenda',

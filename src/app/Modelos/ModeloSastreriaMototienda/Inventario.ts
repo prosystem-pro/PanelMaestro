@@ -10,6 +10,7 @@ export interface Inventario {
   CodigoTamano?: number;
   CodigoColor?: number;
   CodigoBarras?: string;
+  PrecioCosto?: number;
   PrecioVenta?: number;
   StockActual?: number;
   StockMinimo?: number;

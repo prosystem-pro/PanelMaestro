@@ -17,6 +17,7 @@ import { LoginServicioRestauranteElBistro } from '../../../app/Servicios/Restaur
 import { LoginServicioSastreriaConfeccionesCreateli } from '../../../app/Servicios/SastreriaConfeccionesCreateli/Login';
 import { LoginServicioSastreriaAbarroteriaElAmanecer } from '../../../app/Servicios/SastreriaAbarroteriaElAmanecer/Login';
 import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from '../../../app/Servicios/SastreriaFerreteriaLaBendicionOficial/Login';
+import { LoginServicioSastreriaMototienda } from '../../../app/Servicios/SastreriaMototienda/Login';
 import { LoginServicioAgenda } from '../../../app/Servicios/Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../../../app/Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
 import { LoginServicioSastreriaDemoOficial } from '../../../app/Servicios/SastreriaDemoOficial/Login';
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
   NombreEmpresaSastreriaConfeccionesCreateli: string = Entorno.NombreEmpresaSastreriaConfeccionesCreateli;
   NombreEmpresaSastreriaAbarroteriaElAmanecer: string = Entorno.NombreEmpresaSastreriaAbarroteriaElAmanecer;
   NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.NombreEmpresaSastreriaFerreteriaLaBendicionOficial;
+  NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
   NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
   NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
   NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
@@ -59,6 +61,7 @@ export class LoginComponent implements OnInit {
     private LoginSastreriaConfeccionesCreateli: LoginServicioSastreriaConfeccionesCreateli,
     private LoginSastreriaAbarroteriaElAmanecer: LoginServicioSastreriaAbarroteriaElAmanecer,
     private LoginSastreriaFerreteriaLaBendicionOficial: LoginServicioSastreriaFerreteriaLaBendicionOficial,
+    private LoginSastreriaMototienda: LoginServicioSastreriaMototienda,
     private LoginAgenda: LoginServicioAgenda,
     private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
@@ -109,6 +112,9 @@ export class LoginComponent implements OnInit {
       case this.NombreEmpresaSastreriaFerreteriaLaBendicionOficial:
         ServicioLogin = this.LoginSastreriaFerreteriaLaBendicionOficial.Login(usuario, clave);
         break;
+      case this.NombreEmpresaSastreriaMototienda:
+        ServicioLogin = this.LoginSastreriaMototienda.Login(usuario, clave);
+        break;
       case this.NombreEmpresaAgenda:
         ServicioLogin = this.LoginAgenda.Login(usuario, clave);
         break;
@@ -143,6 +149,7 @@ export class LoginComponent implements OnInit {
               case this.NombreEmpresaSastreriaConfeccionesCreateli:
               case this.NombreEmpresaSastreriaAbarroteriaElAmanecer:
               case this.NombreEmpresaSastreriaFerreteriaLaBendicionOficial:
+              case this.NombreEmpresaSastreriaMototienda:
               case this.NombreEmpresaAgenda:
               case this.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios:
               case this.NombreEmpresaSastreriaDemoOficial:
