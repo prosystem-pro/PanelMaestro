@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Entorno } from '../../Entornos/Entorno';
 // ********************** C.A.R.R.I.T.O--W.E.B **********************
-import { PagoServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/PagoServicio';
 import { PagoServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/PagoServicio';
 
 import { PagoServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/PagoServicio';
@@ -24,7 +23,6 @@ import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoO
 
 
 // ********************** C.A.R.R.I.T.O--W.E.B **********************
-import { InformacionBd_ServicioChocosDeLaAbuela } from '../../Servicios/ChocosDeLaAbuela/InformacionBd_Servicio';
 import { InformacionBd_ServicioConstructoraMorgan } from '../../Servicios/ConstructoraMorgan/InformacionBd_Servicio';
 import { InformacionBd_ServicioAjachelTravelAgency } from '../../Servicios/AjachelTravelAgency/InformacionBd_Servicio';
 import { InformacionBd_ServicioCevicheriaCastillo } from '../../Servicios/CevicheriaCastillo/InformacionBd_Servicio';
@@ -58,13 +56,6 @@ import { SpinnerGlobalComponent } from '../../Componentes/spinner-global/spinner
 export class MenuComponent {
   Spinner: boolean = false;
   // ********************** C.A.R.R.I.T.O--W.E.B **********************
-  //CHOCOS DE LA ABUELA
-  NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
-  LogoEmpresaChocosDeLaAbuela: string = Entorno.LogoChocosDeLaAbuela;
-  ResumenPagosChocosDeLaAbuela: any = null;
-  AnioSeleccionadoChocosDeLaAbuela = new Date().getFullYear();
-  PaginaChocosDeLaAbuela: number = 0;
-  InformacionBdChocosDeLaAbuela: any = null;
   //PROMESA DE DIOS
   NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
   LogoEmpresaConstructoraMorgan: string = Entorno.LogoConstructoraMorgan;
@@ -156,7 +147,6 @@ export class MenuComponent {
   InformacionBdSastreriaDemoOficial: any = null;
 
   // Estados de visores individuales
-  VisorChocosDeLaAbuela = false;
   VisorConstructoraMorgan = false;
   VisorVendedor = false;
   VisorAjachelTravelAgency = false;
@@ -174,7 +164,6 @@ export class MenuComponent {
   VisorMaestro = false;
 
   constructor(private router: Router,
-    private PagoServicioChocosDeLaAbuela: PagoServicioChocosDeLaAbuela,
     private PagoServicioConstructoraMorgan: PagoServicioConstructoraMorgan,
     private PagoServicioVendedor: PagoServicioVendedor,
     private PagoServicioAjachelTravelAgency: PagoServicioAjachelTravelAgency,
@@ -188,7 +177,6 @@ export class MenuComponent {
     private PagoServicioPuntoVentaPanaderiaPromesaDeDios: PagoServicioPuntoVentaPanaderiaPromesaDeDios,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
-    private InformacionBd_ServicioChocosDeLaAbuela: InformacionBd_ServicioChocosDeLaAbuela,
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
     private InformacionBd_ServicioConstructoraMorgan: InformacionBd_ServicioConstructoraMorgan,
     private InformacionBd_ServicioAjachelTravelAgency: InformacionBd_ServicioAjachelTravelAgency,
@@ -204,7 +192,6 @@ export class MenuComponent {
     private Alerta: AlertaServicio
   ) { }
   ngOnInit() {
-    this.CargarResumenPagosChocosDeLaAbuela(this.AnioSeleccionadoChocosDeLaAbuela);
     this.CargarResumenPagosConstructoraMorgan(this.AnioSeleccionadoConstructoraMorgan);
     this.CargarResumenPagosVendedor(this.AnioSeleccionadoVendedor);
     // this.CargarResumenPagosAjachelTravelAgency(this.AnioSeleccionadoAjachelTravelAgency);
@@ -218,7 +205,6 @@ export class MenuComponent {
     this.CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(this.AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
-    this.CargarInformacionBdChocosDeLaAbuela();
     this.CargarInformacionBdConstructoraMorgan();
     this.CargarInformacionBdVendedor();
     // this.CargarInformacionBdAjachelTravelAgency();
@@ -245,7 +231,6 @@ export class MenuComponent {
     });
   }
   CambiarTodosLosVisores() {
-    this.VisorChocosDeLaAbuela =
       this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
       this.VisorCevicheriaCastillo =
@@ -261,48 +246,6 @@ export class MenuComponent {
       this.VisorMaestro;
   }
   // ********************** C.A.R.R.I.T.O--W.E.B **********************
-  //CHOCOS DE LA ABUELA
-  CargarResumenPagosChocosDeLaAbuela(anio: number) {
-    this.PagoServicioChocosDeLaAbuela.ObtenerResumenGeneralPagos(anio).subscribe({
-      next: (Respuesta) => {
-        this.ResumenPagosChocosDeLaAbuela = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-  CargarInformacionBdChocosDeLaAbuela() {
-    this.InformacionBd_ServicioChocosDeLaAbuela.ObtenerBd().subscribe({
-      next: (Respuesta) => {
-        this.InformacionBdChocosDeLaAbuela = Respuesta.data;
-      },
-      error: (error) => {
-        this.Spinner = false;
-        const tipo = error?.error?.tipo;
-        const mensaje =
-          error?.error?.error?.message ||
-          error?.error?.message ||
-          'Ocurrió un error inesperado.';
-        if (tipo === 'Alerta') {
-          this.Alerta.MostrarAlerta(mensaje);
-        } else {
-          this.Alerta.MostrarError({ error: { message: mensaje } });
-        }
-      }
-    });
-  }
-
   //CONSTRUCTORA MORGAN
   CargarResumenPagosConstructoraMorgan(anio: number) {
     this.PagoServicioConstructoraMorgan.ObtenerResumenGeneralPagos(anio).subscribe({

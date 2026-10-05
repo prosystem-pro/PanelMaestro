@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { LoginServicioChocosDeLaAbuela } from '../../../app/Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioConstructoraMorgan } from '../../../app/Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../../../app/Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../../../app/Servicios/AjachelTravelAgency/Login';
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
   Empresa: string = '';
   NombreUsuario: string = '';
   Clave: string = '';
-  NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
   NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
   NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -52,7 +50,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
@@ -85,9 +82,6 @@ export class LoginComponent implements OnInit {
     let ServicioLogin: Observable<any>;
 
     switch (this.Empresa) {
-      case this.NombreEmpresaChocosDeLaAbuela:
-        ServicioLogin = this.LoginChocosDeLaAbuela.Login(usuario, clave);
-        break;
       case this.NombreEmpresaVendedor:
         ServicioLogin = this.LoginVendedor.Login(usuario, clave);
         break;
@@ -140,7 +134,6 @@ export class LoginComponent implements OnInit {
             const ruta = `${this.Empresa}/inicio`;
 
             switch (this.Empresa) {
-              case this.NombreEmpresaChocosDeLaAbuela:
               case this.NombreEmpresaConstructoraMorgan:
               case this.NombreEmpresaVendedor:
               case this.NombreEmpresaAjachelTravelAgency:

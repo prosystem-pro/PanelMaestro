@@ -1,11 +1,6 @@
 export const Entorno = {
    Produccion: true,
    // ********************** C.A.R.R.I.T.O--W.E.B **********************
-   //CARRITO WEB - CHOCOS DE LA ABUELA
-   NombreEmpresaChocosDeLaAbuela: 'Chocos_De_La_Abuela',
-   ApiUrlChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/',
-   ApiUrlGenerarModeloChocosDeLaAbuela: 'https://carritoweb-chocosdelaabuela-api-production.up.railway.app/api/generar-modelos',
-   LogoChocosDeLaAbuela: 'LogoChocosDeLaAbuela.ico',
    //CARRITO WEB - CONSTRUCTORA MORGAN
    NombreEmpresaConstructoraMorgan: 'Constructora_Morgan',
    ApiUrlConstructoraMorgan: 'https://carritoweb-constructoramorgan-api-production.up.railway.app/api/',

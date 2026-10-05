@@ -1,6 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { LoginServicioChocosDeLaAbuela } from './ChocosDeLaAbuela/Login';
 import { LoginServicioConstructoraMorgan } from './ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from './Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from './AjachelTravelAgency/Login';
@@ -23,7 +22,6 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
   const router = inject(Router);
 
   const servicios = [
-    { url: Entorno.ApiUrlChocosDeLaAbuela, login: inject(LoginServicioChocosDeLaAbuela) },
     { url: Entorno.ApiUrlConstructoraMorgan, login: inject(LoginServicioConstructoraMorgan) },
     { url: Entorno.ApiUrlVendedor, login: inject(LoginServicioVendedor) },
     { url: Entorno.ApiUrlAjachelTravelAgency, login: inject(LoginServicioAjachelTravelAgency) },

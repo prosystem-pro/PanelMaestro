@@ -7,22 +7,6 @@ import { LoginComponent } from '../app/Paginas/Login/login.component';
 import { SpinnerGlobalComponent } from '../app/Componentes/spinner-global/spinner-global.component';
 
 // ********************** C.A.R.R.I.T.O--W.E.B **********************
-//CHOCOS DE LA ABUELA
-import { InicioChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Inicio/inicio.component';
-import { SidebarChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Sidebar/sidebar.component';
-import { EmpresaListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Empresa/empresa-listado/empresa-listado.component';
-import { EmpresaCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Empresa/empresa-crear/empresa-crear.component';
-import { RolListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Rol/rol-listado/rol-listado.component';
-import { RolCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Rol/rol-crear/rol-crear.component';
-import { UsuarioListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Usuario/usuario-listado/usuario-listado.component';
-import { UsuarioCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Usuario/usuario-crear/usuario-crear.component';
-import { PermisoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Permiso/permiso-listado/permiso-listado.component';
-import { PermisoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Permiso/permiso-crear/permiso-crear.component';
-import { RecursoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Recurso/recurso-listado/recurso-listado.component';
-import { RecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela//Recurso/recurso-crear/recurso-crear.component';
-import { PermisoRolRecursoListadoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
-import { PermisoRolRecursoCrearChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
-import { PagoChocosDeLaAbuelaComponent } from '../app/Paginas/ChocosDeLaAbuela/Pago/pago.component';
 
 //CONSTRUCTORA MORGAN
 import { InicioConstructoraMorganComponent } from '../app/Paginas/ConstructoraMorgan/Inicio/inicio.component';
@@ -230,7 +214,6 @@ import { PermisoRolRecursoCrearSastreriaDemoOficialComponent } from '../app/Pagi
 import { PagoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/Pago/pago.component';
 import { ListadoSastreriaDemoOficialComponent } from '../app/Paginas/SastreriaDemoOficial/GestionAdmin/listado/listado.component';
 
-const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
 const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
 const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
 const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -252,22 +235,6 @@ export const routes: Routes = [
   { path: 'spinner-global', component: SpinnerGlobalComponent },
 
   // ********************** C.A.R.R.I.T.O--W.E.B **********************
-  //PROTEGIDAS CHOCOS DE LA ABUELA
-  { path: `${NombreEmpresaChocosDeLaAbuela}/inicio`, component: InicioChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/sidebar`, component: SidebarChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/empresa-listado`, component: EmpresaListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/empresa-crear`, component: EmpresaCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/rol-listado`, component: RolListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/rol-crear`, component: RolCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/usuario-listado`, component: UsuarioListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/usuario-crear`, component: UsuarioCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-listado`, component: PermisoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-crear`, component: PermisoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/recurso-listado`, component: RecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/recurso-crear`, component: RecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
-  { path: `${NombreEmpresaChocosDeLaAbuela}/pago`, component: PagoChocosDeLaAbuelaComponent, canActivate: [AutorizacionRuta] },
 
   //PROTEGIDAS CONSTRUCTORA MORGAN
   { path: `${NombreEmpresaConstructoraMorgan}/inicio`, component: InicioConstructoraMorganComponent, canActivate: [AutorizacionRuta] },

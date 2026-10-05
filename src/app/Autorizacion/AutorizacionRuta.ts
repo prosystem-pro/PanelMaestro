@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { LoginServicioChocosDeLaAbuela } from '../Servicios/ChocosDeLaAbuela/Login';
 import { LoginServicioConstructoraMorgan } from '../Servicios/ConstructoraMorgan/Login';
 import { LoginServicioVendedor } from '../Servicios/Vendedor/Login';
 import { LoginServicioAjachelTravelAgency } from '../Servicios/AjachelTravelAgency/Login';
@@ -21,7 +20,6 @@ import { Entorno } from '../Entornos/Entorno';
 export class AutorizacionRuta implements CanActivate {
 
   constructor(
-    private LoginChocosDeLaAbuela: LoginServicioChocosDeLaAbuela,
     private LoginConstructoraMorgan: LoginServicioConstructoraMorgan,
     private LoginVendedor: LoginServicioVendedor,
     private LoginAjachelTravelAgency: LoginServicioAjachelTravelAgency,
@@ -42,7 +40,6 @@ export class AutorizacionRuta implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     const url = state.url;
-    const NombreEmpresaChocosDeLaAbuela: string = Entorno.NombreEmpresaChocosDeLaAbuela;
     const NombreEmpresaConstructoraMorgan: string = Entorno.NombreEmpresaConstructoraMorgan;
     const NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
     const NombreEmpresaAjachelTravelAgency: string = Entorno.NombreEmpresaAjachelTravelAgency;
@@ -56,15 +53,6 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
-    if (url.includes(`/${NombreEmpresaChocosDeLaAbuela}`)) {
-      if (this.LoginChocosDeLaAbuela.ValidarToken()) {
-        return true;
-      } else {
-        this.LoginChocosDeLaAbuela.EliminarToken();
-        this.router.navigate(['/menu']);
-        return false;
-      }
-    }
     if (url.includes(`/${NombreEmpresaConstructoraMorgan}`)) {
       if (this.LoginConstructoraMorgan.ValidarToken()) {
         return true;
