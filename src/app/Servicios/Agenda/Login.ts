@@ -8,7 +8,7 @@ import { Entorno } from '../../Entornos/Entorno';
 })
 export class LoginServicioAgenda {
   private Url = Entorno.ApiUrlAgenda;
-  public NombreEmpresa: string = 'Corazon Tipico';
+  public NombreEmpresa: string = 'Agenda';
 
   constructor(private http: HttpClient) {}
 
