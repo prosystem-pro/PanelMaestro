@@ -25,7 +25,6 @@ export class SystemBackupServicio {
         return this.http.get(`${this.Url}/respaldo-por-mes?anio=${anio}&mes=${mes}`);
     }
 
-    // ✅ FRONT CORREGIDO: Ahora apunta exactamente a tu ruta del Backend
     BorrarDatosPorMes(anio: number, mes: number): Observable<any> {
         return this.http.delete(`${this.Url}/borrar-datos-por-mes?anio=${anio}&mes=${mes}`);
     }

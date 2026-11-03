@@ -11,6 +11,7 @@ import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from '../Servicios
 import { LoginServicioSastreriaMototienda } from '../Servicios/SastreriaMototienda/Login';
 import { LoginServicioAgenda } from '../Servicios/Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from '../Servicios/PuntoVentaPanaderiaPromesaDeDios/Login';
+import { LoginServicioQualityAssuranceProSystem } from '../Servicios/QualityAssuranceProSystem/Login';
 import { LoginServicioSastreriaDemoOficial } from '../Servicios/SastreriaDemoOficial/Login';
 import { Entorno } from '../Entornos/Entorno';
 
@@ -31,6 +32,7 @@ export class AutorizacionRuta implements CanActivate {
     private LoginSastreriaMototienda: LoginServicioSastreriaMototienda,
     private LoginAgenda: LoginServicioAgenda,
     private LoginPuntoVentaPanaderiaPromesaDeDios: LoginServicioPuntoVentaPanaderiaPromesaDeDios,
+    private LoginQualityAssuranceProSystem: LoginServicioQualityAssuranceProSystem,
     private LoginSastreriaDemoOficial: LoginServicioSastreriaDemoOficial,
     private router: Router) { }
 
@@ -51,6 +53,7 @@ export class AutorizacionRuta implements CanActivate {
     const NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
     const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
     const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
+    const NombreEmpresaQualityAssuranceProSystem: string = Entorno.NombreEmpresaQualityAssuranceProSystem;
     const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
     // Detectamos qué servicio de login usar
     if (url.includes(`/${NombreEmpresaConstructoraMorgan}`)) {
@@ -139,6 +142,16 @@ export class AutorizacionRuta implements CanActivate {
         return true;
       } else {
         this.LoginPuntoVentaPanaderiaPromesaDeDios.EliminarToken();
+        this.router.navigate(['/menu']);
+        return false;
+      }
+    }
+    
+    if (url.includes(`/${NombreEmpresaQualityAssuranceProSystem}`)) {
+      if (this.LoginQualityAssuranceProSystem.ValidarToken()) {
+        return true;
+      } else {
+        this.LoginQualityAssuranceProSystem.EliminarToken();
         this.router.navigate(['/menu']);
         return false;
       }

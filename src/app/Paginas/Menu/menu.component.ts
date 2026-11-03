@@ -17,6 +17,8 @@ import { PagoServicioSastreriaMototienda } from '../../Servicios/SastreriaMototi
 import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
 import { PagoServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/PagoServicio';
+// ******************* P.R.O.P.I.O.S ******************************** 
+import { PagoServicioQualityAssuranceProSystem } from '../../Servicios/QualityAssuranceProSystem/PagoServicio';
 // ********************** D.E.M.O *********************************** 
 import { PagoServicioVendedor } from '../../Servicios/Vendedor/PagoServicio';
 import { PagoServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/PagoServicio';
@@ -36,6 +38,8 @@ import { InformacionBd_ServicioSastreriaMototienda } from '../../Servicios/Sastr
 import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
 import { InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/InformacionBd_Servicio';
+// ******************* P.R.O.P.I.O.S ******************************** 
+import { InformacionBd_ServicioQualityAssuranceProSystem } from '../../Servicios/QualityAssuranceProSystem/InformacionBd_Servicio';
 // ********************** D.E.M.O *********************************** 
 import { InformacionBd_ServicioVendedor } from '../../Servicios/Vendedor/InformacionBd_Servicio';
 import { InformacionBd_ServicioSastreriaDemoOficial } from '../../Servicios/SastreriaDemoOficial/InformacionBd_Servicio';
@@ -129,6 +133,14 @@ export class MenuComponent {
   AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios = new Date().getFullYear();
   PaginaPuntoVentaPanaderiaPromesaDeDios: number = 0;
   InformacionBdPuntoVentaPanaderiaPromesaDeDios: any = null;
+  // ********************** P.R.O.P.I.O.S *****************************
+  //QUALITYASSURANCE PROSYTEM
+  NombreEmpresaQualityAssuranceProSystem: string = Entorno.NombreEmpresaQualityAssuranceProSystem;
+  LogoEmpresaQualityAssuranceProSystem: string = Entorno.LogoQualityAssuranceProSystem;
+  ResumenPagosQualityAssuranceProSystem: any = null;
+  AnioSeleccionadoQualityAssuranceProSystem = new Date().getFullYear();
+  PaginaQualityAssuranceProSystem: number = 0;
+  InformacionBdQualityAssuranceProSystem: any = null;
   // ********************** D.E.M.O *********************************** 
   //VENDEDOR
   NombreEmpresaVendedor: string = Entorno.NombreEmpresaVendedor;
@@ -158,6 +170,7 @@ export class MenuComponent {
   VisorSastreriaMototienda = false;
   VisorAgenda = false;
   VisorPuntoVentaPanaderiaPromesaDeDios = false;
+  VisorQualityAssuranceProSystem = false;
   VisorSastreriaDemoOficial = false;
 
   // Switch maestro
@@ -175,6 +188,7 @@ export class MenuComponent {
     private PagoServicioSastreriaMototienda: PagoServicioSastreriaMototienda,
     private PagoServicioAgenda: PagoServicioAgenda,
     private PagoServicioPuntoVentaPanaderiaPromesaDeDios: PagoServicioPuntoVentaPanaderiaPromesaDeDios,
+    private PagoServicioQualityAssuranceProSystem: PagoServicioQualityAssuranceProSystem,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
     private InformacionBd_ServicioVendedor: InformacionBd_ServicioVendedor,
@@ -188,6 +202,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaMototienda: InformacionBd_ServicioSastreriaMototienda,
     private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
     private InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios: InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios,
+    private InformacionBd_ServicioQualityAssuranceProSystem: InformacionBd_ServicioQualityAssuranceProSystem,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
   ) { }
@@ -203,6 +218,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaMototienda(this.AnioSeleccionadoSastreriaMototienda);
     this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
     this.CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(this.AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios);
+    this.CargarResumenPagosQualityAssuranceProSystem(this.AnioSeleccionadoQualityAssuranceProSystem);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
     this.CargarInformacionBdConstructoraMorgan();
@@ -216,6 +232,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaMototienda();
     this.CargarInformacionBdAgenda();
     this.CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios();
+    this.CargarInformacionBdQualityAssuranceProSystem();
     this.CargarInformacionBdSastreriaDemoOficial();
   }
 
@@ -231,7 +248,7 @@ export class MenuComponent {
     });
   }
   CambiarTodosLosVisores() {
-      this.VisorConstructoraMorgan =
+    this.VisorConstructoraMorgan =
       this.VisorAjachelTravelAgency =
       this.VisorCevicheriaCastillo =
       this.VisorRestauranteElBistro =
@@ -241,6 +258,7 @@ export class MenuComponent {
       this.VisorSastreriaMototienda =
       this.VisorAgenda =
       this.VisorPuntoVentaPanaderiaPromesaDeDios =
+      this.VisorQualityAssuranceProSystem =
       this.VisorVendedor =
       this.VisorSastreriaDemoOficial =
       this.VisorMaestro;
@@ -536,7 +554,7 @@ export class MenuComponent {
       }
     });
   }
-    //SASTRERIA MOTOTIENDA
+  //SASTRERIA MOTOTIENDA
   CargarResumenPagosSastreriaMototienda(anio: number) {
     this.PagoServicioSastreriaMototienda.ObtenerResumenGeneralPagos(anio).subscribe({
       next: (Respuesta) => {
@@ -646,6 +664,48 @@ export class MenuComponent {
     this.InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdPuntoVentaPanaderiaPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  // ********************** P.R.O.P.I.O.S *********************************** 
+  //QUALITYASSURANCE PROSYTEM
+  CargarResumenPagosQualityAssuranceProSystem(anio: number) {
+    this.PagoServicioQualityAssuranceProSystem.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosQualityAssuranceProSystem = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdQualityAssuranceProSystem() {
+    this.InformacionBd_ServicioQualityAssuranceProSystem.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdQualityAssuranceProSystem = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;

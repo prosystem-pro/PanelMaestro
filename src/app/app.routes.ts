@@ -177,6 +177,24 @@ import { PermisoRolRecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent } fro
 import { PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Pago/pago.component';
 import { ListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/GestionAdmin/listado/listado.component';
+// ********************** P.R.O.P.I.O.S *********************************** 
+//QUALITYASSURANCE PROSYSTEM
+import { InicioQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Inicio/inicio.component';
+import { SidebarQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Sidebar/sidebar.component';
+import { EmpresaListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Rol/rol-listado/rol-listado.component';
+import { RolCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Pago/pago.component';
+import { ListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/GestionAdmin/listado/listado.component';
 
 // ********************** D.E.M.O *********************************** 
 //VENDEDOR
@@ -225,7 +243,9 @@ const NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.Nombr
 const NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
 const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
 const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
+const NombreEmpresaQualityAssuranceProSystem: string = Entorno.NombreEmpresaQualityAssuranceProSystem;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
+
 // const Otro = 'OtraEmpresa';
 
 export const routes: Routes = [
@@ -351,7 +371,7 @@ export const routes: Routes = [
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/pago`, component: PagoSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaFerreteriaLaBendicionOficial}/listado-gestion-admin`, component: ListadoSastreriaFerreteriaLaBendicionOficialComponent, canActivate: [AutorizacionRuta] },
- //SASTRERIA MOTO TIENDA
+  //SASTRERIA MOTO TIENDA
   { path: `${NombreEmpresaSastreriaMototienda}/inicio`, component: InicioSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaMototienda}/sidebar`, component: SidebarSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaSastreriaMototienda}/empresa-listado`, component: EmpresaListadoSastreriaMototiendaComponent, canActivate: [AutorizacionRuta] },
@@ -404,6 +424,24 @@ export const routes: Routes = [
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/pago`, component: PagoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/listado-gestion-admin`, component: ListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  // ********************** D.E.M.O *********************************** 
+  //QUALITYASSURANCE PROSYSTEM
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/inicio`, component: InicioQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/sidebar`, component: SidebarQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/empresa-listado`, component: EmpresaListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/empresa-crear`, component: EmpresaCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/rol-listado`, component: RolListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/rol-crear`, component: RolCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/usuario-listado`, component: UsuarioListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/usuario-crear`, component: UsuarioCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-listado`, component: PermisoListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-crear`, component: PermisoCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/recurso-listado`, component: RecursoListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/recurso-crear`, component: RecursoCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/pago`, component: PagoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/listado-gestion-admin`, component: ListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
 
   // ********************** D.E.M.O *********************************** 
   //PROTEGIDAS VENDEDOR

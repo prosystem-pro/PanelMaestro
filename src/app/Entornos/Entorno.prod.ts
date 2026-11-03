@@ -51,11 +51,17 @@ export const Entorno = {
    ApiUrlGenerarModeloAgenda: 'https://agenda-api-production-737f.up.railway.app/api/generar-modelos',
    LogoAgenda: 'LogoAgenda.ico',
    // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
-   //PUNTO VENTA
+   //PUNTO VENTA PANADERIA PROMESA DE DIOS
    NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: 'PuntoVentaPanaderiaPromesaDeDios',
    ApiUrlPuntoVentaPanaderiaPromesaDeDios: 'https://puntoventa-promesadedios-api-production-29a8.up.railway.app/api/',
    ApiUrlGenerarModeloPuntoVentaPanaderiaPromesaDeDios: 'https://puntoventa-promesadedios-api-production-29a8.up.railway.app/api/generar-modelos',
    LogoPuntoVentaPanaderiaPromesaDeDios: 'LogoPuntoVentaPanaderiaPromesaDeDios.ico',
+   // ************************ P.R.O.P.I.O.S *********************** 
+   // QUALITYASSURANCE PROSYTEM
+   NombreEmpresaQualityAssuranceProSystem: 'QualityAssuranceProSystem',
+   ApiUrlQualityAssuranceProSystem: 'https://qualityassurance-prosystem-api-production.up.railway.app/api/',
+   ApiUrlGenerarModeloQualityAssuranceProSystem: 'https://qualityassurance-prosystem-api-production.up.railway.app/api/generar-modelos',
+   LogoQualityAssuranceProSystem: 'LogoQualityAssuranceProSystem.ico',
    // ********************** D.E.M.O *********************************** 
    //CARRITO WEB - VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',

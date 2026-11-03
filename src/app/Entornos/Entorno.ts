@@ -55,6 +55,12 @@ export const Entorno = {
    ApiUrlPuntoVentaPanaderiaPromesaDeDios: 'http://localhost:1433/api/',
    ApiUrlGenerarModeloPuntoVentaPanaderiaPromesaDeDios: 'http://localhost:1433/api/generar-modelos',
    LogoPuntoVentaPanaderiaPromesaDeDios: 'LogoPuntoVentaPanaderiaPromesaDeDios.ico',
+   // ************************ P.R.O.P.I.O.S *********************** 
+   // QUALITYASSURANCE PROSYTEM
+   NombreEmpresaQualityAssuranceProSystem: 'QualityAssuranceProSystem',
+   ApiUrlQualityAssuranceProSystem: 'http://localhost:3000/api/',
+   ApiUrlGenerarModeloQualityAssuranceProSystem: 'http://localhost:3000/api/generar-modelos',
+   LogoQualityAssuranceProSystem: 'LogoQualityAssuranceProSystem.ico',
    // ********************** D.E.M.O *********************************** 
    //CARRITO WEB - DEMO VENDEDOR
    NombreEmpresaVendedor: 'Vendedor',
