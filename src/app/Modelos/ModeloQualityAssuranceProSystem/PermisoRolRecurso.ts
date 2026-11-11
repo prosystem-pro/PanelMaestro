@@ -3,4 +3,5 @@ export interface PermisoRolRecurso {
   CodigoPermiso?: number;
   CodigoRecurso?: number;
   Estatus?: any;
+  FechaCreacion?: Date;
 }

@@ -1,5 +1,6 @@
 export interface Empresa {
   CodigoEmpresa?: number;
+  CodigoTipoEmpresa?: number;
   NombreEmpresa?: string;
   RazonSocial?: string;
   NIT?: string;
@@ -12,4 +13,6 @@ export interface Empresa {
   ImagenUrl?: string;
   Eslogan?: string;
   Estatus?: any;
+  FechaCreacion?: Date;
+  CodigoExterno?: string;
 }

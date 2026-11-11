@@ -29,6 +29,16 @@
       </a>
     </li>
     <li class="nav-item">
+      <a (click)="Navegar(NombreEmpresaQualityAssuranceProSystem + '/tipoempresa-listado')" style="cursor: pointer;" [ngClass]="{
+        'nav-link d-flex align-items-center px-3 py-2 rounded-3 text-white cursor-pointer':
+          true,
+        'bg-primary bg-opacity-10 border-start border-3 border-primary':
+          isActive('tipoempresa-listado')
+      }">
+        <span class="me-3 fs-5">🏷️</span> Tipo de empresa
+      </a>
+    </li>
+    <li class="nav-item">
       <a (click)="Navegar(NombreEmpresaQualityAssuranceProSystem + '/rol-listado')" style="cursor: pointer;" [ngClass]="{
       'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect':
         true,
@@ -47,6 +57,16 @@
         isActive('usuario-listado')
     }">
         <span class="me-3 fs-5">👤</span> Usuario
+      </a>
+    </li>
+    <li class="nav-item">
+      <a (click)="Navegar(NombreEmpresaQualityAssuranceProSystem + '/usuarioempresa-listado')" style="cursor: pointer;" [ngClass]="{
+      'nav-link d-flex align-items-center px-3 py-2 text-white rounded-3 cursor-pointer hover-effect':
+        true,
+      'bg-primary bg-opacity-10 border-start border-3 border-primary':
+        isActive('usuarioempresa-listado')
+    }">
+        <span class="me-3 fs-5">🏢</span> Usuario por empresa
       </a>
     </li>
 

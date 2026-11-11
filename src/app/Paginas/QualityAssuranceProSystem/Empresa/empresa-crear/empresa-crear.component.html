@@ -1,5 +1,25 @@
 <form (ngSubmit)="Crear()">
   <div class="mb-3">
+    <label class="form-label fw-semibold">Tipo de empresa</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-tags"></i></span>
+      <select
+        class="form-select rounded-end-pill"
+        [(ngModel)]="Datos.CodigoTipoEmpresa"
+        name="CodigoTipoEmpresa"
+        [disabled]="CargandoTiposEmpresa || TiposEmpresa.length === 0"
+        required>
+        <option [ngValue]="undefined" disabled>
+          {{ CargandoTiposEmpresa ? 'Cargando tipos de empresa...' : TiposEmpresa.length === 0 ? 'No hay tipos de empresa disponibles' : 'Seleccione un tipo de empresa' }}
+        </option>
+        <option *ngFor="let Tipo of TiposEmpresa" [ngValue]="Tipo.CodigoTipoEmpresa">
+          {{ Tipo.NombreTipoEmpresa }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
     <label class="form-label fw-semibold">Nombre de la Empresa</label>
     <div class="input-group">
       <span class="input-group-text bg-light border-0"><i class="bi bi-building"></i></span>

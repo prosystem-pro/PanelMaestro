@@ -1,0 +1,58 @@
+<form (ngSubmit)="Crear()">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Usuario</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-person"></i></span>
+      <select class="form-select rounded-end-pill" [(ngModel)]="Datos.CodigoUsuario" name="CodigoUsuario" required>
+        <option [ngValue]="undefined" disabled>Seleccione un usuario</option>
+        <option *ngFor="let Usuario of Usuarios" [ngValue]="Usuario.CodigoUsuario">
+          {{ Usuario.NombreUsuario }} (#{{ Usuario.CodigoUsuario }})
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Empresa</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-building"></i></span>
+      <select class="form-select rounded-end-pill" [(ngModel)]="Datos.CodigoEmpresa" name="CodigoEmpresa" required>
+        <option [ngValue]="undefined" disabled>Seleccione una empresa</option>
+        <option *ngFor="let Empresa of Empresas" [ngValue]="Empresa.CodigoEmpresa">
+          {{ Empresa.NombreEmpresa }} (#{{ Empresa.CodigoEmpresa }})
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-semibold">¿Es la empresa principal?</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-star"></i></span>
+      <select class="form-select rounded-end-pill" [(ngModel)]="Datos.EsEmpresaPrincipal"
+        name="EsEmpresaPrincipal" required>
+        <option [ngValue]="false">No</option>
+        <option [ngValue]="true">Sí</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estatus</label>
+    <div class="input-group">
+      <span class="input-group-text bg-light border-0"><i class="bi bi-list-check"></i></span>
+      <select class="form-select rounded-end-pill" [(ngModel)]="Datos.Estatus" name="Estatus" required>
+        <option [ngValue]="null" disabled>Seleccione el estatus</option>
+        <option [ngValue]="1">Activo</option>
+        <option [ngValue]="2">Inactivo</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-success rounded-pill px-4">
+      <i class="bi bi-check-circle me-2"></i>Crear
+    </button>
+  </div>
+</form>
+<app-spinner-global [visible]="Spinner"></app-spinner-global>

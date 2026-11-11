@@ -7,4 +7,5 @@ export interface Usuario {
   ClaveSalt?: string;
   SuperAdmin?: any;
   Estatus?: any;
+  FechaCreacion?: Date;
 }

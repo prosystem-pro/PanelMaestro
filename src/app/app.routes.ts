@@ -183,10 +183,14 @@ import { InicioQualityAssuranceProSystemComponent } from '../app/Paginas/Quality
 import { SidebarQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Sidebar/sidebar.component';
 import { EmpresaListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Empresa/empresa-listado/empresa-listado.component';
 import { EmpresaCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Empresa/empresa-crear/empresa-crear.component';
+import { TipoEmpresaListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/TipoEmpresa/tipoempresa-listado/tipoempresa-listado.component';
+import { TipoEmpresaCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/TipoEmpresa/tipoempresa-crear/tipoempresa-crear.component';
 import { RolListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Rol/rol-listado/rol-listado.component';
 import { RolCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Rol/rol-crear/rol-crear.component';
 import { UsuarioListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Usuario/usuario-listado/usuario-listado.component';
 import { UsuarioCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Usuario/usuario-crear/usuario-crear.component';
+import { UsuarioEmpresaListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/UsuarioEmpresa/usuarioempresa-listado/usuarioempresa-listado.component';
+import { UsuarioEmpresaCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/UsuarioEmpresa/usuarioempresa-crear/usuarioempresa-crear.component';
 import { PermisoListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Permiso/permiso-listado/permiso-listado.component';
 import { PermisoCrearQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Permiso/permiso-crear/permiso-crear.component';
 import { RecursoListadoQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Recurso/recurso-listado/recurso-listado.component';
@@ -430,10 +434,14 @@ export const routes: Routes = [
   { path: `${NombreEmpresaQualityAssuranceProSystem}/sidebar`, component: SidebarQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/empresa-listado`, component: EmpresaListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/empresa-crear`, component: EmpresaCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/tipoempresa-listado`, component: TipoEmpresaListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/tipoempresa-crear`, component: TipoEmpresaCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/rol-listado`, component: RolListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/rol-crear`, component: RolCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/usuario-listado`, component: UsuarioListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/usuario-crear`, component: UsuarioCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/usuarioempresa-listado`, component: UsuarioEmpresaListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaQualityAssuranceProSystem}/usuarioempresa-crear`, component: UsuarioEmpresaCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-listado`, component: PermisoListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/permiso-crear`, component: PermisoCrearQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaQualityAssuranceProSystem}/recurso-listado`, component: RecursoListadoQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },

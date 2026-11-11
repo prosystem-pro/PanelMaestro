@@ -9,4 +9,5 @@ export interface Pagos {
   UrlComprobante?: string;
   Observaciones?: string;
   Estatus?: any;
+  FechaCreacion?: Date;
 }

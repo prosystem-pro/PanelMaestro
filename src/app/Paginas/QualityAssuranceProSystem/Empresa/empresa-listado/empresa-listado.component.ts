@@ -7,8 +7,10 @@ import { Entorno } from '../../../../Entornos/Entorno';
 import { Router } from '@angular/router';
 import { EmpresaCrearQualityAssuranceProSystemComponent } from '../empresa-crear/empresa-crear.component';
 import { Empresa } from '../.././../../Modelos/ModeloQualityAssuranceProSystem/Empresa';
+import { TipoEmpresa } from '../../../../Modelos/ModeloQualityAssuranceProSystem/TipoEmpresa';
 import { AlertaServicio } from '../../../../Servicios/Alerta-Servicio';
 import { SpinnerGlobalComponent } from '../../../../Componentes/spinner-global/spinner-global.component';
+import { TipoEmpresaServicio } from '../../../../Servicios/QualityAssuranceProSystem/TipoEmpresaServicio';
 
 declare var bootstrap: any;
 @Component({
@@ -23,14 +25,41 @@ export class EmpresaListadoQualityAssuranceProSystemComponent {
   LogoEmpresa = Entorno.LogoQualityAssuranceProSystem;
 
   Datos: Empresa[] = [];
+  TiposEmpresa: TipoEmpresa[] = [];
   CodigoEditando: number | null = null;
   FiltroBuscador: string = '';
   hoveredCard: number | null = null;
 
-  constructor(private Servicio: EmpresaServicio, private router: Router, private Alerta: AlertaServicio) { }
+  constructor(
+    private Servicio: EmpresaServicio,
+    private TipoEmpresaServicio: TipoEmpresaServicio,
+    private router: Router,
+    private Alerta: AlertaServicio
+  ) { }
 
   ngOnInit() {
     this.Listado();
+    this.CargarTiposEmpresa();
+  }
+
+  CargarTiposEmpresa() {
+    this.TipoEmpresaServicio.Listado().subscribe({
+      next: (Respuesta: any) => {
+        this.TiposEmpresa = Array.isArray(Respuesta?.data) ? Respuesta.data : [];
+      },
+      error: (error) => {
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
   }
 
   Listado() {
@@ -77,9 +106,16 @@ export class EmpresaListadoQualityAssuranceProSystemComponent {
         coincide(Datos.Direccion) ||
         coincide(Datos.Eslogan) ||
         coincide(Datos.Telefono) ||
+        coincide(this.ObtenerNombreTipoEmpresa(Datos.CodigoTipoEmpresa)) ||
         coincide(estatusTexto)
       );
     });
+  }
+
+  ObtenerNombreTipoEmpresa(CodigoTipoEmpresa?: number): string {
+    return this.TiposEmpresa.find(
+      Tipo => Number(Tipo.CodigoTipoEmpresa) === Number(CodigoTipoEmpresa)
+    )?.NombreTipoEmpresa ?? 'Sin tipo asignado';
   }
 
   ActivarEdicion(Datos: Empresa) {
