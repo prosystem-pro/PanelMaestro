@@ -11,6 +11,7 @@ import { LoginServicioSastreriaFerreteriaLaBendicionOficial } from './SastreriaF
 import { LoginServicioSastreriaMototienda } from './SastreriaMototienda/Login';
 import { LoginServicioAgenda } from './Agenda/Login';
 import { LoginServicioPuntoVentaPanaderiaPromesaDeDios } from './PuntoVentaPanaderiaPromesaDeDios/Login';
+import { LoginServicioPuntoVentaVendedorDemo } from './PuntoVentaVendedorDemo/Login';
 import { LoginServicioQualityAssuranceProSystem } from './QualityAssuranceProSystem/Login';
 import { LoginServicioSastreriaDemoOficial } from './SastreriaDemoOficial/Login';
 import { catchError } from 'rxjs';
@@ -34,6 +35,7 @@ export const AutorizacionInterceptor: HttpInterceptorFn = (Solicitud, Siguiente)
     { url: Entorno.ApiUrlSastreriaMototienda, login: inject(LoginServicioSastreriaMototienda) },
     { url: Entorno.ApiUrlAgenda, login: inject(LoginServicioAgenda) },
     { url: Entorno.ApiUrlPuntoVentaPanaderiaPromesaDeDios, login: inject(LoginServicioPuntoVentaPanaderiaPromesaDeDios) },
+    { url: Entorno.ApiUrlPuntoVentaVendedorDemo, login: inject(LoginServicioPuntoVentaVendedorDemo) },
     { url: Entorno.ApiUrlQualityAssuranceProSystem, login: inject(LoginServicioQualityAssuranceProSystem) },
     { url: Entorno.ApiUrlSastreriaDemoOficial, login: inject(LoginServicioSastreriaDemoOficial) }
   ];

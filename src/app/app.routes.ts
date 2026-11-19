@@ -177,6 +177,22 @@ import { PermisoRolRecursoListadoPuntoVentaPanaderiaPromesaDeDiosComponent } fro
 import { PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
 import { PagoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/Pago/pago.component';
 import { ListadoPuntoVentaPanaderiaPromesaDeDiosComponent } from '../app/Paginas/PuntoVentaPanaderiaPromesaDeDios/GestionAdmin/listado/listado.component';
+import { InicioPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Inicio/inicio.component';
+import { SidebarPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Sidebar/sidebar.component';
+import { EmpresaListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Empresa/empresa-listado/empresa-listado.component';
+import { EmpresaCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Empresa/empresa-crear/empresa-crear.component';
+import { RolListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Rol/rol-listado/rol-listado.component';
+import { RolCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Rol/rol-crear/rol-crear.component';
+import { UsuarioListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Usuario/usuario-listado/usuario-listado.component';
+import { UsuarioCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Usuario/usuario-crear/usuario-crear.component';
+import { PermisoListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Permiso/permiso-listado/permiso-listado.component';
+import { PermisoCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Permiso/permiso-crear/permiso-crear.component';
+import { RecursoListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Recurso/recurso-listado/recurso-listado.component';
+import { RecursoCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo//Recurso/recurso-crear/recurso-crear.component';
+import { PermisoRolRecursoListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/PermisoRolRecurso/permiso-rol-recurso-listado/permiso-rol-recurso-listado.component';
+import { PermisoRolRecursoCrearPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/PermisoRolRecurso/permiso-rol-recurso-crear/permiso-rol-recurso-crear.component';
+import { PagoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/Pago/pago.component';
+import { ListadoPuntoVentaVendedorDemoComponent } from '../app/Paginas/PuntoVentaVendedorDemo/GestionAdmin/listado/listado.component';
 // ********************** P.R.O.P.I.O.S *********************************** 
 //QUALITYASSURANCE PROSYSTEM
 import { InicioQualityAssuranceProSystemComponent } from '../app/Paginas/QualityAssuranceProSystem/Inicio/inicio.component';
@@ -247,6 +263,7 @@ const NombreEmpresaSastreriaFerreteriaLaBendicionOficial: string = Entorno.Nombr
 const NombreEmpresaSastreriaMototienda: string = Entorno.NombreEmpresaSastreriaMototienda;
 const NombreEmpresaAgenda: string = Entorno.NombreEmpresaAgenda;
 const NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
+const NombreEmpresaPuntoVentaVendedorDemo: string = Entorno.NombreEmpresaPuntoVentaVendedorDemo;
 const NombreEmpresaQualityAssuranceProSystem: string = Entorno.NombreEmpresaQualityAssuranceProSystem;
 const NombreEmpresaSastreriaDemoOficial: string = Entorno.NombreEmpresaSastreriaDemoOficial;
 
@@ -428,6 +445,22 @@ export const routes: Routes = [
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/pago`, component: PagoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
   { path: `${NombreEmpresaPuntoVentaPanaderiaPromesaDeDios}/listado-gestion-admin`, component: ListadoPuntoVentaPanaderiaPromesaDeDiosComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/inicio`, component: InicioPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/sidebar`, component: SidebarPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/empresa-listado`, component: EmpresaListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/empresa-crear`, component: EmpresaCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/rol-listado`, component: RolListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/rol-crear`, component: RolCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/usuario-listado`, component: UsuarioListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/usuario-crear`, component: UsuarioCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/permiso-listado`, component: PermisoListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/permiso-crear`, component: PermisoCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/recurso-listado`, component: RecursoListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/recurso-crear`, component: RecursoCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/permiso-rol-recurso-listado`, component: PermisoRolRecursoListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/permiso-rol-recurso-crear`, component: PermisoRolRecursoCrearPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/pago`, component: PagoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
+  { path: `${NombreEmpresaPuntoVentaVendedorDemo}/listado-gestion-admin`, component: ListadoPuntoVentaVendedorDemoComponent, canActivate: [AutorizacionRuta] },
   // ********************** D.E.M.O *********************************** 
   //QUALITYASSURANCE PROSYSTEM
   { path: `${NombreEmpresaQualityAssuranceProSystem}/inicio`, component: InicioQualityAssuranceProSystemComponent, canActivate: [AutorizacionRuta] },

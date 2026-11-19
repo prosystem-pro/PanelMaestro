@@ -17,6 +17,7 @@ import { PagoServicioSastreriaMototienda } from '../../Servicios/SastreriaMototi
 import { PagoServicioAgenda } from '../../Servicios/Agenda/PagoServicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
 import { PagoServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/PagoServicio';
+import { PagoServicioPuntoVentaVendedorDemo } from '../../Servicios/PuntoVentaVendedorDemo/PagoServicio';
 // ******************* P.R.O.P.I.O.S ******************************** 
 import { PagoServicioQualityAssuranceProSystem } from '../../Servicios/QualityAssuranceProSystem/PagoServicio';
 // ********************** D.E.M.O *********************************** 
@@ -38,6 +39,7 @@ import { InformacionBd_ServicioSastreriaMototienda } from '../../Servicios/Sastr
 import { InformacionBd_ServicioAgenda } from '../../Servicios/Agenda/InformacionBd_Servicio';
 // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
 import { InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios } from '../../Servicios/PuntoVentaPanaderiaPromesaDeDios/InformacionBd_Servicio';
+import { InformacionBd_ServicioPuntoVentaVendedorDemo } from '../../Servicios/PuntoVentaVendedorDemo/InformacionBd_Servicio';
 // ******************* P.R.O.P.I.O.S ******************************** 
 import { InformacionBd_ServicioQualityAssuranceProSystem } from '../../Servicios/QualityAssuranceProSystem/InformacionBd_Servicio';
 // ********************** D.E.M.O *********************************** 
@@ -128,11 +130,17 @@ export class MenuComponent {
   // ********************** P.U.N.T.O.V.E.N.T.A *********************** 
   //PUNTO VENTA PANADERIA PROMESA DE DIOS
   NombreEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.NombreEmpresaPuntoVentaPanaderiaPromesaDeDios;
+  NombreEmpresaPuntoVentaVendedorDemo: string = Entorno.NombreEmpresaPuntoVentaVendedorDemo;
   LogoEmpresaPuntoVentaPanaderiaPromesaDeDios: string = Entorno.LogoPuntoVentaPanaderiaPromesaDeDios;
+  LogoEmpresaPuntoVentaVendedorDemo: string = Entorno.LogoPuntoVentaVendedorDemo;
   ResumenPagosPuntoVentaPanaderiaPromesaDeDios: any = null;
+  ResumenPagosPuntoVentaVendedorDemo: any = null;
   AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios = new Date().getFullYear();
+  AnioSeleccionadoPuntoVentaVendedorDemo = new Date().getFullYear();
   PaginaPuntoVentaPanaderiaPromesaDeDios: number = 0;
+  PaginaPuntoVentaVendedorDemo: number = 0;
   InformacionBdPuntoVentaPanaderiaPromesaDeDios: any = null;
+  InformacionBdPuntoVentaVendedorDemo: any = null;
   // ********************** P.R.O.P.I.O.S *****************************
   //QUALITYASSURANCE PROSYTEM
   NombreEmpresaQualityAssuranceProSystem: string = Entorno.NombreEmpresaQualityAssuranceProSystem;
@@ -170,6 +178,7 @@ export class MenuComponent {
   VisorSastreriaMototienda = false;
   VisorAgenda = false;
   VisorPuntoVentaPanaderiaPromesaDeDios = false;
+  VisorPuntoVentaVendedorDemo = false;
   VisorQualityAssuranceProSystem = false;
   VisorSastreriaDemoOficial = false;
 
@@ -188,6 +197,7 @@ export class MenuComponent {
     private PagoServicioSastreriaMototienda: PagoServicioSastreriaMototienda,
     private PagoServicioAgenda: PagoServicioAgenda,
     private PagoServicioPuntoVentaPanaderiaPromesaDeDios: PagoServicioPuntoVentaPanaderiaPromesaDeDios,
+    private PagoServicioPuntoVentaVendedorDemo: PagoServicioPuntoVentaVendedorDemo,
     private PagoServicioQualityAssuranceProSystem: PagoServicioQualityAssuranceProSystem,
     private PagoServicioSastreriaDemoOficial: PagoServicioSastreriaDemoOficial,
 
@@ -202,6 +212,7 @@ export class MenuComponent {
     private InformacionBd_ServicioSastreriaMototienda: InformacionBd_ServicioSastreriaMototienda,
     private InformacionBd_ServicioAgenda: InformacionBd_ServicioAgenda,
     private InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios: InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios,
+    private InformacionBd_ServicioPuntoVentaVendedorDemo: InformacionBd_ServicioPuntoVentaVendedorDemo,
     private InformacionBd_ServicioQualityAssuranceProSystem: InformacionBd_ServicioQualityAssuranceProSystem,
     private InformacionBd_ServicioSastreriaDemoOficial: InformacionBd_ServicioSastreriaDemoOficial,
     private Alerta: AlertaServicio
@@ -218,6 +229,7 @@ export class MenuComponent {
     this.CargarResumenPagosSastreriaMototienda(this.AnioSeleccionadoSastreriaMototienda);
     this.CargarResumenPagosAgenda(this.AnioSeleccionadoAgenda);
     this.CargarResumenPagosPuntoVentaPanaderiaPromesaDeDios(this.AnioSeleccionadoPuntoVentaPanaderiaPromesaDeDios);
+    this.CargarResumenPagosPuntoVentaVendedorDemo(this.AnioSeleccionadoPuntoVentaVendedorDemo);
     this.CargarResumenPagosQualityAssuranceProSystem(this.AnioSeleccionadoQualityAssuranceProSystem);
     this.CargarResumenPagosSastreriaDemoOficial(this.AnioSeleccionadoSastreriaDemoOficial);
 
@@ -232,6 +244,7 @@ export class MenuComponent {
     this.CargarInformacionBdSastreriaMototienda();
     this.CargarInformacionBdAgenda();
     this.CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios();
+    this.CargarInformacionBdPuntoVentaVendedorDemo();
     this.CargarInformacionBdQualityAssuranceProSystem();
     this.CargarInformacionBdSastreriaDemoOficial();
   }
@@ -258,6 +271,7 @@ export class MenuComponent {
       this.VisorSastreriaMototienda =
       this.VisorAgenda =
       this.VisorPuntoVentaPanaderiaPromesaDeDios =
+      this.VisorPuntoVentaVendedorDemo =
       this.VisorQualityAssuranceProSystem =
       this.VisorVendedor =
       this.VisorSastreriaDemoOficial =
@@ -660,10 +674,50 @@ export class MenuComponent {
       }
     });
   }
+  CargarResumenPagosPuntoVentaVendedorDemo(anio: number) {
+    this.PagoServicioPuntoVentaVendedorDemo.ObtenerResumenGeneralPagos(anio).subscribe({
+      next: (Respuesta) => {
+        this.ResumenPagosPuntoVentaVendedorDemo = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
   CargarInformacionBdPuntoVentaPanaderiaPromesaDeDios() {
     this.InformacionBd_ServicioPuntoVentaPanaderiaPromesaDeDios.ObtenerBd().subscribe({
       next: (Respuesta) => {
         this.InformacionBdPuntoVentaPanaderiaPromesaDeDios = Respuesta.data;
+      },
+      error: (error) => {
+        this.Spinner = false;
+        const tipo = error?.error?.tipo;
+        const mensaje =
+          error?.error?.error?.message ||
+          error?.error?.message ||
+          'Ocurrió un error inesperado.';
+        if (tipo === 'Alerta') {
+          this.Alerta.MostrarAlerta(mensaje);
+        } else {
+          this.Alerta.MostrarError({ error: { message: mensaje } });
+        }
+      }
+    });
+  }
+  CargarInformacionBdPuntoVentaVendedorDemo() {
+    this.InformacionBd_ServicioPuntoVentaVendedorDemo.ObtenerBd().subscribe({
+      next: (Respuesta) => {
+        this.InformacionBdPuntoVentaVendedorDemo = Respuesta.data;
       },
       error: (error) => {
         this.Spinner = false;
